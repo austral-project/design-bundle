@@ -1,0 +1,18 @@
+<div class="grid grid--no-gutters">
+  <div class="row">
+    <div class="col col--xs-12">
+      <ul class="row row-col--4">
+        {% for values in australPictos["default"]["icons"] %}
+          <li class="col col--no-gutters border-main-10">
+            <div class="pt10 pb10 border-bottom-main-10 background-main-10 text_align_center">
+              <span class="font-poppins-m-11 block">{{ australPictos["default"]["preferences"]['fontPref']['prefix'] }}{{ values["properties"]["name"] }}</span>
+            </div>
+            <div class="p15 pt15 text_align_center">
+              <span class="{{ size }} {{ australPictos["default"]["preferences"]['fontPref']['prefix'] }}{{ values["properties"]["name"] }}"></span>
+            </div>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</div>

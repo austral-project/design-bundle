@@ -1,0 +1,165 @@
+/** FONT_DEFINED_START **/
+$font-austral-picto: 'Austral-picto';
+$font-poppins: 'Poppins', sans-serif;
+$font-arial: Arial,Helvetica Neue,Helvetica,sans-serif;
+$font-helvetica: Helvetica Neue,Helvetica,Arial,sans-serif;
+/** FONT_DEFINED_STOP **/
+
+/** GUIDELINE_START -> Austral Fonts **/
+.font-austral-32 {
+  font-family: $font-austral-picto;
+  font-weight: 400;
+  font-size: 3.2rem;
+  line-height: 3.2rem;
+}
+.font-austral-16 {
+  font-family: $font-austral-picto;
+  font-weight: 400;
+  font-size: 1.6rem;
+  line-height: 1.6rem;
+}
+.font-austral-16-grey {
+  @extend .font-austral-16;
+  color: var(--color-grey-50);
+}
+.font-austral-12 {
+  font-family: $font-austral-picto;
+  font-weight: 400;
+  font-size: 1.2rem;
+  line-height: 1.2rem;
+}
+.font-austral-12-grey {
+  @extend .font-austral-12;
+  color: var(--color-grey-50);
+}
+/** GUIDELINE_END -> Austral Fonts **/
+
+/** GUIDELINE_START -> Poppins Fonts **/
+.font-poppins-sb-32 {
+  font-family: $font-poppins;
+  font-weight: 600;
+  font-size: 3.2rem;
+  line-height: 3.6rem;
+  letter-spacing: -0.010em;
+}
+.font-poppins-sb-22 {
+  font-family: $font-poppins;
+  font-weight: 600;
+  font-size: 2.2rem;
+  line-height: 2.8rem;
+  letter-spacing: -0.010em;
+}
+.font-poppins-sb-18 {
+  font-family: $font-poppins;
+  font-weight: 600;
+  font-size: 1.8rem;
+  line-height:2.4rem;
+  letter-spacing: -0.010em;
+}
+.font-poppins-m-14 {
+  font-family: $font-poppins;
+  font-weight: 500;
+  font-size: 1.4rem;
+  line-height:1.6rem;
+}
+.font-poppins-m-13-uppercase {
+  font-family: $font-poppins;
+  font-weight: 500;
+  font-size: 1.3rem;
+  line-height: 1.4rem;
+  text-transform: uppercase;
+}
+.font-poppins-m-13-uppercase-white {
+  @extend .font-poppins-m-13-uppercase;
+  color: var(--color-white);
+}
+.font-poppins-m-12 {
+  font-family: $font-poppins;
+  font-weight: 500;
+  font-size: 1.2rem;
+  line-height: 2rem;
+}
+.font-poppins-m-12-grey {
+  @extend .font-poppins-m-12;
+  color: var(--color-grey-50);
+}
+.font-poppins-m-11 {
+  font-family: $font-poppins;
+  font-weight: 500;
+  font-size: 1.1rem;
+  line-height: 1.4rem;
+  text-transform: none;
+}
+.font-poppins-m-11-grey {
+  @extend .font-poppins-m-11;
+  color: var(--color-grey-50);
+}
+.font-poppins-m-11-uppercase {
+  @extend .font-poppins-m-11;
+  text-transform: uppercase;
+}
+.font-poppins-m-11-uppercase-grey {
+  @extend .font-poppins-m-11-grey;
+  text-transform: uppercase;
+}
+.font-poppins-m-10 {
+  font-family: $font-poppins;
+  font-weight: 500;
+  font-size: 1.0rem;
+  line-height: 1.2rem;
+}
+.font-poppins-m-10-grey {
+  @extend .font-poppins-m-10;
+  color: var(--color-grey-50);
+}
+/** GUIDELINE_END -> Poppins Fonts **/
+
+/** GUIDELINE_START -> Google Fonts **/
+.font-google-title {
+  font-family: $font-arial;
+  font-weight: 400;
+  font-size: 2rem;
+  line-height:2.4rem;
+  letter-spacing: -0.010em;
+  color: var(--color-google-blue);
+}
+.font-google-black {
+  font-family: $font-arial;
+  font-weight: 400;
+  font-size: 1.4rem;
+  line-height:2.1rem;
+  color: var(--color-google-black);
+}
+.font-google-grey {
+  font-family: $font-arial;
+  font-weight: 400;
+  font-size: 1.4rem;
+  line-height:2.1rem;
+  color: var(--color-google-grey);
+}
+/** GUIDELINE_END -> Google Fonts **/
+
+/** GUIDELINE_START -> Facebook Fonts **/
+.font-facebook-title {
+  font-family: $font-helvetica;
+  font-weight: 700;
+  font-size: 1.6rem;
+  line-height:2.4rem;
+  color: var(--color-facebook-black);
+}
+.font-facebook-black {
+  font-family: $font-helvetica;
+  font-weight: 400;
+  font-size: 1.2rem;
+  line-height:2rem;
+  text-transform: uppercase;
+  color: var(--color-facebook-black);
+}
+.font-facebook-grey {
+  font-family: $font-helvetica;
+  font-weight: 400;
+  font-size: 1.4rem;
+  line-height:2.1rem;
+  color: var(--color-facebook-grey);
+}
+/** GUIDELINE_END -> Facebook Fonts **/

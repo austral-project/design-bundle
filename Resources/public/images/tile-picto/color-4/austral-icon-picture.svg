@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200" viewBox="0 0 200 200">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.091" y1="0.033" x2="0.909" y2="0.967" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#d2f5ce"/>
+      <stop offset="1" stop-color="#fff"/>
+    </linearGradient>
+    <clipPath id="clip-austral-icon-picture">
+      <rect width="200" height="200"/>
+    </clipPath>
+  </defs>
+  <g id="austral-icon-picture" clip-path="url(#clip-austral-icon-picture)">
+    <g id="Groupe_49" data-name="Groupe 49">
+      <rect id="BG" width="200" height="200" fill="none"/>
+      <path id="Shadow" d="M147.4,30H52.6A32.691,32.691,0,0,0,20,62.6V137.4A32.692,32.692,0,0,0,52.6,170H147.4A32.692,32.692,0,0,0,180,137.4V62.6A32.691,32.691,0,0,0,147.4,30Z" transform="translate(214 214) rotate(180)" fill="#beecc1"/>
+      <g id="Icon">
+        <g id="Groupe_42" data-name="Groupe 42">
+          <path id="Tracé_36" data-name="Tracé 36" d="M147.4,30H52.6A32.691,32.691,0,0,0,20,62.6V137.4A32.692,32.692,0,0,0,52.6,170H147.4A32.692,32.692,0,0,0,180,137.4V62.6A32.691,32.691,0,0,0,147.4,30Z" transform="translate(200 200) rotate(180)" fill="url(#linear-gradient)"/>
+        </g>
+        <path id="Tracé_54" data-name="Tracé 54" d="M618.949,863.024l37.65,37.65,22.537-22.538,37.21,37.21A26.289,26.289,0,0,0,719,903.837V838.163C719,823.223,706.427,811,691.061,811H606.939C591.573,811,579,823.223,579,838.163v64.81Z" transform="translate(-549 -771)" fill="#fff"/>
+        <circle id="Ellipse_3" data-name="Ellipse 3" cx="16" cy="16" r="16" transform="translate(123 55)" fill="#1ab84e"/>
+      </g>
+    </g>
+  </g>
+</svg>

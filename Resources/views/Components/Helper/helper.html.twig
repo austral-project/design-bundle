@@ -1,0 +1,38 @@
+{#
+  id:           "string",     #id-to-block
+  class:        "string",     # error
+  picto:        "string",
+  position:     "string",     #bottom-right || bottom-left || top-left || top-right,
+  title:        "string",
+  elements:      [
+    {
+      entitled:    "string",
+      value:       "string",
+    }
+  ]
+#}
+
+<div id="{{ id }}-helper-container"  class="relative helper-informations{{ (class|default(null)) ? " "~class }}" data-toast-container="#toast-{{ id }}-helper">
+  <span class="picto {{ picto|default("austral-picto-info") }}"></span>
+  <div id="toast-{{ id }}-helper" class="toast-container toast-size-m" data-toast="" data-toast-origin="self" data-toast-position="{{ position|default("left-center") }}">
+    {% if html is defined %}
+      {{ html|raw }}
+    {% else %}
+      {% block helper_container %}
+        <span class="title">{{ title ?? "" }}</span>
+        <ul>
+          {% for element in elements %}
+            <li>
+              {% if element.entitled|default(null) %}
+                <span class="entitled">{{ element.entitled }}</span>
+              {% endif %}
+              {% if element.value|default(null) %}
+                <span class="value">{{ element.value }}</span>
+              {% endif %}
+            </li>
+          {% endfor %}
+        </ul>
+      {% endblock %}
+    {% endif %}
+  </div>
+</div>

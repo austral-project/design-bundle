@@ -1,0 +1,138 @@
+<form class="popin-link-editor form-container">
+  <div class="group-fields-container group-popup-component-link-editor-fields-container ">
+    <div class="group-fields-content group-row ">
+      <div class="group-col col--4 ">
+        <div class="group-fields-container group-component-choice-type-link-fields-container">
+          <span class="group-fields-name">Éditeur de lien</span>
+          <div class="group-fields-content group-column ">
+            <div class="group-col auto ">
+              <div class="field-content field-content-choiceField">
+                <div class="field field-choiceType-radio no-border">
+                  <div class="choice-element-container light">
+                    <div class="list-option-container vertical" data-choice-element="" data-popin-update-input="field-link-type" data-choice-direction="vertical" data-view-by-choices="{&quot;internal&quot;:&quot;.component-type-url-internal&quot;,&quot;external&quot;:&quot;.component-type-url-external&quot;,&quot;file&quot;:&quot;.component-type-url-file&quot;,&quot;email&quot;:&quot;.component-type-url-email&quot;,&quot;phone&quot;:&quot;.component-type-url-phone&quot;}" data-choice-element-reinit-parent=".popin-link-editor" data-choice-value-checked="" data-view-by-choices-parent=".popin-link-editor" data-choice-element-styles="{&quot;phone&quot;:[],&quot;email&quot;:[],&quot;external&quot;:[],&quot;internal&quot;:[]}">
+                      <span class="current-background animate"></span>
+                      <ul class="list-option-element">
+                        {% if pages is defined %}
+                          <li class="option-element " data-choice-element-value="internal" style="">
+                            <span class="entitled font-poppins-m-11"><label for="popin-field_choices_component_link_type_internal">Page interne</label></span>
+                            <input id="popin-field_choices_component_link_type_internal" name="link-type" type="radio" class="field_choices_component_link_type_internal" value="internal"/>
+                          </li>
+                        {% endif %}
+                        <li class="option-element " data-choice-element-value="external" style="">
+                          <span class="entitled font-poppins-m-11"><label for="popin-field_choices_component_link_type_external">Page externe</label></span>
+                          <input id="popin-field_choices_component_link_type_external" name="link-type" type="radio" class="field_choices_component_link_type_external" value="external"/>
+                        </li>
+                        <li class="option-element " data-choice-element-value="file" style="">
+                          <span class="entitled font-poppins-m-11"><label for="popin-field_choices_component_link_type_file">File</label></span>
+                          <input id="popin-field_choices_component_link_type_file" name="link-type" type="radio" class="field_choices_component_link_type_file" value="file"/>
+                        </li>
+                        <li class="option-element " data-choice-element-value="email" style="">
+                          <span class="entitled font-poppins-m-11"><label for="popin-field_choices_component_link_type_email">Email</label></span>
+                          <input id="popin-field_choices_component_link_type_email" name="link-type" type="radio" class="field_choices_component_link_type_email" value="email"/>
+                        </li>
+                        <li class="option-element " data-choice-element-value="phone" style="">
+                          <span class="entitled font-poppins-m-11"><label for="popin-field_choices_component_link_type_phone">Phone</label></span>
+                          <input id="popin-field_choices_component_link_type_phone" name="link-type" type="radio" class="field_choices_component_link_type_phone" value="phone"/>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="group-col col--8">
+        <div class="group-fields-container group-component-link-fields-container">
+          <span class="group-fields-name">Valeur du lien</span>
+          <div class="group-fields-content group-column ">
+            <div class="group-col auto " data-popin-remove="">
+              <div class="field-content field-content-textField">
+                <label for="popin-field-link-value" class="">Intitulé </label>
+                <div class="field field-textType">
+                  <input id="popin-field-link-value" type="text" data-popin-update-input="field-text"/>
+                </div>
+              </div>
+            </div>
+            <div class="group-col auto ">
+              <div class="field-content field-content-selectField view-element-by-choices component-type-url-internal">
+                <label for="popin-field-link-choice" class="">Page</label>
+                <div class="field field-choiceType field-select-type">
+                  <select id="popin-field-link-choice" data-popin-update-input="field-link-choice" data-select="" data-select-options="{&quot;tag&quot;:false,&quot;addItems&quot;:true,&quot;editItems&quot;:true,&quot;removeItems&quot;:true,&quot;searchEnabled&quot;:true,&quot;placeholder&quot;:true,&quot;placeholderValue&quot;:null,&quot;searchPlaceholderValue&quot;:null,&quot;delimiter&quot;:&quot;, &quot;,&quot;duplicateItemsAllowed&quot;:false}">
+                    <option value=""></option>
+                      {% if pages is defined %}
+                      {% for class, pagesByClass in pages %}
+                        <optgroup label="{{ class }}">
+                          {% for page in pagesByClass %}
+                            <option value="{{ class }}:{{ page.id }}">{{ page.__toString() }}</option>
+                          {% endfor %}
+                        </optgroup>
+                      {% endfor %}
+                    {% endif %}
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="group-col auto">
+              <div class="field-content field-content-textField view-element-by-choices component-type-url-internal">
+                <label for="popin-field-anchor-value" class="">Ancre</label>
+                <div class="field field-textType">
+                  <input id="popin-field-anchor-value" type="text" data-popin-update-input="field-anchor"/>
+                </div>
+              </div>
+            </div>
+            <div class="group-col auto ">
+              <div class="field-content field-content-textField view-element-by-choices component-type-url-external">
+                <label for="popin-field-link-url" class="">Url de la page</label>
+                <div class="field field-textType">
+                  <input id="popin-field-link-url" type="text" data-popin-update-input="field-link-url"/>
+                </div>
+              </div>
+            </div>
+            <div class="group-col auto">
+              <div class="field-content field-content-uploadField view-element-by-choices component-type-url-file" data-popin-upload-file="">
+              </div>
+            </div>
+            <div class="group-col auto ">
+              <div class="field-content field-content-textField view-element-by-choices component-type-url-email field-content-before">
+                <label for="popin-field-link-email" class="">Email </label>
+                <div class="field field-textType">
+                  <span class="input-before">mailto</span>
+                  <input id="popin-field-link-email" type="text" data-popin-update-input="field-link-email"/>
+                </div>
+              </div>
+            </div>
+            <div class="group-col auto ">
+              <div class="field-content field-content-textField view-element-by-choices component-type-url-phone field-content-before">
+                <label for="popin-field-link-phone" class="">Phone </label>
+                <div class="field field-textType">
+                  <span class="input-before">tel</span>
+                  <input id="popin-field-link-phone" type="text" data-popin-update-input="field-link-phone"/>
+                </div>
+              </div>
+            </div>
+            <div class="group-col auto ">
+              <div class="field-content field-content-switchField side-by-side view-element-by-choices component-type-url-internal component-type-url-file component-type-url-external" style="--switch-button-color-enabled:var(--color-white-force); --switch-button-color-disabled:var(--color-white-force); --switch-fond-color-enabled:var(--color-green-40); --switch-fond-color-disabled:var(--color-main-40);">
+                <label for="popin-field-target-blank" class="">Ouvrir dans un nouvel onglet</label>
+                <div class="field field-checkboxType">
+                  <div class="switch-type switch-element heads" data-switch="" data-switch-input="" style="">
+                    <input id="popin-field-target-blank" type="checkbox" value="1" data-popin-update-input="field-target-blank" />
+                    <div class="switch-button-content">
+                      <span class="switch-button">
+                        <span class="indicator"></span>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="group-col auto ">
+              {{ include('@AustralDesign/Components/Popin/templates/Components/buttons.html.twig') }}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

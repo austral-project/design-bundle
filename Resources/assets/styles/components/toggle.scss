@@ -1,0 +1,8 @@
+.toggle-element {
+  height: 0;
+  opacity: 0;
+  overflow: hidden;
+  &.open {
+    overflow: visible;
+  }
+}

@@ -1,0 +1,56 @@
+{#
+{
+  class:        "string",   full || height-small
+  title:        "string",
+  picto:        "string"
+  id:           "string",     #id-to-block
+  choices:      [
+    {
+      url:          "string",
+      picto:        "string",
+      entitled:     "string",
+      style:        "array",
+    }
+  ]
+}
+#}
+<!--suppress Annotator -->
+<div {{ (id|default(null)) ? " id="~id~"" }} class="choice-element-container{{ (class|default(null)) ? " "~class }} {{ light|default(null) ? "light" : ""}} container-{{ direction ?? "horizontal" }}" >
+  {% if title|default(null) or picto|default(null) %}
+    <span class="choice-header">
+      {% if title|default(null) %}<span class="title font-poppins-m-13-uppercase">{{ title|raw }}</span>{% endif %}
+      {% if picto|default(null) %}<span class="margin-left-auto font-austral-16-grey picto {{ picto }}"></span>{% endif %}
+    </span>
+  {% endif %}
+
+  {% set styles = {} %}
+  {% for choiceKey, choice in choices %}
+    {% if choice.style is defined %}
+      {% set styles = {
+        ("value-"~choiceKey): choice.style
+      }|merge(styles) %}
+    {% endif %}
+  {% endfor %}
+
+  <div class="choice-element-container">
+    <div class="list-option-container {{ direction ?? "horizontal" }}" data-choice-element="" data-choice-direction="{{ direction ?? "horizontal" }}" {% if attr is defined and attr %}{% for key, value in attr %}{{ key }}="{{ value }}"{% endfor %}{% endif%} data-choice-element-styles='{{ styles|json_encode }}' data-choice-multiple="{{ multiple is defined and multiple ? true : false }}">
+      {% if multiple is not defined or multiple == false %}
+        <span class="current-background"></span>
+      {% endif %}
+      <ul class="list-option-element">
+        {% for choiceKey, choice in choices %}
+          <li class="option-element {{ current is defined and choiceKey == current ? "current" : "" }}" data-choice-element-value='{{ choiceKey }}' {% if choice.callback is defined and choice.callback %}data-choice-element-callback="{{ choice.callback }}"{% endif %} style="{{ choice.style is defined ? choice.style|join(";") : null }}" {% if choice.url is defined %}data-choice-element-url="{{ choice.url }}"{% endif %}>
+            {% if multiple is defined and multiple %}
+              <span class="current-background"></span>
+            {% endif %}
+            {% if choice.picto|default(null) and direction != "vertical-line" %}<span class="picto font-austral-12-grey {{ choice.picto }}"></span>{% endif %}
+            <span class="entitled font-poppins-m-11">{{ choice.entitled|raw }}</span>
+            {% if choice.input is defined %}
+              {{ choice.input|raw }}
+            {% endif %}
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</div>

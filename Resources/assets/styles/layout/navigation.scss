@@ -1,0 +1,117 @@
+#header-master {
+  position: sticky;
+  top: 0;
+  width: 6rem;
+  height:100vh;
+  border-right: 0.1rem solid var(--color-main-10);
+  z-index: 100;
+  @media #{$media-desktop-big-min} {
+    max-width: 30rem;
+    width: 100%;
+  }
+  .navigation-container {
+    height:100%;
+    .list-items {
+      @include flex-display();
+      @include flex-direction(column);
+      height: 100%;
+      padding: 1rem 0;
+      &>.item {
+        @include flex-display();
+        @include justify-content(flex-start);
+        @include align-content(center);
+        @include align-items(center);
+        padding: 0 1.2rem;
+        width: 100%;
+        position: relative;
+        @media #{$media-desktop-big-min} {
+          @include justify-content(flex-start);
+        }
+        @media #{$media-desktop-big-max} {
+          &::after {
+            @include transition-default();
+            content: "";
+            height: 100%;
+            width: 0px;
+            display: inline-block;
+            position: absolute;
+            right: 0;
+            top: 0;
+            background: var(--color-black);
+          }
+        }
+        &.link {
+          @media #{$media-desktop-big-min} {
+            .button {
+              .entitled {
+                display: inline;
+                position: relative;
+                background: no-repeat 0 100%;
+                background-image: linear-gradient(var(--color-black), var(--color-black));
+                background-size: 0% 2px;
+                transition: background-size .3s ease;
+              }
+            }
+          }
+        }
+        &.avatar {
+          .profil-container {
+            @include flex-display();
+            @include align-items(center);
+            cursor: pointer;
+            .avatar-container {
+              --element-avatar-shadow-spread: 0rem;
+              --element-avatar-shadow-color: var(--color-main-40);
+              @include transition-default();
+              @include box-shadow(0px, 0px, 0px, var(--element-avatar-shadow-spread), var(--element-avatar-shadow-color));
+              @include radius(100%);
+              position: relative;
+            }
+            .entitled {
+              display: none;
+              @media #{$media-desktop-big-min} {
+                display: inline-block;
+                padding-left: 1rem;
+              }
+            }
+            &:hover {
+              .avatar-container {
+                --element-avatar-shadow-spread: .4rem;
+              }
+            }
+            &.is-open {
+              .avatar-container {
+                --element-avatar-shadow-spread: .2rem;
+                --element-avatar-shadow-color: var(--color-main-40);
+              }
+            }
+          }
+        }
+        .button {
+          &.current {
+            @media #{$media-desktop-big-max} {
+              &::after {
+                width: 2px;
+              }
+            }
+            @media #{$media-desktop-big-min} {
+              .entitled {
+                background-size: 100% .2rem;
+              }
+            }
+          }
+        }
+        &.logo {
+          padding-bottom: 2rem;
+          svg {
+            height: 4rem;
+            width: 4rem;
+          }
+        }
+        &.bottom {
+          margin-top:auto;
+        }
+      }
+    }
+  }
+}

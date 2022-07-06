@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200" viewBox="0 0 200 200">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.25" y1="0.025" x2="0.982" y2="1.025" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#ecf6fd"/>
+      <stop offset="1" stop-color="#fff"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-2" x1="0.146" y1="0.146" x2="0.854" y2="0.854" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#d9edfa"/>
+      <stop offset="1" stop-color="#fff"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-3" x1="0.668" y1="0.156" x2="0" y2="1" xlink:href="#linear-gradient"/>
+    <clipPath id="clip-austral-icon-message">
+      <rect width="200" height="200"/>
+    </clipPath>
+  </defs>
+  <g id="austral-icon-message" clip-path="url(#clip-austral-icon-message)">
+    <g id="Groupe_23" data-name="Groupe 23">
+      <rect id="BG" width="200" height="200" fill="none"/>
+      <path id="Shadow" d="M732.02,922.631a38.988,38.988,0,0,0-14.09-61.262A65,65,0,1,0,607.789,883.22l-10.528,28.763,29.815-13.837a64.706,64.706,0,0,0,29.405,7.037,65.578,65.578,0,0,0,7.733-.474,38.993,38.993,0,0,0,56.193,27.106l18.039,8.372Z" transform="translate(-552.481 -743.685)" fill="#bedefa"/>
+      <g id="Icon" transform="translate(5 5.498)">
+        <g id="Groupe_18" data-name="Groupe 18">
+          <path id="Tracé_24" data-name="Tracé 24" d="M160.465,159.246l6.5,17.758-24.258-11.258Z" fill="url(#linear-gradient)"/>
+          <circle id="Ellipse_4" data-name="Ellipse 4" cx="39" cy="39" r="39" transform="translate(92 95)" fill="url(#linear-gradient-2)"/>
+        </g>
+        <g id="Groupe_21" data-name="Groupe 21">
+          <g id="Groupe_19" data-name="Groupe 19">
+            <path id="Tracé_25" data-name="Tracé 25" d="M38.343,114.477,25.78,148.8l46.887-21.76Z" fill="url(#linear-gradient-3)"/>
+            <circle id="Ellipse_5" data-name="Ellipse 5" cx="65" cy="65" r="65" transform="translate(20 12)" fill="#fff"/>
+          </g>
+          <g id="Groupe_20" data-name="Groupe 20">
+            <circle id="Ellipse_6" data-name="Ellipse 6" cx="9" cy="9" r="9" transform="translate(48 68)" fill="#0569f5"/>
+            <circle id="Ellipse_7" data-name="Ellipse 7" cx="9" cy="9" r="9" transform="translate(76 68)" fill="#0569f5"/>
+            <circle id="Ellipse_8" data-name="Ellipse 8" cx="9" cy="9" r="9" transform="translate(104 68)" fill="#0569f5"/>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

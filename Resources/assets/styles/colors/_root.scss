@@ -1,0 +1,122 @@
+/** GUIDELINE_START -> Austral Colors **/
+:root {
+  --color-white-force: #FFFFFF;
+  --color-black-force: #000000;
+  //Color design
+  --color-white: #FFFFFF;
+  --color-black: #000000;
+  --color-grey-90: #2e2e2e;
+  --color-grey-50: #6B6B6B;
+  --color-main-100: #264B80;
+  --color-main-90: #436CA8;
+  --color-main-40: #9BADC5;
+  --color-main-20: #D4DBE6;
+  --color-main-10: #E9EDF3;
+  --color-green-100: #009940;
+  --color-green-90: #1AB84E;
+  --color-green-40: #6BD681;
+  --color-green-20: #BEECC1;
+  --color-green-10: #D2F5CE;
+  --color-yellow-100: #E07B00;
+  --color-yellow-90: #F0B000;
+  --color-yellow-40: #FADD69;
+  --color-yellow-20: #FCEE92;
+  --color-yellow-10: #FFF9BF;
+  --color-blue-100: #0033CC;
+  --color-blue-90: #0569F5;
+  --color-blue-40: #86BEF7;
+  --color-blue-20: #BEDEFA;
+  --color-blue-10: #D9EDFA;
+  --color-red-100: #BF2413;
+  --color-red-90: #E63A2E;
+  --color-red-40: #F5A29F;
+  --color-red-20: #FAD7D7;
+  --color-red-10: #FCE3E4;
+  --color-purple-100: #550080;
+  --color-purple-90: #8B16D9;
+  --color-purple-40: #C283F2;
+  --color-purple-20: #DEC0FC;
+  --color-purple-10: #EBDBFF;
+  --color-google-black: #202124;
+  --color-google-grey: #5F6368;
+  --color-google-blue: #1A0DAB;
+  --color-google-green: #188038;
+  --color-google-yellow: #F9B403;
+  --color-facebook-black: #1D2129;
+  --color-facebook-grey: #606770;
+  --color-facebook-light-grey: #F2F3F5;
+}
+/** GUIDELINE_STOP -> Austral Colors **/
+
+
+.dark {
+  //Color design
+  --color-white: #000000;
+  --color-black: #FFFFFF;
+
+  --color-main-100: #E9EDF3;
+  --color-main-90: #D4DBE6;
+  --color-main-40: #8F9EB3;
+  --color-main-20: #566173;
+  --color-main-10: #242A33;
+  --color-google-blue: #8ab4f8;
+  --color-google-black: #bdc1c6;
+  --element-choice-current-color: #FFFFFF;
+}
+
+:root {
+  --color-shadow-black-rgba-10: #{rgba(#000000,0.1)};
+  --color-shadow-black-rgba-20: #{rgba(#000000,0.2)};
+  --color-main-10-rgba-50: #{rgba(#E9EDF3,0.5)};
+  --radius-2: 2px;
+
+  //Color system
+  --color-user: var(--color-white);
+  --color-font-default: var(--color-black);
+  --color-button-picto-with-background: var(--color-font-default);
+  --background-color-button-picto-with-background: var(--color-main-10);
+
+  --switch-heads-button-color:var(--color-white-force);
+  --switch-heads-fond-color:var(--color-green-40);
+
+  --switch-tails-button-color:var(--color-white-force);
+  --switch-tails-fond-color:var(--color-main-40);
+
+  --element-choice-current-background: var(--color-main-10);
+  --element-choice-current-color: var(--color-black);
+  --element-choice-hover-color: var(--color-black);
+
+  --color-main-10-force: #E9EDF3;
+  --svg-logo-color-black: var(--color-black);
+  --element-avatar-color: var(--color-white-force)
+}
+.main-background {
+  --color-button-picto-with-background: var(--color-grey-50);
+  --background-color-button-picto-with-background: var(--color-main-20);
+  background: var(--color-main-10);
+}
+.main-padding {
+  padding: 4rem 6rem 5rem;
+}
+
+.dark {
+  --color-shadow-black-rgba-10: #{rgba(#ffffff,0.1)};
+  --color-shadow-black-rgba-20: #{rgba(#ffffff,0.2)};
+  --color-main-10-rgba-50: #{rgba(#242A33,0.5)};
+
+  --color-button-picto-with-background: var(--color-white-force);
+  --background-color-button-picto-with-background: var(--color-main-10);
+
+  --svg-logo-color-black: var(--color-black);
+  ::selection {
+    background: var(--color-purple-100);
+  }
+}
+
+
+%background-pattern-square {
+  background-color: var(--color-white);
+  background-image: linear-gradient(45deg, var(--color-main-10-rgba-50) 25%, transparent 25%, transparent 75%, var(--color-main-10-rgba-50) 75%), linear-gradient(45deg, var(--color-main-10-rgba-50) 25%, transparent 25%, transparent 75%, var(--color-main-10-rgba-50) 75%);
+  background-size: 15px 15px;
+  background-position: 0 0, 7.5px 7.5px;
+}

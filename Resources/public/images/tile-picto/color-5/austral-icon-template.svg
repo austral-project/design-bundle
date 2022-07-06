@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200" viewBox="0 0 200 200">
+  <defs>
+    <linearGradient id="linear-gradient" x1="1.041" y1="1.043" x2="-0.055" y2="-0.047" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#ebdbff"/>
+      <stop offset="1" stop-color="#fff"/>
+    </linearGradient>
+    <clipPath id="clip-austral-icon-template">
+      <rect width="200" height="200"/>
+    </clipPath>
+  </defs>
+  <g id="austral-icon-template" clip-path="url(#clip-austral-icon-template)">
+    <g id="Groupe_54" data-name="Groupe 54">
+      <rect id="BG" width="200" height="200" fill="none"/>
+      <path id="Shadow" d="M147.4,30H52.6A32.691,32.691,0,0,0,20,62.6V137.4A32.692,32.692,0,0,0,52.6,170H147.4A32.692,32.692,0,0,0,180,137.4V62.6A32.691,32.691,0,0,0,147.4,30Z" transform="translate(214 214) rotate(180)" fill="#dec0fc"/>
+      <g id="Icon">
+        <g id="Groupe_46" data-name="Groupe 46">
+          <g id="Groupe_42" data-name="Groupe 42">
+            <path id="Tracé_36" data-name="Tracé 36" d="M147.4,30H52.6A32.691,32.691,0,0,0,20,62.6V137.4A32.692,32.692,0,0,0,52.6,170H147.4A32.692,32.692,0,0,0,180,137.4V62.6A32.691,32.691,0,0,0,147.4,30Z" transform="translate(200 200) rotate(180)" fill="#fff"/>
+          </g>
+        </g>
+        <g id="Groupe_55" data-name="Groupe 55">
+          <path id="Union_2" data-name="Union 2" d="M-700-100a20,20,0,0,1-20-20v-15h140v15a20,20,0,0,1-20,20Zm55-42v-35h65v35Zm-75,0v-35h65v35Zm0-43v-15a20,20,0,0,1,20-20h100a20,20,0,0,1,20,20v15Z" transform="translate(750 260)" fill="url(#linear-gradient)"/>
+        </g>
+        <rect id="Rectangle_34" data-name="Rectangle 34" width="45" height="6" rx="3" transform="translate(78 48)" fill="#8b16d9"/>
+        <rect id="Rectangle_35" data-name="Rectangle 35" width="45" height="6" rx="3" transform="translate(78 140)" fill="#8b16d9"/>
+        <rect id="Rectangle_36" data-name="Rectangle 36" width="25" height="6" rx="3" transform="translate(50 97)" fill="#8b16d9"/>
+        <rect id="Rectangle_38" data-name="Rectangle 38" width="25" height="6" rx="3" transform="translate(88 60)" fill="#8b16d9"/>
+        <rect id="Rectangle_37" data-name="Rectangle 37" width="25" height="6" rx="3" transform="translate(125 97)" fill="#8b16d9"/>
+      </g>
+    </g>
+  </g>
+</svg>

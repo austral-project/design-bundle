@@ -1,0 +1,60 @@
+<form class="popin-link-editor form-container">
+  <div class="preview-file" data-popin-value="preview-upload">
+  </div>
+  <div class="form-content central-container">
+    <fieldset class="fieldset-content fieldset-content-parent">
+      <h2 class="h2-title fieldset-title">{{ "popin.editor.title"|trans({}, translateDomain) }}</h2>
+      <div class="fields-content">
+        <div class="field-content field-content_fileInfos">
+          <span class="delete-file" data-popin-view="no-required" data-popin-command="delete" >{{ "file.actions.delete"|trans({}, "austral") }}</span>
+          <label for="popin_fileInfos">{{ "popin.editor.file"|trans({}, translateDomain) }}</label>
+          <div class="field field-typeValue" data-popin-value="reel-filename"></div>
+          <ul class="file-infos">
+            <li class="mime-type">
+              <span class="entitled">{{ "file.info.mimeType"|trans({}, translateDomain) }} :</span>
+              <span class="value" data-popin-value="mime-type"></span>
+            </li>
+            <li class="size">
+              <span class="entitled">{{ "file.info.size"|trans({}, translateDomain) }} :</span>
+              <span class="value" data-popin-value="size"></span>
+            </li>
+            <li class="dimensions" data-popin-view="is-image">
+              <span class="entitled">{{ "file.info.imageSize"|trans({}, translateDomain) }} :</span>
+              <span class="value" data-popin-value="dimensions"></span>
+            </li>
+          </ul>
+        </div>
+        <div class="field-content field-content_buttonCropper" data-with-cropper="">
+          <label for="popin_content_buttonCropper">{{ "popin.editor.file"|trans({}, translateDomain) }}</label>
+          <ul class="cropper-button-content" data-popin-cropper-actions="">
+          </ul>
+        </div>
+        <div class="content-clone-fields" data-popin-clone-fields="popin-fields"></div>
+      </div>
+      <div class="button-content">
+        {{ include("@AustralDesign/Components/Button/link.html.twig",
+            {
+              tag:            "button",
+              title:          "actions.cancel"|trans({}, "austral"),
+              full:           true,
+              data: {
+                "data-popin-command": "cancel"
+              }
+            }
+          )
+        }}
+        {{ include("@AustralDesign/Components/Button/action.html.twig",
+            {
+              tag:            "button",
+              title:          "actions.save"|trans({}, "austral"),
+              full:           true,
+              data: {
+                "data-popin-command": "update"
+              }
+            }
+          )
+        }}
+      </div>
+    </fieldset>
+  </div>
+</form>

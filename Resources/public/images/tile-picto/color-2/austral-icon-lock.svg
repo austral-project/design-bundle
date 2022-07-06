@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200" viewBox="0 0 200 200">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.5" y1="1" x2="0.5" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#fff9bf"/>
+      <stop offset="1" stop-color="#fff"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-2" x1="0.853" y1="0.849" x2="0.139" y2="0.142" xlink:href="#linear-gradient"/>
+    <clipPath id="clip-austral-icon-lock">
+      <rect width="200" height="200"/>
+    </clipPath>
+  </defs>
+  <g id="austral-icon-lock" clip-path="url(#clip-austral-icon-lock)">
+    <g id="Groupe_4" data-name="Groupe 4">
+      <rect id="BG" width="200" height="200" fill="none"/>
+      <path id="Shadow" d="M706.481,830.97V808.185a40,40,0,0,0-80,0V830.97a65,65,0,1,0,80,0Zm-60-22.785a20,20,0,0,1,40,0v12.149a65.087,65.087,0,0,0-40,0Z" transform="translate(-549.481 -747.185)" fill="#fcee92"/>
+      <g id="Icon" transform="translate(0 -2)">
+        <path id="Tracé_2" data-name="Tracé 2" d="M102.5,9h0a40,40,0,0,0-40,40V99h20V49a20,20,0,0,1,20-20h0a20,20,0,0,1,20,20V99h20V49A40,40,0,0,0,102.5,9Z" fill="url(#linear-gradient)"/>
+        <g id="Groupe_2" data-name="Groupe 2">
+          <g id="Groupe_1" data-name="Groupe 1">
+            <rect id="Rectangle_1" data-name="Rectangle 1" width="130" height="130" rx="65" transform="translate(37.5 58)" fill="url(#linear-gradient-2)"/>
+            <rect id="Rectangle_2" data-name="Rectangle 2" width="110" height="110" rx="55" transform="translate(47.5 68)" fill="#fff"/>
+          </g>
+          <path id="Tracé_3" data-name="Tracé 3" d="M114.5,146l-6.411-24.261a10.667,10.667,0,1,0-11.178,0L90.5,146Z" fill="#f0b000"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

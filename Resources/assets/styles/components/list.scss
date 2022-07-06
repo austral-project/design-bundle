@@ -1,0 +1,375 @@
+@use "sass:math";
+
+.list-content {
+  padding-bottom: 5rem;
+  .col-element {
+    @include transition-default();
+    position:relative;
+    &.sortable-content-picto {
+      padding-left: 4.5rem;
+    }
+    .sortable-content {
+      @include transition-default();
+      @include flex-display();
+      @include justify-content(center);
+      position:absolute;
+      height: 100%;
+      top:0rem;
+      z-index:-1;
+      opacity:0;
+      padding: 0;
+      left: 1rem;
+      .button {
+        cursor:move;
+      }
+    }
+  }
+}
+.list-ol-container {
+  margin-top:1.5rem;
+  border-top: 0.1rem solid var(--color-main-10);
+
+  &.sortable-enabled {
+    .col-content {
+      pointer-events:none;
+    }
+  }
+
+  .ns-targeted {
+    min-height: 8rem;
+    .toggle-element {
+      .empty {
+        min-height: 8rem;
+      }
+    }
+  }
+
+  .row-element {
+    @include flex-display();
+    @include flex-direction(column);
+    border-bottom: 0.1rem solid var(--color-main-10);
+
+    &.sortable-highlight {
+      background-color: #9AB6F1;
+    }
+
+    .col-content {
+      &.hover {
+        .col-element {
+          &.sortable-content-picto {
+            .sortable-content {
+              left: 1.3rem;
+              opacity: 1;
+              z-index:10;
+              top: 0;
+            }
+            .value-content {
+              .picto-element {
+                top: -2.5rem;
+                opacity: 0;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  & > .row-element {
+    &:not(.has-children) {
+      & > .col-content {
+        padding-left: 3.6rem;
+      }
+    }
+  }
+  .col-content {
+    @include flex-display();
+    @include align-items(center);
+    @include align-content(center);
+    .view-children-actions {
+      @include transition-default(transform);
+      padding: 1rem;
+      &.is-open {
+        @include transform(rotateX(180deg));
+      }
+      .picto {
+        @extend .font-austral-16;
+      }
+    }
+    .col-element {
+      padding: 2rem 0;
+      &.sortable-content-picto {
+        overflow: hidden;
+        padding-left: 0;
+        .sortable-content {
+          left: 1.3rem;
+          top: 2.5rem;
+        }
+      }
+      @extend .font-poppins-m-14;
+      &.right-position {
+        margin-left:auto;
+      }
+      &.object-actions-field {
+        .value-content {
+          padding: 0 1.5rem 0 7rem;
+        }
+      }
+      .value-content {
+        @include flex-display();
+        @include align-items(flex-start);
+        @include align-content(flex-start);
+        @include justify-content(center);
+        @include flex-direction(column);
+        padding: 0 .9rem;
+        .page-name {
+          &+.page-h1 {
+            padding-top: .5rem;
+            display: inline-block;
+          }
+        }
+        .picto-element {
+          @include flex-display();
+          @include align-items(center);
+          @include align-content(center);
+          @include justify-content(center);
+          @include transition-default();
+          height: 4.2rem;
+          width: 4.4rem;
+          position:relative;
+          padding: 0.5rem 0 0;
+          opacity: 1;
+          top:0;
+          & > span {
+            @extend .font-austral-16;
+            color: var(--color-black-force);
+          }
+          &.picto-page {
+            background: transparent url('../images/img-file.svg') no-repeat center center;
+            background-size: contain;
+          }
+          &.picto-folder {
+            background: transparent url('../images/img-folder.svg') no-repeat center center;
+            background-size: contain;
+          }
+        }
+      }
+    }
+  }
+  .objects-list-ol-children {
+    padding-left: 5rem;
+    .row-element {
+      border-top: 0.1rem solid var(--color-main-10);
+      border-bottom:0;
+    }
+  }
+}
+
+.list-filters {
+  padding-top: 1rem;
+  margin: 0 -0.5rem;
+  width: 100%;
+  @include flex-display();
+  @include align-content(center);
+  @include align-items(center);
+  @include justify-content(flex-end);
+  li {
+    padding: 0 0.5rem;
+    .element {
+      @include flex-display();
+      @include align-content(center);
+      @include align-items(center);
+      @include radius(0.5rem);
+      background: var(--color-main-10);
+      padding: 0 0rem 0 1rem;
+      .fieldname {
+        font-weight:bold;
+        padding-right:0.5rem;
+      }
+      .value {
+        padding-right:1rem;
+      }
+      .button{
+        border-left: 0.1rem solid var(--color-main-20);
+        &.button-picto {
+          &:hover {
+            .picto {
+              color: var(--color-red-100);
+              &:after {
+                display:none;
+              }
+            }
+          }
+          .picto {
+            width: 2.6rem;
+            font-size: 1.2rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+.pagination-content {
+  @include flex-display(inline-flex);
+  margin-top: 4rem;
+  .pagination {
+    @include flex-display();
+    @include align-content(stretch);
+    @include align-items(stretch);
+    @include justify-content(flex-start);
+    padding: 0.5rem 0;
+    border: 0.1rem solid var(--color-main-10);
+    li {
+      &:last-child {
+        border-right: 0;
+      }
+      border-right: 0.1rem solid var(--color-main-10);
+      padding: 0 0.5rem;
+    }
+    .toast-select-style {
+      padding-left: 2rem;
+      @include justify-content(flex-start);
+      position:relative;
+      .nb-pages {
+        display:block;
+        padding-right: 5rem;
+        pointer-events: none;
+      }
+      label {
+        padding-right: 2rem;
+      }
+      .field {
+        min-width: 1rem;
+        padding-right: 0.5rem;
+        &.field-select-type {
+          border:none !important;
+          .choices {
+            &:hover {
+              &:before {
+                right: -7rem;
+              }
+            }
+            overflow: visible;
+            &:after {
+              right: -6rem;
+            }
+            &:before {
+              right: -6rem;
+            }
+          }
+          select {
+            display:none;
+            padding: 0;
+          }
+          .choices__list--dropdown {
+            min-width: calc(100% + 15.8rem);
+            margin-top: 1.6rem;
+            left: -8rem;
+          }
+          .choices__inner {
+            box-shadow: none !important;
+            border:none;
+            padding: 0;
+            &:after {
+              content: "";
+              position:absolute;
+              width: calc(100% + 16.2rem);
+              left: -8rem;
+              top:0;
+              height: 100%;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.list-table-container {
+  .row-element {
+    &.hover {
+      .col-element {
+        .sortable-content {
+          left: 0;
+          z-index: 1;
+          opacity: 1;
+        }
+      }
+    }
+  }
+  width: 100%;
+  border-collapse: separate;
+  thead {
+    th {
+      @extend .font-poppins-m-11-grey;
+      background: var(--color-main-10);
+      vertical-align: middle;
+      padding: 2.3rem 1.5rem;
+    }
+  }
+  tbody {
+    td {
+      @extend .font-poppins-m-14;
+      padding: 2rem 1.5rem;
+      color: var(--color-black);
+      border-bottom: 0.1rem solid var(--color-main-10);
+      .value-content {
+        &.image-type {
+          @include flex-display();
+          @include align-items(center);
+          @include align-content(center);
+          @include justify-content(center);
+          @include transition-default();
+          width: 10rem;
+          height:10rem;
+          img {
+            @include image-cover(contain);
+            width: 100%;
+            height:100%;
+          }
+        }
+        .list {
+          li {
+            padding-bottom: 1rem;
+            .log {
+              @extend .font-poppins-m-12-grey
+            }
+          }
+        }
+      }
+    }
+  }
+  .actions-object {
+    width: 8rem;
+    .value-content {
+      display:inline-block;
+    }
+  }
+  .pop-menu-element {
+    display:none;
+  }
+}
+
+/* nested-sort is the custom class name */
+.nested-sort {
+  padding: 0;
+}
+
+.nested-sort--enabled li {
+  cursor: move;
+}
+
+.nested-sort li {
+  list-style: none;
+  background: #fff;
+}
+
+/* ns-dragged is the class name of the item which is being dragged */
+.nested-sort .ns-dragged {
+  border: 1px solid red;
+}
+
+/* ns-targeted is the class name of the item on which the dragged item is hovering */
+.nested-sort .ns-targeted {
+  border: 1px solid green;
+}

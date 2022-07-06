@@ -1,0 +1,47 @@
+{
+  "name":                                     "austral/design-bundle",
+  "type":                                     "symfony-bundle",
+  "description":                              "Design system for Austral admin",
+  "keywords":                                 ["Austral", "Design system", "Symfony"],
+  "license":                                  "MIT",
+  "homepage":                                 "https://austral.dev",
+  "version":                                  "3.0",
+  "authors": [
+    {
+      "name":                                 "Matthieu Beurel",
+      "email":                                "matthieu@austral.dev",
+      "role":                                 "Developer"
+    },
+    {
+      "name":                                 "Guillaume Grimaud",
+      "email":                                "guillaume@austral.dev",
+      "role":                                 "Designer"
+    },
+    {
+      "name":                                 "Clément Meunier",
+      "email":                                "clement@austral.dev",
+      "role":                                 "Developer"
+    }
+  ],
+  "require": {
+    "php":                                    "^7.4 || ^8.0",
+
+    "symfony/twig-bundle":                    "^5.4",
+
+    "twig/twig":                              "^3.0",
+    "twig/extra-bundle":                      "^3.0",
+    "twig/string-extra":                      "^3.2"
+  },
+  "require-dev": {
+  },
+  "suggest": {
+    "austral/admin-bundle":                   "^3.0"
+  },
+  "config": {
+    "sort-packages":                          true
+  },
+  "autoload": {
+    "psr-4": { "Austral\\DesignBundle\\": "" }
+  },
+  "minimum-stability":                        "dev"
+}

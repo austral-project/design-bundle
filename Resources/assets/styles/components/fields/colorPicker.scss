@@ -1,0 +1,14 @@
+body {
+  .pcr-app[data-theme="classic"] {
+    width: 19.6rem;
+    .pcr-swatches {
+      @include flex-display();
+      @include flex-wrap(wrap);
+      > button {
+        width: 1.6rem;
+        height: 1.6rem;
+        margin: 0.3rem;
+      }
+    }
+  }
+}

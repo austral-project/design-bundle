@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200" viewBox="0 0 200 200">
+  <defs>
+    <linearGradient id="linear-gradient" x1="1" y1="1" x2="0" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#fff9bf"/>
+      <stop offset="1" stop-color="#fff"/>
+    </linearGradient>
+    <clipPath id="clip-austral-icon-blocs">
+      <rect width="200" height="200"/>
+    </clipPath>
+  </defs>
+  <g id="austral-icon-blocs" clip-path="url(#clip-austral-icon-blocs)">
+    <g id="Groupe_53" data-name="Groupe 53">
+      <rect id="BG" width="200" height="200" fill="none"/>
+      <rect id="Shadow" width="150" height="150" rx="30" transform="translate(39 39)" fill="#fcee92"/>
+      <g id="Icon" transform="translate(-10 1)">
+        <rect id="Rectangle_30" data-name="Rectangle 30" width="150" height="150" rx="30" transform="translate(35 24)" fill="url(#linear-gradient)"/>
+        <rect id="Rectangle_26" data-name="Rectangle 26" width="60" height="60" rx="20" transform="translate(175 164) rotate(180)" fill="#fff"/>
+        <rect id="Rectangle_28" data-name="Rectangle 28" width="130" height="60" rx="20" transform="translate(175 94) rotate(180)" fill="#fff"/>
+        <rect id="Rectangle_27" data-name="Rectangle 27" width="60" height="60" rx="20" transform="translate(105 164) rotate(180)" fill="#fff"/>
+        <g id="Groupe_52" data-name="Groupe 52" transform="translate(5 -5)">
+          <rect id="Rectangle_24" data-name="Rectangle 24" width="8" height="36" rx="4" transform="translate(136 121)" fill="#f0b000"/>
+          <rect id="Rectangle_29" data-name="Rectangle 29" width="8" height="36" rx="4" transform="translate(158 135) rotate(90)" fill="#f0b000"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

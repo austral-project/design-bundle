@@ -1,0 +1,52 @@
+.helper-informations {
+  @include flex-display();
+  @include align-items(center);
+  @include align-content(center);
+  @include justify-content(center);
+  @include radius(var(--radius-2));
+  background: var(--color-white);
+  height: 2.2rem;
+  width: 2.2rem;
+  z-index: 10;
+  cursor: help;
+  @at-root .field #{&} {
+    margin: 1.5rem 1.5rem 1.5rem 0;
+  }
+  @at-root .field.field-fileType #{&} {
+    position:absolute;
+    right: 0;
+    top: 0;
+    margin: 0;
+    border-radius: 0;
+  }
+  .picto {
+    @extend .font-austral-12;
+    color: var(--color-black);
+  }
+  &.error {
+    background: var(--color-red-10);
+    .picto {
+      color: var(--color-red-100);
+    }
+  }
+  li {
+    @include flex-display();
+    @include flex-direction(column);
+    @extend .font-poppins-m-11;
+    &+li {
+      padding-top: 1rem;
+    }
+  }
+  .title {
+    @extend .font-poppins-m-14;
+    display:block;
+    padding-bottom: 0.5rem;
+  }
+  .entitled {
+    @extend .font-poppins-m-11-grey;
+    padding-bottom: 0.2rem;
+  }
+  .value {
+    @extend .font-poppins-m-11
+  }
+}

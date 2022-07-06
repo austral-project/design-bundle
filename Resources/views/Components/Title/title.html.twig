@@ -1,0 +1,9 @@
+{#
+  {
+    tag:      "string",     # tag h1 || h2 || h3
+    value:    "string"
+    subTitle: "string"
+  }
+#}
+<{{ tag }} class="{{ tag }}-title title">{{ value }}</{{ tag }}>
+{% if subTitle is defined and subTitle %}<span class="{{ tag }}-sub-title">{{ subTitle }}</span>{% endif %}

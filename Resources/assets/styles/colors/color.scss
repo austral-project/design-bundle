@@ -1,0 +1,50 @@
+// Class color and background generate Start
+$colors: (
+  "white":    ["default", "force"],
+  "black":    ["default", "force"],
+  "grey":     ["50"],
+  "main":     ["100", "90", "40", "20", "10"],
+  "green":    ["100", "90", "40", "20", "10"],
+  "yellow":   ["100", "90", "40", "20", "10"],
+  "blue":     ["100", "90", "40", "20", "10"],
+  "red":      ["100", "90", "40", "20", "10"],
+  "purple":   ["100", "90", "40", "20", "10"],
+  "google":   ["black", "grey", "blue", "green", "yellow"],
+  "facebook": ["black", "grey", "light-grey"],
+);
+$borders: ["top", "right", "bottom", "left"];
+
+@each $colorKey, $values in $colors {
+  @each $value in $values {
+    @if($value == "default") {
+      .background-#{$colorKey} {
+        background: var(--color-#{$colorKey});
+      }
+      .color-#{$colorKey} {
+        color: var(--color-#{$colorKey});
+      }
+      @each $border in $borders {
+        .border-#{$border}-#{$colorKey}-#{$value} {
+          border-#{$border}: 0.1rem solid var(--color-#{$colorKey}-#{$value});
+        }
+      }
+    }
+    @else {
+      .background-#{$colorKey}-#{$value} {
+        background: var(--color-#{$colorKey}-#{$value});
+      }
+      .color-#{$colorKey}-#{$value} {
+        color: var(--color-#{$colorKey}-#{$value});
+      }
+      .border-#{$colorKey}-#{$value} {
+        border: 0.1rem solid var(--color-#{$colorKey}-#{$value});
+      }
+      @each $border in $borders {
+        .border-#{$border}-#{$colorKey}-#{$value} {
+          border-#{$border}: 0.1rem solid var(--color-#{$colorKey}-#{$value});
+        }
+      }
+    }
+  }
+}
+// Class color and background generate End

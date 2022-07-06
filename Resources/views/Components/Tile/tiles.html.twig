@@ -1,0 +1,22 @@
+<div class="grid grid--no-gutters ">
+  <div class="row">
+    <div class="col col--xs-12">
+      {% if elements is defined and elements|length > 0 %}
+        <{{ tag|default("li") == "li" ? "ul" : "div" }} class="row row-col--{{ nbTiles|default(4) }}">
+          {% set color = 1 %}
+          {% for element in elements %}
+            {% include "@AustralDesign/Components/Tile/tile.html.twig" with {
+              tag:                tag|default("li"),
+              color:              color,
+              entitled:           element.entitled,
+              url:                element.url,
+              picto:              element.picto
+            } only %}
+            {% set color = color + 1 %}
+            {% if color > 6 %}{% set color = 1 %}{% endif %}
+          {% endfor %}
+        </{{ tag|default("li") == "li" ? "ul" : "div" }}>
+      {% endif %}
+    </div>
+  </div>
+</div>

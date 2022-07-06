@@ -1,0 +1,12 @@
+####> Project ###
+/.settings/
+/.project
+/.idea
+/package-lock.json
+*~
+/node_modules/
+####< Project ###
+
+###> Mac ###
+.DS_Store
+###< Mac ###

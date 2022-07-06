@@ -1,0 +1,26 @@
+<div class="grid grid--no-gutters">
+  <div class="row">
+    <div class="col col--xs-12">
+      <ul class="row">
+        {% for categ, values in colors %}
+          <li class="col--12 {{ categ }} pdb20">
+            <h3 class="font-poppins-sb-18 pb10">{{ categ|capitalize }}</h3>
+            <ul class="row row-col--5">
+              {% for key, value in values %}
+                {% set prefix = (value == "default" ? "" : "-"~value) %}
+                <li class="col col--no-gutters border-main-10">
+                  <div class="min-height-5 border-bottom-main-10 background-{{ categ }}{{ prefix }}"></div>
+                  <div class="p10 text_align_center">
+                    <span class="font-poppins-m-14 block pb10">{{ categ }}{{ prefix }}</span>
+                    <span class="font-poppins-m-13-uppercase block" data-color-value="--color-{{ categ }}{{ prefix }}">#</span>
+                  </div>
+                </li>
+              {% endfor %}
+            </ul>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</div>
+

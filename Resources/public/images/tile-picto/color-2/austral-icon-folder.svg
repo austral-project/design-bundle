@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200" viewBox="0 0 200 200">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.5" y1="1" x2="0.5" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#fff9bf"/>
+      <stop offset="1" stop-color="#fff"/>
+    </linearGradient>
+    <clipPath id="clip-austral-icon-folder">
+      <rect width="200" height="200"/>
+    </clipPath>
+  </defs>
+  <g id="austral-icon-folder" clip-path="url(#clip-austral-icon-folder)">
+    <g id="Groupe_31" data-name="Groupe 31">
+      <rect id="BG" width="200" height="200" fill="none"/>
+      <path id="Shadow" d="M734.888,821.219a32.7,32.7,0,0,0-31.433-24.034h-27.4a10,10,0,0,1-10-10,10,10,0,0,0-10-10h-27.4a32.692,32.692,0,0,0-32.6,32.6v12.23a19.951,19.951,0,0,0-8.264,16.17q0,.831.069,1.661l6.667,80a20,20,0,0,0,19.928,18.339h103.2a20,20,0,0,0,19.931-18.339l6.667-80A19.985,19.985,0,0,0,734.888,821.219Z" transform="translate(-551.791 -743.185)" fill="#fcee92"/>
+      <g id="Icon">
+        <g id="Groupe_27" data-name="Groupe 27">
+          <path id="Tracé_27" data-name="Tracé 27" d="M137.4,39H110a10,10,0,0,1-10-10h0A10,10,0,0,0,90,19H62.6A32.692,32.692,0,0,0,30,51.6V72H170v-.4A32.691,32.691,0,0,0,137.4,39Z" fill="url(#linear-gradient)"/>
+        </g>
+        <g id="Groupe_28" data-name="Groupe 28">
+          <path id="Tracé_28" data-name="Tracé 28" d="M158.264,60H41.736A20,20,0,0,0,21.805,81.661l6.667,80A20,20,0,0,0,48.4,180H151.6a20,20,0,0,0,19.931-18.339l6.667-80A20,20,0,0,0,158.264,60Z" fill="#fff"/>
+        </g>
+        <g id="Groupe_29" data-name="Groupe 29">
+          <rect id="Rectangle_18" data-name="Rectangle 18" width="94" height="6" rx="3" transform="translate(53 105)" fill="#f0b000"/>
+          <rect id="Rectangle_19" data-name="Rectangle 19" width="92" height="6" rx="3" transform="translate(54 119)" fill="#f0b000"/>
+          <rect id="Rectangle_20" data-name="Rectangle 20" width="45" height="6" rx="3" transform="translate(55 133)" fill="#f0b000"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

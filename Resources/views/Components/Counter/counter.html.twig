@@ -1,0 +1,13 @@
+{#
+{
+  id:             "string",     #id-to-block
+  class:          "string",
+  initialNumber:  "integer",
+}
+#}
+{% set isNegative= (initialNumber|default(0) < 0) %}
+<span{{ (id|default(null)) ? " id="~id~"" }} class="counter-container{{ (isNegative)? " is-negative" }}{{ (class|default(null)) ? " "~class }}"
+  data-counter=""
+  data-counter-initial="{{ initialNumber }}" data-counter-keyup="{{ elementKeyup|default() }}">
+  <span class="counter font-poppins-m-11-uppercase">{{ initialNumber }}</span>
+</span>

@@ -1,0 +1,34 @@
+.avatar-container {
+  --element-avatar-size: 3.2rem;
+  &.size-24 {
+    --element-avatar-size: 2.4rem;
+  }
+  .avatar{
+    @include radius(100%);
+    @include flex-display();
+    @include justify-content(center);
+    @include align-items(center);
+    @include box-shadow(0,0,.2rem,0,var(--color-shadow-black-rgba-10), inset);
+    width: var(--element-avatar-size);
+    aspect-ratio: 1;
+    overflow: hidden;
+    &.type-initial {
+      background: var(--color-user);
+      .default {
+        color: var(--element-avatar-color,var(--color-black));
+      }
+    }
+    &.type-image {
+      .content-image {
+        @include image-cover(cover);
+        img {
+          width: 100%;
+          height:100%;
+        }
+      }
+    }
+    .entitled {
+      display: none;
+    }
+  }
+}

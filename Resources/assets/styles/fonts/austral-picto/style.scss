@@ -1,0 +1,2320 @@
+@import "variables";
+
+@font-face {
+  font-family: '#{$icomoon-font-family}';
+  src:  url('#{$icomoon-font-path}/#{$icomoon-font-family}.eot?6gvw7w');
+  src:  url('#{$icomoon-font-path}/#{$icomoon-font-family}.eot?6gvw7w#iefix') format('embedded-opentype'),
+    url('#{$icomoon-font-path}/#{$icomoon-font-family}.ttf?6gvw7w') format('truetype'),
+    url('#{$icomoon-font-path}/#{$icomoon-font-family}.woff?6gvw7w') format('woff'),
+    url('#{$icomoon-font-path}/#{$icomoon-font-family}.svg?6gvw7w##{$icomoon-font-family}') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="austral-picto-"], [class*=" austral-picto-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: '#{$icomoon-font-family}' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.austral-picto-company {
+  &:before {
+    content: $austral-picto-company; 
+  }
+}
+.austral-picto-home {
+  &:before {
+    content: $austral-picto-home; 
+  }
+}
+.austral-picto-home-bis {
+  &:before {
+    content: $austral-picto-home-bis; 
+  }
+}
+.austral-picto-pizza {
+  &:before {
+    content: $austral-picto-pizza; 
+  }
+}
+.austral-picto-caution {
+  &:before {
+    content: $austral-picto-caution; 
+  }
+}
+.austral-picto-alerte-octagon {
+  &:before {
+    content: $austral-picto-alerte-octagon; 
+  }
+}
+.austral-picto-ban {
+  &:before {
+    content: $austral-picto-ban; 
+  }
+}
+.austral-picto-interdict {
+  &:before {
+    content: $austral-picto-interdict; 
+  }
+}
+.austral-picto-power {
+  &:before {
+    content: $austral-picto-power; 
+  }
+}
+.austral-picto-minus {
+  &:before {
+    content: $austral-picto-minus; 
+  }
+}
+.austral-picto-equal {
+  &:before {
+    content: $austral-picto-equal; 
+  }
+}
+.austral-picto-not-equal {
+  &:before {
+    content: $austral-picto-not-equal; 
+  }
+}
+.austral-picto-menu {
+  &:before {
+    content: $austral-picto-menu; 
+  }
+}
+.austral-picto-list-add {
+  &:before {
+    content: $austral-picto-list-add; 
+  }
+}
+.austral-picto-list-ol {
+  &:before {
+    content: $austral-picto-list-ol; 
+  }
+}
+.austral-picto-list-ul {
+  &:before {
+    content: $austral-picto-list-ul; 
+  }
+}
+.austral-picto-gantt {
+  &:before {
+    content: $austral-picto-gantt; 
+  }
+}
+.austral-picto-align-center {
+  &:before {
+    content: $austral-picto-align-center; 
+  }
+}
+.austral-picto-align-justify {
+  &:before {
+    content: $austral-picto-align-justify; 
+  }
+}
+.austral-picto-align-left {
+  &:before {
+    content: $austral-picto-align-left; 
+  }
+}
+.austral-picto-align-right {
+  &:before {
+    content: $austral-picto-align-right; 
+  }
+}
+.austral-picto-indent-less {
+  &:before {
+    content: $austral-picto-indent-less; 
+  }
+}
+.austral-picto-indent-more {
+  &:before {
+    content: $austral-picto-indent-more; 
+  }
+}
+.austral-picto-arrange {
+  &:before {
+    content: $austral-picto-arrange; 
+  }
+}
+.austral-picto-arrow-down {
+  &:before {
+    content: $austral-picto-arrow-down; 
+  }
+}
+.austral-picto-arrow-left {
+  &:before {
+    content: $austral-picto-arrow-left; 
+  }
+}
+.austral-picto-arrow-leftdown {
+  &:before {
+    content: $austral-picto-arrow-leftdown; 
+  }
+}
+.austral-picto-arrow-leftup {
+  &:before {
+    content: $austral-picto-arrow-leftup; 
+  }
+}
+.austral-picto-arrow-right {
+  &:before {
+    content: $austral-picto-arrow-right; 
+  }
+}
+.austral-picto-arrow-rightdown {
+  &:before {
+    content: $austral-picto-arrow-rightdown; 
+  }
+}
+.austral-picto-arrow-rightup {
+  &:before {
+    content: $austral-picto-arrow-rightup; 
+  }
+}
+.austral-picto-arrow-up {
+  &:before {
+    content: $austral-picto-arrow-up; 
+  }
+}
+.austral-picto-corner-rearward {
+  &:before {
+    content: $austral-picto-corner-rearward; 
+  }
+}
+.austral-picto-corner-forward {
+  &:before {
+    content: $austral-picto-corner-forward; 
+  }
+}
+.austral-picto-corner-down-left {
+  &:before {
+    content: $austral-picto-corner-down-left; 
+  }
+}
+.austral-picto-corner-down-right {
+  &:before {
+    content: $austral-picto-corner-down-right; 
+  }
+}
+.austral-picto-corner-left-down {
+  &:before {
+    content: $austral-picto-corner-left-down; 
+  }
+}
+.austral-picto-corner-left-up {
+  &:before {
+    content: $austral-picto-corner-left-up; 
+  }
+}
+.austral-picto-corner-right-down {
+  &:before {
+    content: $austral-picto-corner-right-down; 
+  }
+}
+.austral-picto-corner-right-up {
+  &:before {
+    content: $austral-picto-corner-right-up; 
+  }
+}
+.austral-picto-corner-up-left {
+  &:before {
+    content: $austral-picto-corner-up-left; 
+  }
+}
+.austral-picto-corner-up-right {
+  &:before {
+    content: $austral-picto-corner-up-right; 
+  }
+}
+.austral-picto-switch {
+  &:before {
+    content: $austral-picto-switch; 
+  }
+}
+.austral-picto-minimize {
+  &:before {
+    content: $austral-picto-minimize; 
+  }
+}
+.austral-picto-maximize {
+  &:before {
+    content: $austral-picto-maximize; 
+  }
+}
+.austral-picto-move {
+  &:before {
+    content: $austral-picto-move; 
+  }
+}
+.austral-picto-go-in {
+  &:before {
+    content: $austral-picto-go-in; 
+  }
+}
+.austral-picto-go-out {
+  &:before {
+    content: $austral-picto-go-out; 
+  }
+}
+.austral-picto-log-in {
+  &:before {
+    content: $austral-picto-log-in; 
+  }
+}
+.austral-picto-log-out {
+  &:before {
+    content: $austral-picto-log-out; 
+  }
+}
+.austral-picto-box-in {
+  &:before {
+    content: $austral-picto-box-in; 
+  }
+}
+.austral-picto-box-out {
+  &:before {
+    content: $austral-picto-box-out; 
+  }
+}
+.austral-picto-simply-left {
+  &:before {
+    content: $austral-picto-simply-left; 
+  }
+}
+.austral-picto-simply-down {
+  &:before {
+    content: $austral-picto-simply-down; 
+  }
+}
+.austral-picto-simply-right {
+  &:before {
+    content: $austral-picto-simply-right; 
+  }
+}
+.austral-picto-simply-up {
+  &:before {
+    content: $austral-picto-simply-up; 
+  }
+}
+.austral-picto-chevrons-left {
+  &:before {
+    content: $austral-picto-chevrons-left; 
+  }
+}
+.austral-picto-chevrons-down {
+  &:before {
+    content: $austral-picto-chevrons-down; 
+  }
+}
+.austral-picto-chevrons-right {
+  &:before {
+    content: $austral-picto-chevrons-right; 
+  }
+}
+.austral-picto-chevrons-up {
+  &:before {
+    content: $austral-picto-chevrons-up; 
+  }
+}
+.austral-picto-check {
+  &:before {
+    content: $austral-picto-check; 
+  }
+}
+.austral-picto-plus {
+  &:before {
+    content: $austral-picto-plus; 
+  }
+}
+.austral-picto-cross {
+  &:before {
+    content: $austral-picto-cross; 
+  }
+}
+.austral-picto-rotate-anticlockwise {
+  &:before {
+    content: $austral-picto-rotate-anticlockwise; 
+  }
+}
+.austral-picto-rotate-clockwise {
+  &:before {
+    content: $austral-picto-rotate-clockwise; 
+  }
+}
+.austral-picto-refresh {
+  &:before {
+    content: $austral-picto-refresh; 
+  }
+}
+.austral-picto-refresh-ccw {
+  &:before {
+    content: $austral-picto-refresh-ccw; 
+  }
+}
+.austral-picto-refresh-cw {
+  &:before {
+    content: $austral-picto-refresh-cw; 
+  }
+}
+.austral-picto-repeat {
+  &:before {
+    content: $austral-picto-repeat; 
+  }
+}
+.austral-picto-shuffle {
+  &:before {
+    content: $austral-picto-shuffle; 
+  }
+}
+.austral-picto-code {
+  &:before {
+    content: $austral-picto-code; 
+  }
+}
+.austral-picto-circle-info {
+  &:before {
+    content: $austral-picto-circle-info; 
+  }
+}
+.austral-picto-circle-alert {
+  &:before {
+    content: $austral-picto-circle-alert; 
+  }
+}
+.austral-picto-circle-help {
+  &:before {
+    content: $austral-picto-circle-help; 
+  }
+}
+.austral-picto-circle-check-out {
+  &:before {
+    content: $austral-picto-circle-check-out; 
+  }
+}
+.austral-picto-circle-check {
+  &:before {
+    content: $austral-picto-circle-check; 
+  }
+}
+.austral-picto-circle-cross {
+  &:before {
+    content: $austral-picto-circle-cross; 
+  }
+}
+.austral-picto-circle-minus {
+  &:before {
+    content: $austral-picto-circle-minus; 
+  }
+}
+.austral-picto-circle-plus {
+  &:before {
+    content: $austral-picto-circle-plus; 
+  }
+}
+.austral-picto-circle-play {
+  &:before {
+    content: $austral-picto-circle-play; 
+  }
+}
+.austral-picto-circle-pause {
+  &:before {
+    content: $austral-picto-circle-pause; 
+  }
+}
+.austral-picto-circle-stop {
+  &:before {
+    content: $austral-picto-circle-stop; 
+  }
+}
+.austral-picto-circle-arrow-down {
+  &:before {
+    content: $austral-picto-circle-arrow-down; 
+  }
+}
+.austral-picto-circle-arrow-left {
+  &:before {
+    content: $austral-picto-circle-arrow-left; 
+  }
+}
+.austral-picto-circle-arrow-right {
+  &:before {
+    content: $austral-picto-circle-arrow-right; 
+  }
+}
+.austral-picto-circle-arrow-up {
+  &:before {
+    content: $austral-picto-circle-arrow-up; 
+  }
+}
+.austral-picto-octagon-cross {
+  &:before {
+    content: $austral-picto-octagon-cross; 
+  }
+}
+.austral-picto-copy {
+  &:before {
+    content: $austral-picto-copy; 
+  }
+}
+.austral-picto-stack {
+  &:before {
+    content: $austral-picto-stack; 
+  }
+}
+.austral-picto-stack-2 {
+  &:before {
+    content: $austral-picto-stack-2; 
+  }
+}
+.austral-picto-square-help {
+  &:before {
+    content: $austral-picto-square-help; 
+  }
+}
+.austral-picto-square-check-out {
+  &:before {
+    content: $austral-picto-square-check-out; 
+  }
+}
+.austral-picto-square-check {
+  &:before {
+    content: $austral-picto-square-check; 
+  }
+}
+.austral-picto-square-cross {
+  &:before {
+    content: $austral-picto-square-cross; 
+  }
+}
+.austral-picto-square-minus {
+  &:before {
+    content: $austral-picto-square-minus; 
+  }
+}
+.austral-picto-square-plus {
+  &:before {
+    content: $austral-picto-square-plus; 
+  }
+}
+.austral-picto-marquee {
+  &:before {
+    content: $austral-picto-marquee; 
+  }
+}
+.austral-picto-marquee-minus {
+  &:before {
+    content: $austral-picto-marquee-minus; 
+  }
+}
+.austral-picto-marquee-plus {
+  &:before {
+    content: $austral-picto-marquee-plus; 
+  }
+}
+.austral-picto-clipboard {
+  &:before {
+    content: $austral-picto-clipboard; 
+  }
+}
+.austral-picto-paper-stack {
+  &:before {
+    content: $austral-picto-paper-stack; 
+  }
+}
+.austral-picto-file {
+  &:before {
+    content: $austral-picto-file; 
+  }
+}
+.austral-picto-file-add {
+  &:before {
+    content: $austral-picto-file-add; 
+  }
+}
+.austral-picto-file-subtract {
+  &:before {
+    content: $austral-picto-file-subtract; 
+  }
+}
+.austral-picto-file-text {
+  &:before {
+    content: $austral-picto-file-text; 
+  }
+}
+.austral-picto-file-paper {
+  &:before {
+    content: $austral-picto-file-paper; 
+  }
+}
+.austral-picto-file-check {
+  &:before {
+    content: $austral-picto-file-check; 
+  }
+}
+.austral-picto-file-cross {
+  &:before {
+    content: $austral-picto-file-cross; 
+  }
+}
+.austral-picto-file-download {
+  &:before {
+    content: $austral-picto-file-download; 
+  }
+}
+.austral-picto-file-upload {
+  &:before {
+    content: $austral-picto-file-upload; 
+  }
+}
+.austral-picto-download {
+  &:before {
+    content: $austral-picto-download; 
+  }
+}
+.austral-picto-upload {
+  &:before {
+    content: $austral-picto-upload; 
+  }
+}
+.austral-picto-open {
+  &:before {
+    content: $austral-picto-open; 
+  }
+}
+.austral-picto-sliders {
+  &:before {
+    content: $austral-picto-sliders; 
+  }
+}
+.austral-picto-cog {
+  &:before {
+    content: $austral-picto-cog; 
+  }
+}
+.austral-picto-tool {
+  &:before {
+    content: $austral-picto-tool; 
+  }
+}
+.austral-picto-paper-clip {
+  &:before {
+    content: $austral-picto-paper-clip; 
+  }
+}
+.austral-picto-save {
+  &:before {
+    content: $austral-picto-save; 
+  }
+}
+.austral-picto-feather {
+  &:before {
+    content: $austral-picto-feather; 
+  }
+}
+.austral-picto-pen {
+  &:before {
+    content: $austral-picto-pen; 
+  }
+}
+.austral-picto-edit {
+  &:before {
+    content: $austral-picto-edit; 
+  }
+}
+.austral-picto-edit-2 {
+  &:before {
+    content: $austral-picto-edit-2; 
+  }
+}
+.austral-picto-edit-3 {
+  &:before {
+    content: $austral-picto-edit-3; 
+  }
+}
+.austral-picto-trash {
+  &:before {
+    content: $austral-picto-trash; 
+  }
+}
+.austral-picto-trash-2 {
+  &:before {
+    content: $austral-picto-trash-2; 
+  }
+}
+.austral-picto-folder {
+  &:before {
+    content: $austral-picto-folder; 
+  }
+}
+.austral-picto-folder-add {
+  &:before {
+    content: $austral-picto-folder-add; 
+  }
+}
+.austral-picto-folder-subtract {
+  &:before {
+    content: $austral-picto-folder-subtract; 
+  }
+}
+.austral-picto-cloud {
+  &:before {
+    content: $austral-picto-cloud; 
+  }
+}
+.austral-picto-cloud-download {
+  &:before {
+    content: $austral-picto-cloud-download; 
+  }
+}
+.austral-picto-cloud-upload {
+  &:before {
+    content: $austral-picto-cloud-upload; 
+  }
+}
+.austral-picto-cloud-upload-2 {
+  &:before {
+    content: $austral-picto-cloud-upload-2; 
+  }
+}
+.austral-picto-unlock {
+  &:before {
+    content: $austral-picto-unlock; 
+  }
+}
+.austral-picto-lock {
+  &:before {
+    content: $austral-picto-lock; 
+  }
+}
+.austral-picto-shield {
+  &:before {
+    content: $austral-picto-shield; 
+  }
+}
+.austral-picto-shield-off {
+  &:before {
+    content: $austral-picto-shield-off; 
+  }
+}
+.austral-picto-eye {
+  &:before {
+    content: $austral-picto-eye; 
+  }
+}
+.austral-picto-eyenot {
+  &:before {
+    content: $austral-picto-eyenot; 
+  }
+}
+.austral-picto-location {
+  &:before {
+    content: $austral-picto-location; 
+  }
+}
+.austral-picto-zoom-in {
+  &:before {
+    content: $austral-picto-zoom-in; 
+  }
+}
+.austral-picto-zoom-out {
+  &:before {
+    content: $austral-picto-zoom-out; 
+  }
+}
+.austral-picto-search {
+  &:before {
+    content: $austral-picto-search; 
+  }
+}
+.austral-picto-head {
+  &:before {
+    content: $austral-picto-head; 
+  }
+}
+.austral-picto-user {
+  &:before {
+    content: $austral-picto-user; 
+  }
+}
+.austral-picto-user-check {
+  &:before {
+    content: $austral-picto-user-check; 
+  }
+}
+.austral-picto-user-minus {
+  &:before {
+    content: $austral-picto-user-minus; 
+  }
+}
+.austral-picto-user-plus {
+  &:before {
+    content: $austral-picto-user-plus; 
+  }
+}
+.austral-picto-user-cross {
+  &:before {
+    content: $austral-picto-user-cross; 
+  }
+}
+.austral-picto-users {
+  &:before {
+    content: $austral-picto-users; 
+  }
+}
+.austral-picto-woman {
+  &:before {
+    content: $austral-picto-woman; 
+  }
+}
+.austral-picto-man {
+  &:before {
+    content: $austral-picto-man; 
+  }
+}
+.austral-picto-handicap-access {
+  &:before {
+    content: $austral-picto-handicap-access; 
+  }
+}
+.austral-picto-message-circle {
+  &:before {
+    content: $austral-picto-message-circle; 
+  }
+}
+.austral-picto-speech-bubble {
+  &:before {
+    content: $austral-picto-speech-bubble; 
+  }
+}
+.austral-picto-speech-bubble-full {
+  &:before {
+    content: $austral-picto-speech-bubble-full; 
+  }
+}
+.austral-picto-speech-bubble-message {
+  &:before {
+    content: $austral-picto-speech-bubble-message; 
+  }
+}
+.austral-picto-heart {
+  &:before {
+    content: $austral-picto-heart; 
+  }
+}
+.austral-picto-heart-full {
+  &:before {
+    content: $austral-picto-heart-full; 
+  }
+}
+.austral-picto-star {
+  &:before {
+    content: $austral-picto-star; 
+  }
+}
+.austral-picto-star-full {
+  &:before {
+    content: $austral-picto-star-full; 
+  }
+}
+.austral-picto-bar-graph {
+  &:before {
+    content: $austral-picto-bar-graph; 
+  }
+}
+.austral-picto-bar-graph-2 {
+  &:before {
+    content: $austral-picto-bar-graph-2; 
+  }
+}
+.austral-picto-bell {
+  &:before {
+    content: $austral-picto-bell; 
+  }
+}
+.austral-picto-bell-2 {
+  &:before {
+    content: $austral-picto-bell-2; 
+  }
+}
+.austral-picto-bell-off {
+  &:before {
+    content: $austral-picto-bell-off; 
+  }
+}
+.austral-picto-globe {
+  &:before {
+    content: $austral-picto-globe; 
+  }
+}
+.austral-picto-aperture {
+  &:before {
+    content: $austral-picto-aperture; 
+  }
+}
+.austral-picto-help {
+  &:before {
+    content: $austral-picto-help; 
+  }
+}
+.austral-picto-charts {
+  &:before {
+    content: $austral-picto-charts; 
+  }
+}
+.austral-picto-charts-2 {
+  &:before {
+    content: $austral-picto-charts-2; 
+  }
+}
+.austral-picto-charts-3 {
+  &:before {
+    content: $austral-picto-charts-3; 
+  }
+}
+.austral-picto-pie-graph {
+  &:before {
+    content: $austral-picto-pie-graph; 
+  }
+}
+.austral-picto-pie-chart {
+  &:before {
+    content: $austral-picto-pie-chart; 
+  }
+}
+.austral-picto-circles {
+  &:before {
+    content: $austral-picto-circles; 
+  }
+}
+.austral-picto-record {
+  &:before {
+    content: $austral-picto-record; 
+  }
+}
+.austral-picto-circle {
+  &:before {
+    content: $austral-picto-circle; 
+  }
+}
+.austral-picto-disc {
+  &:before {
+    content: $austral-picto-disc; 
+  }
+}
+.austral-picto-target {
+  &:before {
+    content: $austral-picto-target; 
+  }
+}
+.austral-picto-infinity {
+  &:before {
+    content: $austral-picto-infinity; 
+  }
+}
+.austral-picto-calendar {
+  &:before {
+    content: $austral-picto-calendar; 
+  }
+}
+.austral-picto-calendar-2 {
+  &:before {
+    content: $austral-picto-calendar-2; 
+  }
+}
+.austral-picto-chrono {
+  &:before {
+    content: $austral-picto-chrono; 
+  }
+}
+.austral-picto-clock {
+  &:before {
+    content: $austral-picto-clock; 
+  }
+}
+.austral-picto-watch {
+  &:before {
+    content: $austral-picto-watch; 
+  }
+}
+.austral-picto-clock-2 {
+  &:before {
+    content: $austral-picto-clock-2; 
+  }
+}
+.austral-picto-historic {
+  &:before {
+    content: $austral-picto-historic; 
+  }
+}
+.austral-picto-hourglass {
+  &:before {
+    content: $austral-picto-hourglass; 
+  }
+}
+.austral-picto-columns {
+  &:before {
+    content: $austral-picto-columns; 
+  }
+}
+.austral-picto-columns-2 {
+  &:before {
+    content: $austral-picto-columns-2; 
+  }
+}
+.austral-picto-sidebar {
+  &:before {
+    content: $austral-picto-sidebar; 
+  }
+}
+.austral-picto-layout {
+  &:before {
+    content: $austral-picto-layout; 
+  }
+}
+.austral-picto-layout-2 {
+  &:before {
+    content: $austral-picto-layout-2; 
+  }
+}
+.austral-picto-content-left {
+  &:before {
+    content: $austral-picto-content-left; 
+  }
+}
+.austral-picto-content-right {
+  &:before {
+    content: $austral-picto-content-right; 
+  }
+}
+.austral-picto-grid-2 {
+  &:before {
+    content: $austral-picto-grid-2; 
+  }
+}
+.austral-picto-qrcode {
+  &:before {
+    content: $austral-picto-qrcode; 
+  }
+}
+.austral-picto-grid {
+  &:before {
+    content: $austral-picto-grid; 
+  }
+}
+.austral-picto-list {
+  &:before {
+    content: $austral-picto-list; 
+  }
+}
+.austral-picto-cube {
+  &:before {
+    content: $austral-picto-cube; 
+  }
+}
+.austral-picto-figure {
+  &:before {
+    content: $austral-picto-figure; 
+  }
+}
+.austral-picto-expand {
+  &:before {
+    content: $austral-picto-expand; 
+  }
+}
+.austral-picto-contract {
+  &:before {
+    content: $austral-picto-contract; 
+  }
+}
+.austral-picto-credit-card {
+  &:before {
+    content: $austral-picto-credit-card; 
+  }
+}
+.austral-picto-credit-card-2 {
+  &:before {
+    content: $austral-picto-credit-card-2; 
+  }
+}
+.austral-picto-ellipsis {
+  &:before {
+    content: $austral-picto-ellipsis; 
+  }
+}
+.austral-picto-ellipsis-vertical {
+  &:before {
+    content: $austral-picto-ellipsis-vertical; 
+  }
+}
+.austral-picto-more-horizontal {
+  &:before {
+    content: $austral-picto-more-horizontal; 
+  }
+}
+.austral-picto-more-vertical {
+  &:before {
+    content: $austral-picto-more-vertical; 
+  }
+}
+.austral-picto-hexagon {
+  &:before {
+    content: $austral-picto-hexagon; 
+  }
+}
+.austral-picto-octagon {
+  &:before {
+    content: $austral-picto-octagon; 
+  }
+}
+.austral-picto-square {
+  &:before {
+    content: $austral-picto-square; 
+  }
+}
+.austral-picto-square-full {
+  &:before {
+    content: $austral-picto-square-full; 
+  }
+}
+.austral-picto-stop {
+  &:before {
+    content: $austral-picto-stop; 
+  }
+}
+.austral-picto-lozenge {
+  &:before {
+    content: $austral-picto-lozenge; 
+  }
+}
+.austral-picto-lozenge-full {
+  &:before {
+    content: $austral-picto-lozenge-full; 
+  }
+}
+.austral-picto-triangle {
+  &:before {
+    content: $austral-picto-triangle; 
+  }
+}
+.austral-picto-up {
+  &:before {
+    content: $austral-picto-up; 
+  }
+}
+.austral-picto-down {
+  &:before {
+    content: $austral-picto-down; 
+  }
+}
+.austral-picto-mail {
+  &:before {
+    content: $austral-picto-mail; 
+  }
+}
+.austral-picto-arobase {
+  &:before {
+    content: $austral-picto-arobase; 
+  }
+}
+.austral-picto-phone {
+  &:before {
+    content: $austral-picto-phone; 
+  }
+}
+.austral-picto-phone-full {
+  &:before {
+    content: $austral-picto-phone-full; 
+  }
+}
+.austral-picto-phone-call {
+  &:before {
+    content: $austral-picto-phone-call; 
+  }
+}
+.austral-picto-phone-forwarded {
+  &:before {
+    content: $austral-picto-phone-forwarded; 
+  }
+}
+.austral-picto-phone-incoming {
+  &:before {
+    content: $austral-picto-phone-incoming; 
+  }
+}
+.austral-picto-phone-missed {
+  &:before {
+    content: $austral-picto-phone-missed; 
+  }
+}
+.austral-picto-phone-off {
+  &:before {
+    content: $austral-picto-phone-off; 
+  }
+}
+.austral-picto-phone-outgoing {
+  &:before {
+    content: $austral-picto-phone-outgoing; 
+  }
+}
+.austral-picto-compass {
+  &:before {
+    content: $austral-picto-compass; 
+  }
+}
+.austral-picto-pin {
+  &:before {
+    content: $austral-picto-pin; 
+  }
+}
+.austral-picto-map {
+  &:before {
+    content: $austral-picto-map; 
+  }
+}
+.austral-picto-bluetooth {
+  &:before {
+    content: $austral-picto-bluetooth; 
+  }
+}
+.austral-picto-wifi {
+  &:before {
+    content: $austral-picto-wifi; 
+  }
+}
+.austral-picto-wifi-off {
+  &:before {
+    content: $austral-picto-wifi-off; 
+  }
+}
+.austral-picto-rss-light {
+  &:before {
+    content: $austral-picto-rss-light; 
+  }
+}
+.austral-picto-radio {
+  &:before {
+    content: $austral-picto-radio; 
+  }
+}
+.austral-picto-media-rewind-fast {
+  &:before {
+    content: $austral-picto-media-rewind-fast; 
+  }
+}
+.austral-picto-media-forward-fast {
+  &:before {
+    content: $austral-picto-media-forward-fast; 
+  }
+}
+.austral-picto-media-rewind {
+  &:before {
+    content: $austral-picto-media-rewind; 
+  }
+}
+.austral-picto-media-forward {
+  &:before {
+    content: $austral-picto-media-forward; 
+  }
+}
+.austral-picto-media-rewind-2 {
+  &:before {
+    content: $austral-picto-media-rewind-2; 
+  }
+}
+.austral-picto-media-forward-2 {
+  &:before {
+    content: $austral-picto-media-forward-2; 
+  }
+}
+.austral-picto-media-rewind-3 {
+  &:before {
+    content: $austral-picto-media-rewind-3; 
+  }
+}
+.austral-picto-media-forward-3 {
+  &:before {
+    content: $austral-picto-media-forward-3; 
+  }
+}
+.austral-picto-play {
+  &:before {
+    content: $austral-picto-play; 
+  }
+}
+.austral-picto-play-full {
+  &:before {
+    content: $austral-picto-play-full; 
+  }
+}
+.austral-picto-pause {
+  &:before {
+    content: $austral-picto-pause; 
+  }
+}
+.austral-picto-pause-2 {
+  &:before {
+    content: $austral-picto-pause-2; 
+  }
+}
+.austral-picto-mic {
+  &:before {
+    content: $austral-picto-mic; 
+  }
+}
+.austral-picto-mic-off {
+  &:before {
+    content: $austral-picto-mic-off; 
+  }
+}
+.austral-picto-headphone {
+  &:before {
+    content: $austral-picto-headphone; 
+  }
+}
+.austral-picto-speaker {
+  &:before {
+    content: $austral-picto-speaker; 
+  }
+}
+.austral-picto-volume {
+  &:before {
+    content: $austral-picto-volume; 
+  }
+}
+.austral-picto-volume-middle {
+  &:before {
+    content: $austral-picto-volume-middle; 
+  }
+}
+.austral-picto-volume-full {
+  &:before {
+    content: $austral-picto-volume-full; 
+  }
+}
+.austral-picto-volume-mute {
+  &:before {
+    content: $austral-picto-volume-mute; 
+  }
+}
+.austral-picto-voicemail {
+  &:before {
+    content: $austral-picto-voicemail; 
+  }
+}
+.austral-picto-music {
+  &:before {
+    content: $austral-picto-music; 
+  }
+}
+.austral-picto-movie {
+  &:before {
+    content: $austral-picto-movie; 
+  }
+}
+.austral-picto-image {
+  &:before {
+    content: $austral-picto-image; 
+  }
+}
+.austral-picto-camera {
+  &:before {
+    content: $austral-picto-camera; 
+  }
+}
+.austral-picto-camera-off {
+  &:before {
+    content: $austral-picto-camera-off; 
+  }
+}
+.austral-picto-video {
+  &:before {
+    content: $austral-picto-video; 
+  }
+}
+.austral-picto-video-off {
+  &:before {
+    content: $austral-picto-video-off; 
+  }
+}
+.austral-picto-cast {
+  &:before {
+    content: $austral-picto-cast; 
+  }
+}
+.austral-picto-monitor {
+  &:before {
+    content: $austral-picto-monitor; 
+  }
+}
+.austral-picto-tv {
+  &:before {
+    content: $austral-picto-tv; 
+  }
+}
+.austral-picto-airplay {
+  &:before {
+    content: $austral-picto-airplay; 
+  }
+}
+.austral-picto-printer {
+  &:before {
+    content: $austral-picto-printer; 
+  }
+}
+.austral-picto-printer-2 {
+  &:before {
+    content: $austral-picto-printer-2; 
+  }
+}
+.austral-picto-mouse {
+  &:before {
+    content: $austral-picto-mouse; 
+  }
+}
+.austral-picto-pad {
+  &:before {
+    content: $austral-picto-pad; 
+  }
+}
+.austral-picto-tablet {
+  &:before {
+    content: $austral-picto-tablet; 
+  }
+}
+.austral-picto-smartphone {
+  &:before {
+    content: $austral-picto-smartphone; 
+  }
+}
+.austral-picto-analytics {
+  &:before {
+    content: $austral-picto-analytics; 
+  }
+}
+.austral-picto-activity {
+  &:before {
+    content: $austral-picto-activity; 
+  }
+}
+.austral-picto-trending-down {
+  &:before {
+    content: $austral-picto-trending-down; 
+  }
+}
+.austral-picto-trending-up {
+  &:before {
+    content: $austral-picto-trending-up; 
+  }
+}
+.austral-picto-bar-chart {
+  &:before {
+    content: $austral-picto-bar-chart; 
+  }
+}
+.austral-picto-bar-chart-2 {
+  &:before {
+    content: $austral-picto-bar-chart-2; 
+  }
+}
+.austral-picto-database {
+  &:before {
+    content: $austral-picto-database; 
+  }
+}
+.austral-picto-inbox {
+  &:before {
+    content: $austral-picto-inbox; 
+  }
+}
+.austral-picto-hard-drive {
+  &:before {
+    content: $austral-picto-hard-drive; 
+  }
+}
+.austral-picto-server {
+  &:before {
+    content: $austral-picto-server; 
+  }
+}
+.austral-picto-archive {
+  &:before {
+    content: $austral-picto-archive; 
+  }
+}
+.austral-picto-cpu {
+  &:before {
+    content: $austral-picto-cpu; 
+  }
+}
+.austral-picto-cpu-2 {
+  &:before {
+    content: $austral-picto-cpu-2; 
+  }
+}
+.austral-picto-speed {
+  &:before {
+    content: $austral-picto-speed; 
+  }
+}
+.austral-picto-spinner {
+  &:before {
+    content: $austral-picto-spinner; 
+  }
+}
+.austral-picto-toggle-left {
+  &:before {
+    content: $austral-picto-toggle-left; 
+  }
+}
+.austral-picto-toggle-right {
+  &:before {
+    content: $austral-picto-toggle-right; 
+  }
+}
+.austral-picto-hash {
+  &:before {
+    content: $austral-picto-hash; 
+  }
+}
+.austral-picto-percent {
+  &:before {
+    content: $austral-picto-percent; 
+  }
+}
+.austral-picto-euro {
+  &:before {
+    content: $austral-picto-euro; 
+  }
+}
+.austral-picto-dollar {
+  &:before {
+    content: $austral-picto-dollar; 
+  }
+}
+.austral-picto-anchor {
+  &:before {
+    content: $austral-picto-anchor; 
+  }
+}
+.austral-picto-anchor-2 {
+  &:before {
+    content: $austral-picto-anchor-2; 
+  }
+}
+.austral-picto-text {
+  &:before {
+    content: $austral-picto-text; 
+  }
+}
+.austral-picto-news {
+  &:before {
+    content: $austral-picto-news; 
+  }
+}
+.austral-picto-superior {
+  &:before {
+    content: $austral-picto-superior; 
+  }
+}
+.austral-picto-symbol {
+  &:before {
+    content: $austral-picto-symbol; 
+  }
+}
+.austral-picto-bold {
+  &:before {
+    content: $austral-picto-bold; 
+  }
+}
+.austral-picto-italic {
+  &:before {
+    content: $austral-picto-italic; 
+  }
+}
+.austral-picto-underline {
+  &:before {
+    content: $austral-picto-underline; 
+  }
+}
+.austral-picto-strike {
+  &:before {
+    content: $austral-picto-strike; 
+  }
+}
+.austral-picto-paragraph {
+  &:before {
+    content: $austral-picto-paragraph; 
+  }
+}
+.austral-picto-thumbtack {
+  &:before {
+    content: $austral-picto-thumbtack; 
+  }
+}
+.austral-picto-scissors {
+  &:before {
+    content: $austral-picto-scissors; 
+  }
+}
+.austral-picto-link {
+  &:before {
+    content: $austral-picto-link; 
+  }
+}
+.austral-picto-link-2 {
+  &:before {
+    content: $austral-picto-link-2; 
+  }
+}
+.austral-picto-info {
+  &:before {
+    content: $austral-picto-info; 
+  }
+}
+.austral-picto-smiley {
+  &:before {
+    content: $austral-picto-smiley; 
+  }
+}
+.austral-picto-meh {
+  &:before {
+    content: $austral-picto-meh; 
+  }
+}
+.austral-picto-frown {
+  &:before {
+    content: $austral-picto-frown; 
+  }
+}
+.austral-picto-what {
+  &:before {
+    content: $austral-picto-what; 
+  }
+}
+.austral-picto-resize {
+  &:before {
+    content: $austral-picto-resize; 
+  }
+}
+.austral-picto-slash {
+  &:before {
+    content: $austral-picto-slash; 
+  }
+}
+.austral-picto-antislash {
+  &:before {
+    content: $austral-picto-antislash; 
+  }
+}
+.austral-picto-award {
+  &:before {
+    content: $austral-picto-award; 
+  }
+}
+.austral-picto-lightning {
+  &:before {
+    content: $austral-picto-lightning; 
+  }
+}
+.austral-picto-zap-off {
+  &:before {
+    content: $austral-picto-zap-off; 
+  }
+}
+.austral-picto-battery {
+  &:before {
+    content: $austral-picto-battery; 
+  }
+}
+.austral-picto-battery-2 {
+  &:before {
+    content: $austral-picto-battery-2; 
+  }
+}
+.austral-picto-battery-full {
+  &:before {
+    content: $austral-picto-battery-full; 
+  }
+}
+.austral-picto-plug {
+  &:before {
+    content: $austral-picto-plug; 
+  }
+}
+.austral-picto-book {
+  &:before {
+    content: $austral-picto-book; 
+  }
+}
+.austral-picto-book-open {
+  &:before {
+    content: $austral-picto-book-open; 
+  }
+}
+.austral-picto-brief-case {
+  &:before {
+    content: $austral-picto-brief-case; 
+  }
+}
+.austral-picto-brief-case-2 {
+  &:before {
+    content: $austral-picto-brief-case-2; 
+  }
+}
+.austral-picto-code-pen {
+  &:before {
+    content: $austral-picto-code-pen; 
+  }
+}
+.austral-picto-code-sandbox {
+  &:before {
+    content: $austral-picto-code-sandbox; 
+  }
+}
+.austral-picto-box-big {
+  &:before {
+    content: $austral-picto-box-big; 
+  }
+}
+.austral-picto-package {
+  &:before {
+    content: $austral-picto-package; 
+  }
+}
+.austral-picto-box {
+  &:before {
+    content: $austral-picto-box; 
+  }
+}
+.austral-picto-box-2 {
+  &:before {
+    content: $austral-picto-box-2; 
+  }
+}
+.austral-picto-crop {
+  &:before {
+    content: $austral-picto-crop; 
+  }
+}
+.austral-picto-delete {
+  &:before {
+    content: $austral-picto-delete; 
+  }
+}
+.austral-picto-pocket {
+  &:before {
+    content: $austral-picto-pocket; 
+  }
+}
+.austral-picto-moon1 {
+  &:before {
+    content: $austral-picto-moon1; 
+  }
+}
+.austral-picto-loader {
+  &:before {
+    content: $austral-picto-loader; 
+  }
+}
+.austral-picto-droplet {
+  &:before {
+    content: $austral-picto-droplet; 
+  }
+}
+.austral-picto-thermometer {
+  &:before {
+    content: $austral-picto-thermometer; 
+  }
+}
+.austral-picto-gift {
+  &:before {
+    content: $austral-picto-gift; 
+  }
+}
+.austral-picto-branching {
+  &:before {
+    content: $austral-picto-branching; 
+  }
+}
+.austral-picto-points {
+  &:before {
+    content: $austral-picto-points; 
+  }
+}
+.austral-picto-share {
+  &:before {
+    content: $austral-picto-share; 
+  }
+}
+.austral-picto-git-branch {
+  &:before {
+    content: $austral-picto-git-branch; 
+  }
+}
+.austral-picto-git-commit {
+  &:before {
+    content: $austral-picto-git-commit; 
+  }
+}
+.austral-picto-git-merge {
+  &:before {
+    content: $austral-picto-git-merge; 
+  }
+}
+.austral-picto-git-pull-request {
+  &:before {
+    content: $austral-picto-git-pull-request; 
+  }
+}
+.austral-picto-layers {
+  &:before {
+    content: $austral-picto-layers; 
+  }
+}
+.austral-picto-layers-2 {
+  &:before {
+    content: $austral-picto-layers-2; 
+  }
+}
+.austral-picto-paperplane {
+  &:before {
+    content: $austral-picto-paperplane; 
+  }
+}
+.austral-picto-send {
+  &:before {
+    content: $austral-picto-send; 
+  }
+}
+.austral-picto-mouse-pointer {
+  &:before {
+    content: $austral-picto-mouse-pointer; 
+  }
+}
+.austral-picto-navigation {
+  &:before {
+    content: $austral-picto-navigation; 
+  }
+}
+.austral-picto-navigation-2 {
+  &:before {
+    content: $austral-picto-navigation-2; 
+  }
+}
+.austral-picto-filter {
+  &:before {
+    content: $austral-picto-filter; 
+  }
+}
+.austral-picto-filter-2 {
+  &:before {
+    content: $austral-picto-filter-2; 
+  }
+}
+.austral-picto-shopping-bag {
+  &:before {
+    content: $austral-picto-shopping-bag; 
+  }
+}
+.austral-picto-shopping-cart {
+  &:before {
+    content: $austral-picto-shopping-cart; 
+  }
+}
+.austral-picto-shop {
+  &:before {
+    content: $austral-picto-shop; 
+  }
+}
+.austral-picto-bag {
+  &:before {
+    content: $austral-picto-bag; 
+  }
+}
+.austral-picto-flag {
+  &:before {
+    content: $austral-picto-flag; 
+  }
+}
+.austral-picto-tag {
+  &:before {
+    content: $austral-picto-tag; 
+  }
+}
+.austral-picto-tag-2 {
+  &:before {
+    content: $austral-picto-tag-2; 
+  }
+}
+.austral-picto-ticket {
+  &:before {
+    content: $austral-picto-ticket; 
+  }
+}
+.austral-picto-receipt {
+  &:before {
+    content: $austral-picto-receipt; 
+  }
+}
+.austral-picto-ribbon {
+  &:before {
+    content: $austral-picto-ribbon; 
+  }
+}
+.austral-picto-terminal {
+  &:before {
+    content: $austral-picto-terminal; 
+  }
+}
+.austral-picto-amazon {
+  &:before {
+    content: $austral-picto-amazon; 
+  }
+}
+.austral-picto-google {
+  &:before {
+    content: $austral-picto-google; 
+  }
+}
+.austral-picto-google-2 {
+  &:before {
+    content: $austral-picto-google-2; 
+  }
+}
+.austral-picto-google-3 {
+  &:before {
+    content: $austral-picto-google-3; 
+  }
+}
+.austral-picto-google-plus {
+  &:before {
+    content: $austral-picto-google-plus; 
+  }
+}
+.austral-picto-google-plus-2 {
+  &:before {
+    content: $austral-picto-google-plus-2; 
+  }
+}
+.austral-picto-google-plus-3 {
+  &:before {
+    content: $austral-picto-google-plus-3; 
+  }
+}
+.austral-picto-hangouts {
+  &:before {
+    content: $austral-picto-hangouts; 
+  }
+}
+.austral-picto-google-drive {
+  &:before {
+    content: $austral-picto-google-drive; 
+  }
+}
+.austral-picto-facebook {
+  &:before {
+    content: $austral-picto-facebook; 
+  }
+}
+.austral-picto-facebook-2 {
+  &:before {
+    content: $austral-picto-facebook-2; 
+  }
+}
+.austral-picto-instagram {
+  &:before {
+    content: $austral-picto-instagram; 
+  }
+}
+.austral-picto-whatsapp {
+  &:before {
+    content: $austral-picto-whatsapp; 
+  }
+}
+.austral-picto-spotify {
+  &:before {
+    content: $austral-picto-spotify; 
+  }
+}
+.austral-picto-telegram {
+  &:before {
+    content: $austral-picto-telegram; 
+  }
+}
+.austral-picto-twitter {
+  &:before {
+    content: $austral-picto-twitter; 
+  }
+}
+.austral-picto-vine {
+  &:before {
+    content: $austral-picto-vine; 
+  }
+}
+.austral-picto-vk {
+  &:before {
+    content: $austral-picto-vk; 
+  }
+}
+.austral-picto-renren {
+  &:before {
+    content: $austral-picto-renren; 
+  }
+}
+.austral-picto-sina-weibo {
+  &:before {
+    content: $austral-picto-sina-weibo; 
+  }
+}
+.austral-picto-rss {
+  &:before {
+    content: $austral-picto-rss; 
+  }
+}
+.austral-picto-rss-2 {
+  &:before {
+    content: $austral-picto-rss-2; 
+  }
+}
+.austral-picto-youtube {
+  &:before {
+    content: $austral-picto-youtube; 
+  }
+}
+.austral-picto-youtube-2 {
+  &:before {
+    content: $austral-picto-youtube-2; 
+  }
+}
+.austral-picto-twitch {
+  &:before {
+    content: $austral-picto-twitch; 
+  }
+}
+.austral-picto-vimeo {
+  &:before {
+    content: $austral-picto-vimeo; 
+  }
+}
+.austral-picto-vimeo-2 {
+  &:before {
+    content: $austral-picto-vimeo-2; 
+  }
+}
+.austral-picto-lanyrd {
+  &:before {
+    content: $austral-picto-lanyrd; 
+  }
+}
+.austral-picto-flickr {
+  &:before {
+    content: $austral-picto-flickr; 
+  }
+}
+.austral-picto-flickr-2 {
+  &:before {
+    content: $austral-picto-flickr-2; 
+  }
+}
+.austral-picto-flickr-3 {
+  &:before {
+    content: $austral-picto-flickr-3; 
+  }
+}
+.austral-picto-flickr-4 {
+  &:before {
+    content: $austral-picto-flickr-4; 
+  }
+}
+.austral-picto-dribbble {
+  &:before {
+    content: $austral-picto-dribbble; 
+  }
+}
+.austral-picto-behance {
+  &:before {
+    content: $austral-picto-behance; 
+  }
+}
+.austral-picto-behance-2 {
+  &:before {
+    content: $austral-picto-behance-2; 
+  }
+}
+.austral-picto-deviantart {
+  &:before {
+    content: $austral-picto-deviantart; 
+  }
+}
+.austral-picto-500px {
+  &:before {
+    content: $austral-picto-500px; 
+  }
+}
+.austral-picto-steam {
+  &:before {
+    content: $austral-picto-steam; 
+  }
+}
+.austral-picto-steam-2 {
+  &:before {
+    content: $austral-picto-steam-2; 
+  }
+}
+.austral-picto-dropbox {
+  &:before {
+    content: $austral-picto-dropbox; 
+  }
+}
+.austral-picto-onedrive {
+  &:before {
+    content: $austral-picto-onedrive; 
+  }
+}
+.austral-picto-github {
+  &:before {
+    content: $austral-picto-github; 
+  }
+}
+.austral-picto-npm {
+  &:before {
+    content: $austral-picto-npm; 
+  }
+}
+.austral-picto-basecamp {
+  &:before {
+    content: $austral-picto-basecamp; 
+  }
+}
+.austral-picto-trello {
+  &:before {
+    content: $austral-picto-trello; 
+  }
+}
+.austral-picto-wordpress {
+  &:before {
+    content: $austral-picto-wordpress; 
+  }
+}
+.austral-picto-joomla {
+  &:before {
+    content: $austral-picto-joomla; 
+  }
+}
+.austral-picto-ello {
+  &:before {
+    content: $austral-picto-ello; 
+  }
+}
+.austral-picto-blogger {
+  &:before {
+    content: $austral-picto-blogger; 
+  }
+}
+.austral-picto-blogger-2 {
+  &:before {
+    content: $austral-picto-blogger-2; 
+  }
+}
+.austral-picto-tumblr {
+  &:before {
+    content: $austral-picto-tumblr; 
+  }
+}
+.austral-picto-tumblr-2 {
+  &:before {
+    content: $austral-picto-tumblr-2; 
+  }
+}
+.austral-picto-yahoo {
+  &:before {
+    content: $austral-picto-yahoo; 
+  }
+}
+.austral-picto-yahoo-2 {
+  &:before {
+    content: $austral-picto-yahoo-2; 
+  }
+}
+.austral-picto-tux {
+  &:before {
+    content: $austral-picto-tux; 
+  }
+}
+.austral-picto-apple-inc {
+  &:before {
+    content: $austral-picto-apple-inc; 
+  }
+}
+.austral-picto-finder {
+  &:before {
+    content: $austral-picto-finder; 
+  }
+}
+.austral-picto-android {
+  &:before {
+    content: $austral-picto-android; 
+  }
+}
+.austral-picto-windows {
+  &:before {
+    content: $austral-picto-windows; 
+  }
+}
+.austral-picto-windows-8 {
+  &:before {
+    content: $austral-picto-windows-8; 
+  }
+}
+.austral-picto-soundcloud {
+  &:before {
+    content: $austral-picto-soundcloud; 
+  }
+}
+.austral-picto-soundcloud-2 {
+  &:before {
+    content: $austral-picto-soundcloud-2; 
+  }
+}
+.austral-picto-skype {
+  &:before {
+    content: $austral-picto-skype; 
+  }
+}
+.austral-picto-reddit {
+  &:before {
+    content: $austral-picto-reddit; 
+  }
+}
+.austral-picto-hackernews {
+  &:before {
+    content: $austral-picto-hackernews; 
+  }
+}
+.austral-picto-wikipedia {
+  &:before {
+    content: $austral-picto-wikipedia; 
+  }
+}
+.austral-picto-linkedin {
+  &:before {
+    content: $austral-picto-linkedin; 
+  }
+}
+.austral-picto-linkedin-2 {
+  &:before {
+    content: $austral-picto-linkedin-2; 
+  }
+}
+.austral-picto-lastfm {
+  &:before {
+    content: $austral-picto-lastfm; 
+  }
+}
+.austral-picto-lastfm-2 {
+  &:before {
+    content: $austral-picto-lastfm-2; 
+  }
+}
+.austral-picto-delicious {
+  &:before {
+    content: $austral-picto-delicious; 
+  }
+}
+.austral-picto-stumbleupon {
+  &:before {
+    content: $austral-picto-stumbleupon; 
+  }
+}
+.austral-picto-stumbleupon-2 {
+  &:before {
+    content: $austral-picto-stumbleupon-2; 
+  }
+}
+.austral-picto-stackoverflow {
+  &:before {
+    content: $austral-picto-stackoverflow; 
+  }
+}
+.austral-picto-pinterest {
+  &:before {
+    content: $austral-picto-pinterest; 
+  }
+}
+.austral-picto-pinterest-2 {
+  &:before {
+    content: $austral-picto-pinterest-2; 
+  }
+}
+.austral-picto-xing {
+  &:before {
+    content: $austral-picto-xing; 
+  }
+}
+.austral-picto-xing-2 {
+  &:before {
+    content: $austral-picto-xing-2; 
+  }
+}
+.austral-picto-flattr {
+  &:before {
+    content: $austral-picto-flattr; 
+  }
+}
+.austral-picto-foursquare {
+  &:before {
+    content: $austral-picto-foursquare; 
+  }
+}
+.austral-picto-yelp {
+  &:before {
+    content: $austral-picto-yelp; 
+  }
+}
+.austral-picto-paypal {
+  &:before {
+    content: $austral-picto-paypal; 
+  }
+}
+.austral-picto-chrome {
+  &:before {
+    content: $austral-picto-chrome; 
+  }
+}
+.austral-picto-firefox {
+  &:before {
+    content: $austral-picto-firefox; 
+  }
+}
+.austral-picto-IE {
+  &:before {
+    content: $austral-picto-IE; 
+  }
+}
+.austral-picto-edge {
+  &:before {
+    content: $austral-picto-edge; 
+  }
+}
+.austral-picto-safari {
+  &:before {
+    content: $austral-picto-safari; 
+  }
+}
+.austral-picto-opera {
+  &:before {
+    content: $austral-picto-opera; 
+  }
+}
+

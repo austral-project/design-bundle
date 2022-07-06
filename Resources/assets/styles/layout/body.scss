@@ -1,0 +1,36 @@
+html {
+  font-size: 62.5%;
+  scrollbar-width: none;
+}
+body {
+  padding: 0 !important;
+  color: var(--color-black);
+  background: var(--color-white);
+  &.load {
+    cursor: wait !important;
+    * {
+      cursor: wait !important;
+    }
+  }
+  &.sb-main-padded
+  {
+    &.sb-show-main {
+      padding: 2rem !important;
+    }
+  }
+  *[id^="story--"]{
+    overflow: visible !important;
+  }
+}
+#body-master {
+  @include flex-display();
+  @include justify-content(flex-start);
+  @include align-content(flex-start);
+  @include align-items(flex-start);
+}
+#container-master {
+  flex:1;
+}
+.margin-left-auto {
+  margin-left: auto;
+}

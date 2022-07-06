@@ -1,0 +1,40 @@
+<div class="grid grid--no-gutters">
+  <div class="row">
+    <div class="col col--xs-12">
+      <table>
+        <thead>
+          <tr>
+            <th><span class="font-poppins-m-12">Class name</span></th>
+            <th><span class="font-poppins-m-12">Familly</span></th>
+            <th><span class="font-poppins-m-12">Weight</span></th>
+            <th class="col--align-center"><span class="font-poppins-m-12">Size</span></th>
+            <th class="col--align-right"><span class="font-poppins-m-12">Line-height</span></th>
+            <th class="col--align-right"><span class="font-poppins-m-12">Letter-spacing</span></th>
+            <th class="col--align-right"><span class="font-poppins-m-12">Uppercase</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for cssClass, values in fonts %}
+            <tr>
+              <td>
+                {% if values.value is defined %}
+                  <span class="{{ cssClass }} {{ values.css is defined ? values.css : ""}} block pb5">{{ values.value|raw() }}</span>
+                  <span class="font-poppins-m-12">{{ cssClass }}</span>
+                {% else %}
+                  <span class="{{ cssClass }} {{ values.css is defined ? values.css : ""}} ">{{ cssClass }}</span>
+                {% endif %}
+              </td>
+              <td><span class="font-poppins-m-12">{{ values.fontName }}</span></td>
+              <td><span class="font-poppins-m-12">{{ values.weight }}</span></td>
+              <td class="col--align-center"><span class="font-poppins-m-12">{{ values.size }}</span></td>
+              <td class="col--align-right"><span class="font-poppins-m-12">{{ values.lineHeight }}</span></td>
+              <td class="col--align-right"><span class="font-poppins-m-12">{{ values.letterSpacing }}</span></td>
+              <td class="col--align-right"><span class="font-poppins-m-12">{{ values.uppercase }}</span></td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+

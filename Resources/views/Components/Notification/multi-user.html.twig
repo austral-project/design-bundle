@@ -1,0 +1,56 @@
+{#
+  id:             "string",     #id-to-block
+  class:          "string",     is-open
+  users:         [
+    {
+      image:      "string|null",  #If (src-image) exist
+      firstname:  "string",
+      lastname:   "string"
+    }
+  ]
+#}
+<div{{ (id|default(null)) ? " id="~id~"" }} data-multi-user="" class="notification-multi-user-container{{ (class|default(null)) ? " "~class }}">
+  <div class="popup-container small-size">
+    <div class="popup-content">
+      <div class="content-button-close">
+        {{ include("@AustralDesign/Components/Button/picto.html.twig",
+          {
+            picto:    "austral-picto-minus",
+            title:    "actions.reduce"|trans({}, "austral"),
+          }
+        ) }}
+      </div>
+      <div class="text-container">
+        <span class="title">{{ "notification.multiUser.title"|trans({}, "austral") }}</span>
+        <p class="text">{{ ("notification.multiUser.text"|trans({}, "austral"))|raw }}</p>
+        <ul class="list-items">
+          {% if users is defined %}
+            {% for user in users %}
+              <li class="item">
+                {{ include("@AustralDesign/Components/Avatar/avatar.html.twig", {
+                  background: user.avatarColor,
+                  user: user
+                }) }}
+              </li>
+            {% endfor %}
+          {% endif %}
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="reduce-container">
+    {% if users is defined %}
+      <div class="button-extend-container" data-nb-items="{{ users|default([])|length }}">
+        {{ include("@AustralDesign/Components/Button/picto.html.twig",
+          {
+            picto:      "austral-picto-users",
+            title:      "actions.extend"|trans({}, "austral"),
+            data: {
+              class:    "no-hover-animate"
+            }
+          }
+        ) }}
+      </div>
+    {% endif %}
+  </div>
+</div>

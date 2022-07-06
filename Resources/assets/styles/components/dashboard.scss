@@ -1,0 +1,160 @@
+.dashboard-blocks {
+  @include flex-display();
+  @include align-content(stretch);
+  @include align-items(stretch);
+  @include justify-content(flex-start);
+  @include flex-wrap(wrap);
+  margin: -1rem;
+  .dashboard-block {
+    padding: 1rem 1rem;
+    &.full {
+      width: 100%;
+    }
+    &.middle {
+      width: 50%;
+    }
+    .dashboard-values {
+      @include flex-display();
+      @include align-content(stretch);
+      @include align-items(stretch);
+      @include justify-content(flex-start);
+      @include flex-wrap(wrap);
+      height: 100%;
+      &.background {
+        padding: 3rem;
+        background: var(--color-main-10);
+      }
+      &.dashboard-values-type-tile {
+        margin: -1rem;
+        &.odd {
+          .dashboard-value {
+            &.tile-value {
+              &:first-child {
+                width: 100%
+              }
+            }
+          }
+        }
+        &.children-1 {
+          .dashboard-value {
+            &.tile-value {
+              width: 100%;
+              height: 100%;
+            }
+          }
+        }
+        &.children-2 {
+          .dashboard-value {
+            &.tile-value {
+              width: 100%;
+              height: calc(50% - 1rem);
+            }
+          }
+        }
+      }
+      &.dashboard-values-type-onOff {
+        margin: -0.1rem;
+      }
+      &.dashboard-values-type-action {
+        padding: 2rem;
+      }
+
+      .dashboard-value {
+        @include flex-display();
+        @include flex-direction(column);
+        @include align-content(flex-start);
+        @include align-items(flex-start);
+        @include justify-content(stretch);
+        &.onOff-value {
+          background: var(--color-white);
+          width: calc(50% - 0.1rem);
+          margin: 0.05rem;
+          padding: 3rem;
+          .entitled {
+            @extend .font-poppins-m-13-uppercase;
+            padding-bottom: 0.5rem;
+            display:block;
+          }
+          .description {
+            @extend .font-poppins-m-11-grey;
+            padding-bottom: 1rem;
+          }
+          .value-content {
+            @include flex-display();
+            @include align-content(center);
+            @include align-items(center);
+            @include justify-content(center);
+            font-family: $font-poppins;
+            font-size:1.1rem;
+            background: var(--color-red-10);
+            color: var(--color-red-100);
+            margin-top: auto;
+            height: 3.4rem;
+            width: 8rem;
+            &.enabled {
+              background: var(--color-green-10);
+              color: var(--color-green-100);
+            }
+          }
+        }
+        &.tile-value {
+          margin: 1rem;
+          width: calc(50% - 2rem);
+          height: calc(19rem - 1rem);
+          padding: 2rem 1.5rem 3rem;
+          background: var(--color-main-10-force);
+          &.color-1 {
+            background: var(--color-blue-10);
+          }
+          &.color-2 {
+            background: var(--color-yellow-10);
+          }
+          &.color-3 {
+            background: var(--color-red-10);
+          }
+          &.color-4 {
+            background: var(--color-green-10);
+          }
+          &.color-5 {
+            background: var(--color-purple-10);
+          }
+          &.color-6 {
+            background: var(--color-main-10-force);
+          }
+          .value-content {
+            margin-top: auto;
+            padding: 0 1.5rem;
+            .value {
+              @extend .font-poppins-sb-32;
+              display: block;
+              line-height: 3.6rem;
+              padding-bottom: 0.5rem;
+              color: var(--color-black-force);
+            }
+            .entitled {
+              @extend .font-poppins-m-14;
+              display: block;
+              line-height: 1.6rem;
+              color: var(--color-black-force);
+            }
+          }
+          .picto-content {
+            height: 6rem;
+            width: 6rem;
+            img {
+              width: 100%;
+              height: 100%;
+            }
+          }
+        }
+        &.action-value {
+          flex: 1;
+          padding: 1rem;
+          .button {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+}

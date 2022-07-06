@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200" viewBox="0 0 200 200">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.091" y1="0.033" x2="0.909" y2="0.967" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#fce3e4"/>
+      <stop offset="1" stop-color="#fff"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-2" x1="0.5" y1="1" x2="0.5" y2="0.016" xlink:href="#linear-gradient"/>
+    <clipPath id="clip-austral-icon-parameters">
+      <rect width="200" height="200"/>
+    </clipPath>
+  </defs>
+  <g id="austral-icon-parameters" clip-path="url(#clip-austral-icon-parameters)">
+    <g id="Groupe_34" data-name="Groupe 34">
+      <rect id="BG" width="200" height="200" fill="none"/>
+      <path id="Shadow" d="M147.4,30H52.6A32.691,32.691,0,0,0,20,62.6V137.4A32.692,32.692,0,0,0,52.6,170H147.4A32.692,32.692,0,0,0,180,137.4V62.6A32.691,32.691,0,0,0,147.4,30Z" transform="translate(214 214) rotate(180)" fill="#fad7d7"/>
+      <g id="Icon">
+        <path id="Tracé_30" data-name="Tracé 30" d="M147.4,30H52.6A32.691,32.691,0,0,0,20,62.6V137.4A32.692,32.692,0,0,0,52.6,170H147.4A32.692,32.692,0,0,0,180,137.4V62.6A32.691,32.691,0,0,0,147.4,30Zm-8.015,12.857H60.611A25.686,25.686,0,0,0,35,68.468v63.064a25.686,25.686,0,0,0,25.611,25.611h78.778A25.686,25.686,0,0,0,165,131.532V68.468A25.686,25.686,0,0,0,139.389,42.857Z" transform="translate(200 200) rotate(180)" fill="url(#linear-gradient)"/>
+        <path id="Tracé_31" data-name="Tracé 31" d="M142.061,40H57.939C42.573,40,30,52.223,30,67.163v65.674C30,147.777,42.573,160,57.939,160h84.122C157.427,160,170,147.777,170,132.837V67.163C170,52.223,157.427,40,142.061,40Z" fill="#fff"/>
+        <path id="Tracé_32" data-name="Tracé 32" d="M55,140h0a5,5,0,0,1-5-5V65a5,5,0,0,1,5-5h0a5,5,0,0,1,5,5v70A5,5,0,0,1,55,140Zm30,0h0a5,5,0,0,1-5-5V65a5,5,0,0,1,5-5h0a5,5,0,0,1,5,5v70A5,5,0,0,1,85,140Zm30,0h0a5,5,0,0,1-5-5V65a5,5,0,0,1,5-5h0a5,5,0,0,1,5,5v70A5,5,0,0,1,115,140Zm30,0h0a5,5,0,0,1-5-5V65a5,5,0,0,1,5-5h0a5,5,0,0,1,5,5v70A5,5,0,0,1,145,140Z" fill="url(#linear-gradient-2)"/>
+        <g id="Groupe_32" data-name="Groupe 32">
+          <circle id="Ellipse_9" data-name="Ellipse 9" cx="9" cy="9" r="9" transform="translate(46 112)" fill="#e63a2e"/>
+          <circle id="Ellipse_10" data-name="Ellipse 10" cx="9" cy="9" r="9" transform="translate(76 70)" fill="#e63a2e"/>
+          <circle id="Ellipse_11" data-name="Ellipse 11" cx="9" cy="9" r="9" transform="translate(106 90)" fill="#e63a2e"/>
+          <circle id="Ellipse_12" data-name="Ellipse 12" cx="9" cy="9" r="9" transform="translate(136 60)" fill="#e63a2e"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

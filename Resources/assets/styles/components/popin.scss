@@ -1,0 +1,348 @@
+#overlay-master {
+  @include transition-default();
+  position:fixed;
+  background: var(--color-black-force);
+  opacity: 0;
+  height: 100vh;
+  width: 100vw;
+  top:0;
+  left: 0;
+  pointer-events: none;
+  z-index:-1;
+}
+.popin-open {
+  overflow: hidden;
+  #overlay-master {
+    z-index:100000;
+    opacity: 0.09;
+    pointer-events: auto;
+    @at-root .dark#{&} {
+      opacity: 0.7;
+    }
+  }
+  .collection-embed-fields-master {
+    > .collection-embed-forms {
+      > .collection-embed-element {
+        > .hover {
+          &:hover {
+            > .collection-embed-form {
+              z-index: auto;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.popin-container,
+.popin-suneditor-links {
+  @include flex-display();
+  background: var(--color-white);
+}
+.sun-editor,
+.popin-content {
+  .form-container {
+    @include flex-display();
+    @include align-content(stretch);
+    @include align-items(stretch);
+    @include justify-content(space-between);
+    .form-content {
+      flex: 1;
+    }
+  }
+}
+.popin-container  {
+  &.open {
+    pointer-events: all;
+    .croppers-content {
+      .cropper-content {
+        &.current {
+          opacity: 1;
+          pointer-events: auto;
+        }
+      }
+    }
+  }
+  @include transform-origin(left top);
+  -webkit-transform: scale(0.5, 0.5) translate(-50%, -50%);
+  -moz-transform: scale(0.5, 0.5) translate(-50%, -50%);
+  -o-transform: scale(0.5, 0.5) translate(-50%, -50%);
+  -ms-transform: scale(0.5, 0.5) translate(-50%, -50%); // IE9 only
+  transform: scale(0.5, 0.5) translate(-50%, -50%);
+  position:fixed;
+  padding: 2rem;
+  top:50%;
+  left: 50%;
+  height: 100vh;
+  width: 100vw;
+  z-index:-1;
+  opacity: 0;
+  pointer-events: none;
+  &.little {
+    @include box-shadow(0, .3rem, .9rem, 0, var(--color-grey-50));
+    width: auto;
+    height: auto;
+    min-height: 52rem;
+    padding: 2rem;
+    @at-root .dark #{&} {
+      box-shadow: initial;
+    }
+  }
+  .popin-close {
+    @include flex-display();
+    @include align-content(center);
+    @include align-items(center);
+    @include justify-content(center);
+    position:absolute;
+    right:0;
+    top:0;
+    height: 5rem;
+    width: 5rem;
+    cursor:pointer;
+    background: var(--color-white);
+    z-index: 10;
+    .picto {
+      @extend .font-austral-16
+    }
+  }
+  &.popin-file-editor {
+    .preview-file {
+      background: var(--color-black);
+      width: 60%;
+      canvas, img {
+        @include image-cover();
+        @extend %background-pattern-square;
+      }
+    }
+  }
+  .popin-content {
+    flex: 1;
+  }
+  .field-content-uploadField {
+    position:relative;
+  }
+  .croppers-content {
+    background: transparent;
+    position:relative;
+    .cropper-content {
+      @include flex-display();
+      @include flex-direction(column);
+      @include align-items(flex-start);
+      @include align-content(flex-start);
+      @include justify-content(flex-start);
+      &.current {
+        opacity: 1;
+        pointer-events: auto;
+      }
+      background: var(--color-black);
+      position:absolute;
+      left:1rem;
+      top:0;
+      height: 100%;
+      width: calc(100% - 2rem);
+      opacity:0;
+      pointer-events: none;
+      .cropper-content-top {
+        @include flex-display();
+        @include align-items(flex-end);
+        @include align-content(flex-end);
+        @include justify-content(center);
+        height: 5rem;
+        padding: 1rem 2rem 1rem;
+        position:absolute;
+        width: 100%;
+        top:0;
+        left:0;
+        z-index:10;
+      }
+      .cropper-content-center {
+        flex: 1;
+        height: 100%;
+        width: 100%;
+        overflow: hidden;
+        .cropper-container {
+          height: 100% !important;
+          &.cropper-bg {
+            background: var(--color-black);
+          }
+        }
+      }
+      .cropper-content-bottom {
+        @include flex-display();
+        @include align-items(flex-start);
+        @include align-content(flex-start);
+        @include justify-content(center);
+        position:absolute;
+        z-index:10;
+        bottom:0;
+        left:0;
+        height: 6rem;
+        padding-top: 1rem;
+        width: 100%;
+        ul {
+          @include flex-display();
+          @include align-items(center);
+          @include align-content(center);
+          @include justify-content(center);
+          li {
+            @include flex-display();
+            @include align-items(center);
+            @include align-content(center);
+            @include justify-content(center);
+            padding: 0 1rem;
+          }
+        }
+      }
+    }
+  }
+  .form-content {
+    width: 40%;
+    padding: 0 1rem;
+    .fieldset-content {
+      @include flex-display();
+      @include flex-direction(column);
+      @include align-items(flex-start);
+      @include align-content(flex-start);
+      @include justify-content(flex-start);
+      .field-content {
+        @include flex-display();
+        @include flex-direction(column);
+        @include align-items(flex-start);
+        @include align-content(flex-start);
+        @include justify-content(flex-start);
+        .field {
+          flex: 1;
+          width: 100%;
+        }
+      }
+      .content-clone-fields {
+        margin: 3rem 0 2.8rem;
+        .field-content {
+          &:first-child {
+            margin-top:0;
+          }
+        }
+      }
+      height:100%;
+      .fieldset-title,
+      .fields-content {
+        width: 100%;
+        .field-content {
+          height: auto !important;
+          > label {
+            padding-left: 0;
+          }
+        }
+      }
+    }
+    .field-content_fileInfos {
+      position:relative;
+      padding-bottom: 3rem;
+      margin-bottom: 0 !important;
+      .delete-file {
+        @extend .font-poppins-m-11;
+        cursor:pointer;
+        color: var(--color-red-100);
+        position:absolute;
+        right:0;
+        top:0;
+      }
+    }
+    .field-content_buttonCropper {
+      padding-top: 3rem;
+    }
+    .file-infos {
+      @include flex-display();
+      padding-top: 1rem;
+      margin: 0 -1rem;
+      li {
+        @extend .font-poppins-m-10-grey;
+        padding: 0 1rem;
+        .entitled {
+          padding-right: 0.2rem;
+        }
+      }
+    }
+    .button-content {
+      margin-top: auto;
+      margin-left: auto;
+    }
+    .cropper-button-content {
+      @include flex-display();
+      @include align-items(flex-start);
+      @include align-content(flex-start);
+      @include justify-content(flex-start);
+      margin: 0 -0.2rem;
+      li {
+        padding: 0 0.2rem;
+      }
+    }
+  }
+
+}
+
+.popin-link-editor {
+  height: 100%;
+  min-height: 56rem;
+  .group-fields-container {
+    margin-top: 0;
+    .group-fields-content {
+      &.group-row {
+        border:none;
+        .group-col {
+          border: none;
+        }
+      }
+    }
+  }
+  .group-popup-component-link-editor-fields-container {
+    height: 100%;
+    width: 77rem;
+    > .group-fields-content {
+      height: 100%;
+      .group-col {
+        border:none;
+        .group-fields-name {
+          padding: 0 0 2rem;
+        }
+      }
+      .group-component-choice-type-link-fields-container {
+        padding-top: 4rem;
+      }
+      .group-component-link-fields-container {
+        background: var(--color-main-10);
+        padding: 4rem;
+        height: 100%;
+        .group-col {
+          background: transparent;
+          padding-bottom: 2rem !important;
+          .field-content label {
+            padding: 0 0 1rem;
+          }
+        }
+        > .group-fields-content {
+          height: 100%;
+          > .group-col {
+            &:last-child {
+              margin-top: auto;
+            }
+          }
+          .button-content {
+            @include flex-display();
+            @include justify-content(flex-end);
+            width: 100%;
+            .button {
+              margin-left: 1rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.popin-link-editor .button-content {
+  @include flex-display();
+  width: 50%;
+}

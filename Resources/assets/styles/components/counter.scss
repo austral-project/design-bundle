@@ -1,0 +1,24 @@
+// Use for suneditor.scss and counter.scss
+%counter {
+  @include flex-display(inline-flex);
+  @include justify-content(center);
+  @include align-items(center);
+  @include radius(var(--radius-2));
+  @extend .font-poppins-m-11;
+  background-color: var(--color-main-10);
+  color: var(--color-black);
+  min-width: 3.2rem;
+  height: 2.2rem;
+  padding: .3rem .4rem;
+}
+
+.counter-container {
+  pointer-events: none;
+  .counter {
+    @extend %counter;
+    @at-root .is-negative#{&} {
+      background-color: var(--color-red-10);
+      color: var(--color-red-100);
+    }
+  }
+}

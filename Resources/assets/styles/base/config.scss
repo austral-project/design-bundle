@@ -1,0 +1,32 @@
+$containerMaxWith: 124rem;
+$containerMaxWithToForm: 94rem;
+$containerPadding: 0 4rem;
+
+// Grid breakpoints
+$breakpoints-xsm-number: 320;
+$breakpoints-sm-number: 544;
+$breakpoints-md-number: 768;
+$breakpoints-lg-number: 992;
+$breakpoints-xl-number: 1200;
+$breakpoints-xxl-number: 1900;
+
+$breakpoints-xsm: #{$breakpoints-xsm-number}px;
+$breakpoints-sm: #{$breakpoints-sm-number}px;
+$breakpoints-md: #{$breakpoints-md-number}px;
+$breakpoints-lg: #{$breakpoints-lg-number}px;
+$breakpoints-xl: #{$breakpoints-xl-number}px;
+$breakpoints-xxl: #{$breakpoints-xxl-number}px;
+
+$breakpoints-xsm-max: #{$breakpoints-xsm-number - 1}px;
+$breakpoints-sm-max: #{$breakpoints-sm-number - 1}px;
+$breakpoints-md-max: #{$breakpoints-md-number - 1}px;
+$breakpoints-lg-max: #{$breakpoints-lg-number - 1}px;
+$breakpoints-xl-max: #{$breakpoints-xl-number - 1}px;
+$breakpoints-xxl-max: #{$breakpoints-xxl-number - 1}px;
+
+$media-mobile-min: "screen and (min-width: #{$breakpoints-xsm})";
+$media-mobile-max: "screen and (max-width: #{$breakpoints-xsm-max})";
+$media-desktop-min: "screen and (min-width: #{$breakpoints-lg})";
+$media-desktop-max: "screen and (max-width: #{$breakpoints-lg-max})";
+$media-desktop-big-min: "screen and (min-width: 1441px)";
+$media-desktop-big-max: "screen and (max-width: 1440px)";

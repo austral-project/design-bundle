@@ -1,0 +1,111 @@
+.timepicker-ui-modal.normalize {
+  z-index: 10000;
+  .timepicker-ui-wrapper, .timepicker-ui-wrapper.mobile {
+    @include radius(0);
+    height:auto;
+  }
+
+  .timepicker-ui-hour:hover,
+  .timepicker-ui-hour.active,
+  .timepicker-ui-minutes:hover,
+  .timepicker-ui-minutes.active,
+  .timepicker-ui-hour.mobile:hover,
+  .timepicker-ui-hour.mobile.active,
+  .timepicker-ui-minutes.mobile:hover,
+  .timepicker-ui-minutes.mobile.active {
+    background-color: var(--color-black);
+    color:var(--color-white);
+  }
+  .timepicker-ui-hour-time-12, .timepicker-ui-minutes-time, .timepicker-ui-hour-time-24 {
+    @extend .font-poppins-m-14;
+  }
+  .timepicker-ui-tips-wrapper-24h {
+    height: 16rem;
+    width: 16rem;
+  }
+  .timepicker-ui-hour,
+  .timepicker-ui-minutes,
+  .timepicker-ui-hour.mobile,
+  .timepicker-ui-minutes.mobile {
+    @extend .font-poppins-sb-18;
+    @include radius(0);
+
+    background-color: var(--color-main-20);
+  }
+  .timepicker-ui-dot {
+    background-color: var(--color-black);
+  }
+  .timepicker-ui-dots, .timepicker-ui-dots.mobile {
+    @extend .font-poppins-sb-18;
+  }
+  .timepicker-ui-header, .timepicker-ui-header.mobile {
+    padding-top:5rem;
+    padding-bottom: 2rem;
+    height:auto;
+  }
+  .timepicker-ui-clock-face {
+    background-color: var(--color-main-20);
+  }
+  .timepicker-ui-value-tips.active,
+  .timepicker-ui-value-tips-24h.active {
+    color:var(--color-white);
+  }
+  .timepicker-ui-value-tips,
+  .timepicker-ui-value-tips-24h {
+    @include radius(100%);
+    @include transition-default();
+    @extend .font-poppins-m-14;
+    color:var(--color-white);
+    &:hover {
+      background-color: var(--color-black);
+      color:var(--color-white);
+    }
+  }
+
+  .timepicker-ui-clock-hand {
+    @include transition-default();
+    background-color: var(--color-black);
+    color:var(--color-white);
+  }
+  .timepicker-ui-circle-hand {
+    @include transition-default();
+    background-color: var(--color-black);
+    color:var(--color-white);
+  }
+  .timepicker-ui-wrapper-btn,
+  .timepicker-ui-wrapper-btn.mobile {
+    bottom:0;
+    margin:0;
+  }
+
+  .timepicker-ui-cancel-btn,
+  .timepicker-ui-cancel-btn.mobile {
+    @extend .font-poppins-m-13-uppercase;
+    @include flex-display();
+    @include justify-content(center);
+    @include align-items(center);
+    @include align-content(center);
+    height: 5rem;
+    padding: 1.5rem 2rem;
+    background: transparent;
+    color:var(--color-black);
+
+  }
+  .timepicker-ui-ok-btn,
+  .timepicker-ui-ok.btn-mobile {
+    @extend .font-poppins-m-13-uppercase-white;
+    @include flex-display();
+    @include justify-content(center);
+    @include align-items(center);
+    @include align-content(center);
+    @include radius(0);
+    background: var(--color-black);
+    color:var(--color-white);
+    height: 5rem;
+    padding: 1.5rem 2rem;
+  }
+
+  .timepicker-ui-footer, .timepicker-ui-footer-mobile  {
+    margin: 0 1rem 1rem;
+  }
+}

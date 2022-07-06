@@ -1,0 +1,30 @@
+.h1-title {
+  @extend .font-poppins-sb-32;
+  padding: 0.5rem 0;
+}
+.h1-sub-title {
+  @extend .font-poppins-m-11-uppercase-grey;
+  display:block;
+}
+.h2-title {
+  @extend .font-poppins-sb-22;
+  padding: 0.5rem 0;
+}
+.h2-sub-title {
+  @extend .font-poppins-m-11-uppercase-grey;
+  display:block;
+}
+.h3-title {
+  @extend .font-poppins-sb-18;
+  padding: 0.5rem 0;
+}
+.h3-sub-title {
+  @extend .font-poppins-m-11-uppercase-grey;
+  display:block;
+}
+
+.numbers-elements-title {
+  @extend .font-poppins-m-11-uppercase-grey;
+  display:inline-block;
+  padding-top:0.5rem;
+}

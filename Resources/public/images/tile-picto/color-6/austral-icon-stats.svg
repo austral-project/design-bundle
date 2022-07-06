@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200" viewBox="0 0 200 200">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.091" y1="0.033" x2="0.909" y2="0.967" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#e9edf3"/>
+      <stop offset="1" stop-color="#fff"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-2" x1="0.5" y1="0.947" x2="0.5" y2="-1.349" xlink:href="#linear-gradient"/>
+    <linearGradient id="linear-gradient-3" x1="0.5" y1="0.912" x2="0.5" y2="-2.914" xlink:href="#linear-gradient"/>
+    <linearGradient id="linear-gradient-4" x1="0.5" y1="0.962" x2="0.5" y2="-0.678" xlink:href="#linear-gradient"/>
+    <linearGradient id="linear-gradient-5" x1="0.5" y1="0.971" x2="0.5" y2="-0.305" xlink:href="#linear-gradient"/>
+    <linearGradient id="linear-gradient-10" x1="0.5" y1="0.976" x2="0.5" y2="-0.068" xlink:href="#linear-gradient"/>
+    <linearGradient id="linear-gradient-12" x1="0.5" y1="0.98" x2="0.5" y2="0.097" xlink:href="#linear-gradient"/>
+    <clipPath id="clip-austral-icon-stats">
+      <rect width="200" height="200"/>
+    </clipPath>
+  </defs>
+  <g id="austral-icon-stats" clip-path="url(#clip-austral-icon-stats)">
+    <g id="Groupe_51" data-name="Groupe 51">
+      <rect id="BG" width="200" height="200" fill="none"/>
+      <path id="Shadow" d="M147.4,30H52.6A32.691,32.691,0,0,0,20,62.6V137.4A32.692,32.692,0,0,0,52.6,170H147.4A32.692,32.692,0,0,0,180,137.4V62.6A32.691,32.691,0,0,0,147.4,30Z" transform="translate(214 214) rotate(180)" fill="#d4dbe6"/>
+      <g id="Icon">
+        <path id="Tracé_36" data-name="Tracé 36" d="M147.4,30H52.6A32.691,32.691,0,0,0,20,62.6V137.4A32.692,32.692,0,0,0,52.6,170H147.4A32.692,32.692,0,0,0,180,137.4V62.6A32.691,32.691,0,0,0,147.4,30Zm-8.015,12.857H60.611A25.686,25.686,0,0,0,35,68.468v63.064a25.686,25.686,0,0,0,25.611,25.611h78.778A25.686,25.686,0,0,0,165,131.532V68.468A25.686,25.686,0,0,0,139.389,42.857Z" transform="translate(200 200) rotate(180)" fill="url(#linear-gradient)"/>
+        <path id="Tracé_37" data-name="Tracé 37" d="M142.061,40H57.939C42.573,40,30,52.223,30,67.163v65.674C30,147.777,42.573,160,57.939,160h84.122C157.427,160,170,147.777,170,132.837V67.163C170,52.223,157.427,40,142.061,40Z" fill="#fff"/>
+        <path id="Tracé_38" data-name="Tracé 38" d="M163.433,31.743,147.67,34.362a3,3,0,0,0-1.935,4.723l2.523,3.472L97.086,77.314,78.8,63.6a3,3,0,0,0-3.782.148l-27.272,24a3,3,0,0,0,3.965,4.5l25.44-22.389L95.2,83.4a3,3,0,0,0,3.486.081l53-36c.034-.023.06-.053.093-.077l2.356,3.243a3,3,0,0,0,5.09-.381l7.362-14.181A3,3,0,0,0,163.433,31.743Z" fill="#436ca8"/>
+        <g id="Groupe_44" data-name="Groupe 44">
+          <path id="Tracé_39" data-name="Tracé 39" d="M58,133a2,2,0,0,1-4,0V112a2,2,0,0,1,4,0Z" fill="url(#linear-gradient-2)"/>
+          <path id="Tracé_40" data-name="Tracé 40" d="M47,133a2,2,0,0,1-4,0V122a2,2,0,0,1,4,0Z" fill="url(#linear-gradient-3)"/>
+          <path id="Tracé_41" data-name="Tracé 41" d="M69,133a2,2,0,0,1-4,0V102a2,2,0,0,1,4,0Z" fill="url(#linear-gradient-4)"/>
+          <path id="Tracé_42" data-name="Tracé 42" d="M80,133a2,2,0,0,1-4,0V92a2,2,0,0,1,4,0Z" fill="url(#linear-gradient-5)"/>
+          <path id="Tracé_43" data-name="Tracé 43" d="M91,133a2,2,0,0,1-4,0V112a2,2,0,0,1,4,0Z" fill="url(#linear-gradient-2)"/>
+          <path id="Tracé_44" data-name="Tracé 44" d="M102,133a2,2,0,0,1-4,0V112a2,2,0,0,1,4,0Z" fill="url(#linear-gradient-2)"/>
+          <path id="Tracé_45" data-name="Tracé 45" d="M113,133a2,2,0,0,1-4,0V92a2,2,0,0,1,4,0Z" fill="url(#linear-gradient-5)"/>
+          <path id="Tracé_46" data-name="Tracé 46" d="M124,133a2,2,0,0,1-4,0V102a2,2,0,0,1,4,0Z" fill="url(#linear-gradient-4)"/>
+          <path id="Tracé_47" data-name="Tracé 47" d="M135,133a2,2,0,0,1-4,0V82a2,2,0,0,1,4,0Z" fill="url(#linear-gradient-10)"/>
+          <path id="Tracé_48" data-name="Tracé 48" d="M157,133a2,2,0,0,1-4,0V82a2,2,0,0,1,4,0Z" fill="url(#linear-gradient-10)"/>
+          <path id="Tracé_49" data-name="Tracé 49" d="M146,133a2,2,0,0,1-4,0V72a2,2,0,0,1,4,0Z" fill="url(#linear-gradient-12)"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50">
+  <g id="img-file" transform="translate(-193 -585)">
+    <rect id="bg" width="50" height="50" transform="translate(193 585)" fill="none"/>
+    <g id="file" transform="translate(36 381)">
+      <path id="Tracé_18" data-name="Tracé 18" d="M-4,0H16V12H28V42H-4Z" transform="translate(170 208)" fill="#e9edf3"/>
+      <path id="Tracé_19" data-name="Tracé 19" d="M0,0,12,12H0Z" transform="translate(186 208)" fill="#d4dbe6"/>
+    </g>
+  </g>
+</svg>

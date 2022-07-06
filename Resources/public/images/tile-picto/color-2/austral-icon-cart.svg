@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200" viewBox="0 0 200 200">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.5" y1="1" x2="0.5" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#fffbd5"/>
+      <stop offset="1" stop-color="#fff"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-2" y1="0.969" y2="0" xlink:href="#linear-gradient"/>
+    <clipPath id="clip-austral-icon-cart">
+      <rect width="200" height="200"/>
+    </clipPath>
+  </defs>
+  <g id="austral-icon-cart" clip-path="url(#clip-austral-icon-cart)">
+    <g id="Groupe_59" data-name="Groupe 59">
+      <rect id="BG" width="200" height="200" fill="none"/>
+      <path id="Shadow" d="M644.99,25.152l-4.1-64a21.489,21.489,0,0,0-21.4-20.209H607.073v-4.5a37.5,37.5,0,0,0-37.5-37.5,37.5,37.5,0,0,0-37.5,37.5v4.5H520.662a21.49,21.49,0,0,0-21.4,20.209l-4.1,64a43.009,43.009,0,0,0,40.138,45.7q1.328.087,2.657.09H602.19a43.012,43.012,0,0,0,42.891-43.132Q645.077,26.484,644.99,25.152ZM544.073-63.554a25.5,25.5,0,0,1,25.5-25.5,25.5,25.5,0,0,1,25.5,25.5v4.5l-51,0Z" transform="translate(-456.07 125.054)" fill="#fcee92"/>
+      <g id="Icon" transform="translate(0 -3)">
+        <path id="Tracé_63" data-name="Tracé 63" d="M628.886,17.946a6,6,0,0,1-6-6v-4.5a25.5,25.5,0,1,0-51,0v4.5a6,6,0,1,1-12,0v-4.5a37.5,37.5,0,1,1,75,0v4.5A6,6,0,0,1,628.886,17.946Z" transform="translate(-497.886 43.054)" fill="url(#linear-gradient)"/>
+        <path id="Tracé_62" data-name="Tracé 62" d="M525.015-130.554a21.489,21.489,0,0,0-21.4,20.209l-4.1,64A43.01,43.01,0,0,0,542.31-.554h64.234a43.011,43.011,0,0,0,42.8-45.794l-4.1-64a21.487,21.487,0,0,0-21.4-20.209Z" transform="translate(-474.427 185.554)" fill="#fff"/>
+        <path id="Tracé_63-2" data-name="Tracé 63" d="M521.656-130.554A18.668,18.668,0,0,0,503.066-113L499.5-57.4a37.365,37.365,0,0,0,37.181,39.783h55.8A37.366,37.366,0,0,0,629.664-57.4L626.1-113a18.667,18.667,0,0,0-18.59-17.556Z" transform="translate(-464.582 194.086)" fill="url(#linear-gradient-2)"/>
+        <path id="Tracé_64" data-name="Tracé 64" d="M628.886,17.946a6,6,0,0,1-6-6v-4.5a25.5,25.5,0,1,0-51,0v4.5a6,6,0,1,1-12,0v-4.5a37.5,37.5,0,1,1,75,0v4.5A6,6,0,0,1,628.886,17.946Z" transform="translate(696.886 96.946) rotate(180)" fill="#f0b000"/>
+      </g>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,132 @@
+<div id="cropper-__CROPPER_KEY__-content" data-cropper-key="__CROPPER_KEY__" data-cropper-ratio="" class="cropper-content">
+  <div class="cropper-content-top">
+    <span class="font-poppins-m-13-uppercase-white">__CROPPER_NAME__</span>
+  </div>
+  <div class="cropper-content-center">
+    <img id="cropper-__CROPPER_KEY__" />
+  </div>
+  <div class="cropper-content-bottom">
+    <ul>
+      <li>
+        {{ include("@AustralDesign/Components/Button/picto.html.twig",
+            {
+              tag:            "button",
+              picto:          "austral-picto-rotate-anticlockwise",
+              title:          "Rotate",
+              data: {
+                "class":              "dark",
+                "data-method":        "rotate",
+                "data-option":        "-45"
+              }
+            }
+          )
+        }}
+        {{ include("@AustralDesign/Components/Button/picto.html.twig",
+            {
+              tag:            "button",
+              picto:          "austral-picto-rotate-clockwise",
+              title:          "Rotate",
+              data: {
+                "class":              "dark",
+                "data-method":        "rotate",
+                "data-option":        "45"
+              }
+            }
+          )
+        }}
+      </li>
+      <li>
+        {{ include("@AustralDesign/Components/Button/picto.html.twig",
+            {
+              tag:            "button",
+              picto:          "austral-picto-switch",
+              title:          "Scale X",
+              data: {
+                "class":              "dark",
+                "data-method":        "scaleX",
+                "data-option":        "-1"
+              }
+            }
+          )
+        }}
+        {{ include("@AustralDesign/Components/Button/picto.html.twig",
+            {
+              tag:            "button",
+              picto:          "austral-picto-arrange",
+              title:          "Scale Y",
+              data: {
+                "class":              "dark",
+                "data-method":        "scaleY",
+                "data-option":        "-1"
+              }
+            }
+          )
+        }}
+      </li>
+      <li data-without-ratio="">
+        {{ include("@AustralDesign/Components/Button/border.html.twig",
+            {
+              tag:            "button",
+              title:          "Original",
+              data: {
+                "class":              "dark",
+                "data-method":        "ratio",
+                "data-option":        "full"
+              }
+            }
+          )
+        }}
+        {{ include("@AustralDesign/Components/Button/border.html.twig",
+            {
+              tag:            "button",
+              title:          "1:1",
+              data: {
+                "class":              "dark",
+                "data-method":        "ratio",
+                "data-option":        1
+              }
+            }
+          )
+        }}
+        {{ include("@AustralDesign/Components/Button/border.html.twig",
+            {
+              tag:            "button",
+              title:          "2:3",
+              data: {
+                "class":              "dark",
+                "data-method":        "ratio",
+                "data-option":        2/3
+              }
+            }
+          )
+        }}
+        {{ include("@AustralDesign/Components/Button/border.html.twig",
+            {
+              tag:            "button",
+              picto:          "austral-picto-arrange",
+              title:          "3:4",
+              data: {
+                "class":              "dark",
+                "data-method":        "ratio",
+                "data-option":        3/4
+              }
+            }
+          )
+        }}
+        {{ include("@AustralDesign/Components/Button/border.html.twig",
+            {
+              tag:            "button",
+              picto:          "austral-picto-arrange",
+              title:          "16:9",
+              data: {
+                "class":              "dark",
+                "data-method":        "ratio",
+                "data-option":        16/9
+              }
+            }
+          )
+        }}
+      </li>
+    </ul>
+  </div>
+</div>

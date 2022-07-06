@@ -1,0 +1,41 @@
+.field-content-symfonyField {
+  --field-padding-top: 1.5rem;
+  .field-moneyType {
+    .field-group {
+      @include flex-display();
+      @include align-items(center);
+      width: 100%;
+      .field-group-label {
+        cursor: text;
+        padding-top: 1.5rem;
+        padding-bottom: 1.5rem;
+      }
+      &.has-append:not(.has-prepend) {
+        .field-group-field {
+          text-align: right;
+        }
+      }
+      &.has-append {
+        .field-group-label {
+          padding-right: 1.5rem;
+        }
+      }
+      &.has-prepend {
+        .field-group-label {
+          padding-left: 1.5rem;
+        }
+      }
+    }
+  }
+  &.animate {
+    .field-moneyType {
+      .field-group {
+        .field-group-label {
+          padding-top: 2.5rem;
+          padding-bottom: 0.5rem;
+        }
+      }
+    }
+    --padding-top: 2.5rem;
+  }
+}

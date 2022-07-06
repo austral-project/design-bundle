@@ -1,0 +1,100 @@
+.switch-element {
+  &.tails {
+    .switch-button-content {
+      .switch-button {
+        background: var(--switch-heads-fond-color);
+        .indicator {
+          @include translate(-100%, -50%);
+          background: var(--switch-heads-button-color);
+          left: calc(100% - 0.2rem);
+        }
+      }
+      .text.tails {
+        color: var(--color-black);
+      }
+    }
+  }
+  &.heads {
+    .switch-button-content {
+      .text.heads {
+        color: var(--color-black);
+      }
+    }
+  }
+  &.click {
+    .switch-button-content {
+      .switch-button {
+        .indicator {
+          width: 1.8rem !important;
+        }
+      }
+    }
+  }
+  .switch-button-content {
+    @include flex-display(inline-flex);
+    @include align-items(center);
+    @include align-content(center);
+    @include justify-content(flex-start);
+    cursor:pointer;
+    &:hover {
+      .switch-button {
+        .indicator {
+          width: 2.2rem;
+        }
+      }
+    }
+    input {
+      position:absolute;
+      left:-100vw;
+    }
+    .text {
+      @include transition-default();
+      font-size:1.1rem;
+      padding: 0 1rem;
+      &:hover {
+        color: var(--color-black);
+      }
+    }
+    .switch-button {
+      @include transition-default();
+      @include radius(2rem);
+      position:relative;
+      height:2.2rem;
+      width: 3.8rem;
+      position:relative;
+      background: var(--switch-tails-fond-color);
+      .indicator {
+        @include position-middle-y;
+        @include radius(1.8rem);
+        @include transition-default();
+        background: var(--switch-tails-button-color);
+        position:absolute;
+        height: 1.8rem;
+        width: 1.8rem;
+        left:0.2rem;
+      }
+    }
+  }
+}
+
+/*
+.group-fields-content {
+  .field-content-switchField {
+    @include transition-default();
+    @include flex-display();
+    @include flex-direction(column);
+    @include transition-default();
+    @include justify-content(flex-start);
+    @include align-content(flex-start);
+    @include align-items(flex-start);
+    background: var(--color-white);
+    padding: 3rem;
+    .field-checkboxType {
+      margin-top: auto;
+      border:0;
+      .switch-button-content {
+        height:auto;
+      }
+    }
+  }
+}*/

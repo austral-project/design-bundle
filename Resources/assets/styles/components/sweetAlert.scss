@@ -1,0 +1,129 @@
+body {
+  .swal2-container {
+    z-index: 10000;
+    .swal2-popup {
+      @include radius(0);
+      width: 52rem;
+      border: 2rem solid var(--color-white);
+      padding: 3rem 4rem;
+      &.error,
+      &.delete {
+        background: var(--color-red-20);
+        .swal2-icon {
+          @include radius(0);
+          border:none;
+          margin: 0 -1rem 2rem;
+          background: transparent url("../images/picto/delete.svg") no-repeat center top;
+          background-size: auto 100%;
+          height: 8rem;
+          width: 8rem;
+          > * {
+            display:none;
+          }
+        }
+      }
+      &.success {
+        background: var(--color-green-20);
+        .swal2-icon {
+          @include radius(0);
+          border:none;
+          margin: 0 -1rem 2rem;
+          background: transparent url("../images/picto/success.svg") no-repeat center top;
+          background-size: auto 100%;
+          height: 8rem;
+          width: 8rem;
+          > * {
+            display:none;
+          }
+        }
+      }
+
+      &.swal2-toast {
+        border: 1rem solid var(--color-white);
+        min-width: 40rem;
+        padding: 1rem 2rem;
+        .swal2-icon {
+          width: 4rem;
+          height:4rem;
+          margin: 0;
+        }
+        .swal2-header {
+          @include align-items(center);
+          .swal2-title {
+            @extend .font-poppins-m-13-uppercase;
+            margin-bottom: 0;
+          }
+        }
+      }
+
+      .swal2-header {
+        @include align-items(flex-start);
+        padding: 0;
+        .swal2-title {
+          @extend .font-poppins-sb-18;
+          color: var(--color-black);
+          margin-bottom: 1.5rem;
+          text-align: left;
+        }
+        .swal2-icon {
+          @include justify-content(center);
+        }
+        .swal2-close {
+          @include radius(0);
+          color: var(--color-black);
+          box-shadow: none;
+          background: var(--color-white);
+          height: 5.6rem;
+          width: 5.6rem;
+          position:absolute;
+          top:-2rem;
+          right:-2rem;
+          &:before {
+            @extend .font-austral-16;
+            content: "\e92d";
+          }
+        }
+      }
+      .swal2-content {
+        @extend .font-poppins-m-12;
+        color: var(--color-black);
+        padding: 0;
+        text-align: left;
+      }
+      .swal2-actions {
+        @include flex-direction(row-reverse);
+        @include justify-content(flex-start);
+        margin: 0 -0.5rem;
+        padding: 4rem 0 0;
+        width: auto;
+        .swal2-styled {
+          margin: 0 0.5rem;
+        }
+        button {
+          @extend .font-poppins-m-13-uppercase;
+          @include radius(0);
+          width: auto;
+          height: 5rem;
+          background: transparent;
+          color: var(--color-black);
+          &:hover {
+            background: transparent;
+          }
+        }
+        .swal2-confirm {
+          @include radius(0);
+          @extend .font-poppins-m-13-uppercase-white;
+          width: auto;
+          height: 5rem;
+          box-shadow: none;
+          padding: 1.5rem;
+          background: var(--color-black);
+          &:hover {
+            background: var(--color-black);
+          }
+        }
+      }
+
+    }
+  }
+}

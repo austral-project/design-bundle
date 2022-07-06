@@ -1,0 +1,286 @@
+@use "sass:math";
+
+// -------------------------------------------------------------------
+// SASS VARIABLES
+// -------------------------------------------------------------------
+.col--xs-offset-0 {
+  margin-left: 0;
+}
+@media (min-width: $breakpoints-sm) {
+  .col--sm-offset-0 {
+    margin-left: 0 !important;
+  }
+}
+@media (min-width: $breakpoints-md) {
+  .col--md-offset-0 {
+    margin-left: 0 !important;
+  }
+}
+@media (min-width: $breakpoints-lg)  {
+  .col--lg-offset-0 {
+    margin-left: 0 !important;
+  }
+}
+@media (min-width: $breakpoints-xl) {
+  .col--xl-offset-0 {
+    margin-left: 0 !important;
+  }
+}
+.flex-1 {
+  flex:1;
+}
+div, span, li, ul, ol {
+  &.col--align-left {
+    @include flex-display();
+    @include align-items(flex-start);
+    @include align-content(flex-start);
+  }
+  &.col--align-center {
+    @include flex-display();
+    @include align-items(center);
+    @include align-content(center);
+  }
+  &.col--align-right {
+    @include flex-display();
+    @include align-items(flex-end);
+    @include align-content(flex-end);
+  }
+}
+th, td {
+  &.col--align-left {
+    text-align: left;
+  }
+  &.col--align-center {
+    text-align: center;
+  }
+  &.col--align-right {
+    text-align: right;
+  }
+}
+
+
+
+.flex {
+  @include flex-display();
+}
+.flex-align-center {
+  @include align-content(center);
+  @include align-items(center);
+}
+.flex-justify-center {
+  @include justify-content(center);
+}
+.flex-direction-column {
+  @include flex-direction(column);
+}
+.bold {
+  font-weight: bold !important;
+}
+
+.cursor-pointer,
+*[data-click-actions] {
+  cursor: pointer;
+}
+.cursor-helper {
+  cursor: help;
+}
+
+.container-auto-width {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: $containerMaxWith;
+  padding: $containerPadding
+}
+.container-auto-margin {
+  margin:0 auto;
+}
+
+.clearfix:after {
+  /*content:".";*/
+  content:"";
+  display:block;
+  height:0;
+  clear:both;
+  visibility:hidden;
+}
+.clearfix {display:inline-block;}
+/* Hide from IE Mac \*/
+.clearfix {display:block;}
+
+.hidden { display:block; position:absolute;	left:-100vw; top: -100vh; visibility: hidden;}
+.truncate { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.block-link { cursor:pointer; }
+
+.fleft { float: left; }
+.fright { float: right; }
+.fnone { float: none; }
+
+.w100 { width: 100%; }
+.h100 { height: 100%; }
+.vh100 { height: 100vh };
+.vw100 { width: 100vw };
+
+.text_align_right { text-align: right; }
+.text_align_left { text-align: left; }
+.text_align_center { text-align: center; }
+.text_align_justify { text-align: justify; }
+
+.block { display: block; }
+.inline { display: inline; }
+.inline-block { display: inline-block; }
+
+.relative, .position_relative { position: relative; }
+.absolute, .position_absolute { position: absolute; }
+.fixed, .position_fixed { position: fixed; }
+
+.overflow-hidden {overflow: hidden;}
+
+@mixin rowColGenerate($index) {
+  .row {
+    &.row-col--#{$index} {
+      margin: -1rem;
+      > .col {
+        flex: 0 0 auto;
+        width: calc(100% / #{$index} - 2rem);
+        margin: 1rem;
+      }
+    }
+  }
+  @if $index < 12 {
+    @include rowColGenerate($index + 1);
+  }
+}
+@include rowColGenerate (1);
+
+@mixin paddingClassGenerate($index) {
+  $remValue: math.div($index, 10);
+
+  .pd#{$index}, .p#{$index} {
+    padding: #{$remValue}rem !important;
+  }
+  .pdt#{$index}, .pt#{$index} {
+    padding-top: #{$remValue}rem !important;
+  }
+  .pdr#{$index}, .pr#{$index} {
+    padding-right: #{$remValue}rem !important;
+  }
+  .pdb#{$index}, .pb#{$index} {
+    padding-bottom: #{$remValue}rem !important;
+  }
+  .pdl#{$index}, .pl#{$index} {
+    padding-left: #{$remValue}rem !important;
+  }
+  @if $index < 100 {
+    @include paddingClassGenerate($index + 5);
+  }
+}
+@include paddingClassGenerate (0);
+
+
+@mixin minHeightGenerate($index) {
+  .min-height-#{$index} {
+    min-height: #{$index}rem;
+  }
+  @if $index < 20 {
+    @include minHeightGenerate($index + 5);
+  }
+}
+@include minHeightGenerate (5);
+
+@mixin marginClassGenerate($index) {
+  $remValue: math.div($index, 10);
+
+  .mdt#{$index}, .mt#{$index} {
+    margin-top: #{$remValue}rem !important;
+  }
+  .mdr#{$index}, .mr#{$index} {
+    margin-right: #{$remValue}rem !important;
+  }
+  .mdb#{$index}, .mb#{$index} {
+    margin-bottom: #{$remValue}rem !important;
+  }
+  .mdl#{$index}, .ml#{$index} {
+    margin-left: #{$remValue}rem !important;
+  }
+  @if $index < 100 {
+    @include marginClassGenerate($index + 5);
+  }
+}
+@include marginClassGenerate (0);
+
+
+@mixin paddingClassGenerateVh($index) {
+  $remValue: math.div($index, 10);
+
+  .pdt#{$index}-vh, .pt#{$index}-vh {
+    padding-top: #{$remValue}vh !important;
+  }
+  .pdr#{$index}-vh, .pr#{$index}-vh {
+    padding-right: #{$remValue}rem !important;
+  }
+  .pdb#{$index}-vh, .pb#{$index}-vh {
+    padding-bottom: #{$remValue}rem !important;
+  }
+  .pdl#{$index}-vh, .pl#{$index}-vh {
+    padding-left: #{$remValue}rem !important;
+  }
+  @if $index < 100 {
+    @include paddingClassGenerate($index + 5);
+  }
+}
+@include paddingClassGenerateVh (0);
+
+.ml1p { margin-left: 1% !important; }
+.mr1p { margin-right: 1% !important;}
+.ml2p { margin-left: 2% !important; }
+.mr2p { margin-right: 2% !important;}
+.ml4p { margin-left: 4% !important; }
+.mr4p { margin-right: 4% !important;}
+.ml25p { margin-left: 25% !important; }
+.mr25p { margin-right: 25% !important; }
+
+.t0 { top:0 !important; }
+.r0 { right:0 !important; }
+.b0 { bottom:0 !important; }
+.l0 { left:0 !important; }
+
+@mixin borderRadiusGenerate($index) {
+  $remValue: math.div($index, 10);
+  .border-radius-#{$index} {
+    border-radius: #{$remValue}rem;
+  }
+  .border-radius-#{$index}-tl {
+    border-top-left-radius: #{$remValue}rem;
+    -moz-border-radius-topleft: #{$remValue}rem;
+    -webkit-border-top-left-radius: #{$remValue}rem;
+  }
+  .border-radius-#{$index}-tr {
+    border-top-right-radius: #{$remValue}rem;
+    -moz-border-radius-topright: #{$remValue}rem;
+    -webkit-border-top-right-radius: #{$remValue}rem;
+  }
+  .border-radius-#{$index}-bl {
+    border-bottom-left-radius: #{$remValue}rem;
+    -moz-border-radius-bottomleft: #{$remValue}rem;
+    -webkit-border-bottom-left-radius: #{$remValue}rem;
+  }
+  .border-radius-#{$index}-br {
+    border-bottom-right-radius: #{$remValue}rem;
+    -moz-border-radius-bottomright: #{$remValue}rem;
+    -webkit-border-bottom-right-radius: #{$remValue}rem;
+  }
+  @if $index < 50 {
+    @include borderRadiusGenerate($index + 1);
+  }
+}
+@include borderRadiusGenerate (1);
+
+@mixin colGenerate($index) {
+  .col--#{$index} {
+    width: calc(100% / 12 * #{$index});
+  }
+  @if $index < 12 {
+    @include colGenerate($index + 1);
+  }
+}
+@include colGenerate (1);

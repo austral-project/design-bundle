@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200" viewBox="0 0 200 200">
+  <defs>
+    <linearGradient id="linear-gradient" y1="0.5" x2="1" y2="0.5" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#e9edf3"/>
+      <stop offset="1" stop-color="#fff"/>
+    </linearGradient>
+    <clipPath id="clip-austral-icon-file">
+      <rect width="200" height="200"/>
+    </clipPath>
+  </defs>
+  <g id="austral-icon-file" clip-path="url(#clip-austral-icon-file)">
+    <g id="Groupe_26" data-name="Groupe 26">
+      <rect id="BG" width="200" height="200" fill="none"/>
+      <path id="Shadow" d="M680.481,777.685h-44a30,30,0,0,0-30,30v100a30,30,0,0,0,30,30h60a30,30,0,0,0,30-30v-84Z" transform="translate(-552.481 -743.685)" fill="#d4dbe6"/>
+      <g id="Icon" transform="translate(0 5)">
+        <g id="file">
+          <path id="Tracé_18" data-name="Tracé 18" d="M70,15h44V41a20,20,0,0,0,20,20h26v84a30,30,0,0,1-30,30H70a30,30,0,0,1-30-30V45A30,30,0,0,1,70,15Z" fill="#fff"/>
+          <path id="Tracé_19" data-name="Tracé 19" d="M114,15l46,46H134a20,20,0,0,1-20-20Z" fill="url(#linear-gradient)"/>
+        </g>
+        <g id="Groupe_24" data-name="Groupe 24">
+          <rect id="Rectangle_10" data-name="Rectangle 10" width="90" height="6" rx="3" transform="translate(55 82)" fill="#436ca8"/>
+          <rect id="Rectangle_11" data-name="Rectangle 11" width="90" height="6" rx="3" transform="translate(55 96)" fill="#436ca8"/>
+          <rect id="Rectangle_12" data-name="Rectangle 12" width="45" height="6" rx="3" transform="translate(55 60)" fill="#436ca8"/>
+          <rect id="Rectangle_13" data-name="Rectangle 13" width="45" height="6" rx="3" transform="translate(55 46)" fill="#436ca8"/>
+          <rect id="Rectangle_14" data-name="Rectangle 14" width="90" height="6" rx="3" transform="translate(55 110)" fill="#436ca8"/>
+          <rect id="Rectangle_15" data-name="Rectangle 15" width="90" height="6" rx="3" transform="translate(55 124)" fill="#436ca8"/>
+          <rect id="Rectangle_16" data-name="Rectangle 16" width="45" height="6" rx="3" transform="translate(55 138)" fill="#436ca8"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,37 @@
+{% set translateDomain = translateDomain ?? "austral" %}
+{% set label = label ?? "dashboard.choiceLanguage.entitled" %}
+{% if language.list|length > 1 %}
+  <div id="select-current-language" class="toast-select-style">
+    <label>{{ label|trans({}, translateDomain) }}</label>
+    <div class="field" data-field-init="true">
+      <div class="current-language current-toast-choice" data-toast-container="#toast-select-current-language">
+        {{ language.current }}
+        <span class="picto-field austral-picto-simply-down"></span>
+      </div>
+      <div id="toast-select-current-language" class="toast-container toast-size-full" data-toast="" data-toast-position="bottom-center">
+        <ul class="list-link">
+          {% for oneLanguage in language.list %}
+            <li class="item {{ (oneLanguage == language.current ? "current" : "") }} {{ language.available is defined and oneLanguage not in language.available ? "add-language" : "" }}">
+              {{ include("@AustralDesign/Components/Button/picto.html.twig",
+                {
+                  tag:            "a",
+                  url:            path(url.route, {"language": oneLanguage}|merge(url.parameters)),
+                  withEntitled:   true,
+                  full:           true,
+                  picto:          "",
+                  title:          oneLanguage,
+                  html:           oneLanguage~(language.available is defined and oneLanguage not in language.available ? "<span class='info-add'><span class='picto austral-picto-plus'></span>"~(("form.language.add")|trans({}, form.mapper.translateDomain))~"</span>" : ""),
+                  data: {
+                    "data-click-actions":         "reload",
+                    "data-reload-elements-key":   "all",
+                  }
+                }
+              ) }}
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+
+    </div>
+  </div>
+{% endif %}

@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200" viewBox="0 0 200 200">
+  <defs>
+    <linearGradient id="linear-gradient" x1="2.663" y1="2.987" x2="-0.093" y2="-0.075" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#fffbd5"/>
+      <stop offset="1" stop-color="#fff"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-2" x1="1.163" y1="1.153" x2="-1.593" y2="-1.909" xlink:href="#linear-gradient"/>
+    <linearGradient id="linear-gradient-3" x1="1.153" y1="1.163" x2="-1.909" y2="-1.593" xlink:href="#linear-gradient"/>
+    <linearGradient id="linear-gradient-4" x1="2.987" y1="2.663" x2="-0.075" y2="-0.093" xlink:href="#linear-gradient"/>
+    <linearGradient id="linear-gradient-5" x1="1.685" y1="1.599" x2="-0.542" y2="-0.628" xlink:href="#linear-gradient"/>
+    <linearGradient id="linear-gradient-6" x1="1.599" y1="1.685" x2="-0.628" y2="-0.542" xlink:href="#linear-gradient"/>
+    <linearGradient id="linear-gradient-7" x1="0.785" y1="0.785" x2="-1.442" y2="-1.442" xlink:href="#linear-gradient"/>
+    <linearGradient id="linear-gradient-8" x1="2.499" y1="2.499" x2="0.272" y2="0.272" xlink:href="#linear-gradient"/>
+    <linearGradient id="linear-gradient-9" x1="0.857" y1="0.843" x2="0.171" y2="0.105" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#fff9bf"/>
+      <stop offset="1" stop-color="#fff"/>
+    </linearGradient>
+    <clipPath id="clip-austral-icon-gear">
+      <rect width="200" height="200"/>
+    </clipPath>
+  </defs>
+  <g id="austral-icon-gear" clip-path="url(#clip-austral-icon-gear)">
+    <g id="Groupe_14" data-name="Groupe 14">
+      <rect id="BG" width="200" height="200" fill="none"/>
+      <path id="Shadow" d="M748.481,871.858V843.512l-23.759-3.96A60.608,60.608,0,0,0,720.5,829.3l13.985-19.58-20.039-20.039L694.861,803.67a60.605,60.605,0,0,0-10.247-4.226l-3.96-23.759H652.308l-3.96,23.759a60.722,60.722,0,0,0-10.247,4.227L618.52,789.685l-20.039,20.039,13.986,19.582a60.588,60.588,0,0,0-4.226,10.246l-23.76,3.96v28.346l23.76,3.96a60.588,60.588,0,0,0,4.226,10.246l-13.986,19.582,20.039,20.039L638.1,911.7a60.588,60.588,0,0,0,10.246,4.226l3.96,23.76h28.346l3.96-23.759a60.6,60.6,0,0,0,10.247-4.227l19.581,13.986,20.039-20.039L720.5,886.065a60.6,60.6,0,0,0,4.226-10.247Z" transform="translate(-552.481 -743.685)" fill="#fcee92"/>
+      <g id="Icon">
+        <g id="Groupe_13" data-name="Groupe 13">
+          <g id="Groupe_15" data-name="Groupe 15">
+            <path id="Tracé_10" data-name="Tracé 10" d="M120.247,54.444H79.753L85.827,18h28.346Z" fill="url(#linear-gradient)"/>
+            <path id="Tracé_11" data-name="Tracé 11" d="M79.753,145.556h40.494L114.173,182H85.827Z" fill="url(#linear-gradient-2)"/>
+            <path id="Tracé_12" data-name="Tracé 12" d="M145.556,120.247V79.753L182,85.827v28.346Z" fill="url(#linear-gradient-3)"/>
+            <path id="Tracé_13" data-name="Tracé 13" d="M54.444,79.753v40.494L18,114.173V85.827Z" fill="url(#linear-gradient-4)"/>
+            <path id="Tracé_14" data-name="Tracé 14" d="M146.529,82.1,117.9,53.471,147.961,32,168,52.039Z" fill="url(#linear-gradient-5)"/>
+            <path id="Tracé_15" data-name="Tracé 15" d="M53.471,117.9,82.1,146.529,52.039,168,32,147.961Z" fill="url(#linear-gradient-6)"/>
+            <path id="Tracé_16" data-name="Tracé 16" d="M117.9,146.529,146.529,117.9,168,147.961,147.961,168Z" fill="url(#linear-gradient-7)"/>
+            <path id="Tracé_17" data-name="Tracé 17" d="M82.1,53.471,53.471,82.1,32,52.039,52.039,32Z" fill="url(#linear-gradient-8)"/>
+          </g>
+        </g>
+        <path id="Tracé_18" data-name="Tracé 18" d="M143.134,56.866a61,61,0,1,0,0,86.268A61,61,0,0,0,143.134,56.866ZM100,117.792A17.792,17.792,0,1,1,117.792,100,17.792,17.792,0,0,1,100,117.792Z" fill="#fff"/>
+        <path id="Tracé_19" data-name="Tracé 19" d="M100,61a39,39,0,1,0,39,39A39,39,0,0,0,100,61Zm0,60a21,21,0,1,1,21-21A21,21,0,0,1,100,121Z" transform="translate(200 200) rotate(180)" fill="url(#linear-gradient-9)"/>
+        <path id="Tracé_20" data-name="Tracé 20" d="M100,70a30,30,0,1,0,30,30A30,30,0,0,0,100,70Zm0,48a18,18,0,1,1,18-18A18,18,0,0,1,100,118Z" fill="#f0b000"/>
+      </g>
+    </g>
+  </g>
+</svg>

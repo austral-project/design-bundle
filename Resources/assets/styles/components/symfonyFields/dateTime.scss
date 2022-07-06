@@ -1,0 +1,11 @@
+.field-content-symfonyField {
+  .field-dateTimeType {
+    &>div {
+      width: 100%;
+    }
+    div {
+      @include flex-display();
+      @include align-items(center);
+    }
+  }
+}

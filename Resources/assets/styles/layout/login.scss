@@ -1,0 +1,60 @@
+.login-content {
+  @include flex-display();
+  @include align-content(flex-start);
+  @include align-items(flex-start);
+  @include justify-content(flex-start);
+  @include flex-direction(column);
+  padding: 0 12rem;
+  height: 100vh;
+  .authenticated-title {
+    padding: 8rem 0 0;
+    .logo {
+      height: 3.2rem;
+    }
+  }
+  .form-authenticated {
+    padding: 14rem 0 0;
+    width: 100%;
+    .website-title {
+      @extend .font-poppins-sb-22;
+    }
+    .sub-title {
+      @extend .font-poppins-m-11-uppercase-grey
+    }
+    .fields-content {
+      padding-top: 3rem;
+      .field-content {
+        margin: 1rem 0;
+        border-bottom: 0.1rem solid var(--color-main-10);
+      }
+    }
+    .content-buttons {
+      padding-top: 3rem;
+      @include flex-display();
+      @include align-content(center);
+      @include align-items(center);
+      @include justify-content(flex-start);
+      .button {
+        width: 50%;
+      }
+    }
+  }
+  .bottom {
+    @extend .font-poppins-m-11-uppercase-grey;
+    width: 100%;
+    margin-top: auto;
+    padding-bottom: 4rem;
+    text-align: center;
+    a {
+      color: var(--color-black);
+    }
+  }
+}
+.content-background-login {
+  width: 100%;
+  height: 100%;
+  background: var(--color-main-10);
+  img {
+    @include image-cover(cover);
+  }
+}

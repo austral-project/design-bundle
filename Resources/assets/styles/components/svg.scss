@@ -1,0 +1,48 @@
+/**
+ *  Upload image SVG
+ */
+#img-upload-original-img-left_to,
+#img-upload-original-img-left_tr,
+#img-upload-original-img-right_to,
+#img-upload-original-img-right_tr {
+  @include transition-default();
+}
+.file-upload-content #img-upload-original #img-upload-original-img-left_to{
+  transform: translate(24.5px,26.5px);
+}
+.file-upload-content:hover #img-upload-original #img-upload-original-img-left_to{
+  transform: translate(21.5px,21.5px);
+}
+.file-upload-content #img-upload-original #img-upload-original-img-left_tr{
+  transform: rotate(-13deg);
+}
+.file-upload-content:hover #img-upload-original #img-upload-original-img-left_tr{
+  transform: rotate(-18deg);
+}
+.file-upload-content #img-upload-original #img-upload-original-img-right_to{
+  transform: translate(45.5px,30.5px);
+}
+.file-upload-content:hover #img-upload-original #img-upload-original-img-right_to{
+  transform: translate(50.5px,26.5px);
+}
+.file-upload-content #img-upload-original #img-upload-original-img-right_tr{
+  transform: rotate(7deg);
+}
+.file-upload-content:hover #img-upload-original #img-upload-original-img-right_tr{
+  transform: rotate(12deg);
+}
+
+/**
+ *  Loader SVG
+ */
+#loader-container .loader-path {
+  opacity:0.5;
+}
+#loader-container .loader-animate {
+  stroke-dashoffset: 221.9114857512855px;
+  stroke-dasharray: 221.9114857512855px;
+  transition: stroke-dashoffset 1.5s cubic-bezier(0.76, 0, 0.24, 1) 0s;
+}
+.loader #loader-container .loader-animate  {
+  stroke-dashoffset: 0;
+}

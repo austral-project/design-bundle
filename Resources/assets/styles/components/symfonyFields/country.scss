@@ -1,0 +1,43 @@
+.field-content-symfonyField {
+  .field-countryType {
+    &::before,
+    &::after {
+      @include transition-default();
+      content: "";
+      top: 50%;
+      position: absolute;
+    }
+    &::before {
+      @include transform(translateY(-50%));
+      @include radius(100%);
+      background: var(--background-color-button-picto-with-background);
+      height: 1.5rem;
+      width: 1.5rem;
+      opacity: 0;
+      z-index: 1;
+      right: 2rem;
+    }
+    &::after {
+      --element-currencyType-rotate: 0deg;
+      @extend .font-austral-16-grey;
+      @include transform(translateY(-50%) rotate(var(--element-currencyType-rotate)));
+      content: "\e928";
+      color: var(--color-grey-50);
+      border: none;
+      width: auto;
+      height: auto;
+      margin: 0;
+      z-index: 2;
+      right: 2rem;
+    }
+    &:focus,
+    &:hover {
+      &::before {
+        opacity: 1;
+        height: 3.5rem;
+        width: 3.5rem;
+        right: 1rem;
+      }
+    }
+  }
+}

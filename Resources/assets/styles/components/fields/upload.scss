@@ -1,0 +1,266 @@
+.file-upload-content {
+  @include flex(1);
+  @include flex-display();
+  @include align-items(center);
+  @include align-content(center);
+  @include justify-content(center);
+  @include transition-default();
+  position:relative;
+  height: 25rem;
+  background: var(--color-white);
+  border: 0.2rem solid var(--color-white);
+  cursor:pointer;
+  z-index: 10;
+  &.is-dragover {
+    .drag-container {
+      opacity:1;
+      background: var(--color-blue-20);
+      .label-content {
+        opacity: 0;
+      }
+      .drag-picto {
+        height: 5rem;
+        width: 5rem;
+      }
+      .label-content {
+        opacity:0;
+      }
+    }
+  }
+  &.edit {
+    .button-edit-content {
+      pointer-events: auto;
+    }
+    &:hover {
+      .button-edit-content {
+        opacity:1;
+      }
+      .label-content {
+        opacity: 0;
+      }
+    }
+    .label-content {
+      opacity: 0;
+    }
+  }
+  .button-edit-content {
+    @include transition-default();
+    opacity:0;
+    z-index: 100;
+    pointer-events: none;
+  }
+  &.loader {
+    .drag-container {
+      .drag-loader {
+        opacity: 1;
+      }
+      .drag-picto {
+        opacity: 0;
+      }
+    }
+    .label-content {
+      opacity:0;
+    }
+  }
+  &.has-error {
+    .error-content  {
+      opacity: 1;
+      pointer-events: auto;
+    }
+  }
+
+  &:hover {
+    .label-content {
+      opacity: 1;
+      .picto-content {
+        .picto-left {
+          @include rotate(-10deg);
+          top: -1rem;
+          left: -0.5rem;
+        }
+        .picto-right {
+          @include rotate(10deg);
+          top: -1rem;
+          left: 0.5rem;
+        }
+      }
+    }
+  }
+  .drag-container,
+  .preview-file,
+  .current-file {
+    position:absolute;
+    height:100%;
+    width: 100%;
+    top:0;
+    left:0;
+    z-index:10;
+    canvas,
+    img {
+      @include image-cover(contain);
+      @extend %background-pattern-square;
+    }
+  }
+  .drag-container {
+    @include flex-display();
+    @include align-items(center);
+    @include align-content(center);
+    @include justify-content(center);
+    @include transition-default();
+    background: var(--color-white);
+    z-index:20;
+    opacity:0;
+    pointer-events: none;
+    .drag-loader {
+      @include transition-default();
+      @include position-middle;
+      opacity:0;
+      position:absolute;
+      height: 5rem;
+      width: 5rem;
+      z-index:10;
+      svg {
+        width: 100%;
+        height:100%;
+      }
+    }
+    .drag-picto {
+      @include radius(100%);
+      @include flex-display();
+      @include align-items(center);
+      @include align-content(center);
+      @include justify-content(center);
+      @include transition-default();
+      position:relative;
+      opacity:1;
+      height: 3.6rem;
+      width: 3.6rem;
+      background: var(--color-white);
+      .picto {
+        @extend .font-austral-16;
+      }
+      &:after {
+        @include position-middle;
+        content: '';
+        display: block;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        background: var(--color-white);
+        position: absolute;
+        z-index: -1;
+        transform-origin: left top;
+        animation: sonar 1.5s linear infinite;
+      }
+      @keyframes sonar {
+        0% {
+          opacity: 0;
+          transform: scale(1) translate(-50%, -50%);
+        }
+
+        50% {
+          opacity: 0.5;
+        }
+
+        100% {
+          opacity: 0;
+          transform: scale(1.5) translate(-50%, -50%);
+        }
+      }
+    }
+  }
+  .error-content {
+    @include flex-display();
+    @include align-items(center);
+    @include align-content(center);
+    @include justify-content(center);
+    @include transition-default();
+    position:absolute;
+    top:0;
+    left:0;
+    height: 100%;
+    width: 100%;
+    background: var(--color-red-20);
+    z-index: 18;
+    opacity: 0;
+    pointer-events: none;
+    .error-picto {
+      @include radius(100%);
+      @include flex-display();
+      @include align-items(center);
+      @include align-content(center);
+      @include justify-content(center);
+      @include transition-default();
+      background: var(--color-white);
+      position: relative;
+      opacity: 1;
+      height: 5rem;
+      width: 5rem;
+      color: var(--color-red-100);
+      .picto {
+        @extend .font-austral-16;
+      }
+    }
+    .messages-content {
+      @include flex-display();
+      @include flex-direction(column);
+      @include align-items(center);
+      @include align-content(center);
+      @include justify-content(center);
+      height: 50%;
+      position:absolute;
+      bottom:0;
+      li {
+        @extend .font-poppins-m-12;
+        color: var(--color-red-100);
+      }
+    }
+  }
+  .label-content {
+    @include position-middle;
+    @include transition-default();
+    @include flex-display();
+    @include flex-direction(column);
+    @include align-items(center);
+    @include align-content(center);
+    @include justify-content(center);
+    opacity: 0.55;
+    width: 100%;
+    position:absolute;
+    .picto-content {
+      height: 7rem;
+      width: 8rem;
+      position:relative;
+      .picto-left,
+      .picto-right {
+        @include transition-default();
+        position:absolute;
+        top:0;
+        left:0;
+        height:100%;
+        width: 100%;
+        background: transparent url('../../images/upload-image-left.svg') no-repeat left top;
+      }
+      .picto-right {
+        background: transparent url('../../images/upload-image-right.svg');
+      }
+    }
+    .label-add {
+      @extend .font-poppins-m-12;
+    }
+  }
+}
+
+.dragover-event {
+  .field {
+    .file-upload-content {
+      .drag-container {
+        background: var(--color-blue-10);
+        opacity: 1;
+        .label-content {
+          opacity: 0;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="80" height="80" viewBox="0 0 80 80">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_142" data-name="Rectangle 142" width="80" height="80" transform="translate(480 313)" fill="none"/>
+    </clipPath>
+  </defs>
+  <g id="Groupe_1917" data-name="Groupe 1917" transform="translate(-480 -313)">
+    <g id="Groupe_de_masques_1" data-name="Groupe de masques 1" clip-path="url(#clip-path)">
+      <g id="Groupe_1916" data-name="Groupe 1916" transform="translate(480.386 312)">
+        <g id="Groupe_1919" data-name="Groupe 1919" transform="translate(11.068 16.745) rotate(-12)">
+          <path id="Soustraction_2" data-name="Soustraction 2" d="M47.267,37.667H0V2A2,2,0,0,1,2,0H37.21L47.267,10.06V37.666Z" transform="translate(6.647 0)" fill="#beecc1"/>
+          <path id="Soustraction_3" data-name="Soustraction 3" d="M47.267,24.375H0V2A2,2,0,0,1,2,0H45.267a2,2,0,0,1,2,2V24.374Z" transform="matrix(-0.966, -0.259, 0.259, -0.966, 45.657, 74.183)" fill="#beecc1"/>
+        </g>
+        <g id="Groupe_1915" data-name="Groupe 1915" transform="translate(0 11.211) rotate(-12)">
+          <path id="Soustraction_2-2" data-name="Soustraction 2" d="M47.267,37.667H0V2A2,2,0,0,1,2,0H37.21L47.267,10.06V37.666Z" transform="translate(6.647 0)" fill="#fff"/>
+          <path id="Soustraction_3-2" data-name="Soustraction 3" d="M47.267,24.375H0V2A2,2,0,0,1,2,0H45.267a2,2,0,0,1,2,2V24.374Z" transform="matrix(-0.966, -0.259, 0.259, -0.966, 45.657, 74.183)" fill="#fff"/>
+        </g>
+        <path id="Tracé_94" data-name="Tracé 94" d="M0,0H10.07L0,10.07Z" transform="translate(44.994 11.944) rotate(-102)" fill="#e9edf3"/>
+        <g id="Groupe_1918" data-name="Groupe 1918" transform="translate(32.075 23.93) rotate(30)">
+          <rect id="Rectangle_147" data-name="Rectangle 147" width="4.382" height="26.291" transform="translate(16.647 -3.26) rotate(4)" fill="#1ab84e"/>
+          <rect id="Rectangle_148" data-name="Rectangle 148" width="4.382" height="19.111" transform="translate(19.437 19.373) rotate(94)" fill="#1ab84e"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

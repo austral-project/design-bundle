@@ -1,0 +1,44 @@
+{#
+  {
+    id:                 "string",     #id-to-block
+    little:             "boolean",
+    background:         "string|null",
+    color:              "string|null",
+    user: {
+      image:      "string|null",  #If (src-image) exist
+      firstname:  "string",
+      lastname:   "string"
+    }
+  }
+#}
+{% if user is defined %}
+
+  {% set styles = {
+    "background": "--color-user: var(--color-main-40)",
+    "color": "--element-avatar-color: var(--color-white)"
+  } %}
+
+  {% if background|default(null) %}
+    {% set styles = styles|merge({
+      "background": "--color-user:"~background
+    }) %}
+  {% endif %}
+
+  {% if color|default(null) %}
+    {% set styles = styles|merge({
+      "color": "--element-avatar-color:"~color
+    }) %}
+  {% endif %}
+
+  <div{{ (id|default(null)) ? " id="~id~"" }} class="avatar-container{{ (little|default(null)) ? " size-24" : "" }}"{% if styles|default(null) %} style="{{ styles|join(";") }}" {% endif %}>
+    <div class="avatar type-{% if user.image is defined and user.image %}image{% else %}initial{% endif %}">
+      {% if user.image is defined and user.image %}
+        <div class="content-image">
+          <img src="{{ user.image }}" alt="{{ user.firstname }} {{ user.lastname }}">
+        </div>
+      {% else %}
+        <span class="default font-poppins-m-10-grey">{{ user.firstname|first }}{{ user.lastname|first }}</span>
+      {% endif %}
+    </div>
+  </div>
+{% endif %}

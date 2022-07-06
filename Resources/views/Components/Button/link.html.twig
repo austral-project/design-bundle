@@ -1,0 +1,14 @@
+{% include "@AustralDesign/Components/Button/Base/button.html.twig" with {
+  tag:            tag|default("span"),
+  type:           "link",
+  color:          color|default(null),
+  url:            url|default(null),
+  picto:          picto|default(null),
+  pictoTop:       pictoTop|default(false),
+  reverse:        reverse|default(false),
+  title:          title,
+  full:           full|default(false),
+  entitled:       entitled|default(title),
+  disabled:       disabled|default(false),
+  data:           data|default({})
+} only %}

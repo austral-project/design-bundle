@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200" viewBox="0 0 200 200">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.853" y1="0.849" x2="0.139" y2="0.142" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#ebdbff"/>
+      <stop offset="1" stop-color="#fff"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-2" x1="0.5" y1="1" x2="0.5" y2="0" xlink:href="#linear-gradient"/>
+    <clipPath id="clip-austral-icon-design">
+      <rect width="200" height="200"/>
+    </clipPath>
+  </defs>
+  <g id="austral-icon-design" clip-path="url(#clip-austral-icon-design)">
+    <g id="Groupe_58" data-name="Groupe 58">
+      <rect id="BG" width="200" height="200" fill="none"/>
+      <rect id="Shadow" width="150" height="150" rx="75" transform="translate(39 39)" fill="#dec0fc"/>
+      <g id="Icon" transform="translate(-12.5 -33)">
+        <g id="Groupe_1" data-name="Groupe 1" transform="translate(37.5 58)">
+          <rect id="Rectangle_1" data-name="Rectangle 1" width="150" height="150" rx="75" fill="url(#linear-gradient)"/>
+          <path id="Tracé_61" data-name="Tracé 61" d="M634.386-27.054a65,65,0,0,0-65-65,65,65,0,0,0-65,65,64.934,64.934,0,0,0,30,54.76V16.946a15,15,0,0,1,15-15h40a15,15,0,0,1,15,15v10.76A64.932,64.932,0,0,0,634.386-27.054Z" transform="translate(-494.386 102.054)" fill="#fff"/>
+        </g>
+        <path id="Tracé_58" data-name="Tracé 58" d="M573-52h30a5,5,0,0,1,5,5v25H568V-47A5,5,0,0,1,573-52Z" transform="translate(-475.5 184)" fill="url(#linear-gradient-2)"/>
+        <path id="Tracé_59" data-name="Tracé 59" d="M602.535-52H573.816l8.658-35.522a5.869,5.869,0,0,1,5.7-4.478h0a5.869,5.869,0,0,1,5.7,4.478Z" transform="translate(-475.5 184)" fill="#8b16d9"/>
+      </g>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,99 @@
+.aside-container {
+  &.dark {
+    background: var(--color-black-force);
+    color: var(--color-white-force);
+  }
+  background: var(--color-white);
+  color: var(--color-black);
+  &.right {
+    left:auto;
+    right: -50%;
+  }
+  &.w50 {
+    width: 50%;
+  }
+  &.filter-content {
+    width: 50rem;
+  }
+  box-shadow: 0px 0px 20px #0000001A;
+  width: 30rem;
+  z-index: 10000;
+  position: fixed;
+  top: 0;
+  left: -50%;
+  height: 100vh;
+  visibility: hidden;
+  overflow-y: auto;
+  .button-content-close-aside {
+    position:absolute;
+    top:1rem;
+    right:1rem;
+  }
+  .collections-choices-content {
+    padding: 3.5rem 3rem;
+    .title-content {
+      .title {
+        @extend .font-poppins-sb-18
+      }
+      padding-bottom: 2rem;
+    }
+    .button-action-container {
+      position:absolute;
+      top:1rem;
+      right: 1rem;
+    }
+    .title-category {
+      @extend .font-poppins-m-13-uppercase;
+      padding: 3rem 0 1rem;
+      border-bottom: 0.1rem solid var(--color-main-10);
+    }
+    .content-listes-choices {
+      &:last-child {
+        .choice {
+          &:last-child {
+            border-bottom: 0.1rem solid var(--color-main-10);
+          }
+        }
+      }
+      .choice {
+        &:last-child {
+          border-bottom: 0.5rem solid var(--color-main-10);
+        }
+        border-bottom: 0.1rem solid var(--color-main-10);
+        .button {
+          @include flex-display();
+          @include align-content(center);
+          @include align-items(center);
+          padding: 1rem 0;
+          &.with-sub-title {
+            @include justify-content(center);
+            @include align-items(flex-start);
+            @include align-content(flex-start);
+            @include flex-direction(column);
+          }
+        }
+        .picto {
+          position:relative;
+          display:block;
+          background: var(--color-main-10);
+          height: 4rem;
+          width: 4rem;
+          &:before {
+            @include position-middle;
+            @extend .font-austral-16;
+            position:absolute;
+          }
+        }
+        .entitled {
+          @extend .font-poppins-m-12;
+          text-transform: none;
+          margin-left: 1rem;
+          color: var(--color-black);
+        }
+        .sub-entitled {
+          margin-left: 1rem;
+        }
+      }
+    }
+  }
+}

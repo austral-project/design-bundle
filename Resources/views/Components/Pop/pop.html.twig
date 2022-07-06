@@ -1,0 +1,44 @@
+{#
+{
+  class:        "string",
+  picto:        "string",
+  position:     "string",     #bottom-right || bottom-left || top-left || top-right,
+  title:        "string",
+  id:           "string",     #id-to-block
+  actions:      [
+    {
+      tag:    "string",     # a or span,
+      path:   "string",     # path,
+      class:  "string",     # button-picto || button-action || button-link
+      picto:  "string",
+      data:   {},           # list data
+      title:  "string",
+      html:   "string"
+    }
+  ]
+}
+#}
+
+<div id="pop-container-{{ id }}" class="relative">
+  {{ include("@AustralDesign/Components/Button/picto.html.twig",
+    {
+      picto:      picto,
+      title:      title,
+      data:       {
+      "data-toast-container": "#pop-choices-"~id,
+    }
+    }
+  )
+  }}
+  <div id="pop-choices-{{ id }}" class="toast-container toast-action" data-toast="" data-toast-position="{{ position }}" data-toast-position-origin="#pop-container-{{ id }}" >
+    <ul class="list-link">
+      {% for action in actions %}
+        <li class="item">
+          {{ include("@AustralDesign/Components/Button/picto.html.twig", action) }}
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>
+
+

@@ -1,0 +1,48 @@
+{#
+{
+  checked:      "boolean",
+  switch: {
+    styles:       [],
+    input:        "<input .../>",
+    urls:         {
+      "heads":      "/path",
+      "tails":      "/path"
+    },
+  },
+  entitled:     {
+    view:         "boolean",
+    heads:        "Heads entitled",
+    tails:        "Tails entitled"
+  }
+}
+#}
+
+{% set dataFinal = {
+  "class":        "switch-type switch-element "~( checked|default(false) ? "tails" : "heads"),
+  "data-switch":  ""
+} %}
+
+{% if switch.input is defined %}
+  {% set dataFinal = {"data-switch-input": ""}|merge(dataFinal) %}
+{% elseif switch.urls is defined %}
+  {% set dataFinal = {"data-switch-urls": switch.urls|json_encode }|merge(dataFinal) %}
+{% endif %}
+
+{% if switch.styles is defined %}
+  {% set dataFinal = {"style": switch.styles|join(" ")}|merge(dataFinal) %}
+{% endif %}
+
+<div {% for key, value in dataFinal %}{{ key }}="{{ value }}" {% endfor %} >
+  {% if switch.input is defined %}{{ switch.input|raw() }}{% endif %}
+  <div class="switch-button-content">
+    {% if entitled.view is defined and entitled.view %}
+      <span class="text heads font-poppins-m-12-grey">{{ entitled.heads|default(null) }}</span>
+    {% endif %}
+    <span class="switch-button">
+      <span class="indicator"></span>
+    </span>
+    {% if entitled.view is defined and entitled.view %}
+      <span class="text tails font-poppins-m-12-grey">{{ entitled.tails|default(null) }}</span>
+    {% endif %}
+  </div>
+</div>

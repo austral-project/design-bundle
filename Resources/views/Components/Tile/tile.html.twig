@@ -1,0 +1,23 @@
+{# Create data Final #}
+{% set dataFinal = {
+  "href":                     url|default("#"),
+  "class":                    "link",
+  "data-click-actions":       "reload",
+  "data-reload-elements-key": "container"
+} %}
+
+{% if data is defined and data is iterable %}
+  {% set dataFinal = data|merge(dataFinal) %}
+{% endif %}
+
+<{{ tag|default("li") }} class="col col--no-gutters tile tile-color-{{ color }}">
+  <a {% for key, value in dataFinal %}{{ key~'='~value }} {% endfor %}>
+    <div class="picto-content">
+      {% if picto is not defined or picto is null %}
+        {% set picto = "folder" %}
+      {% endif %}
+      <img src="{{ asset("bundles/australadmin/images/tile-picto/color-"~color~"/austral-icon-"~picto~".svg") }}">
+    </div>
+    <h3 class="title font-poppins-sb-18">{{ entitled }}</h3>
+  </a>
+</{{ tag|default("li") }}>

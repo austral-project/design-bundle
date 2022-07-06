@@ -1,0 +1,60 @@
+.datepicker {
+  &.datepicker-dropdown {
+    z-index: 10000;
+  }
+  .datepicker-main,
+  .datepicker-header {
+    padding-bottom: 1rem;
+    .datepicker-controls {
+      .button {
+        @include transition-default();
+        &:hover {
+          background-color: var(--color-main-10);
+        }
+      }
+    }
+  }
+  .datepicker-controls {
+    .button {
+      font-size: 1.5rem;
+      color:var(--color-black);
+    }
+  }
+  .datepicker-grid {
+    width: 25rem;
+  }
+  .datepicker-view .dow {
+    font-size:1.2rem;
+  }
+  .datepicker-cell,
+  .datepicker-view .week {
+    @include transition-default();
+    font-size:1.1rem;
+    height: 3rem;
+    line-height: 3rem;
+    &.selected {
+      background-color: var(--color-blue-90);
+    }
+    &:not(.disabled) {
+      &:hover {
+        background-color: var(--color-main-10);
+        color:var(--color-black);
+      }
+    }
+  }
+  .days-of-week {
+    padding-bottom: 1rem;
+  }
+  .datepicker-footer {
+    padding: 0.5rem;
+    .datepicker-controls {
+      .button {
+        @include transition-default();
+        font-size:1.25rem;
+        &:hover {
+          background-color: var(--color-main-10);
+        }
+      }
+    }
+  }
+}
