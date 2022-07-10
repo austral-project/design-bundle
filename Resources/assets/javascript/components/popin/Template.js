@@ -256,20 +256,37 @@ class Template {
     {
       if(command === "update" || command === "delete")
       {
+        if( command === "delete")
+        {
+          if(this.upload)
+          {
+            this.upload.deleteFile();
+          }
+        }
+
         [].forEach.call(this.popin.element.querySelectorAll("*[data-popin-update-input]"), (el) => {
           let updateInputElement = this.originElements.querySelector("*[data-popin-update-input='"+el.dataset.popinUpdateInput+"']");
-          if(updateInputElement) {
-            let newValue = null;
-            if(el.tagName === "DIV") {
-              newValue = command === "update" ? el.querySelector("input[type='radio']:checked").value : null;
-            }
-            else if(el.type === "checkbox") {
-              newValue = command === "update" ? (el.checked ? 1 : 0) : 0;
+          if(updateInputElement !== undefined) {
+            if(el.type === "file") {
+              updateInputElement.files = command === "update" ? el.files : null;
             }
             else {
-              newValue = command === "update" ? el.value : null;
+              let newValue = null;
+              if(el.tagName === "DIV") {
+                newValue = command === "update" ? el.querySelector("input[type='radio']:checked").value : null;
+              }
+              else if(el.type === "checkbox") {
+                newValue = command === "update" ? (el.checked ? 1 : 0) : 0;
+              }
+              else if(el.dataset.deleteFile !== undefined) {
+                newValue = command === "delete" ? 1 : el.value;
+              }
+              else {
+                newValue = command === "update" ? el.value : null;
+              }
+              updateInputElement.value = newValue;
             }
-            updateInputElement.value = newValue;
+
           }
         });
 
@@ -286,13 +303,6 @@ class Template {
           });
           if(this.cropper) {
             this.cropper.saveCropperAllDatas();
-          }
-        }
-        else if( command === "delete")
-        {
-          if(this.upload)
-          {
-            this.upload.deleteFile();
           }
         }
       }

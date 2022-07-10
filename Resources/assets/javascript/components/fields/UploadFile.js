@@ -15,7 +15,6 @@ export default class UploadFile  extends abstractField {
     this.previewContenainer = this.element.querySelector(".preview-file");
     this.options = JSON.parse(this.element.dataset.uploadFileOptions)
     this.input = this.element.querySelector(this.options["input-file"]);
-    this.input.setAttribute("data-input-file-key", this.element.dataset.uploadFileKey);
     this.deleteInput = this.element.querySelector("*[data-delete-file]");
     this.file = null;
     this.fileImageSize = {"width": 0, "height": 0};
