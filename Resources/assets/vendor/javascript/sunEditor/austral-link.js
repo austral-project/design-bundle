@@ -60,6 +60,16 @@ export default {
       context.australLink.linkAnchor = link_dialog.querySelector('*[data-popin-update-input="field-anchor"]');
       context.australLink.targetIsBlank = link_dialog.querySelector('*[data-popin-update-input="field-target-blank"]');
 
+
+      link_dialog.querySelectorAll('*[data-popin-update-input="field-link-choice"] option').forEach((option) => {
+        let value = option.getAttribute("value");
+        if(value !== undefined && value)
+        {
+          option.setAttribute("value", "#INTERNAL_LINK_"+value+"#");
+        }
+      })
+
+
       /** link controller */
       let link_controller = this.setController_LinkButton(core);
       context.australLink.linkController = link_controller;
@@ -265,7 +275,7 @@ export default {
       MiscEvent.dispatch("choice", {choice: {value: null} }, this.context.australLink.linkChoice);
       let currentHref = this.context.australLink._linkUpdate.getAttribute("href");
       let linkType = null;
-      if(AustralLinks.getLinkByKey(currentHref))
+      if(currentHref.indexOf("#INTERNAL_LINK_") >= 0)
       {
         linkType = "internal";
         this.context.australLink.linkChoice.value = currentHref;

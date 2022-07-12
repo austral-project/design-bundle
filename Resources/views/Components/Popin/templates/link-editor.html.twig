@@ -65,7 +65,7 @@
                       {% for class, pagesByClass in pages %}
                         <optgroup label="{{ class }}">
                           {% for page in pagesByClass %}
-                            <option value="#INTERNAL_LINK_{{ class }}:{{ page.id }}#">{{ page.__toString() }}</option>
+                            <option value="{{ class }}:{{ page.id }}">{{ page.__toString() }}</option>
                           {% endfor %}
                         </optgroup>
                       {% endfor %}
