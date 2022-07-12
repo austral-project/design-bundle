@@ -19,7 +19,7 @@ export default class Choice extends abstractField{
   create(element) {
     super.create(element);
     this.options = JSON.parse(this.element.dataset.choiceElementStyles);
-    this.isMultiple = this.element.dataset.choiceMultiple === "true";
+    this.isMultiple = this.element.dataset.choiceMultiple === "1";
     this.viewByChoiceElement = null;
     this.horizontal = this.element.dataset.choiceDirection === "horizontal";
     this.verticalLine = this.element.dataset.choiceDirection === "vertical-line";
