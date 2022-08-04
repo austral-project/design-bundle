@@ -37,7 +37,7 @@
     "@simonwep/pickr": "^1.8.2",
     "@squoosh/lib": "^0.4.0",
     "@vivid-web/flexboxgrid-sass": "^5.0.4",
-    "@yaireo/tagify": "^4.9.8",
+    "@yaireo/tagify": "4.9.8",
     "animate.css": "^4.1.1",
     "autosize": "^4.0.2",
     "babel-polyfill": "^6.26.0",
