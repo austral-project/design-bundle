@@ -93,7 +93,6 @@ class Cropper  {
       var uploadedImageURL = this.element.dataset.cropperImage;
       if (this.uploadFile.file)
       {
-        console.log(this.uploadFile.file);
         var uploadedImageURL = URL_UPLOAD_IMAGE.createObjectURL(this.uploadFile.file);
       }
       el.querySelector("img").setAttribute('src', uploadedImageURL);
@@ -110,6 +109,7 @@ class Cropper  {
       }
 
       let cropperOptions = this.options(el.dataset.cropperRatio, optionsSave);
+      console.log(cropperOptions);
       if(this.cropperContainers[el.dataset.cropperKey])
       {
         this.cropperContainers[el.dataset.cropperKey].cropper.destroy();
@@ -198,9 +198,10 @@ class Cropper  {
 
   options(ratio, optionsSave) {
     var options = Object.assign({
-      viewMode: 3,
+      viewMode: 2,
       dragMode: "move",
-      cropBoxMovable: true
+      cropBoxMovable: true,
+      cropBoxResizable: true
     }, optionsSave);
 
     if(ratio) {
