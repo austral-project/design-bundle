@@ -1,7 +1,5 @@
 import { NativeEventSource, EventSourcePolyfill } from 'event-source-polyfill';
 import Request from "./../request/Request";
-import Response from "./../response/Response";
-import MiscEvent from "../misc/Event";
 export default class Mercure {
 
   constructor() {
@@ -26,7 +24,10 @@ export default class Mercure {
         {},
         (response) => {
           if(response.ok) {
+
+            console.log(response);
             response.json().then(function (array) {
+              console.log(array);
             });
           }
         }
@@ -60,21 +61,7 @@ export default class Mercure {
       Debug.log(notification);
       var data = JSON.parse(notification.data);
       if(data.type !== undefined) {
-        if(data.type === "refresh") {
-          var response = new Response();
-          response.setReplaceState(false)
-            .setPushHistory(false)
-            .setReplaceDom(true)
-            .setElementsToRefresh(data.reloadElements);
-          var request = new Request(
-            "GET",
-            data.url !== "current" ? data.url : window.location,
-            {},
-            response
-          );
-          request.execute();
-        }
-        else if(data.type === "multi-user") {
+        if(data.type === "multi-user") {
           const contentConflictDetected = document.body.querySelector("#content-conflict-detected *[data-multi-user]");
           const parser = new DOMParser();
           const template = parser.parseFromString(data.template, "text/html");
@@ -85,8 +72,8 @@ export default class Mercure {
           const contentConflictDetected = document.body.querySelector("#content-conflict-detected *[data-multi-user]");
           contentConflictDetected.querySelector(".list-items").innerHTML = "";
           contentConflictDetected.querySelector(".reduce-container").innerHTML = "";
+
         }
-        MiscEvent.dispatch("mercure.notification.receive."+data.type, data);
       }
     };
   }
