@@ -37,6 +37,15 @@
     box-sizing: border-box;
     background: var(--color-main-10-force);
     aspect-ratio: 1;
+    .image-content {
+      border-radius: 1.5rem;
+      overflow: hidden;
+      height: 8rem;
+      width: 8rem;
+      img {
+        @include image-cover();
+      }
+    }
     .picto-content {
       height: 10rem;
       width: 10rem;
@@ -45,8 +54,12 @@
         height: 100%;
       }
     }
-    .title {
+    .content-title {
       margin-top: auto;
+    }
+    .sub-title,
+    .title {
+      word-break: break-all;
       color: var(--color-black-force);
     }
   }

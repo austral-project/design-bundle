@@ -87,6 +87,13 @@
   .group-fields-name {
     padding: 1.5rem 0;
   }
+  .group-row {
+    .group-fields-name {
+      padding-left: 1rem;
+      padding-right: 1rem;
+      border-bottom: .2rem solid var(--color-main-10)
+    }
+  }
 
   &.component-file-children {
     &.is-dragover {

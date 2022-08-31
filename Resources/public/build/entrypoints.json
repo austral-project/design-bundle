@@ -2,11 +2,11 @@
   "entrypoints": {
     "austral": {
       "js": [
-        "/bundles/australdesign/build/runtime.3c3e8fad.js",
-        "/bundles/australdesign/build/austral.bd7db2ca.js"
+        "/bundles/australdesign/build/runtime.fa47902b.js",
+        "/bundles/australdesign/build/austral.b41801fb.js"
       ],
       "css": [
-        "/bundles/australdesign/build/austral.c4efa7d4.css"
+        "/bundles/australdesign/build/austral.212f0a1f.css"
       ]
     }
   }

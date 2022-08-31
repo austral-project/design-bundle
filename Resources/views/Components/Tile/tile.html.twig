@@ -12,12 +12,24 @@
 
 <{{ tag|default("li") }} class="col col--no-gutters tile tile-color-{{ color }}">
   <a {% for key, value in dataFinal %}{{ key~'='~value }} {% endfor %}>
-    <div class="picto-content">
-      {% if picto is not defined or picto is null %}
-        {% set picto = "folder" %}
+
+      {% if img is defined %}
+        <div class="image-content">
+          <img src="{{ img }}" alt="{{ entitled }}" />
+        </div>
+      {% else %}
+        <div class="picto-content">
+          {% if picto is not defined or picto is null %}
+            {% set picto = "folder" %}
+          {% endif %}
+          <img src="{{ asset("bundles/australadmin/images/tile-picto/color-"~color~"/austral-icon-"~picto~".svg") }}" alt="{{ entitled }}">
+        </div>
       {% endif %}
-      <img src="{{ asset("bundles/australadmin/images/tile-picto/color-"~color~"/austral-icon-"~picto~".svg") }}">
+    <div class="content-title">
+      <h3 class="title font-poppins-sb-18">{{ entitled }}</h3>
+      {% if subEntitled is defined and subEntitled is not null %}
+        <span class="sub-title font-poppins-m-10-grey">{{ subEntitled }}</span>
+      {% endif %}
     </div>
-    <h3 class="title font-poppins-sb-18">{{ entitled }}</h3>
   </a>
 </{{ tag|default("li") }}>
