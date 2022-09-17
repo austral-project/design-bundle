@@ -7,6 +7,7 @@ export default class abstractOpenClose extends abstract {
     super.initComponent(componentName);
   }
 
+
   addEventListener() {
     super.addEventListener();
     MiscEvent.addListener("component::action.open", (event) => {
@@ -35,6 +36,7 @@ export default class abstractOpenClose extends abstract {
   }
 
   addEventButtonAction(element, actions) {
+    this.currentElementClick = null;
     let elementButton = null;
     if(element.dataset.componentUuid !== undefined && element.dataset.componentUuid)
     {
@@ -79,6 +81,7 @@ export default class abstractOpenClose extends abstract {
     if(this.eventElements) {
       [].forEach.call(this.eventElements, (element) => {
         element.classList.add("open");
+        element.classList.add("is-click");
       });
     }
     MiscEvent.dispatch("component::open.finish", {"componentName": this.componentName, "component": this});
@@ -91,12 +94,11 @@ export default class abstractOpenClose extends abstract {
   close(event, callback = null) {
     Debug.log("-- -- Component - Close : "+this.componentName+" -> "+this.uuid);
     this.element.classList.remove("open");
-    var currentElementClick = null;
-    if(this.eventElements) {
+    if(this.eventElements && this.currentElementClick === null) {
       [].forEach.call(this.eventElements, (element) => {
         if(element.classList.contains('is-click'))
         {
-          currentElementClick = element;
+          this.currentElementClick = element;
           element.classList.remove("is-click");
         }
         element.classList.remove("open");
@@ -105,7 +107,8 @@ export default class abstractOpenClose extends abstract {
     if (callback && typeof callback === 'function') {
       callback();
     }
-    MiscEvent.dispatch("component::close.finish", {"componentName": this.componentName, "component": this, "elementClick": currentElementClick});
+    MiscEvent.dispatch("component::close.finish", {"componentName": this.componentName, "component": this, "elementClick": this.currentElementClick});
+    this.currentElementClick = null;
   }
 
   toggleOpenClose() {

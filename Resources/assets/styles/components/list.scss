@@ -70,6 +70,20 @@
               }
             }
           }
+          &.object-actions-field {
+            &.view-hover {
+              opacity: 1;
+            }
+          }
+        }
+      }
+      &:hover {
+        .col-element {
+          &.object-actions-field {
+            &.view-hover {
+              opacity: 1;
+            }
+          }
         }
       }
     }
@@ -112,6 +126,10 @@
       &.object-actions-field {
         .value-content {
           padding: 0 1.5rem 0 7rem;
+        }
+        &.view-hover {
+          @include transition-default();
+          opacity: 0;
         }
       }
       .value-content {
@@ -372,4 +390,27 @@
 /* ns-targeted is the class name of the item on which the dragged item is hovering */
 .nested-sort .ns-targeted {
   border: 1px solid green;
+}
+
+.list-status-by-domains {
+  padding: 0.1rem 0 0;
+  margin: 0.1rem 0 0;
+  border-top: 0.1rem solid var(--color-main-10);
+  li {
+    &:last-child {
+      border-bottom: 0.1rem solid var(--color-main-10);
+    }
+    border-top: 0.1rem solid var(--color-main-10);
+    .link {
+      @include flex-display();
+      padding: 1rem 0;
+      .domain-name {
+        @extend .font-poppins-m-10-grey;
+        flex:1;
+      }
+      .content-status {
+        width: 2rem;
+      }
+    }
+  }
 }

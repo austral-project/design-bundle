@@ -26,6 +26,7 @@
       }
       &.dashboard-values-type-tile {
         margin: -1rem;
+        height: calc(100% + 2rem);
         &.odd {
           .dashboard-value {
             &.tile-value {
@@ -100,7 +101,7 @@
         &.tile-value {
           margin: 1rem;
           width: calc(50% - 2rem);
-          height: calc(19rem - 1rem);
+          height: calc(50% - 2rem);
           padding: 2rem 1.5rem 3rem;
           background: var(--color-main-10-force);
           &.color-1 {

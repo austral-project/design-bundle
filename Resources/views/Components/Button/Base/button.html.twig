@@ -46,6 +46,9 @@
 
 {% if "button-action" in classFinal|default(null) %}
   {% set classFinal = classFinal~" font-poppins-m-13-uppercase-white" %}
+  {% if entitled is defined and entitled == false %}
+    {% set classFinal = classFinal ~ " without-entitled" %}
+  {% endif %}
 {% endif%}
 
 {# Create tag Final #}
@@ -91,15 +94,17 @@
   <span class="picto font-austral-16 {{ picto }}"></span>
 {%- endif -%}
 
-<span class="entitled {% if not "button-action" in classFinal|default(null) %}font-poppins-m-11-uppercase{% endif %}">
-  {%- if html is defined and html -%}
-    {{- html|raw -}}
-  {%- else -%}
-    {{- entitled is defined ? entitled|raw() : title -}}
-    {% if subEntitled is defined and subEntitled %}
-      <span class="sub-entitled font-poppins-m-10-grey">{{- subEntitled -}}</span>
-    {% endif %}
-  {%- endif -%}
-</span>
+{% if entitled is not defined or entitled != false %}
+  <span class="entitled {% if not "button-action" in classFinal|default(null) %}font-poppins-m-11-uppercase{% endif %}">
+    {%- if html is defined and html -%}
+      {{- html|raw -}}
+    {%- else -%}
+      {{- entitled is defined ? entitled|raw() : title -}}
+      {% if subEntitled is defined and subEntitled %}
+        <span class="sub-entitled font-poppins-m-10-grey">{{- subEntitled -}}</span>
+      {% endif %}
+    {%- endif -%}
+  </span>
+{% endif %}
 
 </{{ tagFinal }}>

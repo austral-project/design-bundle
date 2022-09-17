@@ -9,6 +9,7 @@
     }
   }
   .se-dialog {
+    z-index: 101000;
     .se-dialog-back {
       opacity: 0;
     }
@@ -38,19 +39,8 @@
 
         .field {
           padding: 0 !important;
-        }
-
-        .choice-element-container {
-          .list-option-container {
-            .list-option-element {
-              .option-element {
-                .entitled {
-                  label {
-                    @extend .font-poppins-m-13-uppercase;
-                  }
-                }
-              }
-            }
+          &.value-with-button {
+            padding: 1.5rem !important;
           }
         }
         .group-fields-content {
@@ -59,17 +49,6 @@
               &.light {
                 .list-option-container {
                   margin: 0;
-                }
-              }
-            }
-          }
-        }
-        .light.choice-element-container {
-          .list-option-container{
-            &.vertical {
-              .list-option-element {
-                .option-element {
-                  margin: 1rem 0;
                 }
               }
             }

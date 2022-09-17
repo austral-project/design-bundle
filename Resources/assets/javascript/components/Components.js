@@ -12,6 +12,8 @@ import Delete from "./delete/Delete";
 import Sortable from "./sortable/Sortable";
 import Popin from "./popin/Popin";
 import Guideline from "./guideline/Guideline";
+import Collapse from "./collapse/Collapse";
+import Tab from "./tab/Tab"
 
 export default class Components {
 
@@ -26,7 +28,9 @@ export default class Components {
 
     MultiUser.initComponent();
     Toggle.initComponent();
+    Tab.initComponent();
     Aside.initComponent();
+    Collapse.initComponent();
     Toast.initComponent();
     Counter.initComponent();
     RefreshValue.initComponent();

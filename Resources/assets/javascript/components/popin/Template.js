@@ -51,11 +51,14 @@ class Template {
 
     [].forEach.call(this.originElements.querySelectorAll("*[data-popin-update-input]"), (originElement) => {
       let element = this.popin.element.querySelector("*[data-popin-update-input='"+originElement.dataset.popinUpdateInput+"']");
-      if(element && originElement.value) {
+      if(element) {
         if(element.tagName === "DIV") {
           let field = element.querySelector("input[value='" + originElement.value + "']");
-          field.checked = true;
-          MiscEvent.dispatch("change", {}, field.closest(".option-element"));
+          if(field)
+          {
+            field.checked = true;
+            MiscEvent.dispatch("change", {}, field.closest(".option-element"));
+          }
         }
         else if(element.tagName === "SELECT") {
           element.value = originElement.value;
@@ -66,6 +69,15 @@ class Template {
         }
         else {
           element.value = originElement.value;
+        }
+        if(originElement.dataset.popinUpdateValue) {
+          let elementValue = this.popin.element.querySelector("*[data-popin-update-input='"+originElement.dataset.popinUpdateValue+"']");
+          if(elementValue) {
+            if(originElement.dataset.popinUpdateValue === "field-link-choice-name")
+            {
+              elementValue.textContent = AustralLinks.getLinkByKey(originElement.value);
+            }
+          }
         }
       }
     });
@@ -266,7 +278,7 @@ class Template {
 
         [].forEach.call(this.popin.element.querySelectorAll("*[data-popin-update-input]"), (el) => {
           let updateInputElement = this.originElements.querySelector("*[data-popin-update-input='"+el.dataset.popinUpdateInput+"']");
-          if(updateInputElement !== undefined) {
+          if(updateInputElement && updateInputElement !== undefined) {
             if(el.type === "file") {
               updateInputElement.files = command === "update" ? el.files : null;
             }

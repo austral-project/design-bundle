@@ -15,3 +15,17 @@
     max-width: $containerMaxWithToForm;
   }
 }
+
+.picto-circle {
+  @include radius(100%);
+  display:inline-block;
+  height:0.8rem;
+  width: 0.8rem;
+  background: var(--color-main-20);
+  &.status-published {
+    background: var(--color-green-90);
+  }
+  &.status-draft {
+    background: var(--color-purple-90);
+  }
+}

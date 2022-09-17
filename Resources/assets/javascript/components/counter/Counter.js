@@ -11,7 +11,9 @@ export default class Counter extends abstractComponent {
     this.maxCharacters = this.element.dataset.counterInitial;
     if(this.element.dataset.counterKeyup) {
       this.elementEvent = Austral.Config.page.dom.querySelector(this.element.dataset.counterKeyup);
-      this.count();
+      if(this.elementEvent) {
+        this.count();
+      }
     }
   }
 

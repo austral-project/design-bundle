@@ -56,6 +56,48 @@ export default class Button extends abstractAction {
         this.execute();
       }
     }, this.element);
+
+    MiscEvent.addListener("component::action.anchor-collapse", (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      if(e.target.dataset.collapseId)
+      {
+        let collapseElement = document.querySelector("*[data-collapse='"+e.target.dataset.collapseId+"']");
+        if(collapseElement)
+        {
+          MiscEvent.dispatch("component::action.open-close", {}, collapseElement);
+          Austral.Config.page.dom.body.scrollTop = collapseElement.offsetTop - 200;
+          document.querySelector("html").scrollTop = collapseElement.offsetTop - 200;
+        }
+      }
+    }, this.element);
+
+    MiscEvent.addListener("component::action.link-choice", (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+
+      let popinEditorMaster = document.querySelector("#popin-editor-master");
+      if(popinEditorMaster)
+      {
+        MiscEvent.dispatch("component::action.select-link", {
+          keyLink: this.element.dataset.keyLink,
+          linkName: this.element.dataset.linkName,
+        }, popinEditorMaster);
+      }
+
+      let sunEditorChoiceLink = document.querySelector(".sun-editor .sun-editor-diag-link-choice.is-open");
+      if(sunEditorChoiceLink)
+      {
+        MiscEvent.dispatch("component::action.select-link", {
+          keyLink: this.element.dataset.keyLink,
+          linkName: this.element.dataset.linkName,
+        }, sunEditorChoiceLink);
+      }
+
+
+      let popinSelectLink = document.querySelector("#popin-select-links");
+      MiscEvent.dispatch("component::action.close", {}, popinSelectLink);
+    }, this.element);
   }
 
 }

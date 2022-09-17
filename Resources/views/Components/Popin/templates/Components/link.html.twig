@@ -1,0 +1,47 @@
+<ol class="{{ olClass|default("list-ol-container") }}">
+  {% for url in urls %}
+    <li id="object-{{ url.urlParameter.id }}" class="row-element has-link {% if url.children|length > 0 %}has-children{% endif %}" data-click-actions="link-choice" data-key-link="{{ url.urlParameter.keyLink }}" data-link-name="{{ url.urlParameter.object.__toString() }}" data-row-id="{{ url.urlParameter.keyLink }}">
+      <div class="col-content">
+        {%- if url.children|length > 0 -%}
+          <div class="view-children-actions" data-toggle-container="#object-{{ url.urlParameter.id }}-children-content">
+            <span class="picto austral-picto-simply-down"></span>
+          </div>
+        {%- endif -%}
+        <div class="flex-1 col-element auto">
+          <div class="value-content template-type font-poppins-m-11-grey">
+            <span class="page-name font-poppins-m-14 color-black">{{ url.urlParameter.object.__toString() }}</span>
+            <span class="page-h1">/{{ url.urlParameter.path }}</span>
+          </div>
+        </div>
+        <div class="object-actions-field view-hover col-element">
+          {{ include("@AustralDesign/Components/Button/action.html.twig",
+              {
+                tag:            "span",
+                path:           "",
+                picto:          "austral-picto-arrow-right",
+                title:          "button.link.choice"|trans({}, "austral"),
+                reverse:        true,
+              }, with_context = false
+            )
+          }}
+          {{ include("@AustralDesign/Components/Button/action.html.twig",
+              {
+                tag:            "span",
+                path:           "",
+                picto:          "austral-picto-check",
+                title:          "button.link.selected"|trans({}, "austral"),
+                reverse:        true,
+                class:          "green"
+              }, with_context = false
+            )
+          }}
+        </div>
+      </div>
+      {%- if url.children|length > 0 -%}
+        <div id="object-{{ url.urlParameter.id }}-children-content" class="children-content toggle-element" data-toggle="{&quot;withHeight&quot;:true,&quot;show&quot;:{&quot;picto&quot;:&quot;austral-picto-simply-down&quot;},&quot;hide&quot;:{&quot;picto&quot;:&quot;austral-picto-simply-up&quot;}}">
+          {{ include('@AustralDesign/Components/Popin/templates/Components/link.html.twig', {urls: url.children, olClass: "objects-list-ol-children" }) }}
+        </div>
+      {% endif %}
+    </li>
+  {% endfor %}
+</ol>

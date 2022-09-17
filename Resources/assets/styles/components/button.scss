@@ -259,6 +259,14 @@
         text-transform: none;
       }
     }
+    &.green {
+      background: var(--color-green-10);
+      color: var(--color-grey-100);
+      .picto,
+      .entitled {
+        color: var(--color-grey-100);
+      }
+    }
     &.white-force {
       background: var(--color-white-force);
     }
@@ -275,6 +283,11 @@
       .picto {
         padding-right: 0;
         padding-left: 1rem;
+      }
+    }
+    &.without-entitled {
+      .picto {
+        padding-right: 0;
       }
     }
   }

@@ -175,6 +175,12 @@ export default class EmbedField  extends abstractField {
       {
         collectionEmbedAppend.append(templateParser.body.firstChild);
       }
+
+      if(collectionEmbedAppend.closest("*[data-sortable]"))
+      {
+        MiscEvent.dispatch("component::sortable.refresh", {}, collectionEmbedAppend.closest("*[data-sortable]"));
+      }
+
       this.lastTemplateAdd = collectionEmbedAppend.querySelector(".add-new-embed-template");
       this.lastTemplateAdd.classList.remove("add-new-embed-template");
       [].forEach.call(this.element.querySelectorAll(".init-form"), (el) => {

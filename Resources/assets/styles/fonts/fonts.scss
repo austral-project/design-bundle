@@ -12,6 +12,16 @@ $font-helvetica: Helvetica Neue,Helvetica,Arial,sans-serif;
   font-size: 3.2rem;
   line-height: 3.2rem;
 }
+.font-austral-20 {
+  font-family: $font-austral-picto;
+  font-weight: 400;
+  font-size: 2.0rem;
+  line-height: 2.0rem;
+}
+.font-austral-20-grey {
+  @extend .font-austral-20;
+  color: var(--color-grey-50);
+}
 .font-austral-16 {
   font-family: $font-austral-picto;
   font-weight: 400;

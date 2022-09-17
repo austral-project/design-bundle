@@ -8,7 +8,6 @@ export default class Aside extends abstractOpenClose {
   }
 
   create() {
-    this.currentCliclElement = null;
     this.animation = new Animation();
     this.closeByClick = false;
     var animationParameter = {
@@ -49,6 +48,7 @@ export default class Aside extends abstractOpenClose {
         MiscEvent.dispatch("component::aside.insert_finish", {"componentName": "aside", "insert": el}, element);
       });
     }
+    this.currentElementClick = event.detail.button;
     super.open(event, ()=>{
       this.animation.timeline.timeScale(1).play();
     });
@@ -63,9 +63,8 @@ export default class Aside extends abstractOpenClose {
   /** deprecated **/
   execute(clickEl = null, closeForce = false) {
     this.insert = clickEl !== null && clickEl.dataset.asideInsert ? JSON.parse(clickEl.dataset.asideInsert) : null;
-    this.currentCliclElement = clickEl;
+    this.currentElementClick = clickEl;
 
-    console.log(this.element.classList.contains("open"), (clickEl !== null && clickEl.classList.contains("is-open")), closeForce === true)
     if(this.element.classList.contains("open") && (clickEl !== null && clickEl.classList.contains("is-open")) || closeForce === true) {
       super.close();
       if(this.insert !== undefined && this.insert !== null)

@@ -61,6 +61,10 @@ export default class Choice extends abstractField{
           this.initialValue.push(el.querySelector("input").getAttribute("id"));
           this.changeCurrent(el, true);
         }
+        else if(this.element.closest(".disable-choice"))
+        {
+          this.currentBackground.style.left = this.element.clientWidth+"px";
+        }
       }
       else if(el.classList.contains("current"))
       {

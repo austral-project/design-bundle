@@ -41,7 +41,7 @@
     .content-clone-fields > .field-content,
     &>.field-content {
       position:relative;
-      margin: 3rem 0 2.8rem;
+      margin: 2rem 0 2rem;
       &.field-content_buttonCropper {
         margin: 0;
         padding-top: 0;
@@ -112,10 +112,20 @@
     right:0;
     top:0;
     z-index:100;
+    .fields-content {
+      > .field-content {
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
   }
 }
 .group-fields-container {
-  margin-top: 2rem;
+  > .group-fields-name {
+    margin-top: 4rem;
+    margin-bottom: 1rem;
+  }
   &.white {
     background: var(--color-white);
   }
@@ -129,7 +139,6 @@
   }
   &.boolean-content {
     .group-fields-content {
-      margin: 0 -0.1rem;
       .group-col {
         margin: 0 0.1rem;
       }
@@ -144,6 +153,9 @@
       }
     }
   }
+  .group-fields-container {
+    height: 100%;
+  }
   .group-fields-content {
     @include flex-display();
     @include align-items(stretch);
@@ -151,7 +163,6 @@
     @include justify-content(flex-start);
     position:relative;
     &.group-row {
-      margin: 0 -0.5rem;
       border-bottom: 0.1rem solid var(--color-main-10);
       &.group-row-gap {
         @include grid-column-gap(2rem);
@@ -163,11 +174,13 @@
           border-right:0;
         }
         .group-fields-content {
-          margin:0;
-          height:100%;
+          height:calc(100% + 3rem);
           .group-col {
             &.full {
               flex:1;
+              > * {
+                height: 100%;
+              }
             }
             .field-content-textareaField {
               @include flex-display();
@@ -178,16 +191,17 @@
             }
           }
         }
-        .group-fields-container {
-          height: calc(100% - 2rem);
-        }
       }
     }
     &.group-column {
       @include flex-direction(column);
       @include justify-content(space-between);
+      margin: -1rem 0;
       > .group-col {
-        padding: 1rem 0;
+        margin: 1rem 0 1rem;
+        > * {
+          margin: 0;
+        }
         border-bottom: 0.1rem solid var(--color-main-10);
         &:last-child {
           border-bottom:0;
@@ -218,4 +232,7 @@
   position: absolute;
   left: -55px;
   top: -33px;
+}
+.form-container {
+  padding-bottom: 20rem;
 }

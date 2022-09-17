@@ -36,9 +36,9 @@ export default class Form extends abstractAction {
   addEventListener()
   {
     MiscEvent.addListener("submit", (event) => {
-      event.preventDefault();
-      event.stopPropagation();
-      this.execute();
+      //event.preventDefault();
+      //event.stopPropagation();
+      //this.execute();
     }, this.element);
 
     MiscEvent.addListener("component::form.change", (event) => {

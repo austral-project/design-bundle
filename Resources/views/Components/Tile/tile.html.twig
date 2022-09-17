@@ -13,7 +13,7 @@
 <{{ tag|default("li") }} class="col col--no-gutters tile tile-color-{{ color }}">
   <a {% for key, value in dataFinal %}{{ key~'='~value }} {% endfor %}>
 
-      {% if img is defined %}
+      {% if img is defined and img is not null %}
         <div class="image-content">
           <img src="{{ img }}" alt="{{ entitled }}" />
         </div>

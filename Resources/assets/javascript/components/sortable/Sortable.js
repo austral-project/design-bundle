@@ -88,6 +88,9 @@ export default class Sortable extends abstractComponent {
     MiscEvent.addListener("click", () => {
       this.initInput();
     }, this.element);
+    MiscEvent.addListener("component::sortable.refresh", () => {
+      this.refresh();
+    }, this.element);
 
 
     [].forEach.call(this.element.children, (element) => {

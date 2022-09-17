@@ -50,25 +50,17 @@ export default {
     if(link_dialog)
     {
       context.australLink.modal = link_dialog;
+      context.australLink.modal.classList.add('sun-editor-diag-link-choice');
       link_dialog.querySelector('*[data-choice-element-value="file"]').remove();
       context.australLink.linkType = link_dialog.querySelector('.list-option-container');
       context.australLink.linkUrl = link_dialog.querySelector('*[data-popin-update-input="field-link-url"]');
       context.australLink.linkChoice = link_dialog.querySelector('*[data-popin-update-input="field-link-choice"]');
+      context.australLink.linkChoiceName = link_dialog.querySelector('*[data-popin-update-input="field-link-choice-name"]');
       context.australLink.linkEmail = link_dialog.querySelector('*[data-popin-update-input="field-link-email"]');
       context.australLink.linkPhone = link_dialog.querySelector('*[data-popin-update-input="field-link-phone"]');
       context.australLink.textContent = link_dialog.querySelector('*[data-popin-update-input="field-text"]');
       context.australLink.linkAnchor = link_dialog.querySelector('*[data-popin-update-input="field-anchor"]');
       context.australLink.targetIsBlank = link_dialog.querySelector('*[data-popin-update-input="field-target-blank"]');
-
-
-      link_dialog.querySelectorAll('*[data-popin-update-input="field-link-choice"] option').forEach((option) => {
-        let value = option.getAttribute("value");
-        if(value !== undefined && value)
-        {
-          option.setAttribute("value", "#INTERNAL_LINK_"+value+"#");
-        }
-      })
-
 
       /** link controller */
       let link_controller = this.setController_LinkButton(core);
@@ -89,6 +81,18 @@ export default {
 
       /** append controller */
       context.element.relative.appendChild(link_controller);
+
+
+      MiscEvent.addListener("component::action.select-link", (e) => {
+        context.australLink.linkChoice.value = "#INTERNAL_LINK_"+e.detail.keyLink+"#";
+        context.australLink.linkChoiceName.textContent = e.detail.linkName;
+        if(!context.australLink.textContent.value)
+        {
+          context.australLink.textContent.value = e.detail.linkName;
+        }
+      }, context.australLink.modal);
+
+
     }
 
     /** empty memory */
@@ -192,7 +196,7 @@ export default {
         const oA = this.util.createElement('A');
         oA.href = url;
         oA.textContent = textContent;
-        oA.target = contextLink.targetIsBlank.checked ? "_blank" : null;
+        oA.target = contextLink.targetIsBlank.checked ? "_blank" : "";
 
         const selectedFormats = this.getSelectedElements();
         if (selectedFormats.length > 1) {
@@ -206,7 +210,7 @@ export default {
       } else {
         contextLink._linkUpdate.href = url;
         contextLink._linkUpdate.textContent = textContent;
-        contextLink._linkUpdate.target = contextLink.targetIsBlank.checked ? "_blank" : null;
+        contextLink._linkUpdate.target = contextLink.targetIsBlank.checked ? "_blank" : "";
         // set range
         this.setRange(contextLink._linkUpdate.childNodes[0], 0, contextLink._linkUpdate.childNodes[0], contextLink._linkUpdate.textContent.length);
       }
@@ -256,6 +260,7 @@ export default {
       this.context.australLink.textContent.value = this.getSelection().toString();
       MiscEvent.dispatch("component::choice.delete", {}, this.context.australLink.linkType);
       this.context.australLink.linkChoice.value = null;
+      this.context.australLink.linkChoiceName.textContent = null;
       MiscEvent.dispatch("choice", {choice: {value: null} }, this.context.australLink.linkChoice);
     } else if (this.context.australLink._linkUpdate) {
       // "update" and "this.context.dialog.updateModal" are always the same value.
@@ -265,6 +270,7 @@ export default {
       // Init context value
       this.context.australLink.linkUrl.value = '';
       this.context.australLink.linkChoice.value = '';
+      this.context.australLink.linkChoiceName.textContent = '';
       this.context.australLink.linkEmail.value = '';
       this.context.australLink.linkPhone.value = '';
       this.context.australLink.linkAnchor.value = '';
@@ -279,6 +285,10 @@ export default {
       {
         linkType = "internal";
         this.context.australLink.linkChoice.value = currentHref;
+
+        let keyLink = currentHref.replace("#INTERNAL_LINK_", "").replace("#", "");
+        this.context.australLink.linkChoiceName.textContent = AustralLinks.getLinkByKey(keyLink);
+
         MiscEvent.dispatch("choice", {choice: {value: currentHref} }, this.context.australLink.linkChoice);
       }
       else if(currentHref.indexOf("mailto:") >= 0)
@@ -308,6 +318,7 @@ export default {
       this.context.australLink.targetIsBlank.checked = this.context.australLink._linkUpdate.target === "_blank" ;
     }
     document.body.classList.add("popin-open");
+    this.context.australLink.modal.classList.add("is-open");
   },
 
   call_controller: function (selectionATag) {
@@ -350,10 +361,12 @@ export default {
 
       let currentHref = contextLink._linkUpdate.getAttribute("href");
       let linkType = null;
-      if(AustralLinks.getLinkByKey(currentHref))
+      let keyLink = currentHref.replace("#INTERNAL_LINK_", "").replace("#", "");
+      if(AustralLinks.getLinkByKey(keyLink))
       {
         linkType = "internal";
         contextLink.linkChoice.value = currentHref;
+        contextLink.linkChoiceName.textContent = AustralLinks.getLinkByKey(keyLink);
       }
       else if(currentHref.indexOf("mailto:") >= 0)
       {
@@ -402,12 +415,14 @@ export default {
   // Initialize the properties.
   init: function () {
     document.body.classList.remove("popin-open");
+    this.context.australLink.modal.classList.remove("is-open");
     const contextLink = this.context.australLink;
     contextLink.linkController.style.display = 'none';
     contextLink._linkUpdate = null;
 
     contextLink.linkUrl.value = '';
     contextLink.linkChoice.value = '';
+    contextLink.linkChoiceName.textContent = '';
     contextLink.linkEmail.value = '';
     contextLink.linkPhone.value = '';
     contextLink.linkAnchor.value = '';

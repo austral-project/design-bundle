@@ -71,6 +71,31 @@
       }
     }
   }
+  .value-with-button {
+    position: relative;
+    cursor:pointer;
+    min-height: 5.2rem;
+    box-sizing: border-box;
+    &:hover {
+      .button {
+        .picto {
+          &:after {
+            opacity: 1;
+            height: 3.5rem;
+            width: 3.5rem;
+          }
+        }
+      }
+    }
+    .button {
+      @include position-middle-y();
+      position:absolute;
+      right:0.5rem;
+      &:hover {
+        box-shadow: none;
+      }
+    }
+  }
   .counter-container {
     margin: 1.5rem 1.5rem 1.5rem 0;
   }
@@ -86,7 +111,6 @@
 
 }
 .google-visualisation-content {
-  margin: 3rem 0 2.8rem;
   .google-visualisation {
     position:relative;
     background: var(--color-white);
@@ -389,7 +413,7 @@
 
 .group-fields-name {
   display:block;
-  @extend .font-poppins-m-13-uppercase;
+  @extend .font-poppins-sb-18;
   padding-bottom: 1.5rem;
 }
 body {

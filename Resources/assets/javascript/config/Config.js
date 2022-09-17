@@ -118,6 +118,11 @@ class Config {
     return defaultValue;
   }
 
+  getComponentByElement(type, element, defaultValue = null)
+  {
+    return element !== undefined ? this.getComponent(type, element.dataset.componentUuid, defaultValue) : defaultValue;
+  }
+
   /**
    *
    * @param {string} type

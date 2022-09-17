@@ -1,0 +1,17 @@
+*[data-tabs] {
+  *[data-tab] {
+    height: 0;
+    overflow: hidden;
+    &.open {
+      height: auto;
+      overflow: auto;
+    }
+  }
+
+  *[data-tab-choice] {
+    cursor:pointer;
+    &.is-open {
+      border-bottom:1px solid var(--color-black);
+    }
+  }
+}

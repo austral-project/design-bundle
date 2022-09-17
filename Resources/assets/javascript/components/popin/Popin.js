@@ -65,6 +65,21 @@ class Popin  extends abstractOpenClose {
       this.close();
     }, this.element);
 
+
+    MiscEvent.addListener("component::action.select-link", (e) => {
+      let inputChoiceLink = this.element.querySelector("*[data-popin-update-input='field-link-choice']");
+      if(inputChoiceLink)
+      {
+        inputChoiceLink.value = e.detail.keyLink;
+      }
+
+      let inputLinkName = this.element.querySelector("*[data-popin-update-input='field-link-choice-name']");
+      if(inputLinkName)
+      {
+        inputLinkName.textContent = e.detail.linkName;
+      }
+    }, this.element);
+
     MiscEvent.addListener("component::load.finish", ()=>{
       let eventElements = Austral.Config.page.dom.body.querySelectorAll("[data-"+this.componentName+"-container='#"+this.element.getAttribute("id")+"']");
       [].forEach.call(eventElements, (element) => {
@@ -152,6 +167,48 @@ class Popin  extends abstractOpenClose {
       this.animation.timeline.timeScale(1).play();
     }
 
+    if(this.element.getAttribute("id") === "popin-select-links")
+    {
+      let fieldLinkChoice = document.querySelector("#popin-field-link-choice");
+      let tabIdSelected = null;
+      if(fieldLinkChoice && fieldLinkChoice.value)
+      {
+        let elementsSelected = this.element.querySelectorAll(".selected[data-key-link]");
+        if(elementsSelected)
+        {
+          [].forEach.call(elementsSelected, (element)=>{
+            element.classList.remove("selected");
+          });
+        }
+
+        let elementSelected = this.element.querySelector("*[data-key-link='"+fieldLinkChoice.value+"']");
+        if(elementSelected)
+        {
+          elementSelected.classList.add("selected");
+          this.openParentToogle(elementSelected.closest("*[data-toggle]"));
+          let tab = elementSelected.closest("*[data-tab]");
+          tabIdSelected = tab.dataset.tab;
+        }
+      }
+      if(!tabIdSelected) {
+        let firstChoiceDomain = this.element.querySelectorAll(".domains-list li *[data-tab-choice]")[0];
+        tabIdSelected = firstChoiceDomain.dataset.tabChoice;
+      }
+      if(tabIdSelected) {
+        let containerTab = this.element.querySelector("*[data-tabs]");
+        MiscEvent.dispatch("component::action.open", {tabId: tabIdSelected}, containerTab);
+      }
+    }
+
+  }
+
+  openParentToogle(parentToggle)
+  {
+    if(parentToggle !== undefined && parentToggle)
+    {
+      MiscEvent.dispatch("component::action.open", {}, parentToggle);
+      this.openParentToogle(parentToggle.parentElement.closest("*[data-toggle]"));
+    }
   }
 
   isOpen() {

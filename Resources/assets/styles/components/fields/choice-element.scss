@@ -41,6 +41,7 @@
     padding: .5rem;
     border: 0.1rem solid var(--color-main-10);
     box-shadow: none;
+    background: var(--color-white);
     &.vertical {
       @include flex-direction(column);
       .list-option-element {
@@ -245,7 +246,6 @@
   border-right: 0;
   height: 4rem;
 }
-
 .choice-element-container {
   &.container-vertical-line {
     .choice-element-container {

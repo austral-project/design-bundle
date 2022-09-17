@@ -104,6 +104,21 @@
       background: var(--color-white);
       border-bottom: 0.1rem solid var(--color-main-10);
       padding: 2rem 2rem 2rem 3.5rem;
+      position:relative;
+      &.separate-form {
+        margin-top: 0.3rem;
+        border-top: 0.1rem solid var(--color-main-10);
+        &:before {
+          position:absolute;
+          display:block;
+          top:-0.3rem;
+          left:0;
+          height: 0.1rem;
+          width: 100%;
+          content: "";
+          background:  var(--color-main-10);
+        }
+      }
       &.toggle-open {
         background: var(--color-main-10);
       }
