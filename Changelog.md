@@ -1,7 +1,7 @@
 Changelog
 =========
 
-### Version 3.1.0 (2021-02-10)
+### Version 3.1.0 (2022-02-10)
 * Adding Collapse components
 * Adding Tab components
 * Changed link selection for component blocks and wysiwyg
