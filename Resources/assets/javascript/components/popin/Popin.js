@@ -14,6 +14,7 @@ class Popin  extends abstractOpenClose {
     this.element = element;
     this.options = {};
     this.template = null;
+    this.initialiseUnique = false;
 
     /* Rewrite does not work */
     if(this.element.dataset.viewByChoiceElement !== undefined)
@@ -122,13 +123,23 @@ class Popin  extends abstractOpenClose {
         this.template.init();
       }
     }
+
+    if( this.element.dataset.templateAjax !== undefined)
+    {
+      this.options = {
+        url: this.element.dataset.templateAjax
+      };
+    }
+
+
+
     return this;
   }
 
   open() {
     Debug.log("Popin - Open");
     this.element.style.zIndex = 110000;
-    if(this.options.url)
+    if(this.options.url && (this.initialiseUnique === false))
     {
       var request = new Request(
         "GET",
@@ -138,7 +149,42 @@ class Popin  extends abstractOpenClose {
           fetchResponse.text().then((text) => {
             var parser = new DOMParser();
             var responseDom = parser.parseFromString(text, "text/html");
-            this.element.querySelector(".popin-content").innerHTML = responseDom.querySelector(".contentPopin").innerHTML;
+            this.element.querySelector(".popin-content").innerHTML = responseDom.querySelector(".popin-content").innerHTML;
+            if(this.element.getAttribute("id") === "popin-select-links")
+            {
+              this.initialiseUnique = true;
+              this.element.querySelector(".popin-content").setAttribute("data-tabs", "")
+              let fieldLinkChoice = document.querySelector("#popin-field-link-choice");
+              let tabIdSelected = null;
+              if(fieldLinkChoice && fieldLinkChoice.value)
+              {
+                let elementsSelected = this.element.querySelectorAll(".selected[data-key-link]");
+                if(elementsSelected)
+                {
+                  [].forEach.call(elementsSelected, (element)=>{
+                    element.classList.remove("selected");
+                  });
+                }
+
+                let elementSelected = this.element.querySelector("*[data-key-link='"+fieldLinkChoice.value+"']");
+                if(elementSelected)
+                {
+                  elementSelected.classList.add("selected");
+                  this.openParentToogle(elementSelected.closest("*[data-toggle]"));
+                  let tab = elementSelected.closest("*[data-tab]");
+                  tabIdSelected = tab.dataset.tab;
+                }
+              }
+              if(!tabIdSelected) {
+                let firstChoiceDomain = this.element.querySelectorAll(".domains-list li *[data-tab-choice]")[0];
+                tabIdSelected = firstChoiceDomain.dataset.tabChoice;
+              }
+              if(tabIdSelected) {
+                let containerTab = this.element.querySelector("*[data-tabs]");
+                MiscEvent.dispatch("component::action.open", {tabId: tabIdSelected}, containerTab);
+              }
+            }
+
             Components.loadComponent();
             if(this.options.class !== undefined)
             {
@@ -165,39 +211,6 @@ class Popin  extends abstractOpenClose {
       MiscEvent.dispatch("component::popin.open", {"component": this}, this.element);
       this.element.classList.add("open");
       this.animation.timeline.timeScale(1).play();
-    }
-
-    if(this.element.getAttribute("id") === "popin-select-links")
-    {
-      let fieldLinkChoice = document.querySelector("#popin-field-link-choice");
-      let tabIdSelected = null;
-      if(fieldLinkChoice && fieldLinkChoice.value)
-      {
-        let elementsSelected = this.element.querySelectorAll(".selected[data-key-link]");
-        if(elementsSelected)
-        {
-          [].forEach.call(elementsSelected, (element)=>{
-            element.classList.remove("selected");
-          });
-        }
-
-        let elementSelected = this.element.querySelector("*[data-key-link='"+fieldLinkChoice.value+"']");
-        if(elementSelected)
-        {
-          elementSelected.classList.add("selected");
-          this.openParentToogle(elementSelected.closest("*[data-toggle]"));
-          let tab = elementSelected.closest("*[data-tab]");
-          tabIdSelected = tab.dataset.tab;
-        }
-      }
-      if(!tabIdSelected) {
-        let firstChoiceDomain = this.element.querySelectorAll(".domains-list li *[data-tab-choice]")[0];
-        tabIdSelected = firstChoiceDomain.dataset.tabChoice;
-      }
-      if(tabIdSelected) {
-        let containerTab = this.element.querySelector("*[data-tabs]");
-        MiscEvent.dispatch("component::action.open", {tabId: tabIdSelected}, containerTab);
-      }
     }
 
   }

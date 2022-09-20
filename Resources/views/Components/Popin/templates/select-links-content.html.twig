@@ -1,0 +1,48 @@
+<div class="popin-content">
+  {% if urlsByDomains is defined %}
+    <div class="grid">
+      <div class="row">
+        <div class="group-col col--4 ">
+          <div class="group-fields-container group-component-choice-type-link-fields-container">
+            <span class="group-fields-name">Sélecteur de page</span>
+            <div class="group-fields-content group-column ">
+              <div class="group-col auto ">
+                <div class="field-content field-content-choiceField">
+                  <div class="field field-choiceType-radio no-border">
+                    <ul class="domains-list">
+                      {% for urlByDomain in urlsByDomains %}
+                        <li class="domain">
+                          <span data-tab-choice="domain-{{ urlByDomain.domain.id }}" class="font-poppins-m-14">{{ urlByDomain.domain.name }}</span>
+                        </li>
+                      {% endfor %}
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col col--xs-8">
+          <div class="list-container">
+            <div class="list-container-scroll">
+              {% for urlByDomain in urlsByDomains %}
+                <div class="list-container-by-domain" data-tab="domain-{{ urlByDomain.domain.id }}" >
+                  <div class="height">
+                    <div class="top-content">
+                      <h2 class="h2-title title">{{ urlByDomain.domain.name }}</h2>
+                      <span class="font-poppins-m-14 domain-value">{{ urlByDomain.domain.domain }}</span>
+                    </div>
+                    <div class="list-content">
+                      {{ include('@AustralDesign/Components/Popin/templates/Components/link.html.twig', {urls: urlByDomain.urls}) }}
+                    </div>
+                  </div>
+                </div>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  {% endif %}
+</div>
