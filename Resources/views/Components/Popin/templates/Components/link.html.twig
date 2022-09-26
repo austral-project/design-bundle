@@ -11,7 +11,9 @@
           <div class="flex-1 col-element auto">
             <div class="value-content template-type font-poppins-m-11-grey">
               <span class="page-name font-poppins-m-14 color-black">{{ url.urlParameter.object ? url.urlParameter.object.__toString() : url.urlParameter.name }}</span>
-              <span class="page-h1">/{{ url.urlParameter.path }}</span>
+              {% if urlByDomain.domain.isVirtual != true %}
+                <span class="page-h1">/{{ url.urlParameter.path }}</span>
+              {% endif %}
             </div>
           </div>
           <div class="object-actions-field view-hover col-element">
