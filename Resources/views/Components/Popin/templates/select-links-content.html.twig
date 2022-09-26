@@ -12,7 +12,13 @@
                     <ul class="domains-list">
                       {% for urlByDomain in urlsByDomains %}
                         <li class="domain">
-                          <span data-tab-choice="domain-{{ urlByDomain.domain.id }}" class="font-poppins-m-14">{{ urlByDomain.domain.name }}</span>
+                          <span data-tab-choice="domain-{{ urlByDomain.domain.id }}" class="font-poppins-m-14">
+                            {% if urlByDomain.domain.isVirtual == true %}
+                              {{ ("domain.virtual."~urlByDomain.domain.id)|trans({}, "austral") }}
+                            {% else %}
+                              {{ urlByDomain.domain.name }}
+                            {% endif %}
+                          </span>
                         </li>
                       {% endfor %}
                     </ul>
@@ -30,8 +36,16 @@
                 <div class="list-container-by-domain" data-tab="domain-{{ urlByDomain.domain.id }}" >
                   <div class="height">
                     <div class="top-content">
-                      <h2 class="h2-title title">{{ urlByDomain.domain.name }}</h2>
+                      <h2 class="h2-title title">
+                        {% if urlByDomain.domain.isVirtual == true %}
+                          {{ ("domain.virtual."~urlByDomain.domain.id)|trans({}, "austral") }}
+                        {% else %}
+                          {{ urlByDomain.domain.name }}
+                        {% endif %}
+                      </h2>
+                      {% if urlByDomain.domain.isVirtual != true %}
                       <span class="font-poppins-m-14 domain-value">{{ urlByDomain.domain.domain }}</span>
+                      {% endif %}
                     </div>
                     <div class="list-content">
                       {{ include('@AustralDesign/Components/Popin/templates/Components/link.html.twig', {urls: urlByDomain.urls}) }}

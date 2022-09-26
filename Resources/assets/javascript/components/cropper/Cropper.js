@@ -93,7 +93,7 @@ class Cropper  {
       var uploadedImageURL = this.element.dataset.cropperImage;
       if (this.uploadFile.file)
       {
-        var uploadedImageURL = URL_UPLOAD_IMAGE.createObjectURL(this.uploadFile.file);
+        var uploadedImageURL = URL_UPLOAD_IMAGE.createUrlParameterObject(this.uploadFile.file);
       }
       el.querySelector("img").setAttribute('src', uploadedImageURL);
       var optionsSave = {}

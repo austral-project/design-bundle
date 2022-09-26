@@ -131,8 +131,6 @@ class Popin  extends abstractOpenClose {
       };
     }
 
-
-
     return this;
   }
 
@@ -153,39 +151,15 @@ class Popin  extends abstractOpenClose {
             if(this.element.getAttribute("id") === "popin-select-links")
             {
               this.initialiseUnique = true;
-              this.element.querySelector(".popin-content").setAttribute("data-tabs", "")
-              let fieldLinkChoice = document.querySelector("#popin-field-link-choice");
-              let tabIdSelected = null;
-              if(fieldLinkChoice && fieldLinkChoice.value)
-              {
-                let elementsSelected = this.element.querySelectorAll(".selected[data-key-link]");
-                if(elementsSelected)
-                {
-                  [].forEach.call(elementsSelected, (element)=>{
-                    element.classList.remove("selected");
-                  });
-                }
-
-                let elementSelected = this.element.querySelector("*[data-key-link='"+fieldLinkChoice.value+"']");
-                if(elementSelected)
-                {
-                  elementSelected.classList.add("selected");
-                  this.openParentToogle(elementSelected.closest("*[data-toggle]"));
-                  let tab = elementSelected.closest("*[data-tab]");
-                  tabIdSelected = tab.dataset.tab;
-                }
-              }
-              if(!tabIdSelected) {
-                let firstChoiceDomain = this.element.querySelectorAll(".domains-list li *[data-tab-choice]")[0];
-                tabIdSelected = firstChoiceDomain.dataset.tabChoice;
-              }
-              if(tabIdSelected) {
-                let containerTab = this.element.querySelector("*[data-tabs]");
-                MiscEvent.dispatch("component::action.open", {tabId: tabIdSelected}, containerTab);
-              }
+              this.element.querySelector(".popin-content").setAttribute("data-tabs", "");
+              Components.loadComponent();
+              this.initInitialiseUnique();
+            }
+            else
+            {
+              Components.loadComponent();
             }
 
-            Components.loadComponent();
             if(this.options.class !== undefined)
             {
               this.element.classList.add(this.options.class);
@@ -203,6 +177,10 @@ class Popin  extends abstractOpenClose {
     }
     else
     {
+      if(this.initialiseUnique === true)
+      {
+        this.initInitialiseUnique();
+      }
       if(this.options.class !== undefined)
       {
         this.element.classList.add(this.options.class);
@@ -213,6 +191,60 @@ class Popin  extends abstractOpenClose {
       this.animation.timeline.timeScale(1).play();
     }
 
+  }
+
+  initInitialiseUnique() {
+    let fieldLinkChoice = null;
+    if(document.querySelector(".sun-editor-diag-link-choice.is-open"))
+    {
+      fieldLinkChoice = document.querySelector(".sun-editor-diag-link-choice.is-open #popin-field-link-choice")
+    }
+    else
+    {
+      fieldLinkChoice = document.querySelector("#popin-editor-master #popin-field-link-choice");
+    }
+    let tabIdSelected = null;
+    if(fieldLinkChoice && fieldLinkChoice.value)
+    {
+      let elementsSelected = this.element.querySelectorAll(".selected[data-key-link]");
+      if(elementsSelected)
+      {
+        [].forEach.call(elementsSelected, (element)=>{
+          element.classList.remove("selected");
+        });
+      }
+
+      let fieldLinkChoiceValue = fieldLinkChoice.value;
+      if(fieldLinkChoiceValue)
+      {
+        fieldLinkChoiceValue = fieldLinkChoiceValue.replace("#INTERNAL_LINK_", "");
+        fieldLinkChoiceValue = fieldLinkChoiceValue.replace("#", "");
+      }
+
+      var allToogles = this.element.querySelectorAll("*[data-toggle]");
+      [].forEach.call(allToogles, (el) => {
+        MiscEvent.dispatch("component::action.close", {}, el);
+      });
+
+      let elementSelected = this.element.querySelector("*[data-key-link='"+fieldLinkChoiceValue+"']");
+      if(elementSelected)
+      {
+        elementSelected.classList.add("selected");
+        setTimeout(()=>{
+          this.openParentToogle(elementSelected.closest("*[data-toggle]"));
+        }, 100);
+        let tab = elementSelected.closest("*[data-tab]");
+        tabIdSelected = tab.dataset.tab;
+      }
+    }
+    if(!tabIdSelected) {
+      let firstChoiceDomain = this.element.querySelectorAll(".domains-list li *[data-tab-choice]")[0];
+      tabIdSelected = firstChoiceDomain.dataset.tabChoice;
+    }
+    if(tabIdSelected) {
+      let containerTab = this.element.querySelector("*[data-tabs]");
+      MiscEvent.dispatch("component::action.open", {tabId: tabIdSelected}, containerTab);
+    }
   }
 
   openParentToogle(parentToggle)
