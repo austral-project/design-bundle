@@ -77,6 +77,13 @@ export default class Choice extends abstractField{
     }
   }
 
+  addEventListenerToChangeField() {
+    if(this.element.dataset.hasOwnProperty("viewByChoices"))
+    {
+      this.viewByChoice = new ViewByChoice(this.element, "view-by-choices");
+    }
+  }
+
   initialValueChange() {
     var isChanged = false;
     [].forEach.call(this.element.querySelectorAll(".option-element"), (el) => {
@@ -233,6 +240,9 @@ export default class Choice extends abstractField{
       if(input)
       {
         input.checked = true;
+        if(this.viewByChoice) {
+          this.viewByChoice.changeValue(input.value);
+        }
       }
       if(this.viewByChoiceElement)
       {
@@ -285,6 +295,9 @@ export default class Choice extends abstractField{
       {
         el.classList.add("current");
         el.querySelector(".current-background").style.opacity = 1;
+        if(this.viewByChoice) {
+          this.viewByChoice.changeValue(input.value);
+        }
       }
       else
       {
