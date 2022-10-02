@@ -16,7 +16,7 @@ composer require austral/design-bundle
 ```
 
 ## Documentation
-See documentation on the [official website](https://austral.dev/bundles/design-bundle)
+See documentation on the [official website](https://austral.dev/en/bundles/design-bundle)
 
 ## Commit Messages
 
