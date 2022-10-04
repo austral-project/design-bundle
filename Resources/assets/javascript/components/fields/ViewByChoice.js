@@ -115,7 +115,7 @@ export default class ViewByChoice extends abstractField {
       }
       this.elementsViewByChoices.forEach((el) => {
         let viewElement = false;
-        if(classViewElement !== undefined)
+        if(classViewElement !== undefined && classViewElement !== null)
         {
           if(classViewElement instanceof Array)
           {
