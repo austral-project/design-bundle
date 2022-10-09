@@ -12,6 +12,16 @@ export default class Button extends abstractAction {
   addEventListener()
   {
     MiscEvent.addListener("click", (e) => {
+      if(this.menuContext && !e.target.closest("a")) {
+        e.preventDefault();
+        e.stopPropagation();
+        Austral.Config.getContextMenu().initTemplate(this.menuContext);
+        Austral.Config.getContextMenu().open(e);
+      }
+      else {
+        Austral.Config.getContextMenu().close();
+      }
+
       if(!e.target.closest("*[data-no-click-actions]") && e.target.dataset.noClickActions === undefined)
       {
         if (e.ctrlKey && this.hasRequest()) {

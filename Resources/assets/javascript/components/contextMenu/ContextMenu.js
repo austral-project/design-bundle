@@ -29,6 +29,7 @@ export default class ContextMenu {
   open(event) {
     this.contextMenu.classList.add('is-open');
     this.contextMenu.style.bottom = "auto";
+    this.contextMenu.style.position = "fixed";
     this.contextMenu.style.top = event.clientY+"px";
     if (!MiscNodeSize.elementInViewport(this.contextMenu)) {
       this.contextMenu.style.bottom = (window.innerHeight - event.clientY)+"px";
@@ -36,10 +37,18 @@ export default class ContextMenu {
     }
     this.contextMenu.style.pointerEvents = "all";
     this.contextMenu.style.left = event.clientX+"px";
+    let limit = this.contextMenu.offsetLeft+this.contextMenu.offsetWidth;
+    if(limit > window.innerWidth)
+    {
+      this.contextMenu.style.left = event.clientX-(limit-window.innerWidth)+"px";
+    }
+    MiscEvent.dispatch("contextmenu.open", {event: event});
+
     this.contextMenu.style.opacity = 1;
     document.body.classList.add('overflow-hidden');
   }
   close(event) {
+    MiscEvent.dispatch("contextmenu.close", {});
     this.initPosition();
     this.contextMenu.innerHTML = "";
     this.contextMenu.removeAttribute("style");

@@ -11,6 +11,7 @@ export default class abstractAction extends abstractComponent {
   create(type) {
     this.executeAction = false;
     this.menuRightContext = null;
+    this.menuContext = null;
     this.type = type;
     this.actions = [];
     if(this.type === "form") {
@@ -60,6 +61,9 @@ export default class abstractAction extends abstractComponent {
     }
     if(this.element.dataset.clickRightMenu) {
       this.menuRightContext = document.querySelector(this.element.dataset.clickRightMenu);
+    }
+    if(this.element.dataset.clickMenu) {
+      this.menuContext = document.querySelector(this.element.dataset.clickMenu);
     }
   }
 
