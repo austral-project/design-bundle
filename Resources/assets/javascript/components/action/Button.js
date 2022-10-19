@@ -15,7 +15,6 @@ export default class Button extends abstractAction {
       if(this.menuContext && !e.target.closest("a")) {
         e.preventDefault();
         e.stopPropagation();
-        console.log(this.menuContext);
         Austral.Config.getContextMenu().initTemplate(this.menuContext);
         Austral.Config.getContextMenu().open(e);
       }
