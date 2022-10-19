@@ -15,23 +15,25 @@ export default class Button extends abstractAction {
       if(this.menuContext && !e.target.closest("a")) {
         e.preventDefault();
         e.stopPropagation();
+        console.log(this.menuContext);
         Austral.Config.getContextMenu().initTemplate(this.menuContext);
         Austral.Config.getContextMenu().open(e);
       }
       else {
         Austral.Config.getContextMenu().close();
-      }
 
-      if(!e.target.closest("*[data-no-click-actions]") && e.target.dataset.noClickActions === undefined)
-      {
-        if (e.ctrlKey && this.hasRequest()) {
-          window.open(this.pathUrl, "_blank");
+        if(!e.target.closest("*[data-no-click-actions]") && e.target.dataset.noClickActions === undefined)
+        {
+          if (e.ctrlKey && this.hasRequest()) {
+            window.open(this.pathUrl, "_blank");
+          }
+          else {
+            this.execute();
+          }
+          e.preventDefault();
+          e.stopPropagation();
         }
-        else {
-          this.execute();
-        }
-        e.preventDefault();
-        e.stopPropagation();
+
       }
     }, this.element);
 
