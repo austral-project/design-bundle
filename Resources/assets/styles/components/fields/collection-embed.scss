@@ -285,7 +285,9 @@
         }
 
         .collection-embed-title {
-          @extend .group-fields-name;
+          display:block;
+          @extend .font-poppins-sb-18;
+          padding-bottom: 1.5rem;
           padding-top: 1rem;
         }
 
@@ -427,6 +429,15 @@
                   }
                 }
               }
+            }
+          }
+
+          .group-fields-container {
+            > .group-fields-name {
+              @extend .font-poppins-m-13-uppercase;
+              margin:0;
+              padding-left: 2rem;
+              border-bottom:0.1rem solid var(--color-main-10);
             }
           }
 
