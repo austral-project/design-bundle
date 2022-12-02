@@ -120,4 +120,13 @@ export default class MiscNodeSize {
     return null
   }
 
+  static isTouchDevice() {
+    try{ document.createEvent("TouchEvent"); return true; }
+    catch(e){ return false; }
+  }
+
+  static isMobileSize() {
+    return  (window.matchMedia("(max-width: 991px)").matches);
+  }
+
 }

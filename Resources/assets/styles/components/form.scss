@@ -153,9 +153,6 @@
       }
     }
   }
-  .group-fields-container {
-    height: 100%;
-  }
   .group-fields-content {
     @include flex-display();
     @include align-items(stretch);
