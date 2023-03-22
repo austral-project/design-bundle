@@ -313,9 +313,9 @@
     &[data-type*="select-multiple"] {
       @include flex-display();
       @include flex-direction(row-reverse);
-      margin: 0 -1rem;
       height: 30rem;
       position:relative;
+      width: 100%;
       &:after {
         @include position-middle-x;
         position:absolute;
@@ -331,7 +331,7 @@
       .choices__inner {
         @include flex-direction(column);
         width: 50%;
-        margin: 0 1rem;
+        margin: 0 0 0 0.5rem;
         padding: 0.5rem 0.5rem 0.5rem 0.5rem;
         .choices__list {
           overflow: scroll;
@@ -343,15 +343,15 @@
         }
       }
       .choices__input {
-        width: calc(100%/2 - 1.5rem) !important;
+        width: calc(100%/2 - 0.5rem) !important;
         position:absolute;
-        left:0.5rem;
+        left:0rem;
         top:-0rem;
       }
       .choices__list--dropdown {
         border-top: 0.1rem solid var(--color-main-10);
         padding: 0.5rem 0.5rem 0.5rem 0.5rem;
-        margin: 5rem 0.5rem 0;
+        margin: 5rem 0.5rem 0 0;
         top:0;
         visibility: visible;
         width: 50%;

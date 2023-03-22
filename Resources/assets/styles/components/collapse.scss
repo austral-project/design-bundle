@@ -26,6 +26,7 @@
   &.is-open {
     .collapse-content {
       height: auto;
+      overflow: visible;
     }
     .picto-content {
       .picto {

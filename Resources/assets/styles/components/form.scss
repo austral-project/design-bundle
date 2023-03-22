@@ -122,9 +122,9 @@
   }
 }
 .group-fields-container {
-  > .group-fields-name {
-    margin-top: 4rem;
-    margin-bottom: 1rem;
+  padding: 2rem 0 1rem;
+  .group-fields-container {
+    padding: 0;
   }
   &.white {
     background: var(--color-white);
@@ -161,6 +161,8 @@
     position:relative;
     &.group-row {
       border-bottom: 0.1rem solid var(--color-main-10);
+
+      margin: 0 -0.5rem;
       &.group-row-gap {
         @include grid-column-gap(2rem);
       }
