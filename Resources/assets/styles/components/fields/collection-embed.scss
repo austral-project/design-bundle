@@ -621,6 +621,12 @@
         }
       }
     }
+    &.block-contenu-embed {
+      margin-top: 0;
+      .group-fields-container {
+        padding: 0;
+      }
+    }
   }
   &#fieldset-fieldset-contentblock {
     .group-fields-container {
