@@ -3,6 +3,7 @@ import { cacheHistory } from "./javascript/cache/CacheHistory";
 import Response from "./javascript/response/Response";
 import Request from "./javascript/request/Request";
 import ContextMenu from "./javascript/components/contextMenu/ContextMenu";
+import MiscEvent from "../../../../../assets/front/javascript/misc/Event";
 
 ConfigMaster.setPage(page);
 ConfigMaster.setContextMenu(new ContextMenu());
@@ -91,6 +92,41 @@ MiscEvent.addListener(["dragleave", "dragend", "drop"], () => {
 
 MiscEvent.addListener("scroll", () => {
   ConfigMaster.dispatchAllComponents("component::scroll", {}, false);
+});
+
+MiscEvent.addListener("keydown", (event) => {
+  let shortcut = "";
+  if(event.ctrlKey)
+  {
+    shortcut = "CTRL+";
+  }
+  if(event.metaKey)
+  {
+    shortcut = "CTRL+";
+  }
+  if(event.shiftKey)
+  {
+    shortcut += "MAJ+";
+  }
+  if(event.altKey)
+  {
+    shortcut += "ALT+";
+  }
+  shortcut += event.key.toUpperCase();
+  let action = document.querySelector("*[data-keybord-shortcut='"+shortcut+"']");
+  if(action) {
+    event.preventDefault();
+    event.stopPropagation();
+    if(action.tagName === "A" || action.tagName === "BUTTON") {
+      action.click();
+    }
+    return false;
+  }
+});
+
+
+document.addEventListener("keydown", (event) => {
+  console.log(event);
 });
 
 MiscEvent.addListener("popstate", (e) => {
