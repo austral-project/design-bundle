@@ -69,6 +69,11 @@
           label {
             padding: 1rem 1rem 0;
           }
+          .list-option-element {
+            label {
+              padding: 0;
+            }
+          }
         }
       }
     }
@@ -132,7 +137,6 @@
     @include align-content(stretch);
     @include justify-content(space-between);
     @include flex-direction(column);
-    margin-top: 2rem;
     .collections-add-content {
       order: 1;
       flex: 1;
@@ -141,7 +145,12 @@
     > .collections-add-content {
       margin-top: 2rem;
     }
-
+    &.block-contenu-embed {
+      margin-top: 0;
+    }
+    .group-fields-container {
+      padding: 0;
+    }
     &#field-urlParameters-content-embed {
       > .collection-embed-forms {
         > .collection-embed-element {
@@ -619,12 +628,6 @@
             }
           }
         }
-      }
-    }
-    &.block-contenu-embed {
-      margin-top: 0;
-      .group-fields-container {
-        padding: 0;
       }
     }
   }
