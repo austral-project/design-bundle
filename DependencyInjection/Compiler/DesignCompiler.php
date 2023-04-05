@@ -34,8 +34,8 @@ class DesignCompiler implements CompilerPassInterface
      */
 
     $nameDefinition = "austral-design";
-
-    $urlEntrypoint = $container->getParameterBag()->get("kernel.project_dir")."/public/bundles/australdesign/build/entrypoints.json";
+    $webdir = $container->getParameterBag()->has("public_dir") ? $container->getParameterBag()->get("public_dir") : "public";
+    $urlEntrypoint = "{$container->getParameterBag()->get("kernel.project_dir")}/{$webdir}/bundles/australdesign/build/entrypoints.json";
     $container->setDefinition("webpack_encore.entrypoint_lookup[{$nameDefinition}]", new Definition("Symfony\WebpackEncoreBundle\Asset\EntrypointLookup", array(
       $urlEntrypoint,
       null,
@@ -62,6 +62,6 @@ class DesignCompiler implements CompilerPassInterface
     $argument = $definition->getArgument(1);
     $argument[] = $nameDefinition;
     $definition->setArgument(1, $argument);
-    
+
   }
 }
