@@ -65,7 +65,7 @@ class Template {
           MiscEvent.dispatch("change", {value: originElement.value }, element);
         }
         else if(element.type === "checkbox") {
-          element.checked = originElement.value === true ? 1 : 0;
+          element.checked = originElement.value == 1 ? 1 : 0;
         }
         else {
           element.value = originElement.value;
