@@ -230,9 +230,26 @@
   .list-objects_content-choices {
     margin: 0 0.5rem;
     .content-language {
+      @include transition-default();
+      @include flex-display();
+      @include justify-content(center);
+      @include align-content(center);
+      @include align-items(center);
       @extend .font-poppins-m-13-uppercase;
+      border: 2px solid var(--color-white);
+      background: var(--color-white);
+      height: 100%;
       width: 4.4rem;
       text-align: center;
+      &.link {
+        color: var(--color-grey-50);
+        cursor:pointer;
+        &:hover {
+          color: var(--color-black);
+          background: var(--color-main-10);
+        }
+
+      }
     }
   }
 }

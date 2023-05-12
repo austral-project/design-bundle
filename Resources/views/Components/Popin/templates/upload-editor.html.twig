@@ -7,6 +7,22 @@
       <div class="fields-content">
         <div class="field-content field-content_fileInfos">
           <span class="delete-file" data-popin-view="no-required" data-popin-command="delete" >{{ "file.actions.delete"|trans({}, "austral") }}</span>
+          <div class="download-file-content">
+            {{ include("@AustralDesign/Components/Button/picto.html.twig",
+              {
+                tag:            "a",
+                picto:          "austral-picto-cloud-download",
+                title:          "file.actions.download"|trans({}, "austral"),
+                withEntitled:   false,
+                data: {
+                  "data-popin-view":  "no-required",
+                  "data-popin-href": "download-path",
+                  "target": "_blank"
+                }
+              }
+            )
+            }}
+          </div>
           <label for="popin_fileInfos">{{ "popin.editor.file"|trans({}, translateDomain) }}</label>
           <div class="field field-typeValue" data-popin-value="reel-filename"></div>
           <ul class="file-infos">
@@ -26,8 +42,7 @@
         </div>
         <div class="field-content field-content_buttonCropper" data-with-cropper="">
           <label for="popin_content_buttonCropper">{{ "popin.editor.file"|trans({}, translateDomain) }}</label>
-          <ul class="cropper-button-content" data-popin-cropper-actions="">
-          </ul>
+          <ul class="cropper-button-content" data-popin-cropper-actions=""></ul>
         </div>
         <div class="content-clone-fields" data-popin-clone-fields="popin-fields"></div>
       </div>

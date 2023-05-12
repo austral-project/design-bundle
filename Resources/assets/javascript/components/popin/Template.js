@@ -103,6 +103,13 @@ class Template {
       }
     });
 
+    [].forEach.call(this.popin.element.querySelectorAll("*[data-popin-href]"), (element) => {
+      if(this.popin.options.values[element.dataset.popinHref] !== undefined)
+      {
+        element.setAttribute("href", this.popin.options.values[element.dataset.popinHref]);
+      }
+    });
+
     [].forEach.call(this.popin.element.querySelectorAll("*[data-popin-clone-fields]"), (element) => {
       if(this.originElements.dataset.popinCloneFields)
       {
