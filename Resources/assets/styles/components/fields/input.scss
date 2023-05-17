@@ -158,9 +158,35 @@
     }
   }
 }
+.right-container {
+  .is-error {
+    .field {
+      @include box-shadow-arguments("none !important");
+      .helper-informations.error {
+        position: absolute;
+        top: 0;
+        left: -2.6rem;
+      }
+    }
+  }
+}
 .is-error {
+  &.field-content-entityField {
+    .field {
+      border: 0 !important;
+      .choices__inner {
+        @include box-shadow-arguments("inset 0px 0px 0px .2rem var(--color-red-40) !important");
+      }
+    }
+  }
   &.field-content-choiceField {
-    @include box-shadow-arguments("inset 0px 0px 0px .2rem var(--color-red-40) !important");
+    .field {
+      @include box-shadow-arguments("none !important");
+      .choice-element-container .list-option-container {
+        border: 0.1rem solid var(--color-red-40);
+        @include box-shadow-arguments("inset 0px 0px 0px .1rem var(--color-red-40) !important");
+      }
+    }
   }
   .field {
     @include box-shadow-arguments("inset 0px 0px 0px .2rem var(--color-red-40) !important");
