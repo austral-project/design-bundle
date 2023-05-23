@@ -1,11 +1,14 @@
 import Request from "../../request/Request";
 import Response from "../../response/Response";
 import abstractField from "./abstract";
+import ViewByChoice from "./ViewByChoice";
 
 class Switch extends abstractField {
 
   static initComponent() {
-    super.initComponent("switch");
+    super.initComponent("switch", () => {
+      this.viewByChoice = {};
+    });
   }
 
   create(element) {
@@ -27,6 +30,13 @@ class Switch extends abstractField {
         this.switchAction = this.input.checked ? "tails" : "heads";
         this.switchClass();
       });
+    }
+  }
+
+  addEventListenerToChangeField() {
+    if(this.input.dataset.hasOwnProperty("viewByChoices"))
+    {
+      this.viewByChoice = new ViewByChoice(this.input, "view-by-choices");
     }
   }
 
@@ -87,6 +97,11 @@ class Switch extends abstractField {
       this.input.checked = !this.input.checked;
       this.switchAction = this.input.checked ? "tails" : "heads";
       this.switchClass();
+
+      if(this.viewByChoice) {
+        this.viewByChoice.changeValue(this.input.checked ? 1 : 0);
+      }
+
     }
     else if(this.urls.heads !== undefined && this.urls.tails !== undefined)
     {

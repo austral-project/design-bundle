@@ -18,6 +18,7 @@ export default class ViewByChoice extends abstractField {
     }
 
     this.viewClassChildren = this.element.dataset.viewByChoicesChildren ? this.element.dataset.viewByChoicesChildren : ".view-element-by-choices";
+    console.log(this.viewClassChildren, this.element);
     this.elementsViewByChoices = [];
     if(this.element.dataset.viewByChoicesElement) {
       this.elementsViewByChoices = this.element.closest(this.element.dataset.viewByChoicesElement).querySelectorAll(this.viewClassChildren);
@@ -68,21 +69,40 @@ export default class ViewByChoice extends abstractField {
       }
       else if(this.element.querySelectorAll("input").length > 0) {
         [].forEach.call(this.element.querySelectorAll("input"), (el) => {
-          if(el.checked) {
-            this.changeValue(el.value);
+          if(el.getAttribute("type") === "checkbox")
+          {
+            this.changeValue(el.checked ? 1 : 0);
+            MiscEvent.addListener("change", () => {
+              this.changeValue(el.checked ? 1 : 0);
+            }, el);
           }
-          MiscEvent.addListener("change", () => {
-            this.changeValue(el.checked ? el.value : null);
-          }, el);
+          else
+          {
+            this.changeValue(el.value);
+            MiscEvent.addListener("change", () => {
+              this.changeValue(el.value);
+            }, el);
+          }
         });
       }
     }
     else
     {
-      this.changeValue(this.element.value)
-      MiscEvent.addListener("change", () => {
-        this.changeValue(this.element.value);
-      }, this.element);
+      if(this.element.getAttribute("type") === "checkbox")
+      {
+        this.changeValue(this.element.checked ? 1 : 0);
+        MiscEvent.addListener("change", () => {
+          this.changeValue(this.element.checked ? 1 : 0);
+        }, this.element);
+      }
+      else
+      {
+        this.changeValue(this.element.value)
+        MiscEvent.addListener("change", () => {
+          this.changeValue(this.element.value);
+        }, this.element);
+      }
+
     }
 
   }
@@ -109,10 +129,11 @@ export default class ViewByChoice extends abstractField {
         }
       }
       let classViewElement = null;
-      if(value && this.viewByChoices[value] !== undefined)
+      if(value !== null && this.viewByChoices[value] !== undefined)
       {
         classViewElement = this.viewByChoices[value];
       }
+      console.log(value, this.viewByChoices, classViewElement);
       this.elementsViewByChoices.forEach((el) => {
         let viewElement = false;
         if(classViewElement !== undefined && classViewElement !== null)
