@@ -367,6 +367,9 @@
   min-height: 56rem;
   .group-fields-container {
     margin-top: 0;
+    .group-fields-name {
+      padding-left: 0!important;
+    }
     .group-fields-content {
       &.group-row {
         border:none;
@@ -437,3 +440,54 @@
   @include flex-display();
   width: 50%;
 }
+.sun-editor {
+  .popin-variables {
+    height: 56rem;
+    .popin-content {
+      background: var(--color-main-10);
+      padding: 4rem 4rem;
+      .collections-choices {
+        height: 100%;
+      }
+      .list-variables {
+        overflow-y: scroll;
+        overflow-x: hidden;
+        height: 100%;
+        padding: 0;
+        margin: 0 -1rem;
+        li {
+          margin: 1rem 0;
+          .button-link {
+            padding: 1rem;
+            &.current,
+            &:hover {
+              opacity: 1;
+              background: var(--color-white);
+            }
+          }
+        }
+      }
+    }
+  }
+  .popin-container {
+    pointer-events: all;
+    opacity: 1;
+    position:relative;
+    top:auto;
+    left:auto;
+    -webkit-transform: scale(1, 1);
+    -moz-transform: scale(1, 1);
+    -o-transform: scale(1, 1);
+    -ms-transform: scale(1, 1); // IE9 only
+    transform: scale(1, 1);
+    width: 100%;
+  }
+  .popin-close {
+    top: -2rem;
+    right: -2rem;
+  }
+  .collections-choices-content {
+    width: 100%;
+  }
+}
+

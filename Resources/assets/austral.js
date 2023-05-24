@@ -126,7 +126,6 @@ MiscEvent.addListener("keydown", (event) => {
 
 
 document.addEventListener("keydown", (event) => {
-  console.log(event);
 });
 
 MiscEvent.addListener("popstate", (e) => {

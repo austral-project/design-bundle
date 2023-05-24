@@ -70,7 +70,7 @@ export default class Fields {
                 ${this.getAttributes(tagData)}>
               <x title='' class='tagify__tag__removeBtn' role='button' aria-label='remove tag'></x>
               <div>
-                  <span class="${this.settings.classNames.tagText}">%${tagData[this.settings.tagTextProp] || tagData.title}%</span>
+                  <span class="${this.settings.classNames.tagText}">%${tagData.value}%</span>
               </div>
             </tag> `;
             },

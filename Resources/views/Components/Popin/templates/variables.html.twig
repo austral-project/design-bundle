@@ -1,0 +1,32 @@
+{% if variables is defined %}
+<div class="popin-variables popin-container">
+  <div class="popin-close">
+    <span class="picto austral-picto-cross"></span>
+  </div>
+  <div class="popin-content">
+    <div class="collections-choices">
+      <div class="title-content">
+        <h2 class="h2-title fieldset-title">{{ "aside.australVars.title"|trans({}, "austral") }}</h2>
+      </div>
+      <ul class="content-listes-choices list-variables">
+        {% for key, choice in variables %}
+          <li class="choice">
+            {{ include("@AustralDesign/Components/Button/link.html.twig",
+              {
+                tag:            "span",
+                title:          choice.__toString(),
+                withEntitled:   true,
+                data: {
+                "data-variable-value":      "%"~choice.keyname~"%",
+              }
+              }
+            ) }}
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+
+
+</div>
+{%- endif %}

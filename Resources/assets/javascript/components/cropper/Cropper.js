@@ -109,7 +109,6 @@ class Cropper  {
       }
 
       let cropperOptions = this.options(el.dataset.cropperRatio, optionsSave);
-      console.log(cropperOptions);
       if(this.cropperContainers[el.dataset.cropperKey])
       {
         this.cropperContainers[el.dataset.cropperKey].cropper.destroy();

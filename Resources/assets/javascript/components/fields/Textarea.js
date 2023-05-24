@@ -3,6 +3,7 @@ import CodeMirror from 'codemirror'
 import SunEditor from "suneditor";
 import plugins from 'suneditor/src/plugins';
 import australLink from '../../../vendor/javascript/sunEditor/austral-link';
+import australVariables from '../../../vendor/javascript/sunEditor/austral-variables';
 
 import lang from 'suneditor/src/lang';
 import abstractField from "./abstract";
@@ -23,18 +24,23 @@ export default class Textarea extends abstractField {
     super.create(element);
     if(this.element.dataset.wysiwyg !== undefined) {
       plugins["australLink"] = australLink;
+      plugins["australVariables"] = australVariables;
       this.editor = SunEditor.create(this.element,{
         plugins: plugins,
         charCounter:  true,
         codeMirror: CodeMirror,
         height: "auto",
         minHeight: 150,
+        addTagsWhitelist: "p|div|ul|ol|li|span|a|br|hr",
+        attributesWhitelist: {
+          'all': 'style|data-.+'
+        },
         buttonList: [
           ['undo', 'redo'],
           ['bold', 'underline', 'italic', 'strike', 'superscript'],
           ['removeFormat'],
           ['outdent', 'indent'],
-          ['horizontalRule', 'list', "australLink"],
+          ['horizontalRule', 'list', "australLink", "australVariables"],
           ['fullScreen', 'showBlocks', 'codeView'],
         ],
         "icons": {
@@ -66,7 +72,7 @@ export default class Textarea extends abstractField {
       this.editor.onPaste = (e, cleanData, maxCharCount, core) => {
         let regex = /<(\/|)(\w{0,})[^>]*>?/mi;
         let m;
-        let tagsAccepted = ["p", 'ul', 'ol', 'li', 'br', 'b', 'i', 'u', 'strong', 'em'];
+        let tagsAccepted = ["p", 'ul', 'ol', 'li', 'br', 'b', 'i', 'u', 'strong', 'em', "span"];
         while ((m = regex.exec(cleanData)) !== null) {
           let replace = "";
           if(tagsAccepted.includes(m[2]) === true){

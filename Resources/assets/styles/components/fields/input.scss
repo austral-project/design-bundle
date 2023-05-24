@@ -246,7 +246,6 @@
     @include transition-default();
     @extend .font-poppins-m-10-grey;
     position:absolute;
-    cursor:pointer;
     left: 1.5rem;
     bottom: 1.5rem;
     opacity: 0;
@@ -462,6 +461,13 @@ body {
     --placeholder-color-focus: rgba(0, 0, 0, 0.25);
     --loader-size: .8em;
   }
+}
+.tagify__tag__removeBtn:hover + div::before {
+  background: var(--color-red-10) !important;
+}
+.tagify__tag:hover:not([readonly]) div::before,
+.tagify__tag:focus div::before {
+  background: var(--color-main-20);
 }
 
 .tagify__dropdown {

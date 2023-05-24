@@ -64,6 +64,7 @@
           @include flex-display();
           @include align-content(center);
           @include align-items(center);
+          @include justify-content(flex-start);
           padding: 1rem 0;
           &.with-sub-title {
             @include justify-content(center);
