@@ -91,9 +91,9 @@ class Cropper  {
     Debug.log("Cropper - Init");
     [].forEach.call(this.element.querySelectorAll(".cropper-content"), (el) => {
       var uploadedImageURL = this.element.dataset.cropperImage;
-      if (this.uploadFile.file)
+      if (this.uploadFile.file && URL_UPLOAD_IMAGE)
       {
-        var uploadedImageURL = URL_UPLOAD_IMAGE.createUrlParameterObject(this.uploadFile.file);
+        var uploadedImageURL = URL_UPLOAD_IMAGE.createObjectURL(this.uploadFile.file);
       }
       el.querySelector("img").setAttribute('src', uploadedImageURL);
       var optionsSave = {}

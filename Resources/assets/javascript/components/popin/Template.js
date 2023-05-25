@@ -106,7 +106,19 @@ class Template {
     [].forEach.call(this.popin.element.querySelectorAll("*[data-popin-href]"), (element) => {
       if(this.popin.options.values[element.dataset.popinHref] !== undefined)
       {
-        element.setAttribute("href", this.popin.options.values[element.dataset.popinHref]);
+        if(this.popin.options.values[element.dataset.popinHref] !== undefined && this.popin.options.values[element.dataset.popinHref])
+        {
+          element.style.display = "block";
+          element.setAttribute("href", this.popin.options.values[element.dataset.popinHref]);
+        }
+        else
+        {
+          element.style.display = "none";
+        }
+      }
+      else
+      {
+        element.style.display = "none";
       }
     });
 

@@ -121,6 +121,19 @@
     }
   }
 }
+
+fieldset {
+  > .group-fields-container {
+    > .group-fields-content {
+      margin-top: 1rem !important;
+      margin-bottom: 2rem !important;
+    }
+  }
+  .group-fields-name + .group-fields-content {
+    margin-top: 0 !important;
+  }
+}
+
 .group-fields-container {
   .group-fields-container {
     padding: 0;
@@ -204,6 +217,7 @@
         &:last-child {
           border-bottom:0;
           padding-bottom: 0;
+          margin-bottom: 0;
         }
         &:first-child {
           padding-top: 0;
