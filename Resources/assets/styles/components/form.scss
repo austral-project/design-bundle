@@ -207,7 +207,7 @@ fieldset {
     &.group-column {
       @include flex-direction(column);
       @include justify-content(space-between);
-      margin: -1rem 0;
+      margin: -1rem 0 0;
       > .group-col {
         margin: 1rem 0 1rem;
         > * {
