@@ -1,23 +1,14 @@
 {% if graphicItems is defined %}
-<div class="popin-graphic-items popin-container">
-  <div class="popin-close">
-    <span class="picto austral-picto-cross"></span>
-  </div>
-  <div class="popin-content">
-    <div class="collections-choices">
-      <div class="title-content">
-        <h2 class="h2-title fieldset-title">{{ "aside.australVars.title"|trans({}, "austral") }}</h2>
-      </div>
-      {% for key, icons in graphicItems %}
-      <ul class="content-listes-choices list-variables">
-        {% for key, icon in icons %}
-          <li class="choice">
-            {{ icon.title }}
-          </li>
-        {% endfor %}
-      </ul>
-      {% endfor %}
+  <div class="collections-choices">
+    <div class="title-content">
+      <h2 class="h2-title fieldset-title">{{ "aside.australVars.title"|trans({}, "austral") }}</h2>
     </div>
+    {% for key, icons in graphicItems %}
+    <ul class="content-listes-choices list-variables">
+      {% for key, icon in icons %}
+        <li class="choice">{{ icon.title }}</li>
+      {% endfor %}
+    </ul>
+    {% endfor %}
   </div>
-</div>
 {%- endif %}
