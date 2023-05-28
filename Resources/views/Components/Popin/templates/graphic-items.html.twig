@@ -1,14 +1,55 @@
 {% if graphicItems is defined %}
-  <div class="collections-choices">
-    <div class="title-content">
-      <h2 class="h2-title fieldset-title">{{ "aside.australVars.title"|trans({}, "austral") }}</h2>
+  <div class="popin-content">
+    <div class="grid">
+      <div class="row">
+        <div class="group-col col--4 ">
+          <div class="group-fields-container group-component-choice-type-link-fields-container">
+            <span class="group-fields-name">Sélecteur de catégorie</span>
+            <div class="group-fields-content group-column ">
+              <div class="group-col auto ">
+                <div class="field-content field-content-choiceField">
+                  <div class="field field-choiceType-radio no-border">
+                    <ul class="domains-list">
+                      {% for key, icons in graphicItems %}
+                        <li class="domain">
+                          <span data-tab-choice="graphic-item-type-{{ key }}" class="font-poppins-m-14">{{ ("graphic-item.type."~key)|trans({}, "austral") }}</span>
+                        </li>
+                      {% endfor %}
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col col--xs-8">
+          <div class="list-container">
+            <div class="list-container-scroll">
+              {% for key, icons in graphicItems %}
+                <div class="list-container-by-item-type" data-tab="graphic-item-type-{{ key }}" >
+                  <div class="height">
+                    <div class="top-content">
+                      <h2 class="h2-title title">{{ ("graphic-item.type."~key)|trans({}, "austral") }}</h2>
+                    </div>
+                    <div class="list-content">
+                      <ul>
+                        {% for icon in icons %}
+                          <li class="choice">
+                            <img src="{{ url('austral_graphic_items_icon', {"keyname": key~"-"~icon.keyname}) }}"/>
+                            <span class="title">{{ icon.title }}</span>
+                          </li>
+                        {% endfor %}
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    {% for key, icons in graphicItems %}
-    <ul class="content-listes-choices list-variables">
-      {% for key, icon in icons %}
-        <li class="choice">{{ icon.title }}</li>
-      {% endfor %}
-    </ul>
-    {% endfor %}
   </div>
+
 {%- endif %}
