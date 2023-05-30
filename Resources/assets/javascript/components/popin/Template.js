@@ -290,7 +290,7 @@ class Template {
     if(graphicElementChoices.length > 0 && fieldToGraphicElement)
     {
       let graphicElementChoiceCurrent = this.popin.element.querySelector('*[data-grahic-element-choice="'+fieldToGraphicElement.value+'"]');
-      if(graphicElementChoiceCurrent)
+      if(graphicElementChoiceCurrent && graphicElementChoiceCurrent.getAttribute("data-grahic-element-choice"))
       {
         graphicElementChoiceCurrent.classList.add("current");
         let dataTabValue = graphicElementChoiceCurrent.closest("*[data-tab]").getAttribute("data-tab");
@@ -304,8 +304,18 @@ class Template {
 
       graphicElementChoices.forEach((graphicElementChoice) => {
         MiscEvent.addListener("click", (e) => {
-          fieldToGraphicElement.value = graphicElementChoice.getAttribute("data-grahic-element-choice");
-          fieldToGraphicElement.closest(".field-content").querySelector(".graphic-item .preview").innerHTML = graphicElementChoice.innerHTML;
+          let value = graphicElementChoice.getAttribute("data-grahic-element-choice");
+          fieldToGraphicElement.value = value;
+          if(value)
+          {
+            fieldToGraphicElement.closest(".field-content").querySelector(".graphic-item .preview").innerHTML = graphicElementChoice.innerHTML;
+            fieldToGraphicElement.closest(".field-content").querySelector(".graphic-item").classList.add('edit');
+          }
+          else
+          {
+            fieldToGraphicElement.closest(".field-content").querySelector(".graphic-item .preview").innerHTML = "";
+            fieldToGraphicElement.closest(".field-content").querySelector(".graphic-item").classList.remove('edit');
+          }
           this.popin.close();
         }, graphicElementChoice);
       });

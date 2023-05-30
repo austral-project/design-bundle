@@ -2,9 +2,9 @@
   <div class="popin-content">
     <div class="grid" data-tabs>
       <div class="row">
-        <div class="group-col col--4 ">
+        <div class="group-col col--4 graphic-items-content-menu">
           <div class="group-fields-container group-component-choice-type-link-fields-container">
-            <span class="group-fields-name">Sélecteur de catégorie</span>
+            <span class="group-fields-name">{{ ("graphic-item.select.type")|trans({}, "austral") }}</span>
             <div class="group-fields-content group-column ">
               <div class="group-col auto ">
                 <div class="field-content field-content-choiceField">
@@ -12,7 +12,7 @@
                     <ul class="domains-list">
                       {% for key, icons in graphicItems %}
                         <li class="domain">
-                          <span data-tab-choice="graphic-item-type-{{ key }}" class="font-poppins-m-14">{{ ("graphic-item.type."~key)|trans({}, "austral") }}</span>
+                          <span data-tab-choice="graphic-item-type-{{ key }}" class="font-poppins-m-14">{{ icons.name ?? ("graphic-item.type."~key)|trans({}, "austral") }}</span>
                         </li>
                       {% endfor %}
                     </ul>
@@ -21,6 +21,7 @@
               </div>
             </div>
           </div>
+          <span data-grahic-element-choice="" class="without-picto">{{ ("graphic-item.delete.picto")|trans({}, "austral") }}</span>
         </div>
 
         <div class="col col--xs-8">
@@ -30,14 +31,14 @@
                 <div class="list-container-by-item-type" data-tab="graphic-item-type-{{ key }}" >
                   <div class="height">
                     <div class="top-content">
-                      <h2 class="h2-title title">{{ ("graphic-item.type."~key)|trans({}, "austral") }}</h2>
+                      <h2 class="h2-title title">{{ icons.name ?? ("graphic-item.type."~key)|trans({}, "austral") }}</h2>
                     </div>
                     <div class="list-content">
                       <ul>
-                        {% for icon in icons %}
-                          <li class="choice" data-grahic-element-choice="{{ key }}-{{ icon.keyname }}">
+                        {% for icon in icons.pictos %}
+                          <li class="choice" data-grahic-element-choice="{{ icon.keyname }}">
                             <div class="image-content">
-                              {{ (key ~ "-" ~icon.keyname)|graphic_item_render|raw() }}
+                              {{ (icon.keyname)|graphic_item_render|raw() }}
                             </div>
                           </li>
                         {% endfor %}

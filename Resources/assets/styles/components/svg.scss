@@ -46,3 +46,84 @@
 .loader #loader-container .loader-animate  {
   stroke-dashoffset: 0;
 }
+
+/**
+ * Graphic Item SVG
+ */
+
+#graphic-items-svg {
+  #graphic-items-svg_1_to ,
+  #graphic-items-svg_1_tr,
+  #graphic-items-svg_2_to ,
+  #graphic-items-svg_2_tr,
+  #graphic-items-svg_3_to,
+  #graphic-items-svg_3_ts {
+    -webkit-transition: all 600ms  cubic-bezier(0.645,0.045,0.355,1);
+    -moz-transition: all 600ms  cubic-bezier(0.645,0.045,0.355,1);
+    -ms-transition: all 600ms  cubic-bezier(0.645,0.045,0.355,1);
+    -o-transition: all 600ms  cubic-bezier(0.645,0.045,0.355,1);
+    transition: all 600ms  cubic-bezier(0.645,0.045,0.355,1);
+  }
+  #graphic-items-svg_1_to {
+    transform: translate(43px,31px);
+  }
+  #graphic-items-svg_1_tr {
+    transform: rotate(0deg)
+  }
+  #graphic-items-svg_2_to {
+    transform: translate(37px,31px);
+  }
+  #graphic-items-svg_2_tr {
+    transform: rotate(0deg);
+  }
+  #graphic-items-svg_3_to {
+    transform: translate(40px,32px);
+  }
+  #graphic-items-svg_3_ts {
+    transform: scale(1,1);
+  }
+  #graphic-items-svg_4_ts {
+  }
+}
+.field:hover {
+  #graphic-items-svg {
+    #graphic-items-svg_1_to {
+      transform: translate(55px, 31px)
+    }
+    #graphic-items-svg_1_tr {
+      transform: rotate(6deg)
+    }
+    #graphic-items-svg_2_to {
+      transform: translate(23px, 31px)
+    }
+    #graphic-items-svg_2_tr {
+      transform: rotate(-6deg)
+    }
+    #graphic-items-svg_3_to {
+      transform: translate(40px, 29px)
+    }
+    #graphic-items-svg_3_ts {
+      transform: scale(1.1, 1.1)
+    }
+    #graphic-items-svg_4_ts {
+      animation: keyframe_graphic-items-svg_4_ts 1000ms linear 1 normal forwards
+    }
+  }
+}
+@keyframes keyframe_graphic-items-svg_4_ts {
+  0% {
+    transform: translate(39.937345px,32.146874px) scale(1,1);
+    animation-timing-function: cubic-bezier(0.55,0.055,0.675,0.19)
+  }
+  30% {
+    transform: translate(39.937345px,32.146874px) scale(0.95,0.95);
+    animation-timing-function: cubic-bezier(0.455,0.03,0.515,0.955)
+  }
+  70% {
+    transform: translate(39.937345px,32.146874px) scale(1.05,1.05);
+    animation-timing-function: cubic-bezier(0.215,0.61,0.355,1)
+  }
+  100% {
+    transform: translate(39.937345px,32.146874px) scale(1,1)
+  }
+}

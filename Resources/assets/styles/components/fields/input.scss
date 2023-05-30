@@ -108,7 +108,28 @@
       @extend .font-poppins-m-10-grey;
     }
   }
-
+  &.picto-to-button {
+    .graphic-item {
+      position: relative;
+      z-index: 100;
+      height: 5rem;
+      .preview {
+        width: 3rem;
+      }
+      .button-edit-content {
+        display:none;
+      }
+      .label-content {
+        .picto-content {
+          height: 4rem;
+          width: 5rem;
+        }
+        .label-add {
+          display: none;
+        }
+      }
+    }
+  }
   .graphic-item {
     @include flex-display();
     @include flex-direction(column);
@@ -117,8 +138,11 @@
     @include justify-content(center);
     width: 100%;
     height: 25rem;
+    cursor:pointer;
     .preview {
+      @include transition-default();
       width: 10rem;
+      opacity: 1;
       .image-content {
         @include flex-display();
         @include justify-content(center);
@@ -134,10 +158,57 @@
         object-fit: contain;
       }
     }
-    .button-edit-content {
-      margin: 2rem 0;
+    &:hover {
+      .label-content {
+        opacity: 1;
+      }
+    }
+    &.edit {
+      .button-edit-content {
+        pointer-events: auto;
+      }
+      .label-content {
+        display:none;
+      }
+      &:hover {
+        .button-edit-content {
+          opacity:1;
+        }
+        .preview {
+          opacity:0.5;
+        }
+      }
     }
 
+    .button-edit-content {
+      @include transition-default();
+      @include position-middle();
+      position:absolute;
+      opacity:0;
+      z-index: 100;
+      pointer-events: none;
+    }
+
+    .label-content {
+      @include position-middle;
+      @include transition-default();
+      @include flex-display();
+      @include flex-direction(column);
+      @include align-items(center);
+      @include align-content(center);
+      @include justify-content(center);
+      opacity: 0.55;
+      width: 100%;
+      position:absolute;
+      .picto-content {
+        height: 7rem;
+        width: 8rem;
+        position:relative;
+      }
+      .label-add {
+        @extend .font-poppins-m-12;
+      }
+    }
   }
 
 }

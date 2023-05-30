@@ -108,6 +108,7 @@
   }
   &.graphic-items-choice,
   &.popin-select-links {
+
     .popin-content {
 
       .domains-list {
@@ -169,6 +170,20 @@
         }
       }
     }
+  }
+  .graphic-items-content-menu {
+    @include flex-display();
+    @include flex-direction(column);
+    .without-picto {
+      @extend .font-poppins-m-11;
+      margin-top: auto;
+      cursor:pointer;
+      color: var(--color-red-100);
+    }
+  }
+
+  *[data-grahic-element-choice] {
+    cursor:pointer;
   }
   &.graphic-items-choice {
     .top-content {
