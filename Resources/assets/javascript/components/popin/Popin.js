@@ -66,7 +66,6 @@ class Popin  extends abstractOpenClose {
       this.close();
     }, this.element);
 
-
     MiscEvent.addListener("component::action.select-link", (e) => {
       let inputChoiceLink = this.element.querySelector("*[data-popin-update-input='field-link-choice']");
       if(inputChoiceLink)
@@ -245,6 +244,7 @@ class Popin  extends abstractOpenClose {
       let containerTab = this.element.querySelector("*[data-tabs]");
       MiscEvent.dispatch("component::action.open", {tabId: tabIdSelected}, containerTab);
     }
+
   }
 
   openParentToogle(parentToggle)

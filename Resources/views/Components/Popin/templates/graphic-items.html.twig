@@ -1,6 +1,6 @@
 {% if graphicItems is defined %}
   <div class="popin-content">
-    <div class="grid">
+    <div class="grid" data-tabs>
       <div class="row">
         <div class="group-col col--4 ">
           <div class="group-fields-container group-component-choice-type-link-fields-container">
@@ -35,9 +35,10 @@
                     <div class="list-content">
                       <ul>
                         {% for icon in icons %}
-                          <li class="choice">
-                            <img src="{{ url('austral_graphic_items_icon', {"keyname": key~"-"~icon.keyname}) }}"/>
-                            <span class="title">{{ icon.title }}</span>
+                          <li class="choice" data-grahic-element-choice="{{ key }}-{{ icon.keyname }}">
+                            <div class="image-content">
+                              {{ (key ~ "-" ~icon.keyname)|graphic_item_render|raw() }}
+                            </div>
                           </li>
                         {% endfor %}
                       </ul>

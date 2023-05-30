@@ -1,5 +1,6 @@
 import Cropper from "./../cropper/Cropper";
 import Components from "../Components";
+import MiscEvent from "../../../../../../../../assets/front/javascript/misc/Event";
 
 class Template {
 
@@ -32,6 +33,7 @@ class Template {
       this.initTemplate();
     }
     Components.loadComponent();
+    this.initAfter();
   }
 
   addListener() {
@@ -279,7 +281,35 @@ class Template {
         }
       }
     }
+  }
 
+  initAfter()
+  {
+    let graphicElementChoices = this.popin.element.querySelectorAll("*[data-grahic-element-choice]");
+    let fieldToGraphicElement = document.querySelector(this.popin.options.field);
+    if(graphicElementChoices.length > 0 && fieldToGraphicElement)
+    {
+      let graphicElementChoiceCurrent = this.popin.element.querySelector('*[data-grahic-element-choice="'+fieldToGraphicElement.value+'"]');
+      if(graphicElementChoiceCurrent)
+      {
+        graphicElementChoiceCurrent.classList.add("current");
+        let dataTabValue = graphicElementChoiceCurrent.closest("*[data-tab]").getAttribute("data-tab");
+        let dataTabChoice = this.popin.element.querySelector('*[data-tab-choice="'+dataTabValue+'"]');
+        if(dataTabChoice) {
+          setTimeout(() => {
+            MiscEvent.dispatch("click", {}, dataTabChoice);
+          }, 100);
+        }
+      }
+
+      graphicElementChoices.forEach((graphicElementChoice) => {
+        MiscEvent.addListener("click", (e) => {
+          fieldToGraphicElement.value = graphicElementChoice.getAttribute("data-grahic-element-choice");
+          fieldToGraphicElement.closest(".field-content").querySelector(".graphic-item .preview").innerHTML = graphicElementChoice.innerHTML;
+          this.popin.close();
+        }, graphicElementChoice);
+      });
+    }
   }
 
   update(command) {
@@ -297,7 +327,7 @@ class Template {
 
         [].forEach.call(this.popin.element.querySelectorAll("*[data-popin-update-input]"), (el) => {
           let updateInputElement = this.originElements.querySelector("*[data-popin-update-input='"+el.dataset.popinUpdateInput+"']");
-          if(updateInputElement && updateInputElement !== undefined) {
+          if(updateInputElement) {
             if(el.type === "file") {
               updateInputElement.files = command === "update" ? el.files : null;
             }
