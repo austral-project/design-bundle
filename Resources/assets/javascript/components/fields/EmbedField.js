@@ -21,8 +21,21 @@ export default class EmbedField  extends abstractField {
       this.fieldsTemplate = JSON.parse(this.element.closest("*[data-collection-embed-fields-template]").dataset.collectionEmbedFieldsTemplate);
     }
 
+    this.childrenParameters = {
+      min: null,
+      max: null
+    }
+    if(this.element.dataset.collectionEmbedChildrenParameters)
+    {
+      this.childrenParameters = JSON.parse(this.element.dataset.collectionEmbedChildrenParameters);
+    }
+
     MiscEvent.addListener("component::embed.add", (event) => {
       this.addNewTemplate(event.detail.button);
+    }, this.element);
+
+    MiscEvent.addListener("component::embed.childrenParameterCheck", (event) => {
+      this.checkChildrenParameter();
     }, this.element);
 
     if(this.element.children[0].classList.contains("collections-add-content"))
@@ -85,6 +98,26 @@ export default class EmbedField  extends abstractField {
 
     this.betweenInsert = false;
     this.initActions(this.element);
+
+    if(this.childrenParameters.min > 0)
+    {
+      for(let i = 0; i < this.childrenParameters.min; i++)
+      {
+        if(this.element.children[0].classList.contains("collections-add-content"))
+        {
+          [].forEach.call(this.element.children[0].querySelectorAll(".add-new-collection-embed"), (button) => {
+            MiscEvent.dispatch("component::embed.add", {"button": button}, this.element);
+          });
+        }
+        else
+        {
+          [].forEach.call(this.element.children[0].children[0].querySelectorAll(".add-new-collection-embed"), (button) => {
+            MiscEvent.dispatch("component::embed.add", {"button": button}, this.element);
+          });
+        }
+      }
+    }
+
   }
 
   addEventListener() {
@@ -122,6 +155,62 @@ export default class EmbedField  extends abstractField {
         }
       });
     });
+  }
+
+  checkChildrenParameter()
+  {
+    if((this.element.children[0].children.length-1) >= this.childrenParameters.max)
+    {
+      if(this.element.children[0].classList.contains("collections-add-content"))
+      {
+        [].forEach.call(this.element.children[0].querySelectorAll(".add-new-collection-embed"), (button) => {
+          button.style.display = "none";
+        });
+      }
+      else
+      {
+        [].forEach.call(this.element.children[0].children[0].querySelectorAll(".add-new-collection-embed"), (button) => {
+          button.style.display = "none";
+        });
+      }
+    }
+    else
+    {
+      if(this.element.children[0].classList.contains("collections-add-content"))
+      {
+        [].forEach.call(this.element.children[0].querySelectorAll(".add-new-collection-embed"), (button) => {
+          button.style.display = "block";
+        });
+      }
+      else
+      {
+        [].forEach.call(this.element.children[0].children[0].querySelectorAll(".add-new-collection-embed"), (button) => {
+          button.style.display = "block";
+        });
+      }
+    }
+
+    if((this.element.children[0].children.length-1) <= this.childrenParameters.min)
+    {
+      [].forEach.call(this.element.children[0].children, (children) => {
+        let deleteContent = children.querySelector(".hover .collection-embed-form .delete-content");
+        if(deleteContent)
+        {
+          deleteContent.style.display = "none";
+        }
+      });
+    }
+    else
+    {
+      [].forEach.call(this.element.children[0].children, (children) => {
+        let deleteContent = children.querySelector(".hover .collection-embed-form .delete-content");
+        if(deleteContent)
+        {
+          deleteContent.style.display = "block";
+        }
+      });
+    }
+
   }
 
   hasOneTemplate()
@@ -187,6 +276,7 @@ export default class EmbedField  extends abstractField {
         this.initActions(el);
       });
       Components.loadComponent();
+      MiscEvent.dispatch("component::embed.childrenParameterCheck", {}, this.element);
     }
   }
 
