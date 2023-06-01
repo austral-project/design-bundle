@@ -159,56 +159,63 @@ export default class EmbedField  extends abstractField {
 
   checkChildrenParameter()
   {
-    if((this.element.children[0].children.length-1) >= this.childrenParameters.max)
+    if(this.childrenParameters.max > 0)
     {
-      if(this.element.children[0].classList.contains("collections-add-content"))
+      if((this.element.children[0].children.length-1) >= this.childrenParameters.max)
       {
-        [].forEach.call(this.element.children[0].querySelectorAll(".add-new-collection-embed"), (button) => {
-          button.style.display = "none";
-        });
+        if(this.element.children[0].classList.contains("collections-add-content"))
+        {
+          [].forEach.call(this.element.children[0].querySelectorAll(".add-new-collection-embed"), (button) => {
+            button.style.display = "none";
+          });
+        }
+        else
+        {
+          [].forEach.call(this.element.children[0].children[0].querySelectorAll(".add-new-collection-embed"), (button) => {
+            button.style.display = "none";
+          });
+        }
       }
       else
       {
-        [].forEach.call(this.element.children[0].children[0].querySelectorAll(".add-new-collection-embed"), (button) => {
-          button.style.display = "none";
-        });
-      }
-    }
-    else
-    {
-      if(this.element.children[0].classList.contains("collections-add-content"))
-      {
-        [].forEach.call(this.element.children[0].querySelectorAll(".add-new-collection-embed"), (button) => {
-          button.style.display = "block";
-        });
-      }
-      else
-      {
-        [].forEach.call(this.element.children[0].children[0].querySelectorAll(".add-new-collection-embed"), (button) => {
-          button.style.display = "block";
-        });
+        if(this.element.children[0].classList.contains("collections-add-content"))
+        {
+          [].forEach.call(this.element.children[0].querySelectorAll(".add-new-collection-embed"), (button) => {
+            button.style.display = "block";
+          });
+        }
+        else
+        {
+          [].forEach.call(this.element.children[0].children[0].querySelectorAll(".add-new-collection-embed"), (button) => {
+            button.style.display = "block";
+          });
+        }
       }
     }
 
-    if((this.element.children[0].children.length-1) <= this.childrenParameters.min)
+
+    if(this.childrenParameters.min > 0)
     {
-      [].forEach.call(this.element.children[0].children, (children) => {
-        let deleteContent = children.querySelector(".hover .collection-embed-form .delete-content");
-        if(deleteContent)
-        {
-          deleteContent.style.display = "none";
-        }
-      });
-    }
-    else
-    {
-      [].forEach.call(this.element.children[0].children, (children) => {
-        let deleteContent = children.querySelector(".hover .collection-embed-form .delete-content");
-        if(deleteContent)
-        {
-          deleteContent.style.display = "block";
-        }
-      });
+      if((this.element.children[0].children.length-1) <= this.childrenParameters.min)
+      {
+        [].forEach.call(this.element.children[0].children, (children) => {
+          let deleteContent = children.querySelector(".hover .collection-embed-form .delete-content");
+          if(deleteContent)
+          {
+            deleteContent.style.display = "none";
+          }
+        });
+      }
+      else
+      {
+        [].forEach.call(this.element.children[0].children, (children) => {
+          let deleteContent = children.querySelector(".hover .collection-embed-form .delete-content");
+          if(deleteContent)
+          {
+            deleteContent.style.display = "block";
+          }
+        });
+      }
     }
 
   }
