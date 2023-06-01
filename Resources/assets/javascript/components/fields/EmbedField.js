@@ -101,7 +101,8 @@ export default class EmbedField  extends abstractField {
 
     if(this.childrenParameters.min > 0)
     {
-      for(let i = 0; i < this.childrenParameters.min; i++)
+      let nbChildren = this.element.children[0].children.length-1;
+      for(let i = nbChildren; i < this.childrenParameters.min; i++)
       {
         if(this.element.children[0].classList.contains("collections-add-content"))
         {
@@ -117,6 +118,7 @@ export default class EmbedField  extends abstractField {
         }
       }
     }
+    MiscEvent.dispatch("component::embed.childrenParameterCheck", {}, this.element);
 
   }
 

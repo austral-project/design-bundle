@@ -66,6 +66,7 @@
     @include flex(1);
     @extend .font-poppins-m-12;
     margin-bottom: 0 !important;
+    overflow: visible;
     .choices__list--dropdown {
       border-radius: 0;
       padding: 0.5rem;
