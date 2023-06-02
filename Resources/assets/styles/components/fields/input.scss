@@ -137,11 +137,12 @@
     @include align-content(center);
     @include justify-content(center);
     width: 100%;
-    height: 25rem;
+    height: 10rem;
     cursor:pointer;
     .preview {
       @include transition-default();
       width: 10rem;
+      padding: 1rem;
       opacity: 1;
       .image-content {
         @include flex-display();
@@ -201,8 +202,8 @@
       width: 100%;
       position:absolute;
       .picto-content {
-        height: 7rem;
-        width: 8rem;
+        height: 5rem;
+        width: 6rem;
         position:relative;
       }
       .label-add {

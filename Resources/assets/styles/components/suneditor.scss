@@ -2,6 +2,8 @@
   border:none;
   color: var(--color-black);
   background-color: var(--color-white);
+  width: 100% !important;
+  min-width: 50rem;
 
   *[data-tag-value] {
     @include box-shadow-arguments("0px 0px 0px .2rem var(--color-main-10)");

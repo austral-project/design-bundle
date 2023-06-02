@@ -1,24 +1,38 @@
 .fieldset-content {
-  .collection-embed-fields {
-    &.color-1 {
-      --element-embed-element-background: var(--color-blue-10);
-    }
-    &.color-2 {
-      --element-embed-element-background: var(--color-purple-10);
-    }
-    &.color-3 {
-      --element-embed-element-background: var(--color-yellow-10);
-    }
-    &.color-4 {
-      --element-embed-element-background: var(--color-green-10);
-    }
-    &.color-5 {
-      --element-embed-element-background: var(--color-red-10);
-    }
-    &.color-6 {
-      --element-embed-element-background: var(--color-main-10);
-    }
 
+  .field-collection-embed-content {
+    --element-embed-element-background: var(--color-white);
+    &.child-color {
+      .collection-embed-fields {
+        &.color-1 {
+          --element-embed-element-background: var(--color-blue-10);
+        }
+        &.color-2 {
+          --element-embed-element-background: var(--color-purple-10);
+        }
+        &.color-3 {
+          --element-embed-element-background: var(--color-yellow-10);
+        }
+        &.color-4 {
+          --element-embed-element-background: var(--color-green-10);
+        }
+        &.color-5 {
+          --element-embed-element-background: var(--color-red-10);
+        }
+        &.color-6 {
+          --element-embed-element-background: var(--color-main-10);
+        }
+      }
+    }
+    > label {
+      background: var(--element-embed-element-background);
+      padding: 2rem 1rem 2rem !important;
+      border-bottom: 0.1rem solid var(--color-main-10);
+    }
+  }
+
+  .collection-embed-fields {
+    margin: 0.1rem 0;
     .group-fields-content {
       &.no-fields {
         height: 5rem;
@@ -305,6 +319,26 @@
           @include transition-default();
           @include box-shadow-arguments("var(--element-input-box-shadow-inner)");
           .group-fields-container {
+
+            &.group-layout-fields-container {
+              > .group-fields-content {
+                margin-bottom: 0;
+                > .group-col{
+                  border-bottom: 0.1rem solid var(--color-main-10);
+                  margin-bottom: 0.2rem;
+                  &:after {
+                    content: "";
+                    display:block;
+                    width: 100%;
+                    height: 0.1rem;
+                    margin-bottom: 0.2rem;
+                    background: var(--color-main-10);
+                  }
+                }
+              }
+            }
+
+
             margin-top: 0;
             .group-fields-content {
               .group-col {
@@ -423,7 +457,7 @@
                   position:absolute;
                 }
                 .collection-embed-element {
-                  padding: 0.1rem 0;
+                  padding: 0 0 0.1rem;
                   > .hover {
                     > .collection-embed-form {
                       > .group-fields-container {
@@ -574,9 +608,12 @@
       &.direction-group-column {
         > .hover {
           > .collection-embed-form {
+            @include flex-display();
+            min-height: 10rem;
             padding-left: 4rem;
             background: var(--color-white);
             > .group-component-values-block-fields-container {
+              flex: 1;
               border-left: 0.1rem solid var(--color-main-10);
               > .group-fields-content {
                 border-bottom: 0;
@@ -689,6 +726,13 @@
         }
       }
     }
+  }
+
+  .component-separate {
+    margin: 0.2rem 0;
+    height: 0.1rem;
+    width: 100%;
+    background: var(--color-main-10);
   }
 }
 
