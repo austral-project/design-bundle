@@ -180,9 +180,9 @@ fieldset {
       }
       > .group-col {
         padding: 0 0.5rem;
-        border-right: 0.1rem solid var(--color-main-10);
-        &:last-child {
-          border-right:0;
+        border-left: 0.1rem solid var(--color-main-10);
+        &:first-child {
+          border-left:0;
         }
         .group-fields-content {
           height:calc(100% + 3rem);
