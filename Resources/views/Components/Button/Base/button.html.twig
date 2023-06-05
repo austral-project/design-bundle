@@ -90,6 +90,8 @@
 <{{ tagFinal }} {% for key, value in dataFinal %}{{ key }}="{{ value }}" {% endfor %}>
 {% if image is defined and image %}
   <div class="image">{% if image %}<img src="{{ image }}" alt="{{ title }}" />{% endif %}</div>
+{% elseif graphicItem is defined and graphicItem %}
+  <div class="image graphic-item">{{ graphicItem|raw() }}</div>
 {%- elseif picto is defined and picto -%}
   <span class="picto font-austral-16 {{ picto }}"></span>
 {%- endif -%}
