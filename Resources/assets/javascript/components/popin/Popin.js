@@ -3,6 +3,7 @@ import Template from "./Template";
 import abstractOpenClose from "../abstractOpenClose";
 import Request from "../../request/Request";
 import Components from "../Components";
+import MiscEvent from "../../misc/Event";
 
 class Popin  extends abstractOpenClose {
 
@@ -125,9 +126,14 @@ class Popin  extends abstractOpenClose {
 
     if( this.element.dataset.templateAjax !== undefined)
     {
-      this.options = {
-        url: this.element.dataset.templateAjax
-      };
+      if(this.options) {
+        this.options["url"] = this.element.dataset.templateAjax
+      }
+      else {
+        this.options = {
+          url: this.element.dataset.templateAjax
+        };
+      }
     }
 
     return this;
@@ -153,6 +159,45 @@ class Popin  extends abstractOpenClose {
               this.element.querySelector(".popin-content").setAttribute("data-tabs", "");
               Components.loadComponent();
               this.initInitialiseUnique();
+            }
+            else if(this.element.getAttribute("id") === "popin-graphic-items")
+            {
+              let graphicElementChoices = this.element.querySelectorAll("*[data-grahic-element-choice]");
+              let fieldToGraphicElement = document.querySelector(this.options.field);
+              if(graphicElementChoices.length > 0 && fieldToGraphicElement)
+              {
+                let graphicElementChoiceCurrent = this.element.querySelector('*[data-grahic-element-choice="'+fieldToGraphicElement.value+'"]');
+                if(graphicElementChoiceCurrent && graphicElementChoiceCurrent.getAttribute("data-grahic-element-choice"))
+                {
+                  graphicElementChoiceCurrent.classList.add("current");
+                  let dataTabValue = graphicElementChoiceCurrent.closest("*[data-tab]").getAttribute("data-tab");
+                  let dataTabChoice = this.element.querySelector('*[data-tab-choice="'+dataTabValue+'"]');
+                  if(dataTabChoice) {
+                    setTimeout(() => {
+                      MiscEvent.dispatch("click", {}, dataTabChoice);
+                    }, 100);
+                  }
+                }
+
+                graphicElementChoices.forEach((graphicElementChoice) => {
+                  MiscEvent.addListener("click", (e) => {
+                    let value = graphicElementChoice.getAttribute("data-grahic-element-choice");
+                    fieldToGraphicElement.value = value;
+                    if(value)
+                    {
+                      fieldToGraphicElement.closest(".field-content").querySelector(".graphic-item .preview").innerHTML = graphicElementChoice.innerHTML;
+                      fieldToGraphicElement.closest(".field-content").querySelector(".graphic-item").classList.add('edit');
+                    }
+                    else
+                    {
+                      fieldToGraphicElement.closest(".field-content").querySelector(".graphic-item .preview").innerHTML = "";
+                      fieldToGraphicElement.closest(".field-content").querySelector(".graphic-item").classList.remove('edit');
+                    }
+                    this.close();
+                  }, graphicElementChoice);
+                });
+              }
+              Components.loadComponent();
             }
             else
             {

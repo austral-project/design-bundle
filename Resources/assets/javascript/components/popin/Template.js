@@ -1,6 +1,6 @@
 import Cropper from "./../cropper/Cropper";
 import Components from "../Components";
-import MiscEvent from "../../../../../../../../assets/front/javascript/misc/Event";
+import MiscEvent from "../../misc/Event";
 
 class Template {
 
@@ -285,41 +285,7 @@ class Template {
 
   initAfter()
   {
-    let graphicElementChoices = this.popin.element.querySelectorAll("*[data-grahic-element-choice]");
-    let fieldToGraphicElement = document.querySelector(this.popin.options.field);
-    if(graphicElementChoices.length > 0 && fieldToGraphicElement)
-    {
-      let graphicElementChoiceCurrent = this.popin.element.querySelector('*[data-grahic-element-choice="'+fieldToGraphicElement.value+'"]');
-      if(graphicElementChoiceCurrent && graphicElementChoiceCurrent.getAttribute("data-grahic-element-choice"))
-      {
-        graphicElementChoiceCurrent.classList.add("current");
-        let dataTabValue = graphicElementChoiceCurrent.closest("*[data-tab]").getAttribute("data-tab");
-        let dataTabChoice = this.popin.element.querySelector('*[data-tab-choice="'+dataTabValue+'"]');
-        if(dataTabChoice) {
-          setTimeout(() => {
-            MiscEvent.dispatch("click", {}, dataTabChoice);
-          }, 100);
-        }
-      }
 
-      graphicElementChoices.forEach((graphicElementChoice) => {
-        MiscEvent.addListener("click", (e) => {
-          let value = graphicElementChoice.getAttribute("data-grahic-element-choice");
-          fieldToGraphicElement.value = value;
-          if(value)
-          {
-            fieldToGraphicElement.closest(".field-content").querySelector(".graphic-item .preview").innerHTML = graphicElementChoice.innerHTML;
-            fieldToGraphicElement.closest(".field-content").querySelector(".graphic-item").classList.add('edit');
-          }
-          else
-          {
-            fieldToGraphicElement.closest(".field-content").querySelector(".graphic-item .preview").innerHTML = "";
-            fieldToGraphicElement.closest(".field-content").querySelector(".graphic-item").classList.remove('edit');
-          }
-          this.popin.close();
-        }, graphicElementChoice);
-      });
-    }
   }
 
   update(command) {
