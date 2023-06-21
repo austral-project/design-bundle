@@ -19,6 +19,15 @@
       @include align-items(stretch);
       @include justify-content(flex-start);
       @include flex-wrap(wrap);
+
+      &.column {
+        @include flex-direction(column);
+        @include align-content(stretch);
+        @include align-items(stretch);
+        @include justify-content(flex-start);
+        @include flex-wrap(nowrap);
+      }
+
       height: 100%;
       &.background {
         padding: 3rem;
@@ -58,6 +67,7 @@
       }
       &.dashboard-values-type-action {
         padding: 2rem;
+        margin: -0.1rem;
       }
 
       .dashboard-value {
@@ -66,6 +76,7 @@
         @include align-content(flex-start);
         @include align-items(flex-start);
         @include justify-content(stretch);
+
         &.onOff-value {
           background: var(--color-white);
           width: calc(50% - 0.1rem);
