@@ -1,3 +1,6 @@
+.dashboard-container {
+  padding-bottom: 10rem;
+}
 .dashboard-blocks {
   @include flex-display();
   @include align-content(stretch);
