@@ -19,22 +19,6 @@ export default class Mercure {
       }
     }
 
-    try {
-      this.pingRequest = new Request(
-        "POST",
-        austral.ping,
-        {},
-        (response) => {
-          if(response.ok) {
-            response.json().then(function (array) {
-            });
-          }
-        }
-      );
-    } catch(e) {
-      e; // => ReferenceError
-    }
-
     if(this.mercure.url !== undefined) {
       this.addEventSource();
     }
@@ -50,10 +34,6 @@ export default class Mercure {
         "Authorization": 'Bearer ' + Tools.getCookie("mercureAuthorization")
       }
     });
-
-    var timeout = setTimeout(() => {
-      //this.ping();
-    }, 1000);
 
     this.eventSource.onmessage = (notification) => {
       Debug.log("**** Mercure - Receive Notification");
@@ -74,6 +54,53 @@ export default class Mercure {
           );
           request.execute();
         }
+        else if(data.type === "deployment-start") {
+          let deploymentMessageStart = document.createElement("div");
+          deploymentMessageStart.classList.add("deployment-message");
+          deploymentMessageStart.classList.add("alert");
+
+          let deploymentMessageStartIcon = document.createElement("span");
+          deploymentMessageStartIcon.classList.add("picto");
+          deploymentMessageStartIcon.classList.add("austral-picto-caution");
+          deploymentMessageStart.append(deploymentMessageStartIcon);
+
+          let deploymentMessageStartContent = document.createElement("div");
+          deploymentMessageStartContent.classList.add("content");
+          deploymentMessageStartContent.innerText = data.message;
+          deploymentMessageStart.append(deploymentMessageStartContent);
+          document.querySelector("body").append(deploymentMessageStart);
+          setTimeout(() => {
+            document.querySelector(".deployment-message.alert").classList.add("is-open");
+          }, 100);
+        }
+        else if(data.type === "deployment-stop") {
+          document.querySelector(".deployment-message.alert").classList.remove("is-open");
+
+          let deploymentMessageStart = document.createElement("div");
+          deploymentMessageStart.classList.add("deployment-message");
+          deploymentMessageStart.classList.add("success");
+
+          let deploymentMessageStartIcon = document.createElement("span");
+          deploymentMessageStartIcon.classList.add("picto");
+          deploymentMessageStartIcon.classList.add("austral-picto-check");
+          deploymentMessageStart.append(deploymentMessageStartIcon);
+
+          let deploymentMessageStartContent = document.createElement("div");
+          deploymentMessageStartContent.classList.add("content");
+          deploymentMessageStartContent.innerText = data.message;
+          deploymentMessageStart.append(deploymentMessageStartContent);
+          document.querySelector("body").append(deploymentMessageStart);
+          setTimeout(() => {
+            document.querySelector(".deployment-message.alert").remove();
+            document.querySelector(".deployment-message.success").classList.add("is-open");
+            setTimeout(() => {
+              document.querySelector(".deployment-message.success").classList.remove("is-open");
+              setTimeout(() => {
+                document.querySelector(".deployment-message.success").remove();
+              }, 600);
+            }, 3000);
+          }, 600);
+        }
         else if(data.type === "multi-user") {
           const contentConflictDetected = document.body.querySelector("#content-conflict-detected *[data-multi-user]");
           const parser = new DOMParser();
@@ -90,14 +117,6 @@ export default class Mercure {
       }
     };
   }
-
-  ping(){
-    let parameters = new URLSearchParams();
-    parameters.append("uri", document.body.dataset.uri);
-    parameters.append(`userTabId`, this.mercureParameters.userTabId);
-    this.pingRequest.execute(parameters);
-  }
-
 
 }
 export const mercure = new Mercure();

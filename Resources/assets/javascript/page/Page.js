@@ -73,6 +73,7 @@ class Page {
           title: el.dataset.messageText,
           icon: el.dataset.messageStatus,
           position: el.dataset.messagePosition,
+          timer:  el.dataset.messageFix === undefined ? 5000 : false,
           customClass: {
             popup: el.dataset.messageStatus
           }

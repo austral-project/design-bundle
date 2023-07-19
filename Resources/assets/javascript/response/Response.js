@@ -194,6 +194,13 @@ class Response {
   reloadFlashMessage() {
     if(this.responseDom.body.querySelector("#flash-messages-content"))
     {
+      let deploymentMessage = Austral.Config.page.dom.body.querySelector("#flash-messages-content").querySelector(".object-deployment");
+      if(deploymentMessage)
+      {
+        this.responseDom.body.querySelector("#flash-messages-content")
+          .querySelector(".object-deployment")
+          .setAttribute("data-flash-message-key", deploymentMessage.getAttribute("data-flash-message-key"))
+      }
       Austral.Config.page.dom.body.querySelector("#flash-messages-content").innerHTML = this.responseDom.body.querySelector("#flash-messages-content").innerHTML;
       Austral.Config.page.initFlashMessage(Austral.Config.page.dom.body.querySelector("#flash-messages-content"));
     }
