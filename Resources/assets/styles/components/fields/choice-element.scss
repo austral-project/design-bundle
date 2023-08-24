@@ -221,12 +221,27 @@
     }
   }
 }
+
 .list-objects_contenaire-choices {
   @include flex-display();
   @include justify-content(center);
   @include align-content(center);
   @include align-items(center);
   margin: 0 -0.5rem;
+  .urlParameters-by-domain {
+    @include flex-display();
+    @include flex-direction(column);
+    margin: 0 0.5rem;
+    .domain-name {
+      @extend .font-poppins-m-11-uppercase;
+      display:block;
+      padding-bottom: 0.5rem;
+    }
+    .list-objects_content-choices {
+      margin: 0;
+    }
+  }
+
   .list-objects_content-choices {
     margin: 0 0.5rem;
     .content-language {

@@ -3,10 +3,10 @@
     "austral": {
       "js": [
         "/bundles/australdesign/build/runtime.3c3e8fad.js",
-        "/bundles/australdesign/build/austral.646d3f30.js"
+        "/bundles/australdesign/build/austral.d08901b0.js"
       ],
       "css": [
-        "/bundles/australdesign/build/austral.3861aa87.css"
+        "/bundles/australdesign/build/austral.bcc4a1af.css"
       ]
     }
   }
