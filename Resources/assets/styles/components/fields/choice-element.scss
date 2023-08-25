@@ -228,18 +228,26 @@
   @include align-content(center);
   @include align-items(center);
   margin: 0 -0.5rem;
+  &.multi-domain {
+    .urlParameters-by-domain {
+      margin: -0.5rem 0.5rem;
+      @include flex-direction(column);
+      .list-objects_content-choices {
+        margin: 0.5rem 0;
+      }
+    }
+  }
   .urlParameters-by-domain {
     @include flex-display();
-    @include flex-direction(column);
-    margin: 0 0.5rem;
     .domain-name {
       @extend .font-poppins-m-11-uppercase;
       display:block;
       padding-bottom: 0.5rem;
     }
-    .list-objects_content-choices {
-      margin: 0;
+    .choice-element-container.container-vertical-line .choice-element-container {
+      width: 10rem;
     }
+
   }
 
   .list-objects_content-choices {

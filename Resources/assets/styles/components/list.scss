@@ -129,7 +129,7 @@
       }
       &.object-actions-field {
         .value-content {
-          padding: 0 1.5rem 0 7rem;
+          padding: 0 1.5rem;
         }
         &.view-hover {
           @include transition-default();
