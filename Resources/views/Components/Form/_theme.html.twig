@@ -126,12 +126,12 @@
       {%- endif -%}
     {%- endif -%}
     <{{ element|default('label') }}{% if label_attr %}{% with { attr: label_attr } %}{{ block('attributes') }}{% endwith %}{% endif %}>
-    {%- if translation_domain is same as(false) -%}
-      {{- label -}}{% if after_label is defined -%}{{- after_label|raw() -}}{% endif %}
-    {%- else -%}
-      {% set translation_parameters = label_attr %}
-      {{- label|trans({}, translation_domain)|raw() -}}{% if after_label is defined -%}{{- after_label|raw() -}}{% endif %}
-    {%- endif -%}
+      {%- if translation_domain is same as(false) -%}
+        {{- label -}}{% if after_label is defined -%}{{- after_label|raw() -}}{% endif %}
+      {%- else -%}
+        {% set translation_parameters = label_attr %}
+        {{- label|trans(translation_parameters, translation_domain)|raw() -}}{% if after_label is defined -%}{{- after_label|raw() -}}{% endif %}
+      {%- endif -%}
     </{{ element|default('label') }}>
   {%- endif -%}
 {%- endblock form_label -%}
