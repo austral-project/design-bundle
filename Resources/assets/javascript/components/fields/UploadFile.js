@@ -25,6 +25,11 @@ export default class UploadFile  extends abstractField {
     }
   }
 
+  inputField()
+  {
+    return this.input;
+  }
+
   addEventListener() {
     super.addEventListener();
 

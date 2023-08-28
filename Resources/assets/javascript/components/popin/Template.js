@@ -144,6 +144,7 @@ class Template {
         element.innerHTML = this.originElements.querySelector(".file-upload-content").outerHTML;
         let uploadFileElement = element.querySelector("*[data-upload-file-options]");
         uploadFileElement.setAttribute("data-upload-file", "");
+        uploadFileElement.removeAttribute("data-component-uuid");
         let uploadFileOptions = JSON.parse(uploadFileElement.dataset.uploadFileOptions);
         if(uploadFileOptions.fileValues["reel-filename"])
         {
@@ -303,9 +304,18 @@ class Template {
 
         [].forEach.call(this.popin.element.querySelectorAll("*[data-popin-update-input]"), (el) => {
           let updateInputElement = this.originElements.querySelector("*[data-popin-update-input='"+el.dataset.popinUpdateInput+"']");
+
           if(updateInputElement) {
             if(el.type === "file") {
-              updateInputElement.files = command === "update" ? el.files : null;
+              if(command === "update")
+              {
+                let fileUploadComponentPopin = Austral.Config.getComponentByElement("upload-file", el.closest(".file-upload-content"));
+                MiscEvent.dispatch("component::upload.change", {"file": fileUploadComponentPopin.uploadFile()}, updateInputElement.closest(".file-upload-content"));
+              }
+              else
+              {
+                updateInputElement.files = null;
+              }
             }
             else {
               let newValue = null;
