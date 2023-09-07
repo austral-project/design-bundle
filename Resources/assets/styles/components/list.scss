@@ -24,8 +24,13 @@
       }
     }
     .graphic-item-type {
-      height: 5rem;
-      width: 5rem;
+      height: 4rem;
+      width: 4rem;
+      svg,
+      .graphic-item {
+        height: 100%;
+        width: 100%;
+      }
     }
   }
 }
