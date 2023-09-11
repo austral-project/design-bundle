@@ -138,7 +138,7 @@ export default class ViewByChoice extends abstractField {
       if(this.regex && value)
       {
         value = value.match(new RegExp(this.regex, 'i'));
-        if(value && Array.isArray(value) && value.length == 2)
+        if(value && Array.isArray(value) && value.length === 2)
         {
           value = value[1];
         }
@@ -148,6 +148,7 @@ export default class ViewByChoice extends abstractField {
         }
       }
       let classViewElement = null;
+      console.log(this.viewByChoices, value);
       if(value !== null && this.viewByChoices[value] !== undefined)
       {
         classViewElement = this.viewByChoices[value];
@@ -159,7 +160,7 @@ export default class ViewByChoice extends abstractField {
           if(classViewElement instanceof Array)
           {
             classViewElement.forEach((classname) => {
-              if(value && (el.classList.contains(classname) || el.querySelectorAll((classname.indexOf(".") < 0 ? "." : "")+classname).length > 0))
+              if(value !== null && (el.classList.contains(classname) || el.querySelectorAll((classname.indexOf(".") < 0 ? "." : "")+classname).length > 0))
               {
                 viewElement = true;
               }
@@ -167,7 +168,7 @@ export default class ViewByChoice extends abstractField {
           }
           else
           {
-            if(value && (el.classList.contains(classViewElement) || el.querySelectorAll((classViewElement.indexOf(".") < 0 ? "." : "")+classViewElement).length > 0))
+            if(value !== null && (el.classList.contains(classViewElement) || el.querySelectorAll((classViewElement.indexOf(".") < 0 ? "." : "")+classViewElement).length > 0))
             {
               viewElement = true;
             }
