@@ -113,6 +113,17 @@ export default class Mercure {
           contentConflictDetected.querySelector(".list-items").innerHTML = "";
           contentConflictDetected.querySelector(".reduce-container").innerHTML = "";
         }
+        else if(data.type === "message") {
+          Alert.showToast({
+            title: data.message.text,
+            icon: data.message.status,
+            position: "top",
+            timer:  data.message.fix === undefined ? 5000 : false,
+            customClass: {
+              popup: data.message.status
+            }
+          });
+        }
         MiscEvent.dispatch("mercure.notification.receive."+data.type, data);
       }
     };
