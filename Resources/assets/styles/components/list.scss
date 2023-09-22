@@ -459,6 +459,9 @@
           &.is-cached {
             background: var(--color-green-10);
           }
+          &.is-cached-disabled {
+            background: var(--color-yellow-10);
+          }
           &:before {
             @include position-middle();
             position:absolute;
