@@ -424,10 +424,19 @@
   }
 }
 
+.urls-cache-filter {
+  margin: 2rem 0 0;
+}
 .list-urls-in-cache {
-  li {
+  .list-ol-container {
+    margin-top: 0;
+    > .row-element:not(.has-children) > .col-content {
+      padding-left: 0;
+    }
+  }
+  .line-by-domain {
     padding: 1rem 0 0;
-    margin: 5rem 0 0;
+    margin: 1rem 0 0;
     .top {
       @include flex-display();
       @include align-content(center);
@@ -446,9 +455,16 @@
         text-align: center;
       }
     }
+    .row-element-top {
+      background: var(--color-main-10);
+    }
     .url-content {
       .status {
         width: 20rem;
+        &.value-content {
+          @include align-items(center !important);
+          @include align-content(center !important);
+        }
         .picto {
           display:inline-block;
           border-radius: 100%;

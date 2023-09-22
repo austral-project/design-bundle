@@ -25,7 +25,7 @@ export default class ViewByChoice extends abstractField {
     else if(this.element.dataset.viewByChoicesParent) {
       this.elementsViewByChoices = [];
       [].forEach.call(this.element.closest(this.element.dataset.viewByChoicesParent).querySelectorAll(this.viewClassChildren), (el) => {
-        if(el.closest(".group-col")) {
+        if(el.closest(".group-col") !== undefined && el.closest(".group-col") !== null) {
           this.elementsViewByChoices.push(el.closest(".group-col"));
         }
         else {
@@ -148,7 +148,6 @@ export default class ViewByChoice extends abstractField {
         }
       }
       let classViewElement = null;
-      console.log(this.viewByChoices, value);
       if(value !== null && this.viewByChoices[value] !== undefined)
       {
         classViewElement = this.viewByChoices[value];

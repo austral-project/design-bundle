@@ -15,7 +15,7 @@
 }
 #}
 <!--suppress Annotator -->
-<div {{ (id|default(null)) ? " id="~id~"" }} class="choice-element-container{{ (class|default(null)) ? " "~class }} {{ light|default(null) ? "light" : ""}} container-{{ direction ?? "horizontal" }}" >
+<div {{ (id|default(null)) ? " id="~id~"" }} class="choice-element-container{{ (class|default(null)) ? " "~class }} {{ light|default(null) ? "light" : ""}} container-{{ direction|default("horizontal") }}" >
   {% if title|default(null) or picto|default(null) %}
     <span class="choice-header">
       {% if title|default(null) %}<span class="title font-poppins-m-13-uppercase">{{ title|raw }}</span>{% endif %}
@@ -43,7 +43,7 @@
             {% if multiple is defined and multiple %}
               <span class="current-background"></span>
             {% endif %}
-            {% if choice.picto|default(null) and direction != "vertical-line" %}<span class="picto font-austral-12-grey {{ choice.picto }}"></span>{% endif %}
+            {% if choice.picto|default(null) and direction|default("horizontal") != "vertical-line" %}<span class="picto font-austral-12-grey {{ choice.picto }}"></span>{% endif %}
             <span class="entitled font-poppins-m-11">{{ choice.entitled|raw }}</span>
             {% if choice.input is defined %}
               {{ choice.input|raw }}

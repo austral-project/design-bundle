@@ -190,6 +190,9 @@
         }
         &:hover {
           color: var(--element-choice-hover-color);
+          .picto {
+            color: var(--element-choice-hover-color);
+          }
         }
 
         .current-background {
