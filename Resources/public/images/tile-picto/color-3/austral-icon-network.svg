@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200" viewBox="0 0 200 200">
+  <defs>
+    <clipPath id="clip-austral-icon-network">
+      <rect width="200" height="200"/>
+    </clipPath>
+  </defs>
+  <g id="austral-icon-network" clip-path="url(#clip-austral-icon-network)">
+    <g id="Groupe_111" data-name="Groupe 111">
+      <g id="Groupe_78" data-name="Groupe 78">
+        <g id="Groupe_34" data-name="Groupe 34">
+          <rect id="BG" width="200" height="200" fill="none"/>
+        </g>
+      </g>
+      <g id="Groupe_110" data-name="Groupe 110">
+        <g id="Groupe_109" data-name="Groupe 109" transform="translate(13.278 17.541)">
+          <ellipse id="Ellipse_57" data-name="Ellipse 57" cx="31" cy="31.5" rx="31" ry="31.5" transform="translate(112.722 11.459)" fill="#fad7d7"/>
+          <rect id="Rectangle_97" data-name="Rectangle 97" width="11.649" height="69.894" transform="matrix(0.574, 0.819, -0.819, 0.574, 123.096, 47.922)" fill="#fad7d7"/>
+          <rect id="Rectangle_98" data-name="Rectangle 98" width="11.649" height="69.894" transform="matrix(0.574, -0.819, 0.819, 0.574, 65.842, 107.096)" fill="#fad7d7"/>
+          <circle id="Ellipse_59" data-name="Ellipse 59" cx="31" cy="31" r="31" transform="translate(26.722 66.459)" fill="#fad7d7"/>
+          <ellipse id="Ellipse_60" data-name="Ellipse 60" cx="31" cy="31.5" rx="31" ry="31.5" transform="translate(112.722 118.459)" fill="#fad7d7"/>
+          <ellipse id="Ellipse_61" data-name="Ellipse 61" cx="16.5" cy="17" rx="16.5" ry="17" transform="translate(40.722 80.459)" fill="#fad7d7"/>
+          <circle id="Ellipse_62" data-name="Ellipse 62" cx="16.5" cy="16.5" r="16.5" transform="translate(127.722 26.459)" fill="#fad7d7"/>
+          <circle id="Ellipse_63" data-name="Ellipse 63" cx="16.5" cy="16.5" r="16.5" transform="translate(127.722 133.459)" fill="#fad7d7"/>
+        </g>
+        <g id="Groupe_108" data-name="Groupe 108" transform="translate(-0.722 3.541)">
+          <ellipse id="Ellipse_57-2" data-name="Ellipse 57" cx="31" cy="31.5" rx="31" ry="31.5" transform="translate(112.722 11.459)" fill="#fff"/>
+          <rect id="Rectangle_97-2" data-name="Rectangle 97" width="11.649" height="69.894" transform="matrix(0.574, 0.819, -0.819, 0.574, 123.096, 47.922)" fill="#fff"/>
+          <rect id="Rectangle_98-2" data-name="Rectangle 98" width="11.649" height="69.894" transform="matrix(0.574, -0.819, 0.819, 0.574, 65.842, 107.096)" fill="#fff"/>
+          <circle id="Ellipse_59-2" data-name="Ellipse 59" cx="31" cy="31" r="31" transform="translate(26.722 66.459)" fill="#fff"/>
+          <ellipse id="Ellipse_60-2" data-name="Ellipse 60" cx="31" cy="31.5" rx="31" ry="31.5" transform="translate(112.722 118.459)" fill="#fff"/>
+          <ellipse id="Ellipse_61-2" data-name="Ellipse 61" cx="16.5" cy="17" rx="16.5" ry="17" transform="translate(40.722 80.459)" fill="#e63a2e"/>
+          <circle id="Ellipse_62-2" data-name="Ellipse 62" cx="16.5" cy="16.5" r="16.5" transform="translate(127.722 26.459)" fill="#e63a2e"/>
+          <circle id="Ellipse_63-2" data-name="Ellipse 63" cx="16.5" cy="16.5" r="16.5" transform="translate(127.722 133.459)" fill="#e63a2e"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

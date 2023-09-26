@@ -10,7 +10,7 @@ class Template {
     this.popinHtml = PopinTemplate.templateByKey(this.popin.options.template);
     this.originElements = null;
     this.uploadOption = null;
-    this.absolutePathPicto = "/bundles/australadmin/images/mime-type-files";
+    this.absolutePathPicto = "/bundles/australdesign/images/mime-type-files";
     if(this.popin.options.update)
     {
       this.originElements = Austral.Config.page.dom.body.querySelector(this.popin.options.update);

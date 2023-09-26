@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200" viewBox="0 0 200 200">
+  <defs>
+    <clipPath id="clip-austral-icon-creditcard">
+      <rect width="200" height="200"/>
+    </clipPath>
+  </defs>
+  <g id="austral-icon-creditcard" clip-path="url(#clip-austral-icon-creditcard)">
+    <rect id="BG" width="200" height="200" fill="none"/>
+    <g id="Groupe_120" data-name="Groupe 120">
+      <g id="Groupe_87" data-name="Groupe 87">
+        <g id="Groupe_78" data-name="Groupe 78">
+          <g id="Groupe_34" data-name="Groupe 34">
+            <rect id="BG-2" data-name="BG" width="200" height="200" fill="none"/>
+          </g>
+        </g>
+      </g>
+      <g id="Groupe_119" data-name="Groupe 119">
+        <rect id="Rectangle_101" data-name="Rectangle 101" width="170" height="120" rx="18" transform="translate(29 54)" fill="#beecc1"/>
+        <g id="Groupe_118" data-name="Groupe 118" transform="translate(-5 -5)">
+          <rect id="Rectangle_99" data-name="Rectangle 99" width="170" height="120" rx="18" transform="translate(20 45)" fill="#fff"/>
+          <g id="Groupe_117" data-name="Groupe 117" transform="translate(20 63)">
+            <rect id="Rectangle_100" data-name="Rectangle 100" width="170" height="20" fill="#1ab84e"/>
+            <rect id="Rectangle_14" data-name="Rectangle 14" width="40" height="12" rx="6" transform="translate(16 31)" fill="#beecc1"/>
+            <rect id="Rectangle_16" data-name="Rectangle 16" width="50" height="6" rx="3" transform="translate(16 54)" fill="#beecc1"/>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

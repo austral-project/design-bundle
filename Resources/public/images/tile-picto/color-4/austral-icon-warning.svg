@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200" viewBox="0 0 200 200">
+  <defs>
+    <clipPath id="clip-austral-icon-warning">
+      <rect width="200" height="200"/>
+    </clipPath>
+  </defs>
+  <g id="austral-icon-warning" clip-path="url(#clip-austral-icon-warning)">
+    <g id="Groupe_34" data-name="Groupe 34">
+      <rect id="BG" width="200" height="200" fill="none"/>
+      <path id="Polygone_1" data-name="Polygone 1" d="M75.162,36.466a24,24,0,0,1,41.676,0l54.644,95.626A24,24,0,0,1,150.644,168H41.356a24,24,0,0,1-20.838-35.907Z" transform="translate(18 17)" fill="#beecc1"/>
+      <g id="Groupe_64" data-name="Groupe 64">
+        <path id="Polygone_1-2" data-name="Polygone 1" d="M75.162,36.466a24,24,0,0,1,41.676,0l54.644,95.626A24,24,0,0,1,150.644,168H41.356a24,24,0,0,1-20.838-35.907Z" transform="translate(4 3)" fill="#fff"/>
+        <path id="Polygone_3" data-name="Polygone 3" d="M65.812,21.563a14,14,0,0,1,24.376,0l54.005,95.548A14,14,0,0,1,132.005,138H23.995a14,14,0,0,1-12.188-20.889Z" transform="translate(22 23)" fill="#1ab84e"/>
+        <circle id="Ellipse_12" data-name="Ellipse 12" cx="9" cy="9" r="9" transform="translate(91 129)" fill="#fff"/>
+        <path id="Tracé_66" data-name="Tracé 66" d="M417.531,412.047h0a7.2,7.2,0,0,1-7.181-6.65l-2.671-34.744a9.88,9.88,0,0,1,9.852-10.637h0a9.88,9.88,0,0,1,9.851,10.637L424.711,405.4A7.2,7.2,0,0,1,417.531,412.047Z" transform="translate(-317.649 -291.016)" fill="#fff"/>
+      </g>
+    </g>
+  </g>
+</svg>

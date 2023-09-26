@@ -142,7 +142,7 @@ export default class UploadFile  extends abstractField {
   }
 
   handleFile(file) {
-    var absolutePathPicto = "/bundles/australadmin/images/mime-type-files";
+    var absolutePathPicto = "/bundles/australdesign/images/mime-type-files";
     this.file = file;
     var hasError = false;
     this.element.querySelector(".error-content .messages-content").innerHTML = "";

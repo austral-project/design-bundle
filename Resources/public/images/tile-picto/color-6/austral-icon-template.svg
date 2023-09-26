@@ -1,9 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200" viewBox="0 0 200 200">
   <defs>
-    <linearGradient id="linear-gradient" x1="1.041" y1="1.043" x2="-0.055" y2="-0.047" gradientUnits="objectBoundingBox">
-      <stop offset="0" stop-color="#e9edf3"/>
-      <stop offset="1" stop-color="#fff"/>
-    </linearGradient>
     <clipPath id="clip-austral-icon-template">
       <rect width="200" height="200"/>
     </clipPath>
@@ -19,13 +15,14 @@
           </g>
         </g>
         <g id="Groupe_55" data-name="Groupe 55">
-          <path id="Union_2" data-name="Union 2" d="M-700-100a20,20,0,0,1-20-20v-15h140v15a20,20,0,0,1-20,20Zm55-42v-35h65v35Zm-75,0v-35h65v35Zm0-43v-15a20,20,0,0,1,20-20h100a20,20,0,0,1,20,20v15Z" transform="translate(750 260)" fill="url(#linear-gradient)"/>
+          <path id="Union_2" data-name="Union 2" d="M-700-100a20,20,0,0,1-20-20v-15h140v15a20,20,0,0,1-20,20Zm55-42v-35h65v35Zm-75,0v-35h65v35Zm0-43v-15a20,20,0,0,1,20-20h100a20,20,0,0,1,20,20v15Z" transform="translate(750 260)" fill="#436ca8"/>
         </g>
-        <rect id="Rectangle_34" data-name="Rectangle 34" width="45" height="6" rx="3" transform="translate(78 48)" fill="#436ca8"/>
-        <rect id="Rectangle_35" data-name="Rectangle 35" width="45" height="6" rx="3" transform="translate(78 140)" fill="#436ca8"/>
-        <rect id="Rectangle_36" data-name="Rectangle 36" width="25" height="6" rx="3" transform="translate(50 97)" fill="#436ca8"/>
-        <rect id="Rectangle_38" data-name="Rectangle 38" width="25" height="6" rx="3" transform="translate(88 60)" fill="#436ca8"/>
-        <rect id="Rectangle_37" data-name="Rectangle 37" width="25" height="6" rx="3" transform="translate(125 97)" fill="#436ca8"/>
+        <path id="Rectangle_56" data-name="Rectangle 56" d="M20,0H120a20,20,0,0,1,20,20V35a0,0,0,0,1,0,0H0a0,0,0,0,1,0,0V20A20,20,0,0,1,20,0Z" transform="translate(30 40)" fill="#d4dbe6"/>
+        <rect id="Rectangle_34" data-name="Rectangle 34" width="45" height="6" rx="3" transform="translate(78 48)" fill="#fff"/>
+        <rect id="Rectangle_35" data-name="Rectangle 35" width="45" height="6" rx="3" transform="translate(78 140)" fill="#fff"/>
+        <rect id="Rectangle_36" data-name="Rectangle 36" width="25" height="6" rx="3" transform="translate(50 97)" fill="#fff"/>
+        <rect id="Rectangle_38" data-name="Rectangle 38" width="25" height="6" rx="3" transform="translate(88 60)" fill="#fff"/>
+        <rect id="Rectangle_37" data-name="Rectangle 37" width="25" height="6" rx="3" transform="translate(125 97)" fill="#fff"/>
       </g>
     </g>
   </g>

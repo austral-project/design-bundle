@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200" viewBox="0 0 200 200">
+  <defs>
+    <clipPath id="clip-austral-icon-link">
+      <rect width="200" height="200"/>
+    </clipPath>
+  </defs>
+  <g id="austral-icon-link" clip-path="url(#clip-austral-icon-link)">
+    <g id="Groupe_34" data-name="Groupe 34">
+      <rect id="BG" width="200" height="200" fill="none"/>
+      <path id="Shadow" d="M147.4,30H52.6A32.691,32.691,0,0,0,20,62.6V137.4A32.692,32.692,0,0,0,52.6,170H147.4A32.692,32.692,0,0,0,180,137.4V62.6A32.691,32.691,0,0,0,147.4,30Z" transform="translate(214 214) rotate(180)" fill="#fcee92"/>
+      <g id="Icon">
+        <path id="Tracé_30" data-name="Tracé 30" d="M147.4,30H52.6A32.691,32.691,0,0,0,20,62.6V137.4A32.692,32.692,0,0,0,52.6,170H147.4A32.692,32.692,0,0,0,180,137.4V62.6A32.691,32.691,0,0,0,147.4,30Z" fill="#fff"/>
+        <path id="Rectangle_40" data-name="Rectangle 40" d="M12,0H128a12,12,0,0,1,12,12V71a24,24,0,0,1-24,24H24A24,24,0,0,1,0,71V12A12,12,0,0,1,12,0Z" transform="translate(170 135) rotate(180)" fill="#f0b000"/>
+        <g id="Groupe_65" data-name="Groupe 65" transform="translate(36.858 33.573)">
+          <path id="Tracé_68" data-name="Tracé 68" d="M139.734,358.082l-13.025,13.026a14.692,14.692,0,0,0,0,20.776h0a14.691,14.691,0,0,0,20.777,0l13.025-13.025a14.69,14.69,0,0,0,0-20.776h0A14.692,14.692,0,0,0,139.734,358.082Zm-8.375,29.154h0a8.117,8.117,0,0,1,0-11.48l13.024-13.024a8.116,8.116,0,0,1,11.479,0h0a8.116,8.116,0,0,1,0,11.479l-13.024,13.025A8.118,8.118,0,0,1,131.359,387.236Z" transform="translate(-74.532 -333.779)" fill="#fff"/>
+          <path id="Tracé_69" data-name="Tracé 69" d="M139.734,358.082l-13.025,13.026a14.692,14.692,0,0,0,0,20.776h0a14.691,14.691,0,0,0,20.777,0l13.025-13.025a14.69,14.69,0,0,0,0-20.776h0A14.692,14.692,0,0,0,139.734,358.082Zm-8.375,29.154h0a8.117,8.117,0,0,1,0-11.48l13.024-13.024a8.116,8.116,0,0,1,11.479,0h0a8.116,8.116,0,0,1,0,11.479l-13.024,13.025A8.118,8.118,0,0,1,131.359,387.236Z" transform="translate(-86.406 -308.334)" fill="#fff"/>
+          <path id="Tracé_71" data-name="Tracé 71" d="M139.734,358.082l-13.025,13.026a14.692,14.692,0,0,0,0,20.776h0a14.691,14.691,0,0,0,20.777,0l13.025-13.025a14.69,14.69,0,0,0,0-20.776h0A14.692,14.692,0,0,0,139.734,358.082Zm-8.375,29.154h0a8.117,8.117,0,0,1,0-11.48l13.024-13.024a8.116,8.116,0,0,1,11.479,0h0a8.116,8.116,0,0,1,0,11.479l-13.024,13.025A8.118,8.118,0,0,1,131.359,387.236Z" transform="translate(-86.406 -308.334)" fill="#fff"/>
+          <path id="Intersection_1" data-name="Intersection 1" d="M0,7.244A8.115,8.115,0,0,0,1.941,5.808L7.749,0,12.4,4.649,6.59,10.457a14.8,14.8,0,0,1-1.825,1.552Z" transform="translate(66.365 47.648)" fill="#fff" stroke="rgba(0,0,0,0)" stroke-miterlimit="10" stroke-width="1"/>
+        </g>
+      </g>
+      <g id="Groupe_60" data-name="Groupe 60" transform="translate(0 100)">
+        <rect id="Rectangle_39" data-name="Rectangle 39" width="130" height="20" rx="10" transform="translate(35 40)" fill="#fff"/>
+        <path id="Union_4" data-name="Union 4" d="M20-930a5,5,0,0,1-5-5,5,5,0,0,1,5-5H70a5,5,0,0,1,5,5,5,5,0,0,1-5,5Zm-65-5a5,5,0,0,1,5-5,5,5,0,0,1,5,5,5,5,0,0,1-5,5A5,5,0,0,1-45-935Z" transform="translate(115 -884.999) rotate(180)" fill="#fcee92"/>
+      </g>
+    </g>
+  </g>
+</svg>

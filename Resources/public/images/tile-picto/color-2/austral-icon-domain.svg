@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200" viewBox="0 0 200 200">
+  <defs>
+    <clipPath id="clip-austral-icon-domain">
+      <rect width="200" height="200"/>
+    </clipPath>
+  </defs>
+  <g id="austral-icon-domain" clip-path="url(#clip-austral-icon-domain)">
+    <g id="Groupe_34" data-name="Groupe 34">
+      <rect id="BG" width="200" height="200" fill="none"/>
+      <g id="Groupe_95" data-name="Groupe 95" transform="translate(-1074 -1166)">
+        <rect id="Rectangle_40" data-name="Rectangle 40" width="160" height="70" rx="12" transform="translate(1108 1215)" fill="#fcee92"/>
+        <rect id="Rectangle_90" data-name="Rectangle 90" width="140" height="20" rx="6" transform="translate(1118 1295)" fill="#fcee92"/>
+        <rect id="Rectangle_91" data-name="Rectangle 91" width="140" height="20" rx="6" transform="translate(1118 1325)" fill="#fcee92"/>
+      </g>
+      <g id="Groupe_94" data-name="Groupe 94">
+        <g id="Groupe_93" data-name="Groupe 93" transform="translate(0 5)">
+          <g id="Icon">
+            <rect id="Rectangle_40-2" data-name="Rectangle 40" width="160" height="70" rx="12" transform="translate(20 30)" fill="#fff"/>
+          </g>
+          <g id="Groupe_60" data-name="Groupe 60" transform="translate(-5)">
+            <rect id="Rectangle_39" data-name="Rectangle 39" width="140" height="50" rx="6" transform="translate(35 40)" fill="#f0b000"/>
+            <g id="Groupe_92" data-name="Groupe 92" transform="translate(45 50.398)">
+              <g id="Groupe_91" data-name="Groupe 91" transform="translate(0 2.602)">
+                <rect id="Rectangle_41" data-name="Rectangle 41" width="8" height="8" rx="4" fill="#fff"/>
+                <rect id="Rectangle_87" data-name="Rectangle 87" width="8" height="8" rx="4" transform="translate(0 14)" fill="#fff"/>
+              </g>
+              <path id="Tracé_92" data-name="Tracé 92" d="M3.542,3.066l23.85.061a3.007,3.007,0,0,1,2.989,3,2.971,2.971,0,0,1-2.974,2.989L3.557,9.06a3.007,3.007,0,0,1-2.989-3A2.971,2.971,0,0,1,3.542,3.066Z" transform="translate(33.447 2.537) rotate(112)" fill="#fff"/>
+              <path id="Tracé_93" data-name="Tracé 93" d="M3.542,3.066l23.85.061a3.007,3.007,0,0,1,2.989,3,2.971,2.971,0,0,1-2.974,2.989L3.557,9.06a3.007,3.007,0,0,1-2.989-3A2.971,2.971,0,0,1,3.542,3.066Z" transform="translate(45.447 2.537) rotate(112)" fill="#fff"/>
+            </g>
+          </g>
+        </g>
+        <rect id="Rectangle_88" data-name="Rectangle 88" width="140" height="20" rx="6" transform="translate(30 115)" fill="#fff"/>
+        <rect id="Rectangle_89" data-name="Rectangle 89" width="140" height="20" rx="6" transform="translate(30 145)" fill="#fff"/>
+      </g>
+    </g>
+  </g>
+</svg>

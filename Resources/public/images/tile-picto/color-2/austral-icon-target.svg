@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200" viewBox="0 0 200 200">
+  <defs>
+    <clipPath id="clip-austral-icon-target">
+      <rect width="200" height="200"/>
+    </clipPath>
+  </defs>
+  <g id="austral-icon-target" clip-path="url(#clip-austral-icon-target)">
+    <g id="Groupe_127" data-name="Groupe 127">
+      <g id="Groupe_78" data-name="Groupe 78">
+        <g id="Groupe_34" data-name="Groupe 34">
+          <rect id="BG" width="200" height="200" fill="none"/>
+        </g>
+      </g>
+      <g id="Groupe_126" data-name="Groupe 126">
+        <circle id="Ellipse_75" data-name="Ellipse 75" cx="80" cy="80" r="80" transform="translate(34 34)" fill="#fcee92"/>
+        <circle id="Ellipse_68" data-name="Ellipse 68" cx="80" cy="80" r="80" transform="translate(20 20)" fill="#fff"/>
+        <circle id="Ellipse_69" data-name="Ellipse 69" cx="80" cy="80" r="80" transform="translate(20 20)" fill="#fff"/>
+        <circle id="Ellipse_70" data-name="Ellipse 70" cx="72" cy="72" r="72" transform="translate(28 28)" fill="#f0b000"/>
+        <circle id="Ellipse_71" data-name="Ellipse 71" cx="55" cy="55" r="55" transform="translate(45 45)" fill="#fcee92"/>
+        <circle id="Ellipse_72" data-name="Ellipse 72" cx="39" cy="39" r="39" transform="translate(61 61)" fill="#f0b000"/>
+        <circle id="Ellipse_73" data-name="Ellipse 73" cx="22" cy="22" r="22" transform="translate(78 78)" fill="#fcee92"/>
+        <circle id="Ellipse_74" data-name="Ellipse 74" cx="6" cy="6" r="6" transform="translate(94 94)" fill="#f0b000"/>
+        <path id="Tracé_99" data-name="Tracé 99" d="M25.337,0,50.674,57.284,25.337,44.065,0,57.284Z" transform="translate(117.229 81.396) rotate(135)" fill="#fff"/>
+      </g>
+    </g>
+  </g>
+</svg>

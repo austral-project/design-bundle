@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200" viewBox="0 0 200 200">
+  <defs>
+    <clipPath id="clip-austral-icon-category">
+      <rect width="200" height="200"/>
+    </clipPath>
+  </defs>
+  <g id="austral-icon-category" clip-path="url(#clip-austral-icon-category)">
+    <g id="Groupe_125" data-name="Groupe 125">
+      <g id="Groupe_78" data-name="Groupe 78">
+        <g id="Groupe_34" data-name="Groupe 34">
+          <rect id="BG" width="200" height="200" fill="none"/>
+        </g>
+      </g>
+      <g id="Groupe_124" data-name="Groupe 124">
+        <g id="Groupe_123" data-name="Groupe 123">
+          <rect id="Rectangle_103" data-name="Rectangle 103" width="8" height="48" rx="4" transform="translate(86 18)" fill="#d4dbe6"/>
+          <path id="Tracé_97" data-name="Tracé 97" d="M0,32.368,48,0,96,32.368V164H0Z" transform="translate(31.431 57) rotate(-30)" fill="#d4dbe6"/>
+        </g>
+        <path id="Tracé_98" data-name="Tracé 98" d="M99.414,1845.036,33.6,1731l25.369-52.023,57.777,4.053,65.829,114Z" transform="translate(0 -1660)" fill="#fff"/>
+        <g id="Groupe_122" data-name="Groupe 122" transform="translate(-37.103 52.546) rotate(-30)">
+          <path id="Soustraction_3" data-name="Soustraction 3" d="M45-1636a10,10,0,0,1,10,10,10,10,0,0,1-10,10,10,10,0,0,1-10-10A10,10,0,0,1,45-1636Z" transform="translate(55 1680)" fill="#d4dbe6"/>
+          <g id="Groupe_121" data-name="Groupe 121" transform="translate(0 -6)">
+            <rect id="Rectangle_14" data-name="Rectangle 14" width="66" height="6" rx="3" transform="translate(67 136)" fill="#d4dbe6"/>
+            <rect id="Rectangle_15" data-name="Rectangle 15" width="66" height="6" rx="3" transform="translate(67 150)" fill="#d4dbe6"/>
+            <rect id="Rectangle_16" data-name="Rectangle 16" width="45" height="6" rx="3" transform="translate(67 164)" fill="#d4dbe6"/>
+          </g>
+          <rect id="Rectangle_102" data-name="Rectangle 102" width="66" height="40" rx="5" transform="translate(67 80)" fill="#436ca8"/>
+        </g>
+        <rect id="Rectangle_23" data-name="Rectangle 23" width="8" height="48" rx="4" transform="translate(72 4)" fill="#436ca8"/>
+      </g>
+    </g>
+  </g>
+</svg>

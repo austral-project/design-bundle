@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200" viewBox="0 0 200 200">
+  <defs>
+    <clipPath id="clip-austral-icon-code">
+      <rect width="200" height="200"/>
+    </clipPath>
+  </defs>
+  <g id="austral-icon-code" clip-path="url(#clip-austral-icon-code)">
+    <g id="Groupe_34" data-name="Groupe 34">
+      <rect id="BG" width="200" height="200" fill="none"/>
+      <path id="Shadow" d="M147.4,30H52.6A32.691,32.691,0,0,0,20,62.6V137.4A32.692,32.692,0,0,0,52.6,170H147.4A32.692,32.692,0,0,0,180,137.4V62.6A32.691,32.691,0,0,0,147.4,30Z" transform="translate(214 214) rotate(180)" fill="#86bef7"/>
+      <g id="Icon">
+        <path id="Tracé_30" data-name="Tracé 30" d="M147.4,30H52.6A32.691,32.691,0,0,0,20,62.6V137.4A32.692,32.692,0,0,0,52.6,170H147.4A32.692,32.692,0,0,0,180,137.4V62.6A32.691,32.691,0,0,0,147.4,30Z" fill="#fff"/>
+        <rect id="Rectangle_40" data-name="Rectangle 40" width="140" height="120" rx="24" transform="translate(30 40)" fill="#0569f5"/>
+        <circle id="Ellipse_32" data-name="Ellipse 32" cx="6" cy="6" r="6" transform="translate(94 94)" fill="#86bef7"/>
+        <g id="Groupe_90" data-name="Groupe 90">
+          <g id="Groupe_88" data-name="Groupe 88" transform="translate(52.35 72.029)">
+            <rect id="Rectangle_84" data-name="Rectangle 84" width="8.599" height="39.556" rx="4.3" transform="translate(0 27.971) rotate(-45)" fill="#fff"/>
+            <rect id="Rectangle_85" data-name="Rectangle 85" width="8.599" height="39.556" rx="4.3" transform="translate(6.081 34.051) rotate(-135)" fill="#fff"/>
+          </g>
+          <g id="Groupe_89" data-name="Groupe 89" transform="translate(147.65 127.971) rotate(180)">
+            <rect id="Rectangle_84-2" data-name="Rectangle 84" width="8.599" height="39.556" rx="4.3" transform="translate(0 27.971) rotate(-45)" fill="#fff"/>
+            <rect id="Rectangle_85-2" data-name="Rectangle 85" width="8.599" height="39.556" rx="4.3" transform="translate(6.081 34.051) rotate(-135)" fill="#fff"/>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

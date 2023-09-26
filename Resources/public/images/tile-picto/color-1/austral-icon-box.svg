@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200" viewBox="0 0 200 200">
+  <defs>
+    <clipPath id="clip-austral-icon-box">
+      <rect width="200" height="200"/>
+    </clipPath>
+  </defs>
+  <g id="austral-icon-box" clip-path="url(#clip-austral-icon-box)">
+    <g id="Groupe_127" data-name="Groupe 127">
+      <g id="Groupe_78" data-name="Groupe 78">
+        <g id="Groupe_34" data-name="Groupe 34">
+          <rect id="BG" width="200" height="200" fill="none"/>
+        </g>
+      </g>
+    </g>
+    <g id="Groupe_128" data-name="Groupe 128">
+      <path id="Tracé_109" data-name="Tracé 109" d="M503.369,1709.166l0,102.207,76.641,27.531,76.623-27.523,0-102.21L580,1681.641Z" transform="translate(-466 -1646)" fill="#86bef7"/>
+      <path id="Tracé_105" data-name="Tracé 105" d="M503.369,1709.166l0,102.207,76.641,27.531,76.623-27.523,0-102.21L580,1681.641Z" transform="translate(-480 -1660)" fill="#fff"/>
+      <path id="Tracé_107" data-name="Tracé 107" d="M0,0,68.03,24.846v90.591L0,90.591Z" transform="translate(27.686 56.269)" fill="#0569f5"/>
+      <path id="Tracé_108" data-name="Tracé 108" d="M68.03,0,0,24.846v90.591L68.03,90.591Z" transform="translate(104.284 56.269)" fill="#0569f5"/>
+      <path id="Tracé_106" data-name="Tracé 106" d="M75.064,114.662l6.445-13.473,20.425.745L73.65,73.65,46.78,86.378Z" transform="translate(75.686 -36.218) rotate(45)" fill="#86bef7"/>
+      <path id="Tracé_110" data-name="Tracé 110" d="M47.678,57.943,75.7,67.959l76.61-27.545L124.384,30.386Z" fill="#86bef7"/>
+    </g>
+  </g>
+</svg>

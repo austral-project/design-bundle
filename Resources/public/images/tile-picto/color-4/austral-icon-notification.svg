@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200" viewBox="0 0 200 200">
+  <defs>
+    <clipPath id="clip-austral-icon-notification">
+      <rect width="200" height="200"/>
+    </clipPath>
+  </defs>
+  <g id="austral-icon-notification" clip-path="url(#clip-austral-icon-notification)">
+    <g id="Groupe_34" data-name="Groupe 34">
+      <rect id="BG" width="200" height="200" fill="none"/>
+      <path id="Union_5" data-name="Union 5" d="M65.007,132.867a18.58,18.58,0,0,1,.384-3.768L7.228,118.843a8.736,8.736,0,0,1-5.106-14.3l4.5-5.23a58.246,58.246,0,0,0,13.2-27.866L22.4,56.838a47.272,47.272,0,0,1,44.2-39A12.328,12.328,0,1,1,86.3,21.1c20.575,8.188,33.031,30.317,29.044,52.92L112.9,87.858a58.238,58.238,0,0,0,2.875,30.7l2.438,6.453a8.737,8.737,0,0,1-9.689,11.692l-6.724-1.186a18.494,18.494,0,0,1-36.8-2.652Z" transform="translate(44.49 36.22)" fill="#beecc1" stroke="rgba(0,0,0,0)" stroke-miterlimit="10" stroke-width="1"/>
+      <g id="Groupe_63" data-name="Groupe 63" transform="translate(0 4.171)">
+        <circle id="Ellipse_27" data-name="Ellipse 27" cx="18" cy="18" r="18" transform="translate(96 141.607)" fill="#1ab84e"/>
+        <g id="Groupe_61" data-name="Groupe 61" transform="matrix(0.985, 0.174, -0.174, 0.985, 51.973, 8.05)">
+          <path id="Tracé_65" data-name="Tracé 65" d="M107.44,62.091V48.037C107.44,22.121,86.9.439,60.989.007A47.259,47.259,0,0,0,12.922,47.259V62.091A58.24,58.24,0,0,1,4.759,91.828L1.238,97.759a8.737,8.737,0,0,0,7.512,13.2H111.612a8.737,8.737,0,0,0,7.512-13.2L115.6,91.828A58.239,58.239,0,0,1,107.44,62.091Z" transform="translate(0 18.492)" fill="#fff"/>
+          <ellipse id="Ellipse_26" data-name="Ellipse 26" cx="12.328" cy="12.328" rx="12.328" ry="12.328" transform="translate(71.916 24.657) rotate(180)" fill="#fff"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

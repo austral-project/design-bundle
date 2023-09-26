@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200" viewBox="0 0 200 200">
+  <defs>
+    <clipPath id="clip-austral-icon-event">
+      <rect width="200" height="200"/>
+    </clipPath>
+  </defs>
+  <g id="austral-icon-event" clip-path="url(#clip-austral-icon-event)">
+    <g id="Groupe_78" data-name="Groupe 78">
+      <g id="Groupe_34" data-name="Groupe 34">
+        <rect id="BG" width="200" height="200" fill="none"/>
+      </g>
+      <path id="Soustraction_2" data-name="Soustraction 2" d="M96-1265H90a7.376,7.376,0,0,0-2.053-5.142A6.822,6.822,0,0,0,83-1272.277,7.15,7.15,0,0,0,76-1265H72a7.376,7.376,0,0,0-2.053-5.142A6.822,6.822,0,0,0,65-1272.277,7.15,7.15,0,0,0,58-1265H54a7.375,7.375,0,0,0-2.053-5.142A6.822,6.822,0,0,0,47-1272.277,7.15,7.15,0,0,0,40-1265H36a7.376,7.376,0,0,0-2.053-5.142A6.822,6.822,0,0,0,29-1272.277,7.15,7.15,0,0,0,22-1265H18a7.376,7.376,0,0,0-2.053-5.142A6.822,6.822,0,0,0,11-1272.277,7.15,7.15,0,0,0,4-1265H-2v-42.775a5.107,5.107,0,0,0,5-5.2,5.107,5.107,0,0,0-5-5.2V-1423H4a7.374,7.374,0,0,0,2.053,5.142A6.822,6.822,0,0,0,11-1415.724,7.15,7.15,0,0,0,18-1423h4a7.375,7.375,0,0,0,2.053,5.142A6.822,6.822,0,0,0,29-1415.724,7.15,7.15,0,0,0,36-1423h4a7.374,7.374,0,0,0,2.053,5.142A6.822,6.822,0,0,0,47-1415.724,7.15,7.15,0,0,0,54-1423h4a7.375,7.375,0,0,0,2.053,5.142A6.822,6.822,0,0,0,65-1415.724,7.15,7.15,0,0,0,72-1423h4a7.374,7.374,0,0,0,2.053,5.142A6.822,6.822,0,0,0,83-1415.724,7.15,7.15,0,0,0,90-1423h6v104.828a5.108,5.108,0,0,0-5,5.2,5.108,5.108,0,0,0,5,5.2V-1265Z" transform="matrix(0.985, 0.174, -0.174, 0.985, -166.085, 1428.609)" fill="#dec0fc"/>
+      <g id="Groupe_101" data-name="Groupe 101" transform="matrix(0.985, 0.174, -0.174, 0.985, 18.968, -18.238)">
+        <path id="Soustraction_1" data-name="Soustraction 1" d="M96-1265H90a7.376,7.376,0,0,0-2.053-5.142A6.822,6.822,0,0,0,83-1272.277,7.15,7.15,0,0,0,76-1265H72a7.376,7.376,0,0,0-2.053-5.142A6.822,6.822,0,0,0,65-1272.277,7.15,7.15,0,0,0,58-1265H54a7.375,7.375,0,0,0-2.053-5.142A6.822,6.822,0,0,0,47-1272.277,7.15,7.15,0,0,0,40-1265H36a7.376,7.376,0,0,0-2.053-5.142A6.822,6.822,0,0,0,29-1272.277,7.15,7.15,0,0,0,22-1265H18a7.376,7.376,0,0,0-2.053-5.142A6.822,6.822,0,0,0,11-1272.277,7.15,7.15,0,0,0,4-1265H-2v-42.775a5.107,5.107,0,0,0,5-5.2,5.107,5.107,0,0,0-5-5.2V-1423H4a7.374,7.374,0,0,0,2.053,5.142A6.822,6.822,0,0,0,11-1415.724,7.15,7.15,0,0,0,18-1423h4a7.375,7.375,0,0,0,2.053,5.142A6.822,6.822,0,0,0,29-1415.724,7.15,7.15,0,0,0,36-1423h4a7.374,7.374,0,0,0,2.053,5.142A6.822,6.822,0,0,0,47-1415.724,7.15,7.15,0,0,0,54-1423h4a7.375,7.375,0,0,0,2.053,5.142A6.822,6.822,0,0,0,65-1415.724,7.15,7.15,0,0,0,72-1423h4a7.374,7.374,0,0,0,2.053,5.142A6.822,6.822,0,0,0,83-1415.724,7.15,7.15,0,0,0,90-1423h6v104.828a5.108,5.108,0,0,0-5,5.2,5.108,5.108,0,0,0,5,5.2V-1265Z" transform="translate(54 1442)" fill="#fff"/>
+        <g id="Groupe_98" data-name="Groupe 98" transform="translate(0 -3)">
+          <g id="Groupe_100" data-name="Groupe 100">
+            <rect id="Rectangle_93" data-name="Rectangle 93" width="80" height="92" rx="6" transform="translate(61 37)" fill="#8b16d9"/>
+            <g id="Groupe_102" data-name="Groupe 102" transform="translate(72 66)">
+              <rect id="Rectangle_14" data-name="Rectangle 14" width="58" height="6" rx="3" fill="#dec0fc"/>
+              <rect id="Rectangle_15" data-name="Rectangle 15" width="58" height="6" rx="3" transform="translate(0 14)" fill="#dec0fc"/>
+              <rect id="Rectangle_16" data-name="Rectangle 16" width="35" height="6" rx="3" transform="translate(0 28)" fill="#dec0fc"/>
+            </g>
+          </g>
+          <g id="Groupe_103" data-name="Groupe 103" transform="translate(0 10)">
+            <rect id="Rectangle_95" data-name="Rectangle 95" width="80" height="30" rx="6" transform="translate(61 125)" fill="#8b16d9"/>
+            <g id="Groupe_99" data-name="Groupe 99" transform="translate(1)">
+              <circle id="Ellipse_41" data-name="Ellipse 41" cx="5" cy="5" r="5" transform="translate(71 135)" fill="#dec0fc"/>
+              <circle id="Ellipse_42" data-name="Ellipse 42" cx="5" cy="5" r="5" transform="translate(87 135)" fill="#dec0fc"/>
+              <circle id="Ellipse_43" data-name="Ellipse 43" cx="5" cy="5" r="5" transform="translate(103 135)" fill="#dec0fc"/>
+              <circle id="Ellipse_44" data-name="Ellipse 44" cx="5" cy="5" r="5" transform="translate(119 135)" fill="#dec0fc"/>
+            </g>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

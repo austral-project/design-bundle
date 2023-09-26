@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200" viewBox="0 0 200 200">
+  <defs>
+    <clipPath id="clip-austral-icon-browser">
+      <rect width="200" height="200"/>
+    </clipPath>
+  </defs>
+  <g id="austral-icon-browser" clip-path="url(#clip-austral-icon-browser)">
+    <g id="Groupe_34" data-name="Groupe 34">
+      <rect id="BG" width="200" height="200" fill="none"/>
+      <path id="Shadow" d="M147.4,30H52.6A32.691,32.691,0,0,0,20,62.6V137.4A32.692,32.692,0,0,0,52.6,170H147.4A32.692,32.692,0,0,0,180,137.4V62.6A32.691,32.691,0,0,0,147.4,30Z" transform="translate(214 214) rotate(180)" fill="#dec0fc"/>
+      <g id="Icon">
+        <path id="Tracé_30" data-name="Tracé 30" d="M147.4,30H52.6A32.691,32.691,0,0,0,20,62.6V137.4A32.692,32.692,0,0,0,52.6,170H147.4A32.692,32.692,0,0,0,180,137.4V62.6A32.691,32.691,0,0,0,147.4,30Z" fill="#fff"/>
+        <path id="Rectangle_40" data-name="Rectangle 40" d="M12,0H128a12,12,0,0,1,12,12V71a24,24,0,0,1-24,24H24A24,24,0,0,1,0,71V12A12,12,0,0,1,12,0Z" transform="translate(30 65)" fill="#8b16d9"/>
+        <path id="Union_3" data-name="Union 3" d="M372.328,362.208l-8.029-17.22-6.5,5.642a2.835,2.835,0,0,1-4.691-2.047l-1.053-31.97a2.835,2.835,0,0,1,4.726-2.2l23.813,21.356a2.834,2.834,0,0,1-1.446,4.909l-7.475,1.192,7.909,16.96a4,4,0,0,1-1.935,5.316h0A4,4,0,0,1,372.328,362.208Z" transform="translate(-266.793 -226.599)" fill="#fff"/>
+      </g>
+      <g id="Groupe_60" data-name="Groupe 60">
+        <rect id="Rectangle_39" data-name="Rectangle 39" width="130" height="20" rx="10" transform="translate(35 40)" fill="#fff"/>
+        <path id="Union_4" data-name="Union 4" d="M20-930a5,5,0,0,1-5-5,5,5,0,0,1,5-5H70a5,5,0,0,1,5,5,5,5,0,0,1-5,5ZM0-935a5,5,0,0,1,5-5,5,5,0,0,1,5,5,5,5,0,0,1-5,5A5,5,0,0,1,0-935Z" transform="translate(40 985)" fill="#dec0fc"/>
+      </g>
+    </g>
+  </g>
+</svg>

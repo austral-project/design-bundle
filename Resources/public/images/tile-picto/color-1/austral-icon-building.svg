@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200" viewBox="0 0 200 200">
+  <defs>
+    <clipPath id="clip-austral-icon-building">
+      <rect width="200" height="200"/>
+    </clipPath>
+  </defs>
+  <g id="austral-icon-building" clip-path="url(#clip-austral-icon-building)">
+    <g id="Groupe_87" data-name="Groupe 87">
+      <g id="Groupe_78" data-name="Groupe 78">
+        <g id="Groupe_34" data-name="Groupe 34">
+          <rect id="BG" width="200" height="200" fill="none"/>
+        </g>
+      </g>
+      <g id="Groupe_86" data-name="Groupe 86">
+        <g id="Groupe_85" data-name="Groupe 85" transform="translate(14 19)">
+          <path id="Rectangle_63" data-name="Rectangle 63" d="M20,0H74A20,20,0,0,1,94,20V150a0,0,0,0,1,0,0H0a0,0,0,0,1,0,0V20A20,20,0,0,1,20,0Z" transform="translate(53 19)" fill="#86bef7"/>
+          <path id="Rectangle_65" data-name="Rectangle 65" d="M20,0h0a0,0,0,0,1,0,0V80a0,0,0,0,1,0,0H0a0,0,0,0,1,0,0V20A20,20,0,0,1,20,0Z" transform="translate(33 89)" fill="#86bef7"/>
+          <path id="Rectangle_66" data-name="Rectangle 66" d="M0,0H0A20,20,0,0,1,20,20V80a0,0,0,0,1,0,0H0a0,0,0,0,1,0,0V0A0,0,0,0,1,0,0Z" transform="translate(147 89)" fill="#86bef7"/>
+        </g>
+        <g id="Groupe_84" data-name="Groupe 84" transform="translate(0 5)">
+          <g id="Groupe_83" data-name="Groupe 83">
+            <path id="Rectangle_63-2" data-name="Rectangle 63" d="M20,0H74A20,20,0,0,1,94,20V150a0,0,0,0,1,0,0H0a0,0,0,0,1,0,0V20A20,20,0,0,1,20,0Z" transform="translate(53 19)" fill="#fff"/>
+            <path id="Rectangle_65-2" data-name="Rectangle 65" d="M20,0h0a0,0,0,0,1,0,0V80a0,0,0,0,1,0,0H0a0,0,0,0,1,0,0V20A20,20,0,0,1,20,0Z" transform="translate(33 89)" fill="#fff"/>
+            <path id="Rectangle_66-2" data-name="Rectangle 66" d="M0,0H0A20,20,0,0,1,20,20V80a0,0,0,0,1,0,0H0a0,0,0,0,1,0,0V0A0,0,0,0,1,0,0Z" transform="translate(147 89)" fill="#fff"/>
+          </g>
+          <rect id="Rectangle_64" data-name="Rectangle 64" width="44" height="34" transform="translate(78 135)" fill="#0569f5"/>
+          <g id="Groupe_82" data-name="Groupe 82" transform="translate(0 10)">
+            <rect id="Rectangle_67" data-name="Rectangle 67" width="18" height="16" transform="translate(91 101)" fill="#0569f5"/>
+            <rect id="Rectangle_72" data-name="Rectangle 72" width="18" height="16" transform="translate(91 77)" fill="#0569f5"/>
+            <rect id="Rectangle_75" data-name="Rectangle 75" width="18" height="16" transform="translate(91 53)" fill="#0569f5"/>
+            <rect id="Rectangle_82" data-name="Rectangle 82" width="18" height="16" transform="translate(91 29)" fill="#0569f5"/>
+            <rect id="Rectangle_68" data-name="Rectangle 68" width="18" height="16" transform="translate(115 101)" fill="#0569f5"/>
+            <rect id="Rectangle_71" data-name="Rectangle 71" width="18" height="16" transform="translate(115 77)" fill="#0569f5"/>
+            <rect id="Rectangle_74" data-name="Rectangle 74" width="18" height="16" transform="translate(115 53)" fill="#0569f5"/>
+            <rect id="Rectangle_81" data-name="Rectangle 81" width="18" height="16" transform="translate(115 29)" fill="#0569f5"/>
+            <rect id="Rectangle_70" data-name="Rectangle 70" width="18" height="16" transform="translate(67 101)" fill="#0569f5"/>
+            <rect id="Rectangle_73" data-name="Rectangle 73" width="18" height="16" transform="translate(67 77)" fill="#0569f5"/>
+            <rect id="Rectangle_76" data-name="Rectangle 76" width="18" height="16" transform="translate(67 53)" fill="#0569f5"/>
+            <rect id="Rectangle_83" data-name="Rectangle 83" width="18" height="16" transform="translate(67 29)" fill="#0569f5"/>
+            <rect id="Rectangle_77" data-name="Rectangle 77" width="18" height="16" transform="translate(43 101)" fill="#0569f5"/>
+            <rect id="Rectangle_79" data-name="Rectangle 79" width="18" height="16" transform="translate(43 125)" fill="#0569f5"/>
+            <rect id="Rectangle_78" data-name="Rectangle 78" width="18" height="16" transform="translate(139 101)" fill="#0569f5"/>
+            <rect id="Rectangle_80" data-name="Rectangle 80" width="18" height="16" transform="translate(139 125)" fill="#0569f5"/>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>
