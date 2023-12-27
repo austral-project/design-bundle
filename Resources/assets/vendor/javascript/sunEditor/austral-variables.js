@@ -1,9 +1,9 @@
 import dialog from 'suneditor/src/plugins/modules/dialog'
-import Select from "../../../javascript/components/fields/Select";
-import Switch from "../../../javascript/components/fields/Switch";
-import Choice from "../../../javascript/components/fields/Choice";
-import Input from "../../../javascript/components/fields/Input";
-import MiscEvent from "../../../../../../../../assets/front/javascript/misc/Event";
+import Select from "./../../../javascript/components/fields/Select";
+import Switch from "./../../../javascript/components/fields/Switch";
+import Choice from "./../../../javascript/components/fields/Choice";
+import Input from "./../../../javascript/components/fields/Input";
+import MiscEvent from "./../../../javascript/misc/Event";
 
 export default {
   // @Required

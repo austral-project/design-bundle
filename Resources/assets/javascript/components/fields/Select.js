@@ -27,6 +27,16 @@ export default class Select extends abstractField {
         this.options['searchEnabled'] = false;
       }
     }
+    if(!this.element.querySelector("option[value='']") && this.element.dataset.valueNull !== undefined)
+    {
+      let option = document.createElement("option");
+      option.setAttribute("value", "");
+      if(!this.element.querySelector("option[selected]"))
+      {
+        option.setAttribute("selected", "");
+      }
+      this.element.prepend(option);
+    }
     this.options['itemSelectText'] = "";
     this.options['allowHTML'] = true;
     this.options['resetScrollPosition'] = false;

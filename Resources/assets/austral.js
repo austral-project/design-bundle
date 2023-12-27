@@ -3,7 +3,7 @@ import { cacheHistory } from "./javascript/cache/CacheHistory";
 import Response from "./javascript/response/Response";
 import Request from "./javascript/request/Request";
 import ContextMenu from "./javascript/components/contextMenu/ContextMenu";
-import MiscEvent from "../../../../../assets/front/javascript/misc/Event";
+import MiscEvent from "./javascript/misc/Event";
 
 ConfigMaster.setPage(page);
 ConfigMaster.setContextMenu(new ContextMenu());
