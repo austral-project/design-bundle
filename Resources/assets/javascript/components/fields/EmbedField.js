@@ -20,7 +20,6 @@ export default class EmbedField  extends abstractField {
     {
       this.fieldsTemplate = JSON.parse(this.element.closest("*[data-collection-embed-fields-template]").dataset.collectionEmbedFieldsTemplate);
     }
-
     this.childrenParameters = {
       min: null,
       max: null
@@ -155,6 +154,13 @@ export default class EmbedField  extends abstractField {
           button.classList.add("is-open");
           contentComponentParameters.style.height = contentComponentParameters.querySelector(".group-fields-content").clientHeight+"px";
         }
+      });
+    });
+    [].forEach.call(element.querySelectorAll(".between-insert.add-new-collection-embed"), (button) => {
+      button.classList.add("between-insert-init");
+      button.addEventListener("click", (e) => {
+        this.betweenInsert = button;
+        MiscEvent.dispatch("component::embed.add", {"button": button}, this.element);
       });
     });
   }

@@ -62,6 +62,35 @@
       }
     }
   }
+
+  &.disabled {
+    .choices {
+      .choices__button {
+        display: none !important;
+      }
+    }
+    .choices__input {
+      display:none;
+    }
+    .choices__list--dropdown {
+      margin: 0 0.5rem 0 0 !important;
+      box-shadow: inset 0px 0px 0px .4rem var(--color-white);
+      color: var(--color-grey-50) !important;
+      background: var(--color-main-10) !important;
+    }
+    .choices__inner {
+      box-shadow: inset 0px 0px 0px .4rem var(--color-white);
+      background: var(--color-main-10) !important;
+      .choices__list {
+        .choices__item {
+          color: var(--color-grey-50) !important;
+          opacity: 0.5;
+          background: var(--color-main-10) !important;
+        }
+      }
+    }
+  }
+
   .choices {
     @include flex(1);
     @extend .font-poppins-m-12;
