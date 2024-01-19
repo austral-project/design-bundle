@@ -491,4 +491,35 @@
   }
 }
 
+.list-objects_languages-choices {
+  @include flex-display();
+  margin: 0 -0.1rem;
+  li {
+    margin: 0 0.1rem;
+    border: .1rem solid var(--color-main-10);
+    .content-language {
+      @include transition-default();
+      @include flex-display();
+      @include justify-content(center);
+      @include align-content(center);
+      @include align-items(center);
+      @extend .font-poppins-m-13-uppercase;
+      border: 2px solid var(--color-white);
+      background: var(--color-white);
+      height: 100%;
+      width: 3rem;
+      height: 3rem;
+      text-align: center;
+      &.link {
+        color: var(--color-grey-50);
+        cursor:pointer;
+        &:hover {
+          color: var(--color-black);
+          background: var(--color-main-10);
+        }
+
+      }
+    }
+  }
+}
 
