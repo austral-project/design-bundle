@@ -20,7 +20,6 @@ export default {
   // @Required
   // add function - It is called only once when the plugin is first run.
   // This function generates HTML to append and register the event.
-  // arguments - (core : core object, targetElement : clicked button element)
   add: function (core) {
 
     // If you are using a module, you must register the module using the "addModule" method.
@@ -31,6 +30,7 @@ export default {
     const context = core.context;
     context.australLink = {
       linkType: null,
+      title: null,
 
       linkUrl: null, // @Override // This element has focus when the dialog is opened.
       linkChoice: null,
@@ -61,6 +61,7 @@ export default {
       context.australLink.textContent = link_dialog.querySelector('*[data-popin-update-input="field-text"]');
       context.australLink.linkAnchor = link_dialog.querySelector('*[data-popin-update-input="field-anchor"]');
       context.australLink.targetIsBlank = link_dialog.querySelector('*[data-popin-update-input="field-target-blank"]');
+      context.australLink.title = link_dialog.querySelector('*[data-popin-update-input="field-title"]');
 
       /** link controller */
       let link_controller = this.setController_LinkButton(core);
@@ -191,10 +192,14 @@ export default {
       let textContent = contextLink.textContent;
       textContent = textContent.value.length === 0 ? url : textContent.value;
 
+      let title = contextLink.title.value.length > 0 ? contextLink.title.value : "";
       // When opened for modification "this.context.dialog.updateModal" is true
       if (!this.context.dialog.updateModal) {
         const oA = this.util.createElement('A');
         oA.href = url;
+        if(title) {
+          oA.title = title;
+        }
         oA.textContent = textContent;
         oA.target = contextLink.targetIsBlank.checked ? "_blank" : "";
 
@@ -209,6 +214,9 @@ export default {
         this.setRange(oA.childNodes[0], 0, oA.childNodes[0], oA.textContent.length);
       } else {
         contextLink._linkUpdate.href = url;
+        if(title) {
+          contextLink._linkUpdate.title = title;
+        }
         contextLink._linkUpdate.textContent = textContent;
         contextLink._linkUpdate.target = contextLink.targetIsBlank.checked ? "_blank" : "";
         // set range
@@ -268,6 +276,7 @@ export default {
       this.context.dialog.updateModal = true;
 
       // Init context value
+      this.context.australLink.title.value = '';
       this.context.australLink.linkUrl.value = '';
       this.context.australLink.linkChoice.value = '';
       this.context.australLink.linkChoiceName.textContent = '';
@@ -281,6 +290,7 @@ export default {
       MiscEvent.dispatch("choice", {choice: {value: null} }, this.context.australLink.linkChoice);
       let currentHref = this.context.australLink._linkUpdate.getAttribute("href");
       let linkType = null;
+
       if(currentHref.indexOf("#INTERNAL_LINK_") >= 0)
       {
         linkType = "internal";
@@ -298,14 +308,15 @@ export default {
       }
       else if(currentHref.indexOf("tel:") >= 0)
       {
-        linkType = "tel";
-        this.context.australLink.linkEmail.value = currentHref.replace("tel:", "");
+        linkType = "phone";
+        this.context.australLink.linkPhone.value = currentHref.replace("tel:", "");
       }
       else if(currentHref)
       {
         linkType = "external";
         this.context.australLink.linkUrl.value = currentHref;
       }
+      this.context.australLink.title.value = this.context.australLink._linkUpdate.getAttribute("title");
       let linkTypeElement = this.context.australLink.linkType.querySelector("input[value="+linkType+"]");
       if(linkTypeElement)
       {
@@ -327,7 +338,7 @@ export default {
     const link = linkBtn.querySelector('a');
 
     link.href = selectionATag.getAttribute("href");
-    link.title = selectionATag.textContent;
+    link.title = selectionATag.title;
     link.textContent = selectionATag.textContent;
 
     const offset = this.util.getOffset(selectionATag, this.context.element.wysiwygFrame);
@@ -384,6 +395,7 @@ export default {
         contextLink.linkUrl.value = currentHref;
       }
       contextLink.targetIsBlank.value = contextLink._linkUpdate.target === "_blank" ;
+      contextLink.title.value = contextLink._linkUpdate.getAttribute("title");
       let linkTypeElement = contextLink.linkType.querySelector("input[value="+linkType+"]");
       if(linkTypeElement)
       {
@@ -420,6 +432,7 @@ export default {
     contextLink.linkController.style.display = 'none';
     contextLink._linkUpdate = null;
 
+    contextLink.title.value = '';
     contextLink.linkUrl.value = '';
     contextLink.linkChoice.value = '';
     contextLink.linkChoiceName.textContent = '';
