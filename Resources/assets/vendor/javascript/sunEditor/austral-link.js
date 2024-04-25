@@ -263,6 +263,16 @@ export default {
   // This method is called just before the dialog opens.
   // If "update" argument is true, it is not a new call, but a call to modify an already created element.
   on: function (update) {
+    let parentElement = this.getSelection().focusNode.parentElement;
+    if(parentElement.tagName !== "A")
+    {
+      parentElement = parentElement.closest("a");
+    }
+    if(parentElement)
+    {
+      update = true;
+      this.context.australLink._linkUpdate = parentElement;
+    }
     if (!update) {
       this.plugins.australLink.init.call(this);
       this.context.australLink.textContent.value = this.getSelection().toString();
