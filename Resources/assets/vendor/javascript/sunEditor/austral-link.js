@@ -336,7 +336,10 @@ export default {
         }, 50);
       }
       this.context.australLink.textContent.value = this.context.australLink._linkUpdate.textContent;
-      this.context.australLink.targetIsBlank.checked = this.context.australLink._linkUpdate.target === "_blank" ;
+      this.context.australLink.targetIsBlank.checked = this.context.australLink._linkUpdate.getAttribute("target") === "_blank";
+        setTimeout(()=>{
+          MiscEvent.dispatch("change", {},  this.context.australLink.targetIsBlank);
+        }, 50);
     }
     document.body.classList.add("popin-open");
     this.context.australLink.modal.classList.add("is-open");
