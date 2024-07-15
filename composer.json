@@ -23,9 +23,9 @@
     }
   ],
   "require": {
-    "php":                                    "^7.4 || ^8.0",
+    "php":                                    "^7.4 || ^8.0 || ^8.1 || ^8.2",
 
-    "symfony/twig-bundle":                    "^5.4",
+    "symfony/twig-bundle":                    "^5.4 || ^6.4",
 
     "twig/twig":                              "^3.0",
     "twig/extra-bundle":                      "^3.0",
@@ -34,7 +34,7 @@
   "require-dev": {
   },
   "suggest": {
-    "austral/admin-bundle":                   "^3.0"
+    "austral/admin-bundle":                   "^3.1"
   },
   "config": {
     "sort-packages":                          true
