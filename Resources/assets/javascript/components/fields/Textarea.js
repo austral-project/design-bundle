@@ -33,7 +33,7 @@ export default class Textarea extends abstractField {
         minHeight: 150,
         addTagsWhitelist: "p|div|ul|ol|li|span|a|br|hr",
         attributesWhitelist: {
-          'all': 'style|data-.+'
+          'all': 'lang|style|title|data-.+'
         },
         buttonList: [
           ['undo', 'redo'],

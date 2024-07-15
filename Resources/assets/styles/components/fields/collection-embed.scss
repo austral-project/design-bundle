@@ -2,6 +2,7 @@
 
   .field-collection-embed-content {
     --element-embed-element-background: var(--color-white);
+    margin: 2rem 0;
     &.child-color {
       .collection-embed-fields {
         &.color-1 {
@@ -184,6 +185,7 @@
 
       }
     }
+
 
     > .collection-embed-forms {
       flex: 1;

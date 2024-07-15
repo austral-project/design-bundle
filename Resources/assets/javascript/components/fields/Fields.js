@@ -13,6 +13,7 @@ import UploadFile from "./UploadFile";
 import EmbedField from "./EmbedField";
 import Choice from "./Choice";
 import Input from "./Input";
+import AutocompleteAddress from "./AutocompleteAddress";
 
 export default class Fields {
   static initComponent() {
@@ -24,6 +25,7 @@ export default class Fields {
     Select.initComponent();
     Switch.initComponent();
     Choice.initComponent();
+    AutocompleteAddress.initComponent();
     EmbedField.initComponent();
 
     Textarea.initComponent();

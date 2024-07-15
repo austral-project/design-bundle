@@ -5,6 +5,9 @@
   width: 100% !important;
   min-width: 50rem;
 
+  del {
+    text-decoration: line-through;
+  }
   *[data-tag-value] {
     @include box-shadow-arguments("0px 0px 0px .2rem var(--color-main-10)");
     background: var(--color-main-10);
@@ -42,7 +45,7 @@
           box-shadow: initial;
         }
         .form-container {
-          height: 56rem;
+          min-height: 56rem;
         }
 
         input,
