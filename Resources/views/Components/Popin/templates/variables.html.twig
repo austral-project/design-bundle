@@ -14,11 +14,11 @@
             {{ include("@AustralDesign/Components/Button/link.html.twig",
               {
                 tag:            "span",
-                title:          choice.__toString(),
+                title:          choice.__toString()|escape(),
                 withEntitled:   true,
                 data: {
-                "data-variable-value":      "%"~choice.keyname~"%",
-              }
+                  "data-variable-value":      "%"~choice.keyname~"%"
+                }
               }
             ) }}
           </li>

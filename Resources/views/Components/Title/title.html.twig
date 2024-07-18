@@ -5,5 +5,5 @@
     subTitle: "string"
   }
 #}
-<{{ tag }} class="{{ tag }}-title title">{{ value }}</{{ tag }}>
-{% if subTitle is defined and subTitle %}<span class="{{ tag }}-sub-title">{{ subTitle }}</span>{% endif %}
+<{{ tag }} class="{{ tag }}-title title">{{ value|raw() }}</{{ tag }}>
+{% if subTitle is defined and subTitle %}<span class="{{ tag }}-sub-title">{{ subTitle|raw() }}</span>{% endif %}

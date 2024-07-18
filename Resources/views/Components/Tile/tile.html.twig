@@ -25,9 +25,9 @@
         </div>
       {% endif %}
     <div class="content-title">
-      <h3 class="title font-poppins-sb-18">{{ entitled }}</h3>
+      <h3 class="title font-poppins-sb-18">{{ entitled|raw() }}</h3>
       {% if subEntitled is defined and subEntitled is not null %}
-        <span class="sub-title font-poppins-m-10-grey">{{ subEntitled }}</span>
+        <span class="sub-title font-poppins-m-10-grey">{{ subEntitled|raw() }}</span>
       {% endif %}
     </div>
   </a>
