@@ -25,6 +25,16 @@ export default class StickyBandeauTop extends abstractComponent {
         .to(this.element.querySelector(".button-return-container"), {left: "-0.5rem", opacity: 1, ease: "none", duration: 0.8 }, "#anime-1")
         .to(this.element.querySelector(".button-return-top-container"), { top: "-6rem", opacity: 0, height:0, flex: "auto", ease: "none", duration: 0.8 }, "#anime-1");
     }
+    if(this.element.querySelector(".image-content"))
+    {
+      this.animation.timeline
+        .to(this.element.querySelector(".image-content"), {height: "4rem", width: "4rem", "margin-top": "0.5rem", ease: "none", duration: 0.8 }, "#anime-1");
+    }
+    if(this.element.querySelector(".picto-content"))
+    {
+      this.animation.timeline
+        .to(this.element.querySelector(".picto-content"), {height: "4rem", width: "4rem", "margin-top": "0.5rem", ease: "none", duration: 0.8 }, "#anime-1");
+    }
     this.animation.timeline
       .to(this.element.querySelector(".title-button-content "),{ "padding-top": "0.6rem", "padding-left": hasButtonReturn ? "3.5rem" : "0", ease: "none", duration: 0.8 }, "#anime-1")
       .to(this.element,{ "border-bottom-width": "0.1rem", ease: "none", duration: 0.8 }, "#anime-1")
