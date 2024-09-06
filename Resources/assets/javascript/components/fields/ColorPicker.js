@@ -24,7 +24,7 @@ class ColorPicker extends abstractField {
     });
     this.pickr.on('change', (color, instance) => {
       this.pickr.setColor(color.toRGBA().toString());
-      this.element.value = color.toHEXA().toString();
+      //this.element.value = color.toHEXA().toString();
       MiscEvent.dispatch("component::form.change", { field: this, key: this.element.getAttribute("id"), change: (this.initialValue !== this.element.value) }, this.formContainer);
     });
   }
