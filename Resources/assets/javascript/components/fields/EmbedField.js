@@ -237,6 +237,10 @@ export default class EmbedField  extends abstractField {
     var templateName = button.dataset.collectionEmbedChoiceType;
     var collectionParentId = button.dataset.collectionParentId ?? "";
     var collectionEmbedAppend = this.element.querySelector(button.dataset.collectionEmbedAppend);
+    let numElement = collectionEmbedAppend.children.length+1;
+
+    console.log(collectionEmbedAppend);
+
     if(this.fieldsTemplate[templateName] !== undefined)
     {
       var template = this.fieldsTemplate[templateName] ;
@@ -251,12 +255,15 @@ export default class EmbedField  extends abstractField {
       }
       var uuid = uuidv4();
       var matches = template.match(/data-replace-id="(\w+)"/);
+      var regexNumElement = new RegExp("__num_replace__", 'g');
       template = template.replace(regex, uuid);
+      template = template.replace(regexNumElement, numElement);
       template = template.replace(/__parentId__/g, collectionParentId);
       if(matches)
       {
         template = template.replace('data-replace-id="'+uuid+'"', matches[0]);
       }
+
 
       var color = this.betweenInsert ? this.betweenInsert.closest("*[data-color]").dataset.color : this.element.closest("*[data-color]").dataset.color;
       if(!color) {
