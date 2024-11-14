@@ -1,8 +1,16 @@
 .fieldset-content {
 
+  .child-color {
+    .collection-embed-element {
+      .field-collection-embed-content {
+        margin-top: 0;
+      }
+    }
+  }
+
   .field-collection-embed-content {
     --element-embed-element-background: var(--color-white);
-    margin: 2rem 0;
+    margin: 0;
     &.child-color {
       .collection-embed-fields {
         &.color-1 {
@@ -46,6 +54,28 @@
         .group-col {
           margin:0;
           padding: 0;
+          .fields-content,
+          .form-type-content,
+          .group-fields-container,
+          .group-column,
+          .field {
+            height: 100%;
+          }
+        }
+      }
+      &.group-column {
+        > .group-col {
+          height: 100%;
+          .field {
+            border-bottom: 0 !important;
+          }
+        }
+      }
+      &.group-row {
+        > .group-col {
+          .field {
+            border-right: 0 !important;
+          }
         }
       }
       .group-content-fields-fields-container {
@@ -159,13 +189,32 @@
     @include align-content(stretch);
     @include justify-content(space-between);
     @include flex-direction(column);
+
+    > .collection-embed-forms {
+      > .collection-embed-element {
+        > .hover {
+          > .collection-embed-form {
+            > .sortable-content {
+              .button {
+                --background-color-button-picto-with-background: var(--color-main-20);
+              }
+            }
+          }
+        }
+      }
+    }
+    .content-button-parameters {
+      .button {
+        --background-color-button-picto-with-background: var(--color-main-20);
+      }
+    }
+
+
     .collections-add-content {
       order: 1;
       flex: 1;
       width: 100%;
-    }
-    > .collections-add-content {
-      margin-top: 2rem;
+      margin-top: 1rem;
     }
     &.block-contenu-embed {
       margin-top: 0;
@@ -213,16 +262,6 @@
             > .collection-embed-form {
               /*z-index: 100;*/
               @include box-shadow-arguments("var(--element-input-box-shadow-inner), 0px 0px 0px .4rem var(--color-main-20)");
-              .sortable-content {
-                left: -4.5rem;
-                z-index: 1;
-                opacity: 1;
-              }
-              .delete-content {
-                right: -4.5rem;
-                z-index: 1;
-                opacity: 1;
-              }
               .button-add-link {
                 .button {
                   opacity: 1;
@@ -237,6 +276,25 @@
                     opacity: 1 !important;
                   }
                 }
+              }
+            }
+          }
+        }
+        .hover {
+          &:hover {
+            > .collection-embed-form {
+              > .sortable-content {
+                left: -4.5rem;
+                z-index: 1;
+                opacity: 1;
+              }
+              > .delete-content {
+                right: -4.5rem;
+                z-index: 1;
+                opacity: 1;
+              }
+              > .position-view-content {
+                opacity: 0 !important;
               }
             }
           }
@@ -328,6 +386,22 @@
           @include transition-default();
           @include box-shadow-arguments("var(--element-input-box-shadow-inner)");
           .group-fields-container {
+            .group-fields-content {
+              &.group-row {
+                .field {
+                  border-top: 0;
+                  border-left:0;
+                  border-right: 0.1rem solid var(--color-main-10);
+                }
+                > .group-col {
+                  &:last-child {
+                    .field {
+                      border-right: 0;
+                    }
+                  }
+                }
+              }
+            }
 
             &.group-layout-fields-container {
               > .group-fields-content {
@@ -367,9 +441,21 @@
                       padding: 2.5rem 1rem 0.5rem;
                     }
                   }
-                  .field:not(.field-repeatedType):not(.field-entityType-multi):not(.field-checkboxType) {
+                  .field {
                     padding: 0.5rem;
-                    box-shadow: none;
+                    &:not(.field-repeatedType):not(.field-entityType-multi):not(.field-select-type-multi):not(.field-checkboxType):not(.field-choiceType-checkbox):not(.field-choiceType-radio) {
+                      &:hover {
+                        background: var(--color-field-hover);
+                        --element-input-box-shadow-inner: inset 0px 0px 0px .5rem var(--color-white);
+                        @include box-shadow-arguments("var(--element-input-box-shadow-inner), 0px 0px 0px 0 var(--color-white)");
+                      }
+                      &.focus,
+                      &:focus {
+                        background: var(--color-field-focus);
+                        --element-input-box-shadow-inner: inset 0px 0px 0px .2rem var(--color-white);
+                        @include box-shadow-arguments("var(--element-input-box-shadow-inner), 0px 0px 0px 0 var(--color-white)");
+                      }
+                    }
                   }
                 }
               }
@@ -461,6 +547,8 @@
                 .position-view-content {
                   @include position-middle-y;
                   @extend .font-poppins-m-13-uppercase;
+                  @include transition-default();
+                  opacity: 1;
                   padding: 0;
                   left: 1.8rem;
                   position:absolute;
@@ -489,8 +577,9 @@
             > .group-fields-name {
               @extend .font-poppins-m-13-uppercase;
               margin:0;
-              padding-left: 2rem;
+              padding: 1rem 2rem;
               border-bottom:0.1rem solid var(--color-main-10);
+              background:var(--color-grey-10);
             }
           }
 
@@ -619,7 +708,6 @@
         > .hover {
           > .collection-embed-form {
             @include flex-display();
-            min-height: 10rem;
             padding-left: 4rem;
             background: var(--color-white);
             > .group-component-values-block-fields-container {
@@ -705,9 +793,6 @@
     .collection-embed-fields-children {
       border: 0.1rem solid var(--color-white);
       padding: 0 1rem 1rem;
-      .collections-add-content {
-        margin-top: 1rem;
-      }
     }
 
     .collection-embed-element {

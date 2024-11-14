@@ -98,6 +98,12 @@ export default class Fields {
           callbacks: {
             "keydown": (e) => {
               MiscEvent.dispatch("component::form.change", { field: tagify, key: field.getAttribute("id"), change: true}, field.closest("form"));
+            },
+            "focus": (e) => {
+              field.closest(".field").classList.add("focus");
+            },
+            "blur": (e) => {
+              field.closest(".field").classList.remove("focus");
             }
           }
         });

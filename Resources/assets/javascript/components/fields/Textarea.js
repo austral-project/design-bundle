@@ -23,6 +23,7 @@ export default class Textarea extends abstractField {
   create(element) {
     super.create(element);
     if(this.element.dataset.wysiwyg !== undefined) {
+      let fieldElement = this.element.closest(".field");
       plugins["australLink"] = australLink;
       plugins["australVariables"] = australVariables;
       this.editor = SunEditor.create(this.element,{
@@ -61,12 +62,19 @@ export default class Textarea extends abstractField {
           "reduction": '<span class="austral-picto-minimize"></span>',
           "show_blocks": '<span class="austral-picto-content-left"></span>',
         },
-        lang: lang.fr
+        lang: lang.fr,
       });
 
       this.editor.onChange = () => {
         this.element.value = this.editor.getContents();
         MiscEvent.dispatch("component::form.change", { field: this, key: this.element.getAttribute("id"), change: true}, this.formContainer);
+      };
+
+      this.editor.onFocus = () => {
+        fieldElement.classList.add("focus");
+      };
+      this.editor.onBlur = () => {
+        fieldElement.classList.remove("focus");
       };
 
       this.editor.onPaste = (e, cleanData, maxCharCount, core) => {

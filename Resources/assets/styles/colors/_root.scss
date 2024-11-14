@@ -7,6 +7,8 @@
   --color-black: #000000;
   --color-grey-90: #2e2e2e;
   --color-grey-50: #6B6B6B;
+  --color-grey-20: #d6d6d6;
+  --color-grey-10: #f4f4f4;
   --color-main-100: #264B80;
   --color-main-90: #436CA8;
   --color-main-40: #9BADC5;
@@ -27,6 +29,7 @@
   --color-blue-40: #86BEF7;
   --color-blue-20: #BEDEFA;
   --color-blue-10: #D9EDFA;
+  --color-blue-05: #eff7ff;
   --color-red-100: #BF2413;
   --color-red-90: #E63A2E;
   --color-red-40: #F5A29F;
@@ -37,6 +40,7 @@
   --color-purple-40: #C283F2;
   --color-purple-20: #DEC0FC;
   --color-purple-10: #EBDBFF;
+  --color-purple-05: #f9f2ff;
   --color-google-black: #202124;
   --color-google-grey: #5F6368;
   --color-google-blue: #1A0DAB;
@@ -88,7 +92,10 @@
 
   --color-main-10-force: #E9EDF3;
   --svg-logo-color-black: var(--color-black);
-  --element-avatar-color: var(--color-white-force)
+  --element-avatar-color: var(--color-white-force);
+
+  --color-field-hover: var(--color-purple-10);
+  --color-field-focus: var(--color-purple-05);
 }
 .main-background {
   --color-button-picto-with-background: var(--color-grey-50);

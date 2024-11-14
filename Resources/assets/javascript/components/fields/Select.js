@@ -54,6 +54,12 @@ export default class Select extends abstractField {
 
   addEventListener() {
     super.addEventListener();
+    MiscEvent.addListener("showDropdown", (event) => {
+      this.element.closest(".field").classList.add("focus");
+    }, this.element);
+    MiscEvent.addListener("hideDropdown", (event) => {
+      this.element.closest(".field").classList.remove("focus");
+    }, this.element);
 
     MiscEvent.addListener("choice", (event) => {
       if(event.detail !== undefined) {

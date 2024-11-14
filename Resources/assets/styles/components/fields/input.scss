@@ -344,7 +344,7 @@
   position:relative;
   @extend .font-poppins-m-12;
 
-  &:not(.field-repeatedType):not(.field-entityType-multi):not(.field-select-type-multi):not(.field-checkboxType):not(.field-choiceType-radio) {
+  &:not(.field-repeatedType):not(.field-entityType-multi):not(.field-select-type-multi):not(.field-choiceType-checkbox):not(.field-checkboxType):not(.field-choiceType-radio) {
     --element-input-box-shadow-inner: inset 0px 0px 0px .4rem var(--color-white);
     @include flex-display();
     @include transition-default();
@@ -355,9 +355,11 @@
     color: var(--color-black);
     &.hover {
       @include box-shadow-arguments("var(--element-input-box-shadow-inner), 0px 0px 0px .4rem var(--color-main-20)");
+      background: var(--color-field-hover);
     }
     &.focus {
       @include box-shadow-arguments("var(--element-input-box-shadow-inner), 0px 0px 0px .2rem var(--color-main-40)");
+      background: var(--color-field-focus);
     }
     @at-root .collection-embed-form #{&} {
       @extend %fieldNoShadow;

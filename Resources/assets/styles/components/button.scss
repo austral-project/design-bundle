@@ -76,6 +76,10 @@
         margin-left: 0;
       }
     }
+    &.warning {
+      --background-color-button-picto-with-background: var(--color-red-10) !important;
+      --color-button-picto-with-background-hover: var(--color-red-100) !important;
+    }
     .image {
       @include flex-display(flex);
       @include justify-content(center);

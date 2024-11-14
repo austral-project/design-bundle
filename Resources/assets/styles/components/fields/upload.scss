@@ -6,8 +6,7 @@
   @include justify-content(center);
   @include transition-default();
   position:relative;
-  height: 25rem;
-  background: var(--color-white);
+  min-height: 25rem;
   border: 0.2rem solid var(--color-white);
   cursor:pointer;
   z-index: 10;

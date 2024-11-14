@@ -123,7 +123,7 @@
       @extend .font-poppins-m-12;
       @include transition-default();
       @include radius(0);
-      background: var(--color-white);
+      background: transparent;
       border-color: var(--color-main-10);
       min-height: auto;
       .choices__list--single {
@@ -131,7 +131,7 @@
       }
     }
     .choices__input {
-      background: var(--color-white);
+      background: transparent;
       padding: 1.5rem;
       border:none;
       transition: none;
@@ -169,7 +169,7 @@
       }
       &:before {
         @include radius(100%);
-        background: var(--background-color-button-picto-with-background);
+        background: var(--color-white);
         position: absolute;
         content: "";
         height: 1.5rem;

@@ -12,6 +12,11 @@
   @at-root .field #{&} {
     margin: 1.5rem 1.5rem 1.5rem 0;
   }
+  @at-root .field-textareaType #{&} {
+    margin: .5rem 1rem 1.5rem 0;
+    position:absolute;
+    right: 0;
+  }
   @at-root .field.field-fileType #{&} {
     position:absolute;
     right: 0;
