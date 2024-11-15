@@ -34,6 +34,20 @@
           padding:2.5rem 0.5rem 0.5rem;
         }
       }
+      &[data-type*="select-one"] {
+        .choices__inner {
+          border:0;
+          padding-top: 2.3rem;
+          padding-bottom: 0.5rem;
+          .choices__list--single {
+            padding: 0 !important;
+            .choices__item {
+              padding: 0 !important;
+              line-height: 1.8rem;
+            }
+          }
+        }
+      }
     }
   }
 }

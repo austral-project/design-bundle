@@ -69,6 +69,20 @@ export default class Select extends abstractField {
         if(this.viewByChoice) {
           this.viewByChoice.changeValue(event.detail.choice.value);
         }
+
+        if(!event.detail.choice.value) {
+          let parentAnimate = this.element.closest(".animate");
+          if(parentAnimate) {
+            parentAnimate.classList.remove("active");
+          }
+        }
+        else {
+          let parentAnimate = this.element.closest(".animate");
+          if(parentAnimate) {
+            parentAnimate.classList.add("active");
+          }
+        }
+
         if(this.element.dataset.hasOwnProperty("refresh")) {
           var response = new Response();
           response.setReplaceState(true)
@@ -86,6 +100,7 @@ export default class Select extends abstractField {
         }
         MiscEvent.dispatch("component::form.change", { field: this, key: this.element.getAttribute("id"), change: event.detail.choice.value !== this.initialValue }, this.formContainer);
       }
+      MiscEvent.dispatch("component::select:choice:after", {}, this.element);
     }, this.element);
 
     MiscEvent.addListener("addItem", () => {
