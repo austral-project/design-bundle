@@ -350,7 +350,7 @@
     @include transition-default();
     @include box-shadow-arguments("var(--element-input-box-shadow-inner)");
     @include radius(0);
-    border: 0.1rem solid var(--color-main-10);
+    border: 0.1rem solid var(--color-white);
     background: var(--color-white);
     color: var(--color-black);
     &.hover {

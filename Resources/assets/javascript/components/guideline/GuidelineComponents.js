@@ -37,9 +37,17 @@ export default class GuidelineComponents extends abstractComponent {
       }, 800);
     });
 
-    MiscEvent.addListener("click", ()=>{
-      this.sizeByWindowSize(true);
-    }, this.buttonFull);
+
+    this.element.querySelectorAll("*[data-modal-open]").forEach((el) => {
+      MiscEvent.addListener("click", ()=>{
+        this.modalOpen();
+      }, el);
+    });
+    this.element.querySelectorAll("*[data-modal-close]").forEach((el) => {
+      MiscEvent.addListener("click", ()=>{
+        this.modalClose();
+      }, el);
+    });
 
     MiscEvent.addListener("click", ()=>{
       this.reverse = this.reverse === true ? false : true;
@@ -60,6 +68,16 @@ export default class GuidelineComponents extends abstractComponent {
       this.sizeByWindowSize();
     }, window);
 
+  }
+
+  modalOpen()
+  {
+    this.element.classList.add("is-modal-open");
+  }
+
+  modalClose()
+  {
+    this.element.classList.remove("is-modal-open");
   }
 
   selectRemoveValue()

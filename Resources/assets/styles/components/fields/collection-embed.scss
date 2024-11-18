@@ -50,7 +50,6 @@
       &.group-column,
       &.group-row {
         margin: 0;
-        border:none;
         .group-col {
           margin:0;
           padding: 0;
@@ -64,15 +63,17 @@
         }
       }
       &.group-column {
+        border-bottom:none;
         > .group-col {
           height: 100%;
-          .field {
-            border-bottom: 0 !important;
-          }
         }
       }
       &.group-row {
+        &:last-child {
+          border-bottom:none;
+        }
         > .group-col {
+          border-bottom:none;
           .field {
             border-right: 0 !important;
           }
@@ -402,10 +403,17 @@
                 }
               }
             }
-
+            &.group-parameters-fields-container,
             &.group-layout-fields-container {
               > .group-fields-content {
                 margin-bottom: 0;
+                &.group-row {
+                  border-bottom: 0.1rem solid var(--color-main-10);
+                }
+              }
+            }
+            &.group-layout-fields-container {
+              > .group-fields-content {
                 > .group-col{
                   padding-bottom: 0.6rem;
                   &:after {
@@ -732,14 +740,11 @@
                 height: auto;
                 .group-col {
                   .field-content {
-                    min-height: 4rem;
-                    height: 4rem;
                   }
                 }
               }
               .field-select-type .choices[data-type*="select-tag"] .choices__inner,
               .field-select-type .choices[data-type*="select-one"] .choices__inner {
-                padding: 0.5rem;
                 border:0;
               }
               .field-content{

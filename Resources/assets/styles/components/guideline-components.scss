@@ -7,7 +7,22 @@
   background: var(--color-guideline-background);
 }
 .guideline-components {
-  .guideline-parameters {
+
+  &.is-modal-open {
+    .guideline-components-parameters-container,
+    .guideline-overlay {
+      pointer-events: auto;
+    }
+    .guideline-overlay {
+      opacity: 1;
+    }
+    .guideline-components-parameters-container {
+      right:0rem;
+      opacity: 1;
+    }
+  }
+
+  .guideline-sizes {
     padding: 1rem 1rem 3rem;
     .screen-select-content {
       width: 15rem;
@@ -99,7 +114,7 @@
       }
     }
   }
-  .guideline-parameters,
+  .guideline-sizes,
   .guideline-container {
     @include flex-display();
     @include justify-content(center);
@@ -110,6 +125,60 @@
     *[data-guideline-container] {
       box-shadow: 0px 0px 0px 20px var(--color-guideline-iframe-border);
       background: var(--color-guideline-iframe-border);
+    }
+  }
+  .guideline-overlay {
+    @include transition-default(all, 300ms);
+    background: rgba(0,0,0,0.5);
+    top:0;
+    left:0;
+    width: 100vw;
+    height: 100vh;
+    position:fixed;
+    z-index:10;
+    pointer-events: none;
+    opacity: 0;
+  }
+  .guideline-components-parameters-container {
+    @include transition-default(all, 300ms);
+    position:fixed;
+    z-index:15;
+    top:0;
+    right:-10rem;
+    opacity: 0;
+    pointer-events: none;
+    width: 50rem;
+    background: var(--color-white);
+    overflow-y: auto;
+    height: 100vh;
+    .top {
+      position:relative;
+      height: 2rem;
+    }
+    .close-modal {
+      cursor:pointer;
+      position:absolute;
+      right: 1rem;
+      top: 1rem;
+      font-size: 1.8rem;
+    }
+    .guideline-component-parameters {
+      padding: 0 2rem;
+      margin: 2rem 0;
+      .title {
+        display:block;
+        @extend .font-poppins-sb-18;
+        padding: 1rem;
+        background: var(--color-main-10);
+      }
+      .button-action-container {
+        position:absolute;
+        top:1rem;
+        right: 1rem;
+      }
+    }
+    .form-container {
+      padding: 0;
     }
   }
 }

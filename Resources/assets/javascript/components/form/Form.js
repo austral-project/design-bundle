@@ -1,4 +1,6 @@
 import abstractAction from "./../action/abstractAction";
+import Config from "../../../../../../../../assets/vendor/javascript/config/Config";
+import MiscEvent from "../../../../../../../../assets/vendor/javascript/event/Event";
 
 export default class Form extends abstractAction {
 
@@ -55,6 +57,9 @@ export default class Form extends abstractAction {
         else {
           this.removeAnimateToChange();
         }
+      }
+      if(this.element.classList.contains("auto-send") && event.detail.change === true) {
+        MiscEvent.dispatch("submit", {}, this.element);
       }
     }, this.element);
   }
