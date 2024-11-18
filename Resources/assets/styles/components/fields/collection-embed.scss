@@ -407,7 +407,7 @@
               > .group-fields-content {
                 margin-bottom: 0;
                 > .group-col{
-                  border-bottom: 0.1rem solid var(--color-main-10);
+                  padding-bottom: 0.6rem;
                   &:after {
                     content: "";
                     display:block;
