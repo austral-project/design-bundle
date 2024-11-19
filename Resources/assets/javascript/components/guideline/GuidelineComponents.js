@@ -89,7 +89,7 @@ export default class GuidelineComponents extends abstractComponent {
   sizeByWindowSize(full = false)
   {
     let width = window.innerWidth - 40;
-    let height = window.innerHeight - this.element.querySelector(".guideline-parameters").offsetHeight - 20;
+    let height = window.innerHeight - this.element.querySelector(".guideline-sizes").offsetHeight - 20;
     let isResize = false;
     if(width < this.guidelineContainer.offsetWidth || full)
     {
