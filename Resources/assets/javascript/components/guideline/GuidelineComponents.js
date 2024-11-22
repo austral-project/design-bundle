@@ -50,11 +50,9 @@ export default class GuidelineComponents extends abstractComponent {
     });
 
     MiscEvent.addListener("click", ()=>{
-      this.reverse = this.reverse === true ? false : true;
-      let currentWidth = this.choiceWidth.value;
-      let currentHeight = this.choiceHeight.value;
-      this.choiceWidth.value = currentHeight;
-      this.choiceHeight.value = currentWidth;
+      this.reverse = this.reverse !== true;
+      this.choiceWidth.value = this.choiceHeight.value;
+      this.choiceHeight.value =  this.choiceWidth.value;
       if(this.reverse === true) {
         this.buttonSwitch.classList.add("is-reverse");
       }
@@ -63,6 +61,10 @@ export default class GuidelineComponents extends abstractComponent {
       }
       this.updateGuidelineContainer();
     }, this.buttonSwitch);
+
+    MiscEvent.addListener("click", () => {
+      this.sizeByWindowSize(true);
+    }, this.buttonFull);
 
     MiscEvent.addListener("resize", () => {
       this.sizeByWindowSize();
