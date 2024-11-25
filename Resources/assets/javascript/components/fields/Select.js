@@ -27,7 +27,7 @@ export default class Select extends abstractField {
         this.options['searchEnabled'] = false;
       }
     }
-    if(!this.element.querySelector("option[value='']") && this.element.dataset.valueNull !== undefined)
+    if(!this.element.querySelector("option[value='']") && (this.element.dataset.nullValue !== undefined || this.element.dataset.valueNull !== undefined))
     {
       let option = document.createElement("option");
       option.setAttribute("value", "");

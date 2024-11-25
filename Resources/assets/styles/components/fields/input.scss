@@ -479,7 +479,6 @@
     @include justify-content(flex-start);
     cursor:pointer;
     position: relative;
-    border: 0.1rem solid var(--color-main-10);
     @include transition-default();
     text-transform: uppercase;
     &:focus {
@@ -549,9 +548,11 @@
     resize: vertical;
   }
 }
-.central-container {
-  .field:not(.field-repeatedType):not(.field-entityType-multi):not(.field-checkboxType):not(.field-choiceType-radio) {
-    border: 0;
+.right-container {
+  .field {
+    &:not(.field-repeatedType):not(.field-entityType-multi):not(.field-select-type-multi):not(.field-choiceType-checkbox):not(.field-checkboxType):not(.field-choiceType-radio) {
+      border: 0.1rem solid var(--color-main-10);
+    }
   }
 }
 
