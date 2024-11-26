@@ -101,7 +101,7 @@ class Popin  extends abstractOpenClose {
   {
     [].forEach.call(this.element.querySelectorAll("*[data-popin-close]"), (el) => {
       this.element.classList.add('init');
-      if(!el.classList.contains("lose-popin-init"))
+      if(!el.classList.contains("close-popin-init"))
       {
         el.classList.add('close-popin-init');
         MiscEvent.addListener("click", (event) => {

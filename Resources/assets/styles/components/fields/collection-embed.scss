@@ -491,8 +491,10 @@
                 .collection-embed-element {
                   width: 25%;
                   padding: 0 0.1rem;
+                  border-right: 0.1rem solid var(--color-main-10);
                   .delete-content {
                     right:0;
+                    left: auto;
                     top:0.3rem;
                     padding: 0;
                   }
@@ -527,7 +529,6 @@
             }
             &.direction-group-column {
               .collection-embed-forms {
-                @include flex-direction(column);
                 @include justify-content(flex-start);
                 margin: -0.1rem 0;
 
