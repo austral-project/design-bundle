@@ -212,7 +212,12 @@
       .choices__inner {
         --element-input-box-shadow-inner: inset 0px 0px 0px .4rem var(--color-white);
         @include box-shadow-arguments("var(--element-input-box-shadow-inner)");
+        @include flex-display();
+        @include align-content(center);
+        @include align-items(center);
         padding: 1.5rem;
+        height: 100%;
+        min-height: 5rem;
       }
       .choices__list--dropdown {
         @include box-shadow(0,0,2rem,0,var(--color-shadow-black-rgba-10));

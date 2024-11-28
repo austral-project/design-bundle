@@ -118,8 +118,21 @@
   .guideline-container {
     @include flex-display();
     @include justify-content(center);
-    @include align-items(center);
-    @include align-content(center);
+    @include align-items(stretch);
+    @include align-content(stretch);
+    .field-content,
+    .field {
+      height: 100%;
+    }
+    .fields-content {
+      .field-content {
+        &.animate {
+          label:not(.not-animate) {
+            top: 1.8rem;
+          }
+        }
+      }
+    }
   }
   .guideline-container {
     *[data-guideline-container] {

@@ -436,16 +436,24 @@
   .group-fields-container {
     margin-top: 0;
     .group-fields-name {
+      padding-top: 0!important;
       padding-left: 0!important;
+      border: none!important;
+      background: transparent!important;
     }
     .group-fields-content {
       &.group-row {
         border:none;
         .group-col {
           border: none;
+          height: auto !important;
+          .field-content {
+            height: auto !important;
+          }
         }
       }
     }
+
   }
   .group-popup-component-link-editor-fields-container {
     min-height: 56rem;
@@ -502,6 +510,7 @@
       }
     }
   }
+
 }
 
 .popin-link-editor .button-content {

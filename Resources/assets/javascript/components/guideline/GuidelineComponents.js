@@ -51,8 +51,10 @@ export default class GuidelineComponents extends abstractComponent {
 
     MiscEvent.addListener("click", ()=>{
       this.reverse = this.reverse !== true;
-      this.choiceWidth.value = this.choiceHeight.value;
-      this.choiceHeight.value =  this.choiceWidth.value;
+      let newWidth = this.choiceHeight.value;
+      let newHeight = this.choiceWidth.value;
+      this.choiceWidth.value = newWidth;
+      this.choiceHeight.value =  newHeight;
       if(this.reverse === true) {
         this.buttonSwitch.classList.add("is-reverse");
       }
