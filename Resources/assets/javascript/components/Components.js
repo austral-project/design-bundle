@@ -15,6 +15,7 @@ import Guideline from "./guideline/Guideline";
 import GuidelineComponents from "./guideline/GuidelineComponents";
 import Collapse from "./collapse/Collapse";
 import Tab from "./tab/Tab"
+import Search from "./search/search"
 
 export default class Components {
 
@@ -31,6 +32,7 @@ export default class Components {
     MultiUser.initComponent();
     Toggle.initComponent();
     Tab.initComponent();
+    Search.initComponent();
     Aside.initComponent();
     Collapse.initComponent();
     Toast.initComponent();

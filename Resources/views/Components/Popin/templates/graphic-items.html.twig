@@ -29,6 +29,12 @@
             <div class="list-container-scroll">
               {% for key, icons in graphicItems %}
                 <div class="list-container-by-item-type" data-tab="graphic-item-type-{{ key }}" >
+                  <div class="search-container">
+                    <div class="field">
+                      <input id="search" name="search" data-search="{{ key }}" value="" autocomplete="none">
+                      <span class="picto austral-picto-search"></span>
+                    </div>
+                  </div>
                   <div class="height">
                     <div class="top-content">
                       <h2 class="h2-title title">{{ icons.name ?? ("graphic-item.type."~key)|trans({}, "austral") }}</h2>
@@ -36,9 +42,11 @@
                     <div class="list-content">
                       <ul>
                         {% for icon in icons.pictos %}
-                          <li class="choice" data-grahic-element-choice="{{ icon.keyname }}">
-                            <div class="image-content">
-                              {{ (icon.keyname)|graphic_item_render|raw() }}
+                          <li class="choice" title="{{ icon.keyname }}" data-grahic-element-choice="{{ icon.keyname }}" data-search-element="{{ key }}" data-search-value="{{ icon.searchValue }}">
+                            <div class="detail" >
+                              <div class="image-content">
+                                {{ (icon.keyname)|graphic_item_render|raw() }}
+                              </div>
                             </div>
                           </li>
                         {% endfor %}

@@ -189,6 +189,18 @@
     .top-content {
       padding-bottom: 2rem;
     }
+    .search-container {
+      margin-bottom: 2rem;
+      .field {
+        position:relative;
+        .picto {
+          @include position-middle-y();
+          @extend .font-austral-16;
+          right: 2rem;
+          position:absolute;
+        }
+      }
+    }
     .list-content {
       overflow: hidden;
       ul {
@@ -202,16 +214,22 @@
           @include flex-direction(column);
           @include align-items(center);
           @include align-content(center);
+          @include justify-content(center);
           @include transition-default();
           background: var(--color-white);
           width: calc(100% / 15 - 1rem);
           aspect-ratio: 1/1;
           margin: 0.5rem;
-          padding: 1.5rem;
           cursor:pointer;
+          overflow: hidden;
           &.current,
           &:hover {
             background: var(--color-main-40);
+          }
+          .detail {
+            padding: 1.5rem;
+            height: 100%;
+            width: 100%;
           }
           .image-content {
             width: 100%;
