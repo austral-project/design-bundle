@@ -239,6 +239,7 @@
 
     > .collection-embed-forms {
       flex: 1;
+      > .editor-component-container > .collection-embed-element,
       > .collection-embed-element {
         &.selected {
           > .hover {
@@ -352,6 +353,9 @@
         width: 100%;
         padding: 0 5rem 0;
         position: relative;
+        &.editor-component-container {
+          padding: 0;
+        }
         &.no-between-insert {
           margin-bottom: 1rem;
           &:last-child {

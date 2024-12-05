@@ -12,7 +12,11 @@ export default class Sortable extends abstractComponent {
 
   create() {
     this.options = {
-      group: this.element.dataset.componentUuid,
+      group: {
+        name: this.element.dataset.componentUuid,
+        put: true,
+        pull: true,
+      },
       multiDrag: true,
       selectedClass: 'selected',
       animation: 150,
@@ -68,6 +72,13 @@ export default class Sortable extends abstractComponent {
       }
     };
     this.sortableJs = SortableJs.create(this.element, this.options);
+    let children = this.element.querySelectorAll(".editor-component-container");
+    if(children)
+    {
+      children.forEach((child) => {
+        this.sortableJs = SortableJs.create(child.querySelector(".children"), this.options);
+      });
+    }
     this.initInput();
   }
 
@@ -93,7 +104,9 @@ export default class Sortable extends abstractComponent {
     }, this.element);
 
 
-    [].forEach.call(this.element.children, (element) => {
+    let childrenElement = this.element.dataset.sortableDraggable ? this.element.querySelectorAll(this.element.dataset.sortableDraggable) : this.element.children;
+    console.log(childrenElement);
+    [].forEach.call(childrenElement, (element) => {
       MiscEvent.addListener("mouseover", (event) => {
         if(element.querySelector(".col-content")) {
           element.querySelector(".col-content").classList.add('hover');
