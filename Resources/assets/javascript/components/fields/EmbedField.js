@@ -53,6 +53,13 @@ export default class EmbedField  extends abstractField {
         });
       });
     }
+    [].forEach.call(this.element.querySelectorAll(".editor-component-container > .collections-add-content"), (element) => {
+      [].forEach.call(element.querySelectorAll(".add-new-collection-embed"), (button) => {
+        button.addEventListener("click", (e) => {
+          MiscEvent.dispatch("component::embed.add", {"button": button}, this.element);
+        });
+      });
+    });
 
     if(this.element.classList.contains("component-file-children") && this.hasOneTemplate())
     {
@@ -237,9 +244,8 @@ export default class EmbedField  extends abstractField {
     var templateName = button.dataset.collectionEmbedChoiceType;
     var collectionParentId = button.dataset.collectionParentId ?? "";
     var collectionEmbedAppend = this.element.querySelector(button.dataset.collectionEmbedAppend);
+    var collectionAppendChildren = button.dataset.collectionAppendChildren ? this.element.querySelector(button.dataset.collectionAppendChildren) : "";
     let numElement = collectionEmbedAppend.children.length+1;
-
-    console.log(collectionEmbedAppend);
 
     if(this.fieldsTemplate[templateName] !== undefined)
     {
@@ -282,18 +288,47 @@ export default class EmbedField  extends abstractField {
         this.betweenInsert.parentNode.parentNode.insertBefore(templateParser.body.firstChild, this.betweenInsert.parentNode);
         this.betweenInsert = false;
       }
+      else if(collectionAppendChildren)
+      {
+        collectionAppendChildren.append(templateParser.body.firstChild);
+      }
       else
       {
         collectionEmbedAppend.append(templateParser.body.firstChild);
       }
 
-      if(collectionEmbedAppend.closest("*[data-sortable]"))
+      if(collectionEmbedAppend.hasAttribute("data-sortable"))
+      {
+        MiscEvent.dispatch("component::sortable.refresh", {}, collectionEmbedAppend);
+      }
+      else if(collectionEmbedAppend.closest("*[data-sortable]"))
       {
         MiscEvent.dispatch("component::sortable.refresh", {}, collectionEmbedAppend.closest("*[data-sortable]"));
       }
 
       this.lastTemplateAdd = collectionEmbedAppend.querySelector(".add-new-embed-template");
       this.lastTemplateAdd.classList.remove("add-new-embed-template");
+
+      let editorComponentContainerInputId = this.lastTemplateAdd.querySelector("input[data-editor-component-container-input-id]");
+      if(editorComponentContainerInputId)
+      {
+        let editorComponentContainer = editorComponentContainerInputId.closest("*[data-editor-component-container-id]");
+        if(editorComponentContainer)
+        {
+          editorComponentContainerInputId.value = editorComponentContainer.getAttribute("data-editor-component-container-id");
+        }
+        else
+        {
+          editorComponentContainerInputId.value = null;
+        }
+      }
+
+      [].forEach.call(this.lastTemplateAdd.querySelectorAll(".add-new-collection-embed"), (button) => {
+        button.addEventListener("click", (e) => {
+          MiscEvent.dispatch("component::embed.add", {"button": button}, this.element);
+        });
+      });
+
       [].forEach.call(this.element.querySelectorAll(".init-form"), (el) => {
         this.initActions(el);
       });

@@ -71,12 +71,15 @@ export default class Sortable extends abstractComponent {
         SortableJs.utils.deselect(evt.items[i]);
       }
     };
-    this.sortableJs = SortableJs.create(this.element, this.options);
+    this.sortableJs = [];
+    this.sortableJs.push(SortableJs.create(this.element, this.options));
     let children = this.element.querySelectorAll(".editor-component-container");
     if(children)
     {
       children.forEach((child) => {
-        this.sortableJs = SortableJs.create(child.querySelector(".children"), this.options);
+        if(child.querySelector(".children")) {
+          this.sortableJs.push(SortableJs.create(child.querySelector(".children"), this.options));
+        }
       });
     }
     this.initInput();
@@ -105,7 +108,6 @@ export default class Sortable extends abstractComponent {
 
 
     let childrenElement = this.element.dataset.sortableDraggable ? this.element.querySelectorAll(this.element.dataset.sortableDraggable) : this.element.children;
-    console.log(childrenElement);
     [].forEach.call(childrenElement, (element) => {
       MiscEvent.addListener("mouseover", (event) => {
         if(element.querySelector(".col-content")) {
@@ -127,8 +129,19 @@ export default class Sortable extends abstractComponent {
   }
 
   refresh() {
-    this.sortableJs.destroy();
-    this.sortableJs = SortableJs.create(this.element, this.options);
+    this.sortableJs.forEach((element) => {
+      element.destroy();
+    });
+    this.sortableJs.push(SortableJs.create(this.element, this.options));
+    let children = this.element.querySelectorAll(".editor-component-container");
+    if(children)
+    {
+      children.forEach((child) => {
+        if(child.querySelector(".children")) {
+          this.sortableJs.push(SortableJs.create(child.querySelector(".children"), this.options));
+        }
+      });
+    }
     this.initInput();
   }
 
@@ -148,6 +161,18 @@ export default class Sortable extends abstractComponent {
             sortableInputElements[parent.dataset.componentUuid] = [];
           }
           sortableInputElements[parent.dataset.componentUuid].push(el);
+        }
+      });
+
+      [].forEach.call(this.element.querySelectorAll("input[data-editor-component-container-input-id]"), (el, index) => {
+        let editorComponentContainer = el.closest("*[data-editor-component-container-id]");
+        if(editorComponentContainer)
+        {
+          el.value = editorComponentContainer.getAttribute("data-editor-component-container-id");
+        }
+        else
+        {
+          el.value = null;
         }
       });
 
