@@ -383,6 +383,7 @@
         width: 50%;
         margin: 0 0 0 0.5rem;
         padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+        background: var(--color-white);
         .choices__list {
           overflow: scroll;
           @include flex-display();
@@ -394,6 +395,7 @@
       }
       .choices__input {
         width: calc(100%/2 - 0.5rem) !important;
+        background: var(--color-white);
         position:absolute;
         left:0rem;
         top:-0rem;
