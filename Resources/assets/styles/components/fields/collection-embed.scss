@@ -56,9 +56,13 @@
           .fields-content,
           .form-type-content,
           .group-fields-container,
-          .group-column,
-          .field {
+          .group-column {
             height: 100%;
+            .animate {
+              .field {
+                height: 100%;
+              }
+            }
           }
         }
       }
@@ -604,7 +608,7 @@
             > .group-fields-name {
               @extend .font-poppins-m-13-uppercase;
               margin:0;
-              padding: 1rem 2rem;
+              padding: 1rem 1rem;
               border-bottom:0.1rem solid var(--color-main-10);
               background:var(--color-grey-10);
             }
