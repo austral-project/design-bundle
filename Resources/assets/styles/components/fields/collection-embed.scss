@@ -10,7 +10,7 @@
 
   .field-collection-embed-content {
     --element-embed-element-background: var(--color-white);
-    margin: 0;
+    margin: 0 !important;
     &.child-color {
       .collection-embed-fields {
         &.color-1 {
@@ -57,6 +57,9 @@
           .form-type-content,
           .group-fields-container,
           .group-column {
+            &.fields-content-hidden-fieldset {
+              height: 0;
+            }
             height: 100%;
             .animate {
               .field {
@@ -197,6 +200,7 @@
 
     > .collection-embed-forms {
       > .collection-embed-element {
+        margin-bottom: 2rem;
         > .hover {
           > .collection-embed-form {
             > .sortable-content {
@@ -218,7 +222,8 @@
     .collections-add-content {
       order: 1;
       flex: 1;
-      width: 100%;
+      max-width: 100%;
+      min-width: 24%;
       margin-top: 1rem;
     }
     &.block-contenu-embed {
@@ -240,6 +245,23 @@
       }
     }
 
+    .collection-embed-fields-children {
+      &.direction-group-row {
+        > .collection-embed-forms {
+          > .collection-embed-element {
+            &.direction-group-row {
+              > .hover {
+                > .collection-embed-form {
+                  > .position-view-content {
+                    opacity: 1 !important;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
 
     > .collection-embed-forms {
       flex: 1;
@@ -356,7 +378,9 @@
       .collection-embed-element {
         width: 100%;
         padding: 0 5rem 0;
-        position: relative;
+        .hover {
+          position: relative;
+        }
         &.editor-component-container {
           > .hover > .collection-embed-form {
             .group-fields-content.no-fields {
@@ -375,14 +399,12 @@
           }
         }
         &.no-between-insert {
-          margin-bottom: 1rem;
           &:last-child {
             margin-bottom: 0rem;
           }
         }
         &.component-container {
           .component-values {
-            background: var(--color-white);
             min-height: 4rem;
           }
         }
@@ -473,6 +495,7 @@
                   }
                   .field {
                     padding: 0.5rem;
+                    height: 100%;
                     &:not(.field-repeatedType):not(.field-entityType-multi):not(.field-select-type-multi):not(.field-checkboxType):not(.field-choiceType-checkbox):not(.field-choiceType-radio) {
                       &:hover {
                         background: var(--color-field-hover);
@@ -499,6 +522,7 @@
                 @include justify-content(flex-start);
                 @include flex-wrap(wrap);
                 margin: 0;
+                gap: 0.1rem;
 
                 .collections-add-content {
                   @include transition-default();
@@ -511,9 +535,8 @@
                   }
                 }
                 .collection-embed-element {
-                  width: 25%;
-                  padding: 0 0.1rem;
-                  border-right: 0.1rem solid var(--color-main-10);
+                  width: calc(25% - (0.3rem / 4));
+                  padding: 0;
                   .delete-content {
                     right:0;
                     left: auto;
@@ -530,6 +553,7 @@
                     @extend .font-poppins-m-13-uppercase;
                     padding: 0;
                     top: 1.2rem;
+                    z-index: 100;
                     position:absolute;
                   }
                   > .hover {
@@ -684,6 +708,7 @@
         .group-fields-content {
           .form-type-content {
             position:relative;
+            width: 100%;
             .button-add-link {
               .button {
                 &.view {
