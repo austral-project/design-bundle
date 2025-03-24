@@ -77,8 +77,15 @@ export default class Sortable extends abstractComponent {
     if(children)
     {
       children.forEach((child) => {
-        if(child.querySelector(".children")) {
-          this.sortableJs.push(SortableJs.create(child.querySelector(".children"), this.options));
+        if(child.querySelector(".container-children-row")) {
+          child.querySelectorAll(".container-children-row .container-children-col .children").forEach((childChildren) => {
+            this.sortableJs.push(SortableJs.create(childChildren, this.options));
+          });
+        }
+        else {
+          if(child.querySelector(".children")) {
+            this.sortableJs.push(SortableJs.create(child.querySelector(".children"), this.options));
+          }
         }
       });
     }

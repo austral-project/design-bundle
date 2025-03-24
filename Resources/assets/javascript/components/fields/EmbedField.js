@@ -60,6 +60,13 @@ export default class EmbedField  extends abstractField {
         });
       });
     });
+    [].forEach.call(this.element.querySelectorAll(".editor-component-container .container-children-row > .container-children-col > .collections-add-content"), (element) => {
+      [].forEach.call(element.querySelectorAll(".add-new-collection-embed"), (button) => {
+        button.addEventListener("click", (e) => {
+          MiscEvent.dispatch("component::embed.add", {"button": button}, this.element);
+        });
+      });
+    });
 
     if(this.element.classList.contains("component-file-children") && this.hasOneTemplate())
     {
@@ -247,6 +254,8 @@ export default class EmbedField  extends abstractField {
     var collectionAppendChildren = button.dataset.collectionAppendChildren ? this.element.querySelector(button.dataset.collectionAppendChildren) : "";
     let numElement = collectionEmbedAppend.children.length+1;
 
+
+    console.log(button.dataset.collectionAppendChildren);
     if(this.fieldsTemplate[templateName] !== undefined)
     {
       var template = this.fieldsTemplate[templateName] ;
@@ -310,6 +319,7 @@ export default class EmbedField  extends abstractField {
       this.lastTemplateAdd.classList.remove("add-new-embed-template");
 
       let editorComponentContainerInputId = this.lastTemplateAdd.querySelector("input[data-editor-component-container-input-id]");
+      console.log(editorComponentContainerInputId);
       if(editorComponentContainerInputId)
       {
         let editorComponentContainer = editorComponentContainerInputId.closest("*[data-editor-component-container-id]");
