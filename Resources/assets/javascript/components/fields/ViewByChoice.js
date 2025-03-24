@@ -22,7 +22,7 @@ export default class ViewByChoice extends abstractField {
     if(this.element.dataset.viewByChoicesElement) {
       this.elementsViewByChoices = this.element.closest(this.element.dataset.viewByChoicesElement).querySelectorAll(this.viewClassChildren);
     }
-    else if(this.element.dataset.viewByChoicesParent) {
+    else if(this.element.dataset.viewByChoicesParent && this.element.closest(this.element.dataset.viewByChoicesParent)) {
       this.elementsViewByChoices = [];
       [].forEach.call(this.element.closest(this.element.dataset.viewByChoicesParent).querySelectorAll(this.viewClassChildren), (el) => {
         if(el.closest(".group-col") !== undefined && el.closest(".group-col") !== null) {
