@@ -1,6 +1,6 @@
 import abstractAction from "./../action/abstractAction";
-import Config from "../../../../../../../../assets/vendor/javascript/config/Config";
-import MiscEvent from "../../../../../../../../assets/vendor/javascript/event/Event";
+import Config from "./../../config/Config";
+import MiscEvent from "./../../misc/Event";
 
 export default class Form extends abstractAction {
 

@@ -1,5 +1,5 @@
 import abstractComponent from "../abstract";
-import MiscEvent from "../../../../../../../../assets/vendor/javascript/event/Event";
+import MiscEvent from "./../../misc/Event";
 
 export default class GuidelineComponents extends abstractComponent {
 

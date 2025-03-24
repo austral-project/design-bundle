@@ -390,6 +390,16 @@
           > .children {
             border: 0.4rem solid var(--color-white);
             padding-bottom: 5rem;
+
+            &[data-editor-component-container-id] {
+              @include flex-display();
+              @include flex-wrap(wrap);
+              > .editor-component-container {
+                width: 50%;
+              }
+            }
+
+
             .collection-embed-element {
               padding: 0 0.4rem 0;
             }
