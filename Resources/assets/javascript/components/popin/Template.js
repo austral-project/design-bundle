@@ -128,7 +128,7 @@ class Template {
       if(this.originElements.dataset.popinCloneFields)
       {
         element.innerHTML = this.originElements.innerHTML;
-        [].forEach.call(this.originElements.querySelectorAll("input"), (originInput) => {
+        [].forEach.call(this.originElements.querySelectorAll("input, textarea"), (originInput) => {
           this.popin.element.querySelector("#"+originInput.id).value = originInput.value;
         });
       }
@@ -340,7 +340,7 @@ class Template {
         if(command === "update") {
           [].forEach.call(this.popin.element.querySelectorAll("*[data-popin-clone-fields]"), (element) => {
             if (this.originElements.dataset.popinCloneFields) {
-              [].forEach.call(this.popin.element.querySelectorAll("input"), (popinInput) => {
+              [].forEach.call(this.popin.element.querySelectorAll("input, textarea"), (popinInput) => {
                 if(popinInput.id)
                 {
                   this.originElements.querySelector("#" + popinInput.id).value = popinInput.value;
