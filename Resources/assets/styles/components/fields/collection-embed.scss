@@ -749,10 +749,17 @@
                 }
               }
               position:absolute;
-              right:0.5rem;
-              top: 1rem;
+              right:1rem;
+              top: 1.2rem;
               .button {
                 opacity: 0;
+              }
+            }
+            .hover {
+              .button-add-link {
+                .button {
+                  opacity: 1;
+                }
               }
             }
           }
