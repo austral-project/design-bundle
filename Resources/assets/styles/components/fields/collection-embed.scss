@@ -321,6 +321,9 @@
                 z-index: 1;
                 opacity: 1;
               }
+              .content-button-parameters {
+                opacity: 1;
+              }
               > .position-view-content {
                 opacity: 0 !important;
               }
@@ -421,10 +424,11 @@
                 width: 50%;
               }
             }
-
-
             .collection-embed-element {
               padding: 0 0.4rem 0;
+              .content-button-parameters {
+                right: 0rem;
+              }
             }
           }
           > .collections-add-content {
@@ -905,6 +909,9 @@
           > .collection-embed-form {
             z-index: 100;
             @include box-shadow-arguments("var(--element-input-box-shadow-inner), 0px 0px 0px .4rem var(--color-main-20)");
+          }
+          .content-button-parameters {
+            opacity: 1;
           }
           .sortable-content {
             left: -4.5rem;
