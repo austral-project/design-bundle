@@ -199,6 +199,11 @@
     @include flex-direction(column);
 
     > .collection-embed-forms {
+      &.collection-embed-form-simple {
+        > .collection-embed-element {
+          margin-bottom: 0;
+        }
+      }
       > .collection-embed-element {
         margin-bottom: 2rem;
         > .hover {

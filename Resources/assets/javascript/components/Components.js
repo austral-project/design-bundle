@@ -23,9 +23,9 @@ export default class Components {
     Debug.startGroup("Component");
     Debug.startGroup("Init");
     MiscEvent.dispatch("component::load.start");
+    Sortable.initComponent();
     Form.initComponent();
     Delete.initComponent();
-    Sortable.initComponent();
     Guideline.initComponent();
     GuidelineComponents.initComponent();
 

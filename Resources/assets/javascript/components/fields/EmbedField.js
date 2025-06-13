@@ -11,6 +11,7 @@ export default class EmbedField  extends abstractField {
 
   create(element) {
     this.lastTemplateAdd = null;
+    this.sortableTimeout = null;
     super.create(element);
     if(this.element.dataset.collectionEmbedFieldsTemplate)
     {
@@ -114,7 +115,7 @@ export default class EmbedField  extends abstractField {
 
     if(this.childrenParameters.min > 0)
     {
-      let nbChildren = this.element.children[0].children.length-1;
+      let nbChildren = this.element.children[1].children.length;
       for(let i = nbChildren; i < this.childrenParameters.min; i++)
       {
         if(this.element.children[0].classList.contains("collections-add-content"))
@@ -183,7 +184,7 @@ export default class EmbedField  extends abstractField {
   {
     if(this.childrenParameters.max > 0)
     {
-      if((this.element.children[0].children.length-1) >= this.childrenParameters.max)
+      if((this.element.children[1].children.length) >= this.childrenParameters.max)
       {
         if(this.element.children[0].classList.contains("collections-add-content"))
         {
@@ -254,8 +255,6 @@ export default class EmbedField  extends abstractField {
     var collectionAppendChildren = button.dataset.collectionAppendChildren ? this.element.querySelector(button.dataset.collectionAppendChildren) : "";
     let numElement = collectionEmbedAppend.children.length+1;
 
-
-    console.log(button.dataset.collectionAppendChildren);
     if(this.fieldsTemplate[templateName] !== undefined)
     {
       var template = this.fieldsTemplate[templateName] ;
@@ -305,15 +304,17 @@ export default class EmbedField  extends abstractField {
       {
         collectionEmbedAppend.append(templateParser.body.firstChild);
       }
-
-      if(collectionEmbedAppend.hasAttribute("data-sortable"))
-      {
-        MiscEvent.dispatch("component::sortable.refresh", {}, collectionEmbedAppend);
-      }
-      else if(collectionEmbedAppend.closest("*[data-sortable]"))
-      {
-        MiscEvent.dispatch("component::sortable.refresh", {}, collectionEmbedAppend.closest("*[data-sortable]"));
-      }
+      clearTimeout(this.sortableTimeout);
+      this.sortableTimeout = setTimeout(() => {
+        if(collectionEmbedAppend.hasAttribute("data-sortable"))
+        {
+          MiscEvent.dispatch("component::sortable.refresh", {}, collectionEmbedAppend);
+        }
+        else if(collectionEmbedAppend.closest("*[data-sortable]"))
+        {
+          MiscEvent.dispatch("component::sortable.refresh", {}, collectionEmbedAppend.closest("*[data-sortable]"));
+        }
+      }, 500);
 
       this.lastTemplateAdd = collectionEmbedAppend.querySelector(".add-new-embed-template");
       this.lastTemplateAdd.classList.remove("add-new-embed-template");
