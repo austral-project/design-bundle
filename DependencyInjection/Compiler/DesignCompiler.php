@@ -27,7 +27,7 @@ class DesignCompiler implements CompilerPassInterface
    * Init Configuration Austral Admin with all parameters defined
    * @var ContainerBuilder $container
    */
-  public function process(ContainerBuilder $container)
+  public function process(ContainerBuilder $container): void
   {
     /*
      * Add auto definition Webpack Encore
