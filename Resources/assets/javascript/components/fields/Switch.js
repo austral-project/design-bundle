@@ -26,15 +26,17 @@ class Switch extends abstractField {
       this.initialValue = this.input.checked ? "checked" : "";
       this.switchAction = this.input.checked ? "tails" : "heads";
       this.switchClass();
-      this.input.addEventListener("change", (e) => {
-        this.switchAction = this.input.checked ? "tails" : "heads";
-        this.switchClass();
-      });
+      if(this.input) {
+        this.input.addEventListener("change", (e) => {
+          this.switchAction = this.input.checked ? "tails" : "heads";
+          this.switchClass();
+        });
+      }
     }
   }
 
   addEventListenerToChangeField() {
-    if(this.input.dataset.hasOwnProperty("viewByChoices"))
+    if(this.input &&  this.input.dataset.hasOwnProperty("viewByChoices"))
     {
       this.viewByChoice = new ViewByChoice(this.input, "view-by-choices");
     }
