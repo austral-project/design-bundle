@@ -1,8 +1,8 @@
-import SortableJs, {AutoScroll, Swap, MultiDrag } from 'sortablejs/modular/sortable.core.esm.js';
-SortableJs.mount(new AutoScroll(), new Swap(), new MultiDrag());
+import SortableJs, {AutoScroll, MultiDrag, Swap} from 'sortablejs/modular/sortable.core.esm.js';
 import abstractComponent from "./../abstract"
 import Request from "../../request/Request";
 import Response from "../../response/Response";
+SortableJs.mount(new AutoScroll(), new Swap(), new MultiDrag());
 
 export default class Sortable extends abstractComponent {
 
@@ -11,10 +11,25 @@ export default class Sortable extends abstractComponent {
   }
 
   create() {
+
+    let sortableGroup = this.element.getAttribute("data-sortable-group") ? this.element.getAttribute("data-sortable-group") : null;
+
+    let put = true;
+    if(sortableGroup)
+    {
+      if(sortableGroup)
+      {
+        put = (to, from)=>{
+          return (to.el.dataset.sortableGroup === from.el.dataset.sortableGroup);
+        };
+      }
+    }
+
+
     this.options = {
       group: {
-        name: this.element.dataset.componentUuid,
-        put: true,
+        name: sortableGroup ? sortableGroup : this.element.dataset.componentUuid,
+        put: put,
         pull: true,
       },
       multiDrag: true,

@@ -320,7 +320,6 @@ export default class EmbedField  extends abstractField {
       this.lastTemplateAdd.classList.remove("add-new-embed-template");
 
       let editorComponentContainerInputId = this.lastTemplateAdd.querySelector("input[data-editor-component-container-input-id]");
-      console.log(editorComponentContainerInputId);
       if(editorComponentContainerInputId)
       {
         let editorComponentContainer = editorComponentContainerInputId.closest("*[data-editor-component-container-id]");
