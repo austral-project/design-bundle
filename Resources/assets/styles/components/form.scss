@@ -251,3 +251,20 @@ fieldset {
 #field-valuesByDomains-content {
   margin: -1rem 0 1rem;
 }
+.editor-component-citation {
+  .file-upload-content {
+    min-height: 15rem;
+  }
+  .editor-component-author {
+    > .group-row {
+      > .group-col {
+        &:first-child {
+          width: 20rem;
+        }
+      }
+    }
+  }
+}
+.editor-component-addresses .group-fields-container.editor-component-address > .group-fields-content.group-column {
+  height: auto !important;
+}

@@ -115,8 +115,8 @@ export default class EmbedField  extends abstractField {
 
     if(this.childrenParameters.min > 0)
     {
-      let nbChildren = this.element.children[1].children.length;
-      for(let i = nbChildren; i < this.childrenParameters.min; i++)
+      let nbChildren = this.element.children[0].children.length;
+      for(let i = nbChildren; i < (this.childrenParameters.min+1); i++)
       {
         if(this.element.children[0].classList.contains("collections-add-content"))
         {
@@ -184,7 +184,7 @@ export default class EmbedField  extends abstractField {
   {
     if(this.childrenParameters.max > 0)
     {
-      if((this.element.children[1].children.length) >= this.childrenParameters.max)
+      if((this.element.children[0].children.length-1) >= this.childrenParameters.max)
       {
         if(this.element.children[0].classList.contains("collections-add-content"))
         {
@@ -204,13 +204,13 @@ export default class EmbedField  extends abstractField {
         if(this.element.children[0].classList.contains("collections-add-content"))
         {
           [].forEach.call(this.element.children[0].querySelectorAll(".add-new-collection-embed"), (button) => {
-            button.style.display = "block";
+            button.style.display = "flex";
           });
         }
         else
         {
           [].forEach.call(this.element.children[0].children[0].querySelectorAll(".add-new-collection-embed"), (button) => {
-            button.style.display = "block";
+            button.style.display = "flex";
           });
         }
       }
@@ -235,7 +235,7 @@ export default class EmbedField  extends abstractField {
           let deleteContent = children.querySelector(".hover .collection-embed-form .delete-content");
           if(deleteContent)
           {
-            deleteContent.style.display = "block";
+            deleteContent.style.display = "flex";
           }
         });
       }
