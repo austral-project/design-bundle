@@ -85,6 +85,15 @@ export default class Sortable extends abstractComponent {
       for (let i in evt.items) {
         SortableJs.utils.deselect(evt.items[i]);
       }
+      let sortableParentInput = evt.item.querySelector("input[data-collection-sortable-parent-id]");
+      if(sortableParentInput) {
+        let sortableParent = evt.item.closest("*[data-sortable-parent-id]");
+        if (sortableParent) {
+          sortableParentInput.value = sortableParent.getAttribute("data-sortable-parent-id");
+        } else {
+          sortableParentInput.value = null;
+        }
+      }
     };
     this.sortableJs = [];
     this.sortableJs.push(SortableJs.create(this.element, this.options));
