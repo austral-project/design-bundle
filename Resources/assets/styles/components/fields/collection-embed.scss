@@ -425,6 +425,10 @@
             &[data-editor-component-container-id] {
               @include flex-display();
               @include flex-wrap(wrap);
+              background: var(--color-grey-10);
+              > .collection-embed-element {
+                padding: 0 4rem;
+              }
               > .editor-component-container {
                 width: 50%;
               }
@@ -438,6 +442,7 @@
           }
           > .collections-add-content {
             margin-top: 0;
+            border-top: 0.1rem solid var(--color-main-10);
           }
         }
         &.no-between-insert {

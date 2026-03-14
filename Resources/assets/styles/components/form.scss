@@ -132,6 +132,13 @@ fieldset {
   .group-fields-name + .group-fields-content {
     margin-top: 0 !important;
   }
+
+  .fields-content-fieldset {
+    > .group-fields-container {
+      margin: 2rem 0 2rem;
+    }
+  }
+
 }
 
 .group-fields-container {
