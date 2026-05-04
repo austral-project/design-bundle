@@ -1,6 +1,7 @@
 .choice-element-container {
   @include flex-display(inline-flex);
   @include flex-direction(column);
+  height: 100%;
   &.full {
     width: 100%;
     .list-option-container {
@@ -79,6 +80,7 @@
       padding: 0.5rem 0;
     }
     &.horizontal {
+      height: 100%;
       @at-root .light#{&} {
         border: 0;
         padding: 0.5rem 0;
