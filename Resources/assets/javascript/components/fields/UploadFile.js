@@ -150,14 +150,14 @@ export default class UploadFile  extends abstractField {
     if(mimeTypeAccepted.length > 0 && !mimeTypeAccepted.includes(this.file.type))
     {
       hasError = true;
-      this.addError("austral.file.errors.mimeTypesJs");
+      this.addError("austral.file.errors.mimeTypesJs", {"__MIME_TYPE__": mimeTypeAccepted.join(", ")});
     }
 
     let sizeLimit = this.options["max-size"];
     if(this.file.size > sizeLimit)
     {
       hasError = true;
-      this.addError("austral.file.errors.maxSizeJs");
+      this.addError("austral.file.errors.maxSizeJs", {"__LIMIT__": sizeLimit, "__SIZE__": this.file.size});
     }
 
     if(!hasError)
@@ -179,12 +179,12 @@ export default class UploadFile  extends abstractField {
             if(imageSizes.minWidth !== undefined  && orrigineW < imageSizes.minWidth || imageSizes.minHeight !== undefined && orrigineH < imageSizes.minHeight)
             {
               hasError = true;
-              this.addError("austral.file.errors.dimensionMinJs");
+              this.addError("austral.file.errors.dimensionMinJs", {"__WIDTH__": orrigineW, "__HEIGHT__": orrigineH, "__WIDTH_ACCEPTED__": imageSizes.minWidth, "__HEIGHT_ACCEPTED__": imageSizes.minHeight});
             }
             else if(imageSizes.maxWidth !== undefined && imageSizes.maxWidth > 0 && orrigineW > imageSizes.maxWidth || imageSizes.maxHeight !== undefined && imageSizes.maxHeight > 0 && orrigineH > imageSizes.maxHeight)
             {
               hasError = true;
-              this.addError("austral.file.errors.dimensionMaxJs");
+              this.addError("austral.file.errors.dimensionMaxJs", {"__WIDTH__": orrigineW, "__HEIGHT__": orrigineH, "__WIDTH_ACCEPTED__": imageSizes.maxWidth, "__HEIGHT_ACCEPTED__": imageSizes.maxHeight});
             }
 
             if(!hasError)
@@ -248,10 +248,10 @@ export default class UploadFile  extends abstractField {
   }
 
 
-  addError(messageKey)
+  addError(messageKey, replace)
   {
     var error = document.createElement('li');
-    error.textContent = Translate.trans(messageKey);
+    error.textContent = Translate.trans(messageKey, replace);
     this.element.querySelector(".error-content .messages-content").append(error);
   }
 
