@@ -1,12 +1,8 @@
-####> Project ###
-/.settings/
-/.project
-/.idea
-/package-lock.json
-*~
-/node_modules/
-####< Project ###
-
-###> Mac ###
+/vendor/
+/composer.lock
+/.phpunit.cache/
+/.php-cs-fixer.cache
+/var/
+.idea/
+.vscode/
 .DS_Store
-###< Mac ###
