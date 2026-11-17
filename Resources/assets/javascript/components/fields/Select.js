@@ -1,3 +1,12 @@
+/*
+ * This file is part of the Austral Design Bundle package.
+ *
+ * (c) Austral <support@austral.dev>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 import Choices from "../../../vendor/javascript/choices.js/assets/scripts/choices";
 //import Choices from "choices.js/src/scripts/choices";
 import "choices.js/src/styles/choices.scss"

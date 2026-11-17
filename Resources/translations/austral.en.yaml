@@ -1,0 +1,20 @@
+popin:
+  linkEditor:
+    title:                                      Link editor
+    type:
+      internal:                                 Internal page
+      external:                                 External page
+      file:                                     File
+      email:                                    Email
+      phone:                                    Phone
+    value:                                      Link value
+    entitled:                                   Label
+    internalUrl:                                Internal URL
+    anchor:                                     Anchor
+    linkTitle:                                  Title
+    url:                                        Page URL
+    email:                                      Email
+    phone:                                      Phone
+    targetBlank:                                Open in a new tab
+  pageSelector:
+    title:                                      Page selector

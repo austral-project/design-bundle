@@ -1,46 +1,49 @@
 {
-  "name":                                     "austral/design-bundle",
-  "type":                                     "symfony-bundle",
-  "description":                              "Design system for Austral admin",
-  "keywords":                                 ["Austral", "Design system", "Symfony"],
-  "license":                                  "MIT",
-  "homepage":                                 "https://austral.dev",
-  "authors": [
-    {
-      "name":                                 "Matthieu Beurel",
-      "email":                                "matthieu@austral.dev",
-      "role":                                 "Developer"
+    "name": "austral/design-bundle",
+    "type": "symfony-bundle",
+    "description": "Design system for Austral admin",
+    "keywords": [
+        "Austral",
+        "Design system",
+        "Symfony"
+    ],
+    "license": "MIT",
+    "homepage": "https://austral.dev",
+    "authors": [
+        {
+            "name": "Matthieu Beurel",
+            "email": "matthieu@austral.dev",
+            "role": "Developer"
+        },
+        {
+            "name": "Guillaume Grimaud",
+            "email": "guillaume@austral.dev",
+            "role": "Designer"
+        }
+    ],
+    "require": {
+        "php": ">=8.2 <9.0",
+        "symfony/twig-bundle": "^7.4",
+        "twig/twig": "^3.0",
+        "twig/extra-bundle": "^3.0",
+        "twig/string-extra": "^3.2"
     },
-    {
-      "name":                                 "Guillaume Grimaud",
-      "email":                                "guillaume@austral.dev",
-      "role":                                 "Designer"
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "^3.64",
+        "phpstan/phpstan": "^2.0",
+        "phpstan/phpstan-symfony": "^2.0"
     },
-    {
-      "name":                                 "Clément Meunier",
-      "email":                                "clement@austral.dev",
-      "role":                                 "Developer"
-    }
-  ],
-  "require": {
-    "php":                                    "^8.0 || ^8.1 || ^8.2",
-
-    "symfony/twig-bundle":                    "^5.4 || ^6.4",
-
-    "twig/twig":                              "^3.0",
-    "twig/extra-bundle":                      "^3.0",
-    "twig/string-extra":                      "^3.2"
-  },
-  "require-dev": {
-  },
-  "suggest": {
-    "austral/admin-bundle":                   "^3.1"
-  },
-  "config": {
-    "sort-packages":                          true
-  },
-  "autoload": {
-    "psr-4": { "Austral\\DesignBundle\\": "" }
-  },
-  "minimum-stability":                        "dev"
+    "suggest": {
+        "austral/admin-bundle": "^4.0"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "autoload": {
+        "psr-4": {
+            "Austral\\DesignBundle\\": ""
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }

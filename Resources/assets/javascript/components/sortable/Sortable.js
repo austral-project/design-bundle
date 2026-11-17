@@ -1,3 +1,12 @@
+/*
+ * This file is part of the Austral Design Bundle package.
+ *
+ * (c) Austral <support@austral.dev>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 import SortableJs, {AutoScroll, MultiDrag, Swap} from 'sortablejs/modular/sortable.core.esm.js';
 import abstractComponent from "./../abstract"
 import Request from "../../request/Request";
