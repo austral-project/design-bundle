@@ -22,7 +22,7 @@
         }
     ],
     "require": {
-        "php": ">=8.2 <9.0",
+        "php": ">=8.4 <9.0",
         "symfony/twig-bundle": "^7.4",
         "twig/twig": "^3.0",
         "twig/extra-bundle": "^3.0",
