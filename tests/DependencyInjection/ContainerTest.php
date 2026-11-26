@@ -25,7 +25,8 @@ use Symfony\UX\TwigComponent\Attribute\AsTwigComponent;
 
 /**
  * The Twig components are declared explicitly (the bundle has no autoconfiguration): their tag twig.component
- * must give the same key and template as their #[AsTwigComponent] attribute, and every service must be created.
+ * must give the same configuration as their #[AsTwigComponent] attribute (key, template, expose_public_props,
+ * attributes_var), and every service must be created.
  */
 final class ContainerTest extends TestCase
 {
@@ -67,16 +68,19 @@ final class ContainerTest extends TestCase
    * @param class-string $class
    */
   #[DataProvider('components')]
-  public function testTheTagGivesTheKeyAndTheTemplateOfTheAttribute(string $class): void
+  public function testTheTagGivesTheConfigurationOfTheAttribute(string $class): void
   {
     $attributes = new \ReflectionClass($class)->getAttributes(AsTwigComponent::class);
     self::assertCount(1, $attributes, sprintf('%s must have the #[AsTwigComponent] attribute.', $class));
-    $arguments = $attributes[0]->getArguments();
+    $config = $attributes[0]->newInstance()->serviceConfig();
 
     $tags = self::loadExtension()->getDefinition($class)->getTag('twig.component');
     self::assertCount(1, $tags);
-    self::assertSame($arguments[0] ?? $arguments['name'] ?? null, $tags[0]['key'] ?? null);
-    self::assertSame($arguments['template'] ?? null, $tags[0]['template'] ?? null);
+    self::assertSame($config['key'], $tags[0]['key'] ?? null);
+    self::assertSame($config['template'] ?? null, $tags[0]['template'] ?? null);
+    // without expose_public_props, a component declared by its tag does not pass its public properties to the template
+    self::assertSame($config['expose_public_props'], $tags[0]['expose_public_props'] ?? false);
+    self::assertSame($config['attributes_var'], $tags[0]['attributes_var'] ?? 'attributes');
   }
 
   /**

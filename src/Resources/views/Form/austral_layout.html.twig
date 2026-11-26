@@ -288,9 +288,11 @@
     {%- set button_label = node.button.label ?? node.label -%}
     <li class="field-modal">
       <twig:Austral:Button htmlTag="button" type="button" class="{{ node.button.class }}" entitled="{{ button_label is not same as(false) and button_label is not null ? button_label|trans({}, translation_domain) : '' }}" data-modal-open="{{ node.id }}">
-        {%- if node.button.picto -%}
-          <twig:block name="picto"><twig:Austral:Picto name="{{ node.button.picto }}"/></twig:block>
-        {%- endif -%}
+        <twig:block name="picto">
+          {%- if node.button.picto -%}
+            <twig:Austral:Picto name="{{ node.button.picto }}"/>
+          {%- endif -%}
+        </twig:block>
       </twig:Austral:Button>
       <twig:Austral:Modal modalId="{{ node.id }}" classValue="{{ node.modal.class ?? '' }}">
         <twig:block name="content">
