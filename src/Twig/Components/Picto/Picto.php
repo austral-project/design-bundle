@@ -24,7 +24,6 @@ final class Picto
   public ?string $value = null;
   public ?string $size = 'md';
   public ?string $theme = 'stroke';
-  public bool $isGraphicItem = false;
 
   /**
    * @var array{path: list<string>, formats: list<string>, default: string}
@@ -66,9 +65,6 @@ final class Picto
       ->setAllowedValues('size', ['sm', 'md', 'lg'])
       ->addAllowedTypes('size', ['string']);
 
-    $resolver->setDefault('graphicItem', false)
-      ->addAllowedTypes('graphicItem', ['bool']);
-
     return $resolver->resolve($data) + $data;
   }
 
@@ -80,7 +76,7 @@ final class Picto
   #[PostMount]
   public function postMount(array $data): array
   {
-    if (!$this->value && false === $this->isGraphicItem)
+    if (!$this->value)
     {
       foreach ($this->componentPictoParameters['path'] as $path)
       {
@@ -96,11 +92,6 @@ final class Picto
         }
       }
     }
-    if ($this->isGraphicItem)
-    {
-      $this->theme = 'all';
-    }
-
     return $data;
   }
 }

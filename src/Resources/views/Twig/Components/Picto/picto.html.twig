@@ -1,7 +1,3 @@
 <span {{ attributes.defaults({class: "picto "~theme|default("stroke")~" size-"~size|default("default")}) }}>
-  {% if isGraphicItem %}
-    {{ name|graphic_item_render()|raw() }}
-  {% else %}
-    {{ value|raw() }}
-  {% endif %}
+  {{ value|raw() }}
 </span>
