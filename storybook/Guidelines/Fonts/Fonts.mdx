@@ -1,0 +1,40 @@
+import { Canvas, Meta, Primary, Controls, Story, ArgsTable } from '@storybook/addon-docs';
+import * as Fonts from './Fonts.stories';
+
+<Meta title="Guidelines/Fonts" parameters={{
+  viewMode: 'docs',
+  previewTabs: {
+    canvas: { hidden: true},
+  },
+}} />
+
+# Typography, CSS Variables & Utility Classes
+
+Typography plays a key role in the Design System. It ensures readability, builds a clear visual hierarchy, and reinforces the brand's tone of voice.
+
+This section introduces the font families, font styles, CSS variables, and utility classes available to create harmonious and accessible text layouts.
+
+<br/>
+
+## ✍️ Font Families
+
+The Design System uses a primary and optional secondary font family:
+> Fonts are loaded automatically when using the Design System stylesheet or the base layout component.
+
+<br/>
+
+## 🔠 Font 1
+<Story of={Fonts.Font1} />
+<br/><br/>
+
+## 🔠 Font 2
+<Story of={Fonts.Font2} />
+<br/><br/>
+
+## 🔠 Button
+<Story of={Fonts.Button} />
+<br/><br/>
+
+## 🔠 Form
+<Story of={Fonts.Form} />
+<br/><br/>

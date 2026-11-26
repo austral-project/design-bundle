@@ -1,0 +1,42 @@
+{% set class = 'button '~(pictoLoad|default() ? "button-loading" : "")~' align-'~align|default("center")~' size-'~size~' theme-'~theme|default("solid")~' color-'~color|default("primary")~(full|default() ? " full" : "")~(hideEntitled|default() ? " hide-entitled" : "") %}
+
+{% set pictoHtml %}{% block picto %}{% endblock %}{% endset %}
+{% set pictoRightHtml %}{% block pictoRight %}{% endblock %}{% endset %}
+{% if pictoHtml != '' or pictoRightHtml != '' %}
+  {% set class = class~" has-picto" %}
+{% endif %}
+{% if pictoHtml != '' %}
+  {% set class = class~" has-picto-left" %}
+{% endif %}
+{% if pictoRightHtml != '' %}
+  {% set class = class~" has-picto-right" %}
+{% endif %}
+
+<{{ htmlTag|default("a") }} {{ attributes.defaults({class: class}) }} title="{{ title }}"  {% if animate %}data-button-animate{% endif %}>
+  <span class="button-content">
+    {% block value %}
+      <span class="master-content">
+        {{ pictoHtml }}
+        {% if hideEntitled == true %}
+          {% if pictoLoad|default() %}
+            <span class="picto-loading"></span>
+          {% endif %}
+        {% endif %}
+        {% block entitled %}<span class="entitled">{{ entitled }}</span>{% endblock %}
+        {% if hideEntitled == false %}
+          {% if pictoLoad|default() %}
+            <span class="picto-loading"></span>
+          {% endif %}
+        {% endif %}
+      </span>
+    {% endblock %}
+    {% if (additional is not null and additional != "") or pictoRightHtml != '' %}
+      <span class="additional-content">
+      {% if additional is not null and additional != "" %}
+        <span class="additional">{{ additional }}</span>
+      {% endif %}
+      {{ pictoRightHtml }}
+    </span>
+    {% endif %}
+  </span>
+</{{ htmlTag|default("a") }}>

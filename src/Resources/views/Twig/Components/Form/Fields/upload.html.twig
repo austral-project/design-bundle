@@ -1,0 +1,39 @@
+<div class="field field-{{ type }} field-{{ id }} {{ hidden|default() ? "hidden" : "" }}">
+  <div id="{{ uploadContainerId }}" class="file-upload-content {% if uploadOptions["file-path"] %}edit{% else %}new{% endif %}" data-upload-file="" data-file-options="{{ uploadOptions|json_encode }}">
+    <div class="hidden">
+      <input type="{{ type }}" id="{{ id }}" name="{{ name }}" {{ attributes }} {% if value is defined %}value="{{ value }}"{% endif %} />
+    </div>
+    <div class="drop-trigger-upload">
+      <div class="drag-loader">
+        <span class="picto-loading"></span>
+      </div>
+      <div class="drag-picto-viewer">
+        <twig:Austral:Picto name="download"></twig:Austral:Picto>
+      </div>
+      <div class="drag-picto-accepted">
+        <twig:Austral:Picto name="check"></twig:Austral:Picto>
+      </div>
+    </div>
+    <div class="errors-content">
+      <div class="error-picto">
+        <twig:Austral:Picto name="cross"></twig:Austral:Picto>
+      </div>
+      <ul class="messages-content"></ul>
+    </div>
+    <div class="file-card">
+      <div class="preview-file">
+        {% if uploadOptions["file-path"] is not null %}
+          <img src="{{ uploadOptions["file-path"] }}" alt="original" />
+        {% endif %}
+      </div>
+      <div class="no-file">
+        <twig:Austral:Picto name="file-add"></twig:Austral:Picto>
+      </div>
+      <twig:Austral:Button htmlTag="button" entitled="" size="sm" align="centered" theme="soft" color="primary" hideEntitled="{{ true }}" pictoLoad="{{ true }}">
+        <twig:block name="picto">
+          <twig:Austral:Picto name="download"></twig:Austral:Picto>
+        </twig:block>
+      </twig:Austral:Button>
+    </div>
+  </div>
+</div>

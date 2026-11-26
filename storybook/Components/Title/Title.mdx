@@ -1,0 +1,25 @@
+import { Canvas, Meta, Primary, Controls, Story, ArgsTable } from '@storybook/addon-docs';
+
+import * as Title from './Title.stories.js';
+
+<Meta of={Title}  title="Components/Title"/>
+
+# Title
+
+## Demo
+<Canvas of={Title.Demo} />
+<Controls of={Title.Demo} />
+
+## Exemples
+
+### Default
+<Canvas of={Title.Default} />
+
+### Title with Sup title
+<Canvas of={Title.WithBefore} />
+
+### Title with Sub title
+<Canvas of={Title.WithAfter} />
+
+### Title list
+<Canvas of={Title.TitlesList} />

@@ -1,0 +1,68 @@
+<nav class="pager-container {{ position }}" role="navigation">
+  <ul class="pager-content">
+    <li class="page-choice">
+      <twig:Austral:Button
+        htmlTag="{{ currentPage == 1 ? "span" : "a" }}"
+        href="{{ prevButton.path !== "" ? path(prevButton.path, prevButton.pathParameters) : "" }}"
+        data-reload-trigger=""
+        data-reload-trigger-options="{{ paginationOptions }}"
+        entitled="{{ prevButton.entitled|trans() }}"
+        hideEntitled="{{ prevButton.hideEntitled }}"
+        theme="{{ themeButton }}"
+        disabled="{{ currentPage == 1 ? true : false }}"
+      >
+        <twig:block name="picto">
+          {% if prevButton.picto %}
+            <twig:Austral:Picto name="{{ prevButton.picto }}"></twig:Austral:Picto>
+          {% endif %}
+        </twig:block>
+      </twig:Austral:Button>
+    </li>
+
+    <li class="page-choice">
+      <div class="page-choices-content">
+        <twig:Austral:Form:Row tag="div"
+          name="{{ name~"-"~position }}"
+          typeField="choice"
+          required="{{ true }}"
+          disabled="{{ false }}">
+          <twig:block name="label_external">
+            <twig:Austral:Form:Label tag="label" entitled="{{ choiceEntitled|trans() }}" for="{{ name~"-"~position }}"/>
+          </twig:block>
+          <twig:block name="field">
+            <twig:Austral:Form:Fields:Select
+              id="{{ name~"-"~position }}"
+              name="{{ name~"-"~position }}"
+              required="{{ true }}"
+              disabled="{{ false }}"
+              value="{{ currentPage }}"
+              choices="{{ choices }}"
+              data-pagination="{{ path ? path(path, pathParameters) : "" }}"
+              data-pagination-options="{{ paginationOptions }}"
+              autocomplete="off"
+            />
+          </twig:block>
+        </twig:Austral:Form:Row>
+      </div>
+    </li>
+
+    <li class="page-choice">
+      <twig:Austral:Button
+        htmlTag="{{ currentPage >= totalPages ? "span" : "a" }}"
+        href="{{ nextButton.path !== "" ? path(nextButton.path, nextButton.pathParameters) : "" }}"
+        data-reload-trigger=""
+        data-reload-trigger-options="{{ paginationOptions }}"
+        entitled="{{ nextButton.entitled|trans() }}"
+        hideEntitled="{{ nextButton.hideEntitled }}"
+        theme="{{ themeButton }}"
+        disabled="{{ currentPage >= totalPages ? true : false }}"
+      >
+        <twig:block name="pictoRight">
+          {% if nextButton.picto %}
+            <twig:Austral:Picto name="{{ nextButton.picto }}"></twig:Austral:Picto>
+          {% endif %}
+        </twig:block>
+      </twig:Austral:Button>
+    </li>
+  </ul>
+</nav>

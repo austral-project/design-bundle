@@ -1,0 +1,127 @@
+import {Meta, Story, Canvas} from '@storybook/addon-docs';
+import * as Introduction from './../Introduction.stories';
+
+<Meta title="Guides/Getting Started" parameters={{
+  viewMode: 'docs',
+  previewTabs: {
+    canvas: { hidden: true},
+  },
+}} />
+
+# Getting Started
+
+The Design System is a Symfony bundle that centralizes the brand identity, UX
+components and front-end behavior shared across projects. It provides a single
+source of truth so components stay consistent and developers don't reinvent the
+same button, modal or form field twice.
+
+Components and their variants are showcased in this Storybook. **This section of
+the documentation covers the technical side**: how to install the bundle,
+configure it, extend it with hooks, and override its styles.
+
+## Installation
+
+```bash
+composer require austral/design-bundle
+php bin/console assets:install
+```
+
+The bundle ships its compiled build in `src/Resources/public/build`, with two entries: `austral-design` (front) and
+`austral-design-admin` (administration). Include an entry in your layout:
+
+```twig
+{{ austral_design_styles('austral-design') }}
+{{ austral_design_scripts('austral-design') }}
+```
+
+Nothing else is needed to use the components as they are. The rest of this page is for projects that build the
+design system themselves.
+
+## Webpack configuration
+
+Install the dependencies of the design system, then configure your Encore instance with `encore.mjs`:
+
+```bash
+npm install ./vendor/austral/design-bundle
+```
+
+```js
+// webpack.config.mjs
+import Encore from "@symfony/webpack-encore";
+import configureAustralDesign from "./vendor/austral/design-bundle/encore.mjs";
+
+configureAustralDesign(Encore, { debugContext: false })
+  .setOutputPath("public/build/")
+  .setPublicPath("/build")
+  .addEntry("app", "./assets/app.js")
+  .enableSingleRuntimeChunk();
+
+export default Encore.getWebpackConfig();
+```
+
+`configureAustralDesign(Encore, options)` accepts:
+
+<table>
+  <thead>
+    <tr>
+      <th>Option</th>
+      <th>Default</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>debug</code></td>
+      <td>not production</td>
+      <td>Enables the logs of <code>Debug</code>. See *Debug &amp; Logging*.</td>
+    </tr>
+    <tr>
+      <td><code>debugContext</code></td>
+      <td><code>false</code></td>
+      <td>Adds call-site context to debug logs. See *Debug &amp; Logging*.</td>
+    </tr>
+    <tr>
+      <td><code>themePath</code></td>
+      <td><code>assets/theme</code></td>
+      <td>Folder of the project overriding the theme. See *Styling &amp; Overrides*.</td>
+    </tr>
+  </tbody>
+</table>
+
+It enables the Sass loader, adds the alias `@austral/design` (the sources of the bundle) and exposes `__DEBUG__` and
+`__DEBUG_CONTEXT__` as compile-time constants. Versioning, source maps and the runtime chunk stay the choice of
+your configuration.
+
+## Bootstrapping the app
+
+In your `app.js`, initialize the loader once the DOM is ready:
+
+```js
+import { Loader } from "@austral/design";
+import '@austral/design/styles/app.scss';
+import './app.scss';
+
+let isLoading = false;
+window.addEventListener('DOMContentLoaded', () => {
+  if (isLoading === false) {
+    isLoading = true;
+    Loader.initialize().then(() => {});
+  }
+});
+```
+
+`Loader.initialize()` loads the icon registry (if `window.AUSTRAL_PICTOS_URL` is
+set), then loads every enabled module in order, and finally dispatches the
+`modules::load` and `page::init.first` DOM events.
+
+> **Order matters:** any `Config.disableModule(...)`,
+> `Config.disableComponent(...)`, or `Hook.register(...)` call must run **before**
+> `Loader.initialize()`. See the following pages.
+
+## Where to go next
+
+- **Configuration** — enable/disable modules and components.
+- **Debug & Logging** — the `Debug` helper and `debugContext`.
+- **Hooks** — run custom logic at lifecycle points.
+- **DOM Events** — the event bus used across the bundle.
+- **Styling & Overrides** — how project styles override the vendor's.

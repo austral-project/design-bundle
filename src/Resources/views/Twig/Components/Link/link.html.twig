@@ -1,0 +1,7 @@
+<{{ htmlTag }} {{ attributes.defaults({class: "link "~theme~" "~size~((block('picto') is defined and block('picto') != '') or (block('pictoRight') is defined and block('pictoRight') != '') ? " with-picto" : " no-picto")}) }} {% if title %}title="{{ title }}"{% endif %}>
+  {% block picto %}{% endblock %}
+  {% block entitled %}
+    {% if entitled %}<span class="entitled">{{ entitled|raw() }}</span>{% endif %}
+  {% endblock %}
+  {% block pictoRight %}{% endblock %}
+</{{ htmlTag }}>

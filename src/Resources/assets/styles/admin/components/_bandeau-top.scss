@@ -1,0 +1,197 @@
+/*!
+ * This file is part of the Austral Design Bundle package.
+ *
+ * (c) Austral <support@austral.dev>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+.popin-open {
+  .bandeau-top-container {
+    z-index: 1000;
+  }
+}
+.content-bandeau-sticky {
+  padding-top: 20rem;
+}
+.bandeau-top-container {
+  @include flex-display();
+  @include align-items(center);
+  @include align-content(center);
+  @include justify-content(flex-end);
+  padding: 4rem 0 3.4rem;
+  position: sticky;
+  top: -1px;
+  background: var(--color-white);
+  z-index: 10000;
+  border-bottom: 0rem solid var(--color-main-10);
+  .title-buttons-container {
+    position:relative;
+    .button-return-container {
+      @include flex-display();
+      @include align-items(center);
+      position:absolute;
+      left: -4rem;
+      opacity: 0;
+      height: 100%;
+    }
+    .title-button-content {
+      @include flex-display();
+      @include align-items(flex-start);
+      @include flex-direction(row);
+      .picto-content {
+        height: 5rem;
+        width: 5rem;
+        margin-right: 1rem;
+        padding: 0.5rem;
+        border-radius: 1rem;
+
+        &.color-1 {
+          background: var(--color-blue-10);
+        }
+        &.color-2 {
+          background: var(--color-yellow-10);
+        }
+        &.color-3 {
+          background: var(--color-red-10);
+        }
+        &.color-4 {
+          background: var(--color-green-10);
+        }
+        &.color-5 {
+          background: var(--color-purple-10);
+        }
+        &.color-6 {
+          background: var(--color-main-10-force);
+        }
+
+        img {
+          @include image-cover();
+        }
+      }
+      .image-content {
+        height: 5rem;
+        width: 5rem;
+        margin-right: 1rem;
+        img {
+          @include image-cover();
+        }
+      }
+      .title-container {
+        .title {
+        }
+        .h1-sub-title {
+          overflow: hidden;
+        }
+      }
+    }
+  }
+  .buttons-content {
+    @include flex-display();
+    @include align-items(flex-start);
+    @include align-content(flex-start);
+    @include justify-content(flex-end);
+    margin: 0 -0.5rem;
+    height:100%;
+    li {
+      margin: 0 0.5rem;
+    }
+  }
+  .button-return-top-container {
+    position:relative;
+    margin: 0 -1.5rem;
+    overflow: hidden;
+    .button-return-content {
+      position:relative;
+    }
+  }
+  .button-return-container {
+    width: 3.6rem;
+    overflow: hidden;
+  }
+
+}
+.content-bandeau-sticky {
+  .bandeau-top-container {
+    position: fixed;
+    padding-top:2rem;
+    width: calc(100% - 36rem);
+    left: 6rem;
+    @media #{$media-desktop-big-min} {
+      width: calc(100% - 60rem);
+      left: 30rem;
+    }
+    top:0;
+    .button-submit {
+      @include transition-default();
+    }
+    &.sticky {
+      .col--align-bottom {
+        padding-top: 0.6rem;
+        align-self: center;
+      }
+      .button-submit {
+        height: 3rem;
+      }
+    }
+    .title-button-content {
+      padding-top: 3rem;
+    }
+  }
+}
+// Top bar reduced when the page is scrolled (component sticky, data-sticky-bandeau): the end state of the 3.1
+// animation, reached by transitions.
+.bandeau-top-container[data-sticky-bandeau] {
+  transition: padding .3s linear, height .3s linear, border-bottom-width .3s linear;
+  .h1-sub-title,
+  .h1-title,
+  .button-return-container,
+  .button-return-top-container,
+  .image-content,
+  .picto-content,
+  .title-button-content {
+    transition: all .25s linear;
+  }
+  &.sticky {
+    padding: 0;
+    height: 5rem;
+    border-bottom-width: 0.1rem;
+    .h1-sub-title {
+      height: 0;
+      opacity: 0;
+    }
+    .h1-title {
+      font-size: 1.8rem;
+    }
+    .image-content,
+    .picto-content {
+      height: 4rem;
+      width: 4rem;
+      margin-top: 0.5rem;
+    }
+    .title-button-content {
+      padding-top: 0.6rem;
+      padding-left: 0;
+    }
+    &.has-button-return {
+      .button-return-container {
+        left: -0.5rem;
+        opacity: 1;
+      }
+      .button-return-top-container {
+        top: -6rem;
+        opacity: 0;
+        height: 0;
+        flex: auto;
+      }
+      .title-button-content {
+        padding-left: 3.5rem;
+      }
+    }
+  }
+}
+.is-bandeau-sticky .form-container {
+  padding-top: 16rem;
+  transition: padding-top .3s linear;
+}

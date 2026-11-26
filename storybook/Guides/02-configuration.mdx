@@ -1,0 +1,251 @@
+import {Meta, Story, Canvas} from '@storybook/addon-docs';
+import * as Introduction from './../Introduction.stories';
+
+<Meta title="Guides/Configuration" parameters={{
+  viewMode: 'docs',
+  previewTabs: {
+    canvas: { hidden: true},
+  },
+}} />
+
+# Configuration
+
+`Config` is a singleton that holds the runtime state of the bundle. Its most
+common use is enabling or disabling modules and components. Every call below must
+happen **before** `Loader.initialize()`.
+
+```js
+import { Config } from "@austral/design";
+```
+
+All disable/enable methods are **case-insensitive** — `"Mercure"` and
+`"mercure"` are equivalent (names are lower-cased internally).
+
+## Modules
+
+Modules are the top-level features loaded by `Loader`. Disable the ones you
+don't need:
+
+```js
+Config.disableModule("Mercure");
+Config.disableModule("Storybook");
+```
+
+A common pattern is to enable Storybook-only modules conditionally:
+
+```js
+if (window.STORYBOOK === undefined) {
+  Config.disableModule("AlertSwal");
+  Config.disableModule("Storybook");
+}
+```
+
+### Available modules
+
+<table>
+  <thead>
+    <tr>
+      <th>Module</th>
+      <th>Purpose</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>AlertSwal</code></td>
+      <td>Alert / toast / confirmation dialogs (SweetAlert-based).</td>
+    </tr>
+    <tr>
+      <td><code>Components</code></td>
+      <td>Scans the DOM and instantiates all UI components. <strong>Core</strong> — disabling it turns off every component.</td>
+    </tr>
+    <tr>
+      <td><code>Keyboard</code></td>
+      <td>Global keyboard handling; emits <code>keyDown:</code> / <code>keyPress:</code> / <code>keyUp:</code> events.</td>
+    </tr>
+    <tr>
+      <td><code>LazyLoading</code></td>
+      <td>Lazy loading of images and deferred content.</td>
+    </tr>
+    <tr>
+      <td><code>Page</code></td>
+      <td>Page lifecycle: init and unload phases.</td>
+    </tr>
+    <tr>
+      <td><code>PageBack</code></td>
+      <td>Browser back-navigation handling and state restoration.</td>
+    </tr>
+    <tr>
+      <td><code>ReloadTrigger</code></td>
+      <td>Partial page reloads triggered by buttons and form submits.</td>
+    </tr>
+    <tr>
+      <td><code>Storybook</code></td>
+      <td>Storybook integration; normally enabled only in the Storybook context.</td>
+    </tr>
+  </tbody>
+</table>
+
+The module name is the export key from `modules/index.js` (shown above).
+
+### Optional modules
+
+The core calls two modules when they exist, so a project can add page transitions or scroll animations without
+changing the bundle. Register them with `Config.addModule()` before `Loader.initialize()`:
+
+<table>
+  <thead>
+    <tr>
+      <th>Module name</th>
+      <th>Methods called</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>PageTransition</code></td>
+      <td><code>transitionStart(transition)</code>, <code>transitionScroll(...)</code>, <code>transitionEnd()</code></td>
+    </tr>
+    <tr>
+      <td><code>ScrollAnimate</code></td>
+      <td><code>execute()</code></td>
+    </tr>
+  </tbody>
+</table>
+
+
+## Components
+
+Components are individual UI elements instantiated on matching DOM nodes. Disable
+one by its identifier:
+
+```js
+Config.disableComponent("button-animate");
+Config.disableComponent("textarea");
+```
+
+### Available components
+
+<table>
+  <thead>
+    <tr>
+      <th>Identifier</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>button-animate</code></td>
+      <td>Animated buttons.</td>
+    </tr>
+    <tr>
+      <td><code>clipboard</code></td>
+      <td>Copy-to-clipboard behavior.</td>
+    </tr>
+    <tr>
+      <td><code>modal</code></td>
+      <td>Modal dialogs.</td>
+    </tr>
+    <tr>
+      <td><code>form-ajax</code></td>
+      <td>Modal forms.</td>
+    </tr>
+    <tr>
+      <td><code>textarea</code></td>
+      <td>Auto-resizing textareas.</td>
+    </tr>
+    <tr>
+      <td><code>select</code></td>
+      <td>Custom select fields.</td>
+    </tr>
+    <tr>
+      <td><code>choice-list</code></td>
+      <td>Choice / option lists.</td>
+    </tr>
+    <tr>
+      <td><code>switcher</code></td>
+      <td>Toggle switchers.</td>
+    </tr>
+    <tr>
+      <td><code>field-toggle</code></td>
+      <td>Field visibility toggles.</td>
+    </tr>
+    <tr>
+      <td><code>password-toggle</code></td>
+      <td>Show / hide password.</td>
+    </tr>
+    <tr>
+      <td><code>collection</code></td>
+      <td>Repeatable form collections.</td>
+    </tr>
+    <tr>
+      <td><code>colorpicker</code></td>
+      <td>Color picker field.</td>
+    </tr>
+    <tr>
+      <td><code>datepicker</code></td>
+      <td>Date picker field.</td>
+    </tr>
+    <tr>
+      <td><code>timepicker</code></td>
+      <td>Time picker field.</td>
+    </tr>
+    <tr>
+      <td><code>upload-file</code></td>
+      <td>File upload field.</td>
+    </tr>
+    <tr>
+      <td><code>phone</code></td>
+      <td>Phone number field.</td>
+    </tr>
+    <tr>
+      <td><code>address-autocomplete</code></td>
+      <td>Address autocomplete field.</td>
+    </tr>
+  </tbody>
+</table>
+
+> The identifier is the string passed to `initComponent(...)` internally, and
+> also the `data-<identifier>` attribute the component looks for in the DOM
+> (except `textarea`, which targets the `<textarea>` tag directly).
+
+## Other Config helpers
+
+`Config` also exposes general-purpose stores, useful when writing hooks or custom
+modules:
+
+<table>
+  <thead>
+    <tr>
+      <th>Method</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>setParameter(key, value)</code> / <code>getParameter(key, default)</code></td>
+      <td>Arbitrary key/value parameters.</td>
+    </tr>
+    <tr>
+      <td><code>setObject(key, obj)</code> / <code>getObject(key)</code></td>
+      <td>Store/retrieve shared objects.</td>
+    </tr>
+    <tr>
+      <td><code>getUserId()</code></td>
+      <td>Reads <code>body[data-user-id]</code> (cached).</td>
+    </tr>
+    <tr>
+      <td><code>getMousePosition()</code> / <code>setMousePosition(x, y)</code></td>
+      <td>Current cursor position.</td>
+    </tr>
+    <tr>
+      <td><code>getModule(name)</code> / <code>hasModule(name)</code></td>
+      <td>Access a loaded module instance.</td>
+    </tr>
+    <tr>
+      <td><code>dispatchAllComponents(eventName, data)</code></td>
+      <td>Dispatch a DOM event to every registered component.</td>
+    </tr>
+  </tbody>
+</table>
+
+Enabling a previously disabled item is also possible: `enableModule(name)` and
+`enableComponent(name)`.

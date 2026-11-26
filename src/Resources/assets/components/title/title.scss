@@ -1,0 +1,138 @@
+/*!
+ * This file is part of the Austral Design Bundle package.
+ *
+ * (c) Austral <support@austral.dev>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+@use "../../styles/mixin/global" as global;
+@use "../../styles/mixin/flex" as flex;
+@use "./../../styles/config/config" as config;
+@use "./../../styles/config/font" as font;
+@use './../../styles/config/variables/austral' as austral;
+
+.area-dark-theme {
+  .title-area {
+    &.title-1 {
+      --title-before-after-color: var(--area-title-color);
+    }
+  }
+}
+
+.title-area {
+  @include flex.display();
+  @include flex.direction(column);
+  @include flex.justify-content(var(--title-flex-justify));
+  @include flex.align-items(var(--title-flex-align));
+  @include flex.align-content(var(--title-flex-align));
+  --title-gap: var(--margin-4xs);
+  --area-title-color: var(--content-title-color);
+  --title-before-after-color: var(--area-title-color);
+  --title-flex-align: flex-start;
+  --title-flex-justify: flex-start;
+  --title-align: left;
+
+  gap: var(--title-gap);
+
+  &.title-xl {
+    --title-before-after-color: var(--content-description-color);
+    --title-gap: var(--margin-sm);
+    .value {
+      @extend .font-2-xl;
+    }
+    .before,
+    .after {
+      @extend .font-1-md;
+    }
+  }
+  &.title-lg,
+  &.title-1 {
+    --title-before-after-color: var(--content-description-color);
+    --title-gap: var(--margin-sm);
+    .value {
+      @extend .font-2-lg;
+    }
+    .before,
+    .after {
+      @extend .font-1-sm;
+    }
+  }
+  &.title-md,
+  &.title-2 {
+    --title-gap: var(--margin-2xs);
+    .value {
+      @extend .font-2-md;
+    }
+    .before,
+    .after {
+      @extend .font-1-sm;
+    }
+  }
+  &.title-sm,
+  &.title-3 {
+    --title-gap: var(--margin-3xs);
+    .value {
+      @extend .font-2-sm;
+    }
+  }
+  &.title-xs,
+  &.title-4 {
+    --title-gap: var(--margin-4xs);
+    .value {
+      @extend .font-2-xs;
+    }
+  }
+  &.title-2xs,
+  &.title-5 {
+    .value {
+      @extend .font-2-2xs;
+    }
+  }
+  &.center {
+    --title-flex-align: center;
+    --title-align: center;
+  }
+}
+
+.title {
+  @include flex.display();
+  @include flex.direction(column);
+  @include flex.justify-content(flex-start);
+  @include flex.align-items(var(--title-flex-align));
+  @include flex.align-content(var(--title-flex-align));
+  @extend .font-2-sm;
+  --font-color: var(--area-title-color);
+  gap: var(--title-gap);
+  width: 100%;
+  .before,
+  .after {
+    @extend .font-1-xs;
+    text-transform: uppercase;
+    --font-color: var(--title-before-after-color);
+    text-align: var(--title-align);
+  }
+  .breadcrumb-container {
+    @include flex.display();
+    li {
+      &:first-child {
+        &:before {
+          display:none;
+        }
+      }
+      &:before {
+        content: "—";
+        padding: 0 0.5rem;
+      }
+    }
+  }
+  .value {
+    text-align: var(--title-align);
+  }
+}
+.text-headline {
+  @extend .font-1-md;
+  text-align: var(--title-align);
+  --font-color: var(--area-title-color);
+}

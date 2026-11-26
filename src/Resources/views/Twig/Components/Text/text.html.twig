@@ -1,0 +1,9 @@
+<div {{ attributes.defaults({class: (isHeadline ? "text-headline" : "text-area")~" theme-"~theme~" size-"~size}) }}>
+  {% block content %}
+    {% if wysiwyg|default(false) == true %}
+      {{ value|raw() }}
+    {% else %}
+      <p>{{ value|default("")|raw()|nl2br() }}</p>
+    {% endif %}
+  {% endblock %}
+</div>

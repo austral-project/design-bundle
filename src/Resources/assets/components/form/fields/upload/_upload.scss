@@ -1,0 +1,227 @@
+/*!
+ * This file is part of the Austral Design Bundle package.
+ *
+ * (c) Austral <support@austral.dev>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+@use "./../../../../styles/mixin/global" as global;
+@use "./../../../../styles/mixin/flex" as flex;
+@use "./../../../../styles/config/config" as config;
+@use "./../../../../styles/config/font" as font;
+@use './../../../../styles/config/variables/austral' as austral;
+
+
+
+.field-container {
+  &.field-container-type-file {
+    background: var(--field-input-option-background);
+    border: var(--field-input-border-size) solid var(--form-input-border-color);
+    padding: var(--margin-sm);
+    .field-content {
+      padding: 0;
+      .field {
+        position:initial;
+      }
+    }
+  }
+}
+
+.dragover-event,
+.is-dragover {
+  .drop-trigger-upload {
+    opacity: 1 !important;
+    pointer-events:all !important;
+  }
+}
+
+.file-upload-content {
+  &.loader {
+    .loader-content {
+      width: 40%;
+      height: 40%;
+    }
+  }
+  .loader-content {
+    @include global.position-middle();
+    position: absolute;
+    width: 0;
+    height: 0;
+  }
+  .error-content  {
+    position:absolute;
+    opacity: 0;
+    pointer-events: none;
+  }
+  &.has-error {
+    .error-content  {
+      opacity: 1;
+      pointer-events: auto;
+    }
+  }
+}
+
+.field-container-type-file {
+  @include flex.display();
+  background: var(--field-input-background-color);
+  border: var(--field-input-border-size) solid var(--field-input-border-color);
+  padding: 2rem;
+  .field-content {
+    flex: initial;
+    position: initial;
+  }
+
+
+  .file-upload-content {
+    &.button-view {
+      .file-card {
+        .button {
+          opacity: 1;
+        }
+      }
+    }
+    &.is-dragover {
+      .drop-trigger-upload {
+        .drag-picto-viewer {
+          opacity: 0;
+        }
+        .drag-picto-accepted {
+          opacity: 1;
+        }
+      }
+    }
+    &.loader {
+      .drop-trigger-upload {
+        .drag-picto-accepted,
+        .drag-picto-viewer {
+          opacity: 0;
+        }
+      }
+      .picto-loading {
+        opacity: 1;
+        animation: picto-spin-center 1200ms linear infinite normal forwards;
+      }
+    }
+    &.has-error {
+      .errors-content {
+        opacity: 1;
+      }
+    }
+    &.edit {
+      .file-card {
+        .no-file {
+          opacity: 0;
+        }
+      }
+    }
+  }
+
+  .drop-trigger-upload {
+    position:absolute;
+    height:100%;
+    width:100%;
+    top:0;
+    left:0;
+    border-radius: var(--field-input-radius);
+    background: var(--button-soft-primary-background-color);
+    opacity: 0;
+    z-index: 1000;
+    pointer-events: none;
+    .picto-loading,
+    .drag-picto-viewer,
+    .drag-picto-accepted {
+      @include global.position-middle();
+      position:absolute;
+      opacity: 1;
+      .picto {
+        --picto-svg-color: var(--button-soft-primary-icon-color);
+        --picto-width: 4rem;
+        --picto-height: 4rem;
+      }
+    }
+    .picto-loading {
+      --button-icon-color: var(--button-soft-primary-icon-color);
+      width: 4rem;
+      height: 4rem;
+    }
+    .drag-picto-accepted {
+      opacity: 0;
+    }
+    .picto-loading {
+      opacity: 0;
+    }
+  }
+  .file-card {
+    @include global.transition-default();
+    border-radius: var(--field-input-radius);
+    border: var(--field-input-border-size) solid var(--field-input-border-color);
+    overflow: hidden;
+    width: 10rem;
+    height: 10rem;
+    cursor: pointer;
+    background: var(--form-input-background-color);
+    position:relative;
+    .preview-file {
+      @include flex.display();
+      @include flex.justify-content(center);
+      @include flex.align(center);
+      @include global.position-middle();
+      position:absolute;
+      z-index: 10;
+      height: 10rem;
+      width: 10rem;
+      img {
+        position:relative;
+        height: 100%;
+        width: 100%;
+        object-fit: contain;
+      }
+    }
+    .no-file {
+      @include global.position-middle();
+      position:absolute;
+      z-index: 6;
+      opacity: 1;
+    }
+    .button {
+      height: 100%;
+      width: 100%;
+      position:absolute;
+      top: 0;
+      left: 0;
+      opacity: 0;
+      z-index: 20;
+      border:0;
+    }
+  }
+  .file-upload-info {
+    p {
+      @extend .font-1-xs;
+      --font-line-height: 1.8rem;
+    }
+  }
+  .errors-content {
+    @include flex.display();
+    @include flex.justify-content(flex-start);
+    @include flex.align(center);
+    opacity: 0;
+    gap:1rem;
+    position:absolute;
+    bottom: var(--margin-sm);
+    left: calc(9.5rem + var(--margin-sm) + var(--field-input-external-margin));
+    margin-top: var(--margin-2xs);
+    .picto {
+      --picto-svg-color: var(--others-info-error-md);
+    }
+    li {
+      @extend .font;
+      --font-family: var(--field-info-family, var(--fonts-font-form-info-family));
+      --font-size: var(--field-info-size, var(--fonts-font-form-info-size));
+      --font-weight: var(--field-info-weight, var(--fonts-font-form-info-weight));
+      --font-line-height: var(--field-info-line-height, var(--fonts-font-form-info-line-height));
+      --font-letter-spacing: var(--field-info-letter-spacing, var(--fonts-font-form-info-letter-spacing));
+      --font-color: var(--others-info-error-md);
+    }
+  }
+}

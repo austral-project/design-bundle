@@ -1,0 +1,98 @@
+/*!
+ * This file is part of the Austral Design Bundle package.
+ *
+ * (c) Austral <support@austral.dev>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+@use "../../styles/mixin/global" as global;
+@use "../../styles/mixin/flex" as flex;
+@use "./../../styles/config/config" as config;
+@use "./../../styles/config/font" as font;
+@use './../../styles/config/variables/austral' as austral;
+
+
+.theme-full-screen {
+  .picture-area {
+    --picture-radius-tl: 0;
+    --picture-radius-tr: 0;
+    --picture-radius-bl: 0;
+    --picture-radius-br: 0;
+  }
+}
+
+.picture-area {
+  --picture-object-fit: contain;
+  --picture-radius-tl: var(--radius-md);
+  --picture-radius-tr: var(--radius-md);
+  --picture-radius-bl: var(--radius-md);
+  --picture-radius-br: var(--radius-md);
+  --picture-aspect-ratio: var(--media-aspect-ratio);
+  --picture-width: var(--media-width);
+  --picture-height: var(--media-height);
+
+  @include flex.display();
+  @include flex.align-items(center);
+  @include flex.align-content(center);
+  @include flex.justify-content(center);
+  &.default,
+  &.cover {
+    --picture-object-fit: cover;
+  }
+  &.contain {
+    .picture {
+      @include flex.display(inline-flex);
+    }
+  }
+  &[data-scroll-animate="parallax"] {
+    .picture {
+      img {
+        transform: translateY(-10%);
+      }
+    }
+  }
+  &[data-scroll-animate="parallax-full"] {
+    .picture {
+      img {
+        transform: translateY(-50%);
+      }
+    }
+  }
+  .picture {
+    @include flex.display();
+    @include flex.align-items(center);
+    @include flex.align-content(center);
+    @include flex.justify-content(center);
+    position:relative;
+    border-radius: var(--picture-radius-tl) var(--picture-radius-tr) var(--picture-radius-br) var(--picture-radius-bl);
+    overflow: hidden;
+    aspect-ratio: var(--picture-aspect-ratio);
+    width: var(--picture-width);
+    height: var(--picture-height);
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: var(--picture-object-fit);
+    }
+  }
+}
+
+.block-image-container {
+  &.layout-window {
+    margin-left: calc(var(--col-margin) * -1);
+    width: 100vw;
+    height: 100svh;
+    .picture-area {
+      height: 100%;
+      --picture-radius-tl: 0;
+      --picture-radius-tr: 0;
+      --picture-radius-bl: 0;
+      --picture-radius-br: 0;
+    }
+    .picture {
+      height: 100%;
+    }
+  }
+}

@@ -1,0 +1,64 @@
+import {Meta, Story, Canvas} from '@storybook/addon-docs';
+import * as Introduction from './../Introduction.stories';
+
+<Meta title="Guides/Debug & Logging" parameters={{
+  viewMode: 'docs',
+  previewTabs: {
+    canvas: { hidden: true},
+  },
+}} />
+
+# Debug & Logging
+
+The bundle logs its internal lifecycle through the `Debug` helper. Logging is
+active in development and silenced in production, controlled by the compile-time
+constant `__DEBUG__` (true when the build is not in production, or the option `debug` of
+`configureAustralDesign()`). The compiled build shipped with the bundle is a production build: its logs are off.
+
+```js
+import { Debug } from "@austral/design";
+
+Debug.log("something happened", someValue);
+```
+
+`Debug.log(...args)` prints each argument to the console when debugging is
+enabled, and is a no-op otherwise. You'll see these logs throughout the modules
+(`Page - Init End`, `-- Component Initialise : modal`, etc.), which makes it easy
+to follow what the bundle is doing.
+
+## Debug context (`debugContext`)
+
+The `debugContext` option controls whether debug logs also display their
+**origin** — the file and line they were called from — in the browser console.
+
+Set it in your Webpack config:
+
+```js
+configureAustralDesign(Encore, { debugContext: true });
+// debugContext -> displays the call location of debug logs in the console
+```
+
+- `true` — each log is prefixed with the call site. Useful while developing to
+  trace where a log comes from.
+- `false` (default) — logs print without the origin. Recommended for production
+  to keep the console clean.
+
+The context is derived from a stack trace at log time and printed in a muted
+style before the logged values.
+
+> **Note on source paths:** the location shown points into the **compiled
+> bundle** (e.g. `app.5da3fc4f.js:17522`), not the original source file. The
+> browser devtools remap it to the real source when you click it, but the text
+> printed by the log is the bundled position. To get readable source paths
+> directly, run a development build with source maps enabled
+> (`Encore.enableSourceMaps(!Encore.isProduction())`).
+
+## Visual debug helpers
+
+`Debug` also exposes grid/flex column overlays, invoked automatically during
+`Loader.initialize()`:
+
+- `Debug.debugGridCol()`
+- `Debug.debugFlexCol()`
+
+These render layout guides to help align content during development.

@@ -1,0 +1,24 @@
+/*!
+ * This file is part of the Austral Design Bundle package.
+ *
+ * (c) Austral <support@austral.dev>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+@use 'variables/austral';
+
+// screen and (width > #{austral.$breakpoints-lg})
+$media-desktop-min: "screen and (min-width: #{austral.$breakpoints-lg})";
+// screen and (width <= #{austral.$breakpoints-lg})
+$media-desktop-max: "screen and (max-width: #{austral.$breakpoints-lg})";
+
+//screen and (width > #{austral.$breakpoints-xsm})
+$media-mobile-min: "screen and (min-width: #{austral.$breakpoints-xsm})";
+// screen and (width <= #{austral.$breakpoints-xsm})
+$media-mobile-max: "screen and (max-width: #{austral.$breakpoints-xsm})";
+
+$media-desktop-max-portait: "screen and (max-width: #{austral.$breakpoints-lg}) and (orientation: portrait)";
+
+$media-portrait: "screen and (orientation: portrait)";
+$media-landscape: "screen and (orientation: landscape)";

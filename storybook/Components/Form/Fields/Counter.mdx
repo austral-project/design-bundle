@@ -1,0 +1,20 @@
+import { Canvas, Meta, Controls, ArgsTable } from '@storybook/addon-docs';
+
+import * as Counter from './Counter.stories';
+
+<Meta of={Counter}  title="Components/Form/Fields/Counter"/>
+
+# Counter
+
+## Demo
+
+<Canvas of={Counter.Demo} />
+<Controls of={Counter.Demo} />
+
+## Exemples
+
+### Default
+<Canvas of={Counter.Default} />
+
+### With error
+<Canvas of={Counter.WithError} />

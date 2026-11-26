@@ -1,0 +1,54 @@
+/*!
+ * This file is part of the Austral Design Bundle package.
+ *
+ * (c) Austral <support@austral.dev>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+@use "./../../../../styles/mixin/global" as global;
+@use "./../../../../styles/mixin/flex" as flex;
+@use "./../../../../styles/mixin/grid" as grid;
+@use "./../../../../styles/config/config" as config;
+@use "./../../../../styles/config/font" as font;
+@use './../../../../styles/config/variables/austral' as austral;
+
+body {
+  .pcr-app[data-theme="classic"] {
+    width: 19.6rem;
+    .pcr-swatches {
+      @include flex.display();
+      @include flex.wrap(wrap);
+      > button {
+        width: 1.6rem;
+        height: 1.6rem;
+        margin: 0.3rem;
+      }
+    }
+  }
+}
+
+.field-container {
+  &.field-container-type-color-picker {
+    padding-left: 0;
+    .field-before {
+      padding: 0;
+      .pickr {
+        height: var(--field-input-height);
+        width: var(--field-input-height);
+        .pcr-button {
+          height: 100%;
+          width: 100%;
+          border-top-left-radius: var(--field-input-radius);
+          border-bottom-left-radius: var(--field-input-radius);
+          overflow: hidden;
+          padding: 0;
+          &:before,
+          &:after {
+            border-radius: 0;
+          }
+        }
+      }
+    }
+  }
+}

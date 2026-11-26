@@ -1,71 +1,83 @@
 {
-  "name": "austral-design-bundle",
-  "version": "3.0.0",
-  "description": "Design System for austral bundle",
+  "name": "@austral/design",
+  "version": "4.0.0",
+  "description": "Design system of Austral: Twig components, styles and JavaScript of the front and of the administration.",
   "license": "MIT",
-  "author": "Matthieu Beurel",
+  "author": {
+    "name": "Matthieu Beurel",
+    "email": "matthieu@austral.dev",
+    "url": "https://austral.dev"
+  },
+  "homepage": "https://austral.dev",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/austral-project/design-bundle"
+    "url": "git+https://github.com/austral-project/design-bundle.git"
   },
-  "devDependencies": {
-    "@symfony/webpack-encore": "^0.32.0",
-    "autoprefixer": "^10.4.2",
-    "core-js": "^3.21.1",
-    "js-beautify": "^1.14.0",
-    "less-loader": "^6.2.0",
-    "postcss-loader": "^3.0.0",
-    "regenerator-runtime": "^0.13.2",
-    "sass": "^1.49.9",
-    "sass-loader": "^9.0.1",
-    "stimulus": "^2.0.0",
-    "webpack-merge": "5.8.0",
-    "webpack-notifier": "^1.15.0",
-    "styled-components": "^5.3.3"
+  "bugs": {
+    "url": "https://github.com/austral-project/design-bundle/issues"
+  },
+  "private": false,
+  "main": "./src/Resources/assets/index.js",
+  "exports": {
+    ".": "./src/Resources/assets/index.js",
+    "./components/*": "./src/Resources/assets/components/*",
+    "./core/*": "./src/Resources/assets/core/*",
+    "./debug/*": "./src/Resources/assets/debug/*",
+    "./dom/*": "./src/Resources/assets/dom/*",
+    "./libraries/*": "./src/Resources/assets/libraries/*",
+    "./modules/*": "./src/Resources/assets/modules/*",
+    "./utils/*": "./src/Resources/assets/utils/*",
+    "./styles/*": "./src/Resources/assets/styles/*",
+    "./svg/*": "./src/Resources/assets/svg/*",
+    "./entries/*": "./src/Resources/assets/entries/*",
+    "./encore": "./encore.mjs"
+  },
+  "files": [
+    "encore.mjs",
+    "scripts",
+    "src/Resources/assets",
+    "src/Resources/public/austral-picto",
+    "src/Resources/public/images",
+    "LICENSE",
+    "README.md"
+  ],
+  "engines": {
+    "node": "^22.18.0 || >=24.11.0"
   },
   "scripts": {
-    "dev-server": "encore dev-server",
     "dev": "encore dev",
     "watch": "encore dev --watch",
-    "build": "encore production --progress",
-    "design-build": "encore production --progress --config webpack-design.config.js",
-    "design-watch": "encore dev --watch --config webpack-design.config.js"
+    "build": "encore production",
+    "icons": "node scripts/editor-icons.js",
+    "build:check": "npm run icons && npm run build && git add --intent-to-add -- src/Resources/public/build src/Resources/assets/components/form/fields/textarea/wysiwyg/icons.js && git diff --exit-code -- src/Resources/public/build src/Resources/assets/components/form/fields/textarea/wysiwyg/icons.js"
   },
   "dependencies": {
-    "@babel/core": "^7.17.5",
-    "@popperjs/core": "^2.11.2",
     "@simonwep/pickr": "1.8.2",
-    "@squoosh/lib": "^0.4.0",
-    "@vivid-web/flexboxgrid-sass": "^5.0.4",
-    "@yaireo/tagify": "4.9.8",
-    "animate.css": "^4.1.1",
     "autosize": "^4.0.2",
-    "babel-polyfill": "^6.26.0",
-    "choices.js": "^9.1.0",
-    "codemirror": "^5.65.2",
-    "cropper": "^4.1.0",
+    "choices.js": "~10.1.0",
+    "clipboard": "^2.0.11",
+    "codemirror": "^5.65.0",
+    "cropperjs": "^1.6.0",
     "event-source-polyfill": "^1.0.25",
-    "gsap": "^3.9.1",
-    "net": "^1.0.2",
-    "popper.js": "^1.16.1",
-    "sortablejs": "^1.14.0",
-    "suneditor": "^2.42.0",
-    "sweetalert2": "^10.16.9",
-    "timepicker-ui": "^2.2.4",
-    "uuid": "^8.3.2",
-    "vanillajs-datepicker": "^1.2.0"
+    "gsap": "^3.14.2",
+    "intl-tel-input": "^25.3.2",
+    "js-beautify": "^1.15.0",
+    "sortablejs": "^1.15.7",
+    "suneditor": "^2.47.0",
+    "sweetalert2": "^11.0.0",
+    "uuid": "^13.0.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^8.0.0",
+    "@babel/preset-env": "^8.0.0",
+    "@symfony/webpack-encore": "^7.2.0",
+    "sass": "^1.80.0",
+    "sass-loader": "^17.0.0",
+    "webpack": "^5.82.0",
+    "webpack-cli": "^7.0.0"
   },
   "browserslist": [
-    "> 0.5%",
-    "last 2 versions",
-    "IE >= 11",
-    "Edge >= 16",
-    "Chrome >= 60",
-    "Firefox >= 50",
-    "Firefox ESR",
-    "Safari >= 10",
-    "ios_saf >= 10",
-    "Android >= 5",
+    "defaults",
     "not dead"
   ]
 }

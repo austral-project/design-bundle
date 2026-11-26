@@ -1,0 +1,184 @@
+/*!
+ * This file is part of the Austral Design Bundle package.
+ *
+ * (c) Austral <support@austral.dev>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+@use 'sass:meta';
+@use 'variables/austral';
+
+@use '@austral/design/styles/theme/colors/lightmode';
+@use '@austral/design/styles/theme/colors/darkmode';
+
+@use '@austral/design/styles/theme/atoms/main';
+@use '@austral/design/styles/theme/atoms/desktop';
+@use '@austral/design/styles/theme/atoms/mobile';
+
+@use '@austral/design/styles/theme/section/primary';
+@use '@austral/design/styles/theme/section/secondary';
+
+@use "_config" as config;
+
+:root {
+  /** Austral vars **/
+  @each $name, $value in meta.module-variables("austral") {
+    --#{$name}: #{$value};
+  }
+  /** Lightmode colors **/
+  @each $name, $value in meta.module-variables("lightmode") {
+    --#{$name}: #{$value};
+  }
+
+  /** Darkmode colors **/
+  @media (prefers-color-scheme: dark_) {
+    @each $name, $value in meta.module-variables("darkmode") {
+      --#{$name}: #{$value};
+    }
+  }
+
+  @each $name, $value in meta.module-variables("main") {
+    --#{$name}: #{$value};
+  }
+  @media #{config.$media-desktop-min} {
+    @each $name, $value in meta.module-variables("desktop") {
+      --#{$name}: #{$value};
+    }
+  }
+  @media print {
+    @each $name, $value in meta.module-variables("desktop") {
+      --#{$name}: #{$value};
+    }
+  }
+  @media #{config.$media-desktop-max} {
+    @each $name, $value in meta.module-variables("mobile") {
+      --#{$name}: #{$value};
+    }
+  }
+
+  @for $i from 0 through 12 {
+    --grid--col-#{$i}: span #{$i};
+  }
+  @for $i from 0 through 12 {
+    --grid--col-offset-#{$i}: #{$i+1};
+  }
+
+  --grid-full: var(--grid--col-12);
+  --grid-full-offset: var(--grid--col-offset-0);
+  --grid-center: var(--grid--col-10);
+  --grid-center-offset: var(--grid--col-offset-1);
+  --grid-gap-row: var(--margin-md);
+
+  @media #{config.$media-desktop-max} {
+    --grid-center: var(--grid--col-12);
+    --grid-center-offset: var(--grid--col-offset-0);
+  }
+
+  --default-radius: 0;
+  --size-referal-calc: 1440;
+  --size-height-referal-calc: 780;
+  @media #{config.$media-desktop-max} {
+    --size-referal-calc: 375;
+    --size-height-referal-calc: 712;
+  }
+
+  --scrollbar-width: 0px;
+  --width-vw: calc(100vw - var(--scrollbar-width));
+  --ratio-wh: calc(100vh / var(--size-height-referal-calc));
+
+  --container-max-width: 100%;
+  --container-padding: 0 var(--col-margin);
+  --container-padding-mobile: 0 var(--col-margin);
+  --scrollbar-display: none;
+
+  --container-external: var(--margin-md);
+
+  --size-referal: 1440;
+  --zoom-referal: 1;
+  --storybook-marge: 0px;
+  --media-aspect-ratio: auto;
+  --media-width: 100%;
+  --media-height: auto;
+
+  --font-size-root: calc(10*(var(--width-vw) - var(--storybook-marge))/(var(--size-referal)*var(--zoom-referal, 1px)));
+  @media #{config.$media-desktop-max} {
+    --font-size-root: 62.5%;
+  }
+}
+body.dark-mode {
+  /** Darkmode colors **/
+  @media (prefers-color-scheme: dark) {
+    @each $name, $value in meta.module-variables("darkmode") {
+      --#{$name}: #{$value};
+    }
+  }
+}
+
+body,
+.section-theme-primary {
+  @each $name, $value in meta.module-variables("primary") {
+    --#{$name}: #{$value};
+  }
+}
+.section-theme-secondary {
+  @each $name, $value in meta.module-variables("secondary") {
+    --#{$name}: #{$value} !important;
+  }
+  --font-color: var(--content-text-color);
+}
+.gap-row-3xl {
+  --grid-gap-row: var(--margin-3xl);
+}
+.gap-row-2xl {
+  --grid-gap-row: var(--margin-2xl);
+}
+.gap-row-xl {
+  --grid-gap-row: var(--margin-xl);
+}
+.gap-row-lg {
+  --grid-gap-row: var(--margin-lg);
+}
+.gap-row-md {
+  --grid-gap-row: var(--margin-md);
+}
+.gap-row-sm {
+  --grid-gap-row: var(--margin-sm);
+}
+.gap-row-xs {
+  --grid-gap-row: var(--margin-xs);
+}
+.gap-row-none {
+  --grid-gap-row: 0;
+}
+
+.size-height_100vh {
+  --media-height: 100vh;
+}
+.size-square {
+  --media-aspect-ratio: 1/1;
+  --media-height: 100vh;
+  --media-width: auto;
+}
+.size-classic {
+  --media-aspect-ratio: 4/3;
+}
+.size-photo {
+  --media-aspect-ratio: 3/2;
+  --media-height: 100vh;
+  --media-width: auto;
+}
+.size-widescreen {
+  --media-aspect-ratio: 16/9;
+}
+.size-classic_vertical {
+  --media-aspect-ratio: 3/4;
+}
+.size-photo_vertical {
+  --media-aspect-ratio: 2/3;
+  --media-height: 100vh;
+  --media-width: auto;
+}
+.size-story {
+  --media-aspect-ratio: 9/16;
+}

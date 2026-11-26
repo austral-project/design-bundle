@@ -1,0 +1,15 @@
+{% form_theme form '@AustralDesign/Form/austral_layout.html.twig' %}
+{% set class = "form-content" %}
+<div {{ attributes.defaults({class: class}) }} {{ fixed is defined and fixed ? "data-form-fixed" : "" }}>
+  {{ form_start(form, {attr: formAttributes|default({})}) }}
+  <div class="form-reload">
+    {% block formBefore %}{% endblock %}
+    {{ form_widget(form) }}
+    {% block formAfter %}{% endblock %}
+  </div>
+  {% block button %}
+    <twig:Austral:Button animate="{{ true }}" entitled="{{ buttonEntitled|trans()|raw() }}" htmlTag="button" theme="solid" color="primary" size="md" type="submit"></twig:Austral:Button>
+  {% endblock %}
+  {{ form_end(form) }}
+  {% block formLegal %}{% endblock %}
+</div>

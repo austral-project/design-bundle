@@ -1,0 +1,70 @@
+@use "sass:math";
+
+// --------------------------------------------------
+// Grid mixins
+// --------------------------------------------------
+@mixin display($display: grid) {
+  display: -webkit-box;
+  display: -webkit-#{$display};
+  display: -ms-#{$display}box; // IE10 uses -ms-gridbox
+  display: -moz-#{$display}; // IE11
+  display: $display;
+}
+
+@mixin layout($column-count, $column-gap: 3rem, $row-gap: null) {
+  @include display();
+  $row-gap: if($row-gap == null, $column-gap, $row-gap);
+  grid-template-columns: repeat($column-count, 1fr);
+  grid-gap: $row-gap $column-gap;
+  gap: $row-gap $column-gap;
+}
+
+@mixin column-start($number) {
+  grid-column-start: $number;
+}
+
+@mixin row-start($number) {
+  grid-row-start: $number;
+}
+
+@mixin column-span($count) {
+  grid-column-end: span $count;
+}
+
+@mixin row-span($count) {
+  grid-row-end: span $count;
+}
+
+@mixin template-columns($value) {
+  grid-template-columns: $value;
+  -ms-grid-columns:$value;
+}
+
+@mixin template-rows($value) {
+  grid-template-rows: $value;
+  -ms-grid-rows:$value;
+}
+@mixin column-gap($value) {
+  -moz-column-gap: $value;
+  -webkit-column-gap: $value;
+  column-gap: $value;
+}
+@mixin row-gap($value) {
+  -moz-row-gap: $value;
+  -webkit-row-gap: $value;
+  row-gap: $value;
+}
+
+@mixin gris-columns-row($type, $start, $end) {
+  grid-#{$type}: #{$start} / #{$end};
+  -ms-grid-#{$type}: $start;
+  -ms-grid-#{$type}-span: $end - $start;
+}
+
+@mixin column($start, $end) {
+  @include gris-columns-row(column, $start, $end);
+}
+
+@mixin row($start, $end) {
+  @include gris-columns-row(row, $start, $end);
+}

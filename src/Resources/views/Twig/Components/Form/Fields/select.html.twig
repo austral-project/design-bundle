@@ -1,0 +1,21 @@
+<div class="field field-select field-{{ id }} {% if multiple %}field-select-multiple{% else %}field-select-one{% endif %}" >
+  <select id="{{ id }}" name="{{ name }}" {{ attributes }} {% if multiple %}multiple="multiple"{% endif %} data-select-options="{{ dataSelectOptions|json_encode }}">
+    {% if required == false %}
+      <option value=""></option>
+    {% endif %}
+    {% block choices %}
+      {% for choice in choices %}
+        {%- if choice.children is defined -%}
+          <optgroup label="{{ choice.entitled|default("Group Name") }}">
+            {% set options = choice %}
+            {%- for choiceChild in choice.children -%}
+              <option value="{{ choiceChild.value|default("") }}" {{ choiceChild.disabled|default(false) ? "disabled" : ""}} {% if choiceChild.value == value|default("") %} selected="selected"{% endif %}>{{ labelChild.entitled|default("") }}</option>
+            {% endfor %}
+          </optgroup>
+        {%- else -%}
+          <option value="{{ choice.value|default("") }}" {{ choice.disabled|default(false) ? "disabled" : ""}} {% if choice.value == value|default("") %} selected="selected"{% endif %}>{{ choice.entitled|default("") }}</option>
+        {%- endif -%}
+      {% endfor %}
+    {% endblock %}
+  </select>
+</div>

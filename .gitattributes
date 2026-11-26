@@ -9,5 +9,11 @@
 /phpunit.xml.dist     export-ignore
 /deptrac.yaml         export-ignore
 /composer-require-checker.json export-ignore
+/storybook            export-ignore
+
+# Generated files: shown as binary in diffs (rebuilt with npm run build and npm run icons)
+/src/Resources/public/build/** -diff linguist-generated
+/src/Resources/assets/components/admin/wysiwyg/icons.js linguist-generated
+/package-lock.json    -diff
 
 * text=auto eol=lf

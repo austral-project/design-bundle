@@ -1,0 +1,292 @@
+/*!
+ * This file is part of the Austral Design Bundle package.
+ *
+ * (c) Austral <support@austral.dev>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+@use "./../../../../styles/mixin/global" as global;
+@use "./../../../../styles/mixin/flex" as flex;
+@use "./../../../../styles/mixin/grid" as grid;
+@use "./../../../../styles/config/config" as config;
+@use "./../../../../styles/config/font" as font;
+@use './../../../../styles/config/variables/austral' as austral;
+
+
+.field-row.active {
+  .austral-datepicker-fields {
+    .austral-datepicker-field {
+      position: relative;
+      label {
+        top:50%;
+        left:50%;
+        @include global.position-middle();
+      }
+    }
+  }
+}
+
+.austral-datepicker-fields {
+  @include flex.display();
+  @include flex.justify-content(flex-start);
+  @include flex.align-items(center);
+  @include flex.align-content(center);
+  gap: 0.5rem;
+  height: 100%;
+  .austral-date-month,
+  .austral-date-day {
+    width: 2ch;
+    text-align: left;
+  }
+  .austral-date-year {
+    width: 4ch;
+    text-align: left;
+  }
+  .austral-date-month,
+  .austral-date-day,
+  .austral-date-year {
+    &::placeholder {
+      opacity:0;
+    }
+  }
+  .austral-date-separator {
+    @extend .font;
+    --font-family: var(--field-input-value-family);
+    --font-size: var(--field-input-value-size);
+    --font-weight: var(--field-input-value-weight);
+    --font-line-height: var(--field-input-value-line-height);
+    --font-letter-spacing: var(--field-input-value-letter-spacing);
+    --font-color: var(--field-input-value-color);
+  }
+  .austral-datepicker-field {
+    position:relative;
+    label {
+      @include global.position-middle();
+      --font-size: 1.1rem;
+      position:absolute;
+      pointer-events: none;
+      opacity: 1;
+      &:after {
+        display:none;
+      }
+      &.austral-datepicker-month-label {
+        letter-spacing: -0.1rem;
+      }
+    }
+    &.active {
+      label {
+        opacity: 0;
+      }
+    }
+  }
+}
+
+.austral-datepicker {
+  @include flex.display();
+  @include flex.justify-content(center);
+  @include flex.align-items(center);
+  @include flex.align-content(center);
+  margin-top: 1rem;
+  position:absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  max-width: 30rem;
+  z-index: 10000;
+
+  &.austral-datepicker--flip-up {
+    margin-top: 0;
+    top: auto;
+    bottom: 100%;
+    margin-bottom: -2rem;
+  }
+  &.animate {
+    @include global.transition-default();
+  }
+
+  border-radius: var(--radius-lg);
+  border: var(--form-border-size) solid var(--form-input-border-color);
+  background: var(--form-input-background-color);
+  box-shadow: 0 5px 20px 0 var(--content-shadow-color, rgba(0, 0, 0, 0.10));
+
+  --field-button-outline-color: transparent;
+  --field-button-outline-internal-color: transparent;
+  --field-button-outline-size: var(--highlight-size);
+  --field-button-outline-internal-size: var(--highlight-internal-size);
+
+  .austral-datepicker-container {
+    @include flex.display();
+    @include flex.justify-content(center);
+    @include flex.align-items(center);
+    @include flex.align-content(center);
+    @include flex.direction(column);
+    padding: 1rem 0 1rem;
+    width: 100%;
+    height: 100%;
+    .header,
+    .days-container {
+      @include flex.display();
+      @include flex.justify-content(center);
+      @include flex.align-items(center);
+      @include flex.align-content(center);
+      width: 100%;
+      padding: 1rem var(--field-input-external-margin) 1rem;
+    }
+    .header {
+      @include flex.justify-content(space-between);
+      height: 4rem;
+    }
+    .days-container {
+      overflow: hidden;
+    }
+    .austral-months-container,
+    .austral-years-container,
+    .austral-dates-container {
+      @include flex.display();
+      @include flex.justify-content(flex-start);
+      @include flex.align-items(center);
+      @include flex.align-content(center);
+      @include flex.direction(column);
+      width: 100%;
+      height: 100%;
+      --austral-datepicker-grid-columns: 7;
+    }
+    .austral-months-container,
+    .austral-years-container {
+      --austral-datepicker-grid-columns: 4;
+      .header {
+        @include flex.justify-content(flex-end);
+        border-bottom: var(--form-border-size) solid var(--form-input-border-color);
+        padding-bottom: 2rem;
+      }
+    }
+    .austral-months-container {
+      --austral-datepicker-grid-columns: 3;
+    }
+
+    .months,
+    .years,
+    .weekdays,
+    .days {
+      @include grid.display();
+      width: 100%;
+      gap: 1rem;
+      grid-template-columns: repeat(var(--austral-datepicker-grid-columns), 1fr);
+    }
+    .months,
+    .years {
+      overflow-y: auto;
+      max-height: 24rem;
+      padding: 1rem var(--field-input-external-margin) 1rem;
+    }
+
+    .month-year {
+      @include flex.display();
+      gap: 0.5rem;
+      .button {
+        min-width: auto;
+        padding: 0 0.1rem;
+      }
+    }
+    .weekdays {
+      border-bottom: var(--form-border-size) solid var(--form-input-border-color);
+      height: 4.2rem;
+      .weekday {
+        @include flex.display();
+        @include flex.justify-content(center);
+        @include flex.align-items(center);
+        @include flex.align-content(center);
+        height: 100%;
+        width: 100%;
+      }
+    }
+    .days {
+      direction: ltr;
+      grid-template-rows: repeat(6, 1fr);
+      min-width: 100%;
+    }
+    .month,
+    .year,
+    .day {
+      aspect-ratio: 1;
+      button,
+      .button-day {
+        @extend .font;
+        --font-family: var(--fonts-font-form-value-family);
+        --font-size: var(--fonts-font-form-value-size);
+        --font-weight: var(--fonts-font-form-value-weight);
+        --font-line-height: var(--fonts-font-form-value-line-height);
+        --font-letter-spacing: var(--fonts-font-form-value-letter-spacing);
+        --font-color: var(--form-input-value-color);
+
+        @include flex.display();
+        @include flex.justify-content(center);
+        @include flex.align-items(center);
+        @include flex.align-content(center);
+        height: 100%;
+        width: 100%;
+        &.next,
+        &.disabled,
+        &.prev {
+          opacity: var(--form-input-disable-items-opacity);
+        }
+        &.selected {
+          --font-color: var(--button-solid-primary-value-color);
+          border-radius: var(--form-external-radius);
+          background: var(--form-control-interactive-active);
+        }
+      }
+    }
+    .month,
+    .year {
+      aspect-ratio: 2/1;
+    }
+
+    .year,
+    .weekday,
+    .day {
+      @extend .font;
+      --font-family: var(--fonts-font-form-label-family);
+      --font-size: var(--fonts-font-form-label-size);
+      --font-weight: var(--fonts-font-form-label-weight);
+      --font-line-height: var(--fonts-font-form-label-line-height);
+      --font-letter-spacing: var(--fonts-font-form-label-letter-spacing);
+      --font-color: var(--form-input-label-color);
+      > * {
+        color: var(--form-input-label-color);
+      }
+    }
+
+  }
+
+  button {
+    &:focus,
+    &:focus-visible {
+      --field-button-outline-color: var(--section-highlight-color) !important;
+      --field-button-outline-internal-color: var(--form-input-background-color) !important;
+    }
+    border-radius: var(--radius-lg);
+    box-shadow: inset 0 0 0 calc(var(--field-button-outline-internal-size)) var(--field-button-outline-internal-color),
+    0 0 0 calc(var(--field-button-outline-size)) var(--field-button-outline-color);
+  }
+
+  .close-container {
+    @include flex.display();
+    @include flex.justify-content(flex-end);
+    @include flex.align-items(flex-end);
+    @include flex.align-content(flex-end);
+    position:absolute;
+    top: calc(100% + 1rem);
+    width: 100%;
+    .button {
+      height: 0;
+      overflow: hidden;
+      &:focus {
+        height: var(--button-height);
+        overflow: visible;
+      }
+    }
+  }
+
+}

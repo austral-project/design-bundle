@@ -1,0 +1,29 @@
+/*!
+ * This file is part of the Austral Design Bundle package.
+ *
+ * (c) Austral <support@austral.dev>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+@use 'sass:meta';
+@use '@austral/design/styles/theme/colors/darkmode';
+
+// Styles of the administration, loaded after styles/app.scss.
+
+// Root of the administration, based on the font size chosen by the user: 1rem = 10px with the default 16px up to
+// 1440px of width, then fluid (about 10.7px at 1920px, 12px at most). The parts in % follow the user's font size and the browser zoom
+// (WCAG 1.4.4); it overrides the root of the front, fluid on the width only.
+:root {
+  --font-size-root: clamp(62.5%, 50% + 0.139vw, 75%);
+}
+
+// Dark theme of the administration: body.dark (chosen by the user, or set by Page.checkSystemTheme()
+// when body.auto follows the system).
+body.dark {
+  @each $name, $value in meta.module-variables("darkmode") {
+    --#{$name}: #{$value};
+  }
+}
+
+@import "admin/index";

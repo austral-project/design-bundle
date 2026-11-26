@@ -1,0 +1,24 @@
+<div class="buttons-area {{ theme }} {{ size }}">
+  <div class="buttons-content">
+    {% block buttons %}
+      {% for child in children|default() %}
+        <twig:Austral:Button
+          htmlTag="{{ child.htmlTag }}"
+          entitled="{{ child.entitled }}"
+          title="{{ child.title }}"
+          href="{{ child.href }}"
+          size="{{ child.size }}"
+          align="{{ child.align }}"
+          target="{{ child.target }}"
+          theme="{{ child.theme }}"
+          disabled="{{ child.disabled }}"
+          full="{{ child.full }}"
+          hideEntitled="{{ child.hideEntitled }}"
+          pictoLoad="{{ child.pictoLoad }}"
+          additional="{{ child.additional }}"
+        >
+        </twig:Austral:Button>
+      {% endfor %}
+    {% endblock %}
+  </div>
+</div>

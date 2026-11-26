@@ -1,0 +1,68 @@
+/*!
+ * This file is part of the Austral Design Bundle package.
+ *
+ * (c) Austral <support@austral.dev>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+@use "./../../styles/mixin/global" as global;
+@use "./../../styles/mixin/flex" as flex;
+@use "./../../styles/config/config" as config;
+@use "./../../styles/config/font" as font;
+@use './../../styles/config/variables/austral' as austral;
+
+@forward "fields";
+
+form {
+  &[data-reload-trigger] {
+    cursor:default;
+  }
+  .title-area {
+    + .fields-container {
+      margin-top: var(--margin-md);
+    }
+  }
+}
+
+.form-reload {
+  margin-bottom: 2rem;
+}
+
+.fields-container {
+  @include flex.display();
+  @include flex.direction(column);
+  gap: var(--margin-xs);
+  @media #{config.$media-desktop-max} {
+    gap: var(--margin-sm);
+  }
+  + .button {
+    margin-top: var(--margin-xl);
+  }
+}
+.fieldset-content {
+  @include flex.display();
+  @include flex.direction(column);
+  gap: var(--margin-lg);
+}
+.login-error {
+  @extend .font;
+  --font-family: var(--field-input-value-family);
+  --font-size: var(--fonts-font-1-sm-size);
+  --font-weight: var(--fonts-font-1-sm-weight);
+  --font-line-height: var(--fonts-font-1-sm-line-height);
+  --font-letter-spacing: var(--fonts-font-1-sm-letter-spacing);
+  color: var(--others-error-md);
+}
+
+.fieldset {
+  margin: var(--margin-2xl) 0 0;
+  &:first-child {
+    margin-top: 0;
+  }
+  &.fieldset-hidden {
+    display:none;
+  }
+}
+
+

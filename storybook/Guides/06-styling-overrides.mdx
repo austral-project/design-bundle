@@ -1,0 +1,70 @@
+import {Meta, Story, Canvas} from '@storybook/addon-docs';
+import * as Introduction from './../Introduction.stories';
+
+<Meta title="Guides/Styling & Overrides" parameters={{
+  viewMode: 'docs',
+  previewTabs: {
+    canvas: { hidden: true},
+  },
+}} />
+
+# Styling & Overrides
+
+The bundle ships its styles under
+`src/Resources/assets/styles`, imported through `@austral/design/styles/app.scss`.
+When your project builds the design system with `encore.mjs`, the theme can be
+**overridden by your project** without editing vendor files.
+
+## How overriding works
+
+`configureAustralDesign()` resolves the theme alias to an **array of paths**.
+Webpack tries them in order and uses the **first one that exists**:
+
+```js
+Encore.addAliases({
+  '@austral/design/styles/theme': [
+    path.resolve(process.cwd(), 'assets/theme'),                     // 1. your project
+    path.resolve(bundleDir, 'src/Resources/assets/styles/theme'),    // 2. vendor fallback
+  ],
+});
+```
+
+`process.cwd()` is your project root (change it with the option `themePath`). The
+resolution is done **file by file**: a file of your project wins over the
+vendor's file of the same path — the vendor file is replaced, not merged — and
+the other files still come from the vendor.
+
+<table>
+  <thead>
+    <tr>
+      <th>Alias</th>
+      <th>Project path (wins)</th>
+      <th>Vendor path (fallback)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>@austral/design/styles/theme</code></td>
+      <td><code>assets/theme</code></td>
+      <td><code>src/Resources/assets/styles/theme</code></td>
+    </tr>
+  </tbody>
+</table>
+
+> **Key point:** this is a first-match resolution, not a cascade. If you place a
+> file under `assets/theme`, the vendor's file at the same relative location is
+> no longer loaded. Copy the vendor file first if you only want to tweak part of
+> it, then adapt.
+
+## Practical recipe
+
+To override, say, the theme:
+
+1. Create `assets/theme/` in your project.
+2. Copy the vendor file you want to change from
+   `vendor/austral/design-bundle/src/Resources/assets/styles/theme/` into it,
+   keeping the same relative path/name.
+3. Edit your copy. Rebuild — Webpack resolves your file first.
+
+To fall back to the vendor default again, remove your project file so the alias
+resolves to the vendor path.

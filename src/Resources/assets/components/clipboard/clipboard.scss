@@ -1,0 +1,17 @@
+/*!
+ * This file is part of the Austral Design Bundle package.
+ *
+ * (c) Austral <support@austral.dev>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+@use "./../../styles/mixin/global" as global;
+@use "./../../styles/mixin/flex" as flex;
+@use "./../../styles/config/config" as config;
+@use "./../../styles/config/font" as font;
+@use './../../styles/config/variables/austral' as austral;
+
+*[data-clipboard] {
+  cursor: copy;
+}

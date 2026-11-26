@@ -1,0 +1,22 @@
+/*!
+ * This file is part of the Austral Design Bundle package.
+ *
+ * (c) Austral <support@austral.dev>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+.toggle-element {
+  height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: height .2s linear, opacity .2s linear;
+  &.open {
+    opacity: 1;
+    overflow: visible;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+  }
+}

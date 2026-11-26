@@ -1,0 +1,17 @@
+{% set beforeHtml %}{% block before %}{% endblock %}{% endset %}
+{% set afterHtml %}{% block after %}{% endblock %}{% endset %}
+<div {{ attributes.defaults({class: "title-area"~(center ? " center"  : "")~" theme-"~theme~" "~(size == "default" ? "title-"~htmlTag|replace({"h": ""}) : "title-"~size )}) }}>
+  <{{ htmlTag }} class="title">
+    {% if beforeHtml != '' %}
+      <span class="before">{{ beforeHtml }}</span>
+    {% endif %}
+    <span class="value">{{ value|default()|raw() }}</span>
+    {% if afterHtml %}
+      <span class="after">{{ afterHtml }}</span>
+    {% endif %}
+  </{{ htmlTag }}>
+  {% if text %}
+    <twig:Austral:Text isHeadline="{{ true }}" value="{{ text }}" wysiwyg="{{ textWysiwyg|default(false) }}"/>
+  {% endif %}
+  {% block link %}{% endblock %}
+</div>

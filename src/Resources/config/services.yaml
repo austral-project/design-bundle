@@ -1,0 +1,131 @@
+parameters:
+
+  ##### Default values of the components (overridable by the application)
+  austral_design.component_default_value:
+    image:
+      size:       'height_auto'
+      option:     'cover'
+    button:
+      size:       'md'
+      theme:      'solid'
+      color:      'primary'
+      align:      'centered'
+      options:
+        colors:   ['default', 'primary', 'secondary', 'tertiary']
+        themes:   ['solid', 'outline', 'soft', 'ghost', 'link']
+    button-navigation:
+      size:       'sm'
+      theme:      'ghost'
+      color:      'primary'
+      align:      'centered'
+    spacer:
+      size:       'md'
+    text:
+      size:       'md'
+
+services:
+
+  ##### Twig components (symfony/ux-twig-component): key and template are given by the tag, as in #[AsTwigComponent]
+
+  Austral\DesignBundle\Twig\Components\Button\Button:
+    arguments:
+      $componentDefaultValue: '%austral_design.component_default_value%'
+    tags:
+      - { name: twig.component, key: 'Austral:Button', template: '@AustralDesign/Twig/Components/Button/button.html.twig' }
+
+  Austral\DesignBundle\Twig\Components\Button\Buttons:
+    tags:
+      - { name: twig.component, key: 'Austral:Buttons', template: '@AustralDesign/Twig/Components/Button/buttons.html.twig' }
+
+  Austral\DesignBundle\Twig\Components\Form\Fields\ChoiceList:
+    tags:
+      - { name: twig.component, key: 'Austral:Form:Fields:ChoiceList', template: '@AustralDesign/Twig/Components/Form/Fields/choice-list.html.twig' }
+
+  Austral\DesignBundle\Twig\Components\Form\Fields\Input:
+    tags:
+      - { name: twig.component, key: 'Austral:Form:Fields:Input', template: '@AustralDesign/Twig/Components/Form/Fields/input.html.twig' }
+
+  Austral\DesignBundle\Twig\Components\Form\Fields\Select:
+    tags:
+      - { name: twig.component, key: 'Austral:Form:Fields:Select', template: '@AustralDesign/Twig/Components/Form/Fields/select.html.twig' }
+
+  Austral\DesignBundle\Twig\Components\Form\Fields\Switcher:
+    tags:
+      - { name: twig.component, key: 'Austral:Form:Fields:Switcher', template: '@AustralDesign/Twig/Components/Form/Fields/switcher.html.twig' }
+
+  Austral\DesignBundle\Twig\Components\Form\Fields\Textarea:
+    tags:
+      - { name: twig.component, key: 'Austral:Form:Fields:Textarea', template: '@AustralDesign/Twig/Components/Form/Fields/textarea.html.twig' }
+
+  Austral\DesignBundle\Twig\Components\Form\Fields\Toggle:
+    tags:
+      - { name: twig.component, key: 'Austral:Form:Fields:Toggle', template: '@AustralDesign/Twig/Components/Form/Fields/toggle.html.twig' }
+
+  Austral\DesignBundle\Twig\Components\Form\Fields\Upload:
+    tags:
+      - { name: twig.component, key: 'Austral:Form:Fields:Upload', template: '@AustralDesign/Twig/Components/Form/Fields/upload.html.twig' }
+
+  Austral\DesignBundle\Twig\Components\Form\Form:
+    tags:
+      - { name: twig.component, key: 'Austral:Form', template: '@AustralDesign/Twig/Components/Form/form.html.twig' }
+
+  Austral\DesignBundle\Twig\Components\Form\Label:
+    tags:
+      - { name: twig.component, key: 'Austral:Form:Label', template: '@AustralDesign/Twig/Components/Form/label.html.twig' }
+
+  Austral\DesignBundle\Twig\Components\Form\Row:
+    tags:
+      - { name: twig.component, key: 'Austral:Form:Row', template: '@AustralDesign/Twig/Components/Form/row.html.twig' }
+
+  Austral\DesignBundle\Twig\Components\Link\Link:
+    tags:
+      - { name: twig.component, key: 'Austral:Link', template: '@AustralDesign/Twig/Components/Link/link.html.twig' }
+
+  Austral\DesignBundle\Twig\Components\Modal\Modal:
+    tags:
+      - { name: twig.component, key: 'Austral:Modal', template: '@AustralDesign/Twig/Components/Modal/modal.html.twig' }
+
+  Austral\DesignBundle\Twig\Components\Pagination\Pagination:
+    arguments:
+      $translator: '@translator'
+    tags:
+      - { name: twig.component, key: 'Austral:Pagination', template: '@AustralDesign/Twig/Components/Pagination/pagination.html.twig' }
+
+  Austral\DesignBundle\Twig\Components\Picto\Picto:
+    arguments:
+      $componentPictoParameters: '%austral_design.picto%'
+    tags:
+      - { name: twig.component, key: 'Austral:Picto', template: '@AustralDesign/Twig/Components/Picto/picto.html.twig' }
+
+  Austral\DesignBundle\Twig\Components\Picture\Picture:
+    arguments:
+      $componentDefaultValue: '%austral_design.component_default_value%'
+      $publicDir:             '%kernel.project_dir%/public'
+    tags:
+      - { name: twig.component, key: 'Austral:Picture', template: '@AustralDesign/Twig/Components/Picture/picture.html.twig' }
+
+  Austral\DesignBundle\Twig\Components\Spacer\Spacer:
+    arguments:
+      $componentDefaultValue: '%austral_design.component_default_value%'
+    tags:
+      - { name: twig.component, key: 'Austral:Spacer', template: '@AustralDesign/Twig/Components/Spacer/spacer.html.twig' }
+
+  Austral\DesignBundle\Twig\Components\Text\Text:
+    arguments:
+      $componentDefaultValue: '%austral_design.component_default_value%'
+    tags:
+      - { name: twig.component, key: 'Austral:Text', template: '@AustralDesign/Twig/Components/Text/text.html.twig' }
+
+  Austral\DesignBundle\Twig\Components\Title\Title:
+    tags:
+      - { name: twig.component, key: 'Austral:Title', template: '@AustralDesign/Twig/Components/Title/title.html.twig' }
+
+  ##### Tags of the compiled build (austral_design_styles() / austral_design_scripts())
+
+  Austral\DesignBundle\Twig\Extension\BuildExtension:
+    arguments:
+      $entrypointsPath: '%austral_design.build.entrypoints%'
+      $requestStack:    '@?request_stack'
+    tags:
+      - { name: twig.extension }
+      - { name: kernel.reset, method: reset }

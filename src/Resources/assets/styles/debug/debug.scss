@@ -1,0 +1,54 @@
+/*!
+ * This file is part of the Austral Design Bundle package.
+ *
+ * (c) Austral <support@austral.dev>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+@use "./../mixin/global" as global;
+@use "./../mixin/flex" as flex;
+
+.flex--debugger,
+.grid--debugger {
+  padding: 0 var(--margin-40);
+  position:fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  height: 100vh;
+  width: var(--width-vw);
+  opacity: 0;
+  z-index: 1000000;
+  &.middle {
+    height: 50vh;
+    .color {
+      height: 50vh;
+    }
+  }
+  &.view {
+    opacity: 0.6;
+  }
+  .container {
+    height: 100%;
+  }
+  .color {
+    height: 100vh;
+    background: rgba(14, 71, 255, 0.2);
+  }
+}
+.grid--debugger {
+  .color {
+    outline: 1px solid red;
+    grid-row-start: 1;
+  }
+}
+.flex--debugger {
+  &.middle {
+    top: auto;
+    bottom: 0;
+  }
+  .color {
+    background: rgba(14, 255, 82, 0.2);
+  }
+}

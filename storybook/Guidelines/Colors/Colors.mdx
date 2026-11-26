@@ -1,0 +1,42 @@
+import { Canvas, Meta, Primary, Controls, Story, ArgsTable } from '@storybook/addon-docs';
+import * as Colors from './Colors.stories';
+
+<Meta title="Guidelines/Colors" parameters={{
+  viewMode: 'docs',
+  previewTabs: {
+    canvas: { hidden: true},
+  },
+}} />
+
+# Colors, CSS Variables & Utility Classes
+
+Color is one of the most powerful tools in interface design. It enhances the user experience by creating visual hierarchy, signaling interaction, and reinforcing the brand identity.
+
+This section documents the complete color palette used in the Design System, as well as the related CSS variables and utility classes made available to developers.
+
+<br/>
+
+## 🎨 Colors
+
+<Story of={Colors.Default} />
+<br/><br/>
+
+## 🎨 Color Base
+
+<Story of={Colors.ColorBase} />
+<br/><br/>
+
+## 🎨 Color 1
+
+<Story of={Colors.Color1} />
+<br/><br/>
+
+## 🎨 Color 2
+
+<Story of={Colors.Color2} />
+<br/><br/>
+
+## 🎨 Color Other
+
+<Story of={Colors.Other} />
+<br/><br/>

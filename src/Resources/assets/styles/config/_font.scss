@@ -1,0 +1,176 @@
+/*!
+ * This file is part of the Austral Design Bundle package.
+ *
+ * (c) Austral <support@austral.dev>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+@use "./../../styles/config/config" as config;
+@use "./../../styles/mixin/global" as global;
+
+.font {
+  @include global.font-generate(
+    var(--font-family),
+    var(--font-size),
+    var(--font-weight, 400),
+    var(--font-line-height, 0),
+    var(--font-letter-spacing, 0)
+  );
+  color: var(--font-color);
+}
+
+/* Font 1 */
+.font-1 {
+  @extend .font;
+  font-optical-sizing: auto;
+  --font-family: var(--fonts-font-1-family);
+}
+.font-1-3xl {
+  @extend .font-1;
+  --font-size: var(--fonts-font-1-3xl-size);
+  --font-weight: var(--fonts-font-1-3xl-weight);
+  --font-line-height: var(--fonts-font-1-3xl-line-height);
+  --font-letter-spacing: var(--fonts-font-1-3xl-letter-spacing);
+}
+.font-1-2xl {
+  @extend .font-1;
+  --font-size: var(--fonts-font-1-2xl-size);
+  --font-weight: var(--fonts-font-1-2xl-weight);
+  --font-line-height: var(--fonts-font-1-2xl-line-height);
+  --font-letter-spacing: var(--fonts-font-1-2xl-letter-spacing);
+}
+.font-1-xl {
+  @extend .font-1;
+  --font-size: var(--fonts-font-1-xl-size);
+  --font-weight: var(--fonts-font-1-xl-weight);
+  --font-line-height: var(--fonts-font-1-xl-line-height);
+  --font-letter-spacing: var(--fonts-font-1-xl-letter-spacing);
+}
+.font-1-lg {
+  @extend .font-1;
+  --font-size: var(--fonts-font-1-lg-size);
+  --font-weight: var(--fonts-font-1-lg-weight);
+  --font-line-height: var(--fonts-font-1-lg-line-height);
+  --font-letter-spacing: var(--fonts-font-1-lg-letter-spacing);
+}
+.font-1-md {
+  @extend .font-1;
+  --font-size: var(--fonts-font-1-md-size);
+  --font-weight: var(--fonts-font-1-md-weight);
+  --font-line-height: var(--fonts-font-1-md-line-height);
+  --font-letter-spacing: var(--fonts-font-1-md-letter-spacing);
+}
+.font-1-sm {
+  @extend .font-1;
+  --font-size: var(--fonts-font-1-sm-size);
+  --font-weight: var(--fonts-font-1-sm-weight);
+  --font-line-height: var(--fonts-font-1-sm-line-height);
+  --font-letter-spacing: var(--fonts-font-1-sm-letter-spacing);
+}
+.font-1-xs {
+  @extend .font-1;
+  --font-size: var(--fonts-font-1-xs-size);
+  --font-weight: var(--fonts-font-1-xs-weight);
+  --font-line-height: var(--fonts-font-1-xs-line-height);
+  --font-letter-spacing: var(--fonts-font-1-xs-letter-spacing);
+}
+.font-1-2xs {
+  @extend .font-1;
+  font-optical-sizing: auto;
+  --font-size: var(--fonts-font-1-2xs-size);
+  --font-weight: var(--fonts-font-1-2xs-weight);
+  --font-line-height: var(--fonts-font-1-2xs-line-height);
+  --font-letter-spacing: var(--fonts-font-1-2xs-letter-spacing);
+}
+
+/* Font 2 */
+.font-2 {
+  @extend .font;
+  font-optical-sizing: auto;
+  --font-family: var(--fonts-font-2-family);
+}
+.font-2-3xl {
+  @extend .font-2;
+  --font-size: var(--fonts-font-2-3xl-size);
+  --font-weight: var(--fonts-font-2-3xl-weight);
+  --font-line-height: var(--fonts-font-2-3xl-line-height);
+  --font-letter-spacing: var(--fonts-font-2-3xl-letter-spacing);
+}
+.font-2-2xl {
+  @extend .font-2;
+  --font-size: var(--fonts-font-2-2xl-size);
+  --font-weight: var(--fonts-font-2-2xl-weight);
+  --font-line-height: var(--fonts-font-2-2xl-line-height);
+  --font-letter-spacing: var(--fonts-font-2-2xl-letter-spacing);
+}
+.font-2-xl {
+  @extend .font-2;
+  --font-size: var(--fonts-font-2-xl-size);
+  --font-weight: var(--fonts-font-2-xl-weight);
+  --font-line-height: var(--fonts-font-2-xl-line-height);
+  --font-letter-spacing: var(--fonts-font-2-xl-letter-spacing);
+}
+.font-2-lg {
+  @extend .font-2;
+  --font-size: var(--fonts-font-2-lg-size);
+  --font-weight: var(--fonts-font-2-lg-weight);
+  --font-line-height: var(--fonts-font-2-lg-line-height);
+  --font-letter-spacing: var(--fonts-font-2-lg-letter-spacing);
+}
+.font-2-md {
+  @extend .font-2;
+  --font-size: var(--fonts-font-2-md-size);
+  --font-weight: var(--fonts-font-2-md-weight);
+  --font-line-height: var(--fonts-font-2-md-line-height);
+  --font-letter-spacing: var(--fonts-font-2-md-letter-spacing);
+}
+.font-2-sm {
+  @extend .font-2;
+  --font-size: var(--fonts-font-2-sm-size);
+  --font-weight: var(--fonts-font-2-sm-weight);
+  --font-line-height: var(--fonts-font-2-sm-line-height);
+  --font-letter-spacing: var(--fonts-font-2-sm-letter-spacing);
+}
+.font-2-xs {
+  @extend .font-2;
+  --font-size: var(--fonts-font-2-xs-size);
+  --font-weight: var(--fonts-font-2-xs-weight);
+  --font-line-height: var(--fonts-font-2-xs-line-height);
+  --font-letter-spacing: var(--fonts-font-2-xs-letter-spacing);
+}
+.font-2-2xs {
+  @extend .font-2;
+  --font-size: var(--fonts-font-2-2xs-size);
+  --font-weight: var(--fonts-font-2-2xs-weight);
+  --font-line-height: var(--fonts-font-2-2xs-line-height);
+  --font-letter-spacing: var(--fonts-font-2-2xs-letter-spacing);
+}
+
+/** Button **/
+.font-button {
+  @extend .font;
+  font-optical-sizing: auto;
+  --font-family: var(--fonts-font-button-font-family);
+  --font-weight: var(--fonts-font-button-font-weight);
+  --font-letter-spacing: var(--fonts-font-button-font-letter-spacing);
+}
+.font-button-lg {
+  @extend .font-button;
+  font-optical-sizing: auto;
+  --font-size: var(--fonts-font-button-lg-size);
+  --font-line-height: var(--fonts-font-button-lg-line-height);
+}
+.font-button-md {
+  @extend .font-button;
+  font-optical-sizing: auto;
+  --font-size: var(--fonts-font-button-md-size);
+  --font-line-height: var(--fonts-font-button-md-line-height);
+}
+.font-button-sm {
+  @extend .font-button;
+  font-optical-sizing: auto;
+  --font-size: var(--fonts-font-button-sm-size);
+  --font-line-height: var(--fonts-font-button-sm-line-height);
+}

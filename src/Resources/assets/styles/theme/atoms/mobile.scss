@@ -1,0 +1,266 @@
+/*!
+ * This file is part of the Austral Design Bundle package.
+ *
+ * (c) Austral <support@austral.dev>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+/* ⚛️ Atoms - Mobile */
+$screen-width: 37.5rem;
+$screen-height: 81.2rem;
+
+$col-margin: var(--margin-md);
+$col-gutter: .4rem;
+
+$margin-3xl: var(--spacing-20);
+$margin-2xl: var(--spacing-16);
+$margin-xl: var(--spacing-10);
+$margin-lg: var(--spacing-6);
+$margin-md: var(--spacing-4);
+$margin-sm: var(--spacing-3);
+$margin-xs: var(--spacing-2);
+$margin-2xs: var(--spacing-1);
+$margin-3xs: var(--spacing-1);
+$margin-4xs: var(--spacing-1_2);
+
+$highlight-size: 2px;
+$highlight-internal-size: 2px;
+
+/** CONTAINER **/
+$container-radius-sm: var(--radius-sm);
+$container-radius-md: var(--radius-md);
+$container-radius-lg: var(--radius-lg);
+
+$container-external-margin-sm: var(--margin-xs);
+$container-external-margin-md: var(--margin-sm);
+$container-external-margin-lg: var(--margin-md);
+$container-internal-margin-sm: var(--margin-3xs);
+$container-internal-margin-md: var(--margin-2xs);
+$container-internal-margin-lg: var(--margin-xs);
+
+$container-border-size: 1px;
+$container-border-size-hover: 1px;
+$container-border-size-active: 1px;
+$container-border-size-disable: 1px;
+
+/** FONTS - 1 **/
+$fonts-font-1-3xl-size: 4rem;
+$fonts-font-1-3xl-weight: var(--fonts-font-1-weight-md);
+$fonts-font-1-3xl-line-height: 4.8rem;
+$fonts-font-1-3xl-letter-spacing: var(--fonts-font-1-letter-spacing-lg);
+
+$fonts-font-1-2xl-size: 2.8rem;
+$fonts-font-1-2xl-weight: var(--fonts-font-1-weight-md);
+$fonts-font-1-2xl-line-height: 3.8rem;
+$fonts-font-1-2xl-letter-spacing: var(--fonts-font-1-letter-spacing-lg);
+
+$fonts-font-1-xl-size: 2rem;
+$fonts-font-1-xl-weight: var(--fonts-font-1-weight-md);
+$fonts-font-1-xl-line-height: 3rem;
+$fonts-font-1-xl-letter-spacing: var(--fonts-font-1-letter-spacing-lg);
+
+$fonts-font-1-lg-size: 1.8rem;
+$fonts-font-1-lg-weight: var(--fonts-font-1-weight-rg);
+$fonts-font-1-lg-line-height: 2.6rem;
+$fonts-font-1-lg-letter-spacing: var(--fonts-font-1-letter-spacing-lg);
+
+$fonts-font-1-md-size: 1.4rem;
+$fonts-font-1-md-weight: var(--fonts-font-1-weight-rg);
+$fonts-font-1-md-line-height: 2.2rem;
+$fonts-font-1-md-letter-spacing: var(--fonts-font-1-letter-spacing-lg);
+
+$fonts-font-1-sm-size: 1.2rem;
+$fonts-font-1-sm-weight: var(--fonts-font-1-weight-rg);
+$fonts-font-1-sm-line-height: 1.6rem;
+$fonts-font-1-sm-letter-spacing: var(--fonts-font-1-letter-spacing-lg);
+
+$fonts-font-1-xs-size: 1.1rem;
+$fonts-font-1-xs-weight: var(--fonts-font-1-weight-rg);
+$fonts-font-1-xs-line-height: 1.6rem;
+$fonts-font-1-xs-letter-spacing: var(--fonts-font-1-letter-spacing-lg);
+
+$fonts-font-1-2xs-size: 1rem;
+$fonts-font-1-2xs-weight: var(--fonts-font-1-weight-rg);
+$fonts-font-1-2xs-line-height: 1.2rem;
+$fonts-font-1-2xs-letter-spacing: var(--fonts-font-1-letter-spacing-lg);
+
+/** FONTS - 2 **/
+$fonts-font-2-3xl-size: 9rem;
+$fonts-font-2-3xl-weight: var(--fonts-font-2-weight-sb);
+$fonts-font-2-3xl-line-height: 10.4rem;
+$fonts-font-2-3xl-letter-spacing: var(--fonts-font-2-letter-spacing-lg);
+
+$fonts-font-2-2xl-size: 7rem;
+$fonts-font-2-2xl-weight: var(--fonts-font-2-weight-sb);
+$fonts-font-2-2xl-line-height: 8.2rem;
+$fonts-font-2-2xl-letter-spacing: var(--fonts-font-2-letter-spacing-lg);
+
+$fonts-font-2-xl-size: 5rem;
+$fonts-font-2-xl-weight: var(--fonts-font-2-weight-sb);
+$fonts-font-2-xl-line-height: 6rem;
+$fonts-font-2-xl-letter-spacing: var(--fonts-font-2-letter-spacing-lg);
+
+$fonts-font-2-lg-size: 4rem;
+$fonts-font-2-lg-weight: var(--fonts-font-2-weight-sb);
+$fonts-font-2-lg-line-height: 5rem;
+$fonts-font-2-lg-letter-spacing: var(--fonts-font-2-letter-spacing-lg);
+
+$fonts-font-2-md-size: 3rem;
+$fonts-font-2-md-weight: var(--fonts-font-2-weight-sb);
+$fonts-font-2-md-line-height: 4rem;
+$fonts-font-2-md-letter-spacing: var(--fonts-font-2-letter-spacing-lg);
+
+$fonts-font-2-sm-size: 2.2rem;
+$fonts-font-2-sm-weight: var(--fonts-font-2-weight-sb);
+$fonts-font-2-sm-line-height: 3rem;
+$fonts-font-2-sm-letter-spacing: var(--fonts-font-2-letter-spacing-md);
+
+$fonts-font-2-xs-size: 1.8rem;
+$fonts-font-2-xs-weight: var(--fonts-font-2-weight-sb);
+$fonts-font-2-xs-line-height: 2.4rem;
+$fonts-font-2-xs-letter-spacing: var(--fonts-font-2-letter-spacing-md);
+
+$fonts-font-2-2xs-size: 1.4rem;
+$fonts-font-2-2xs-weight: var(--fonts-font-2-weight-sb);
+$fonts-font-2-2xs-line-height: 2rem;
+$fonts-font-2-2xs-letter-spacing: var(--fonts-font-2-letter-spacing-md);
+
+/** FORM **/
+$fonts-font-form-label-family: var(--fonts-font-1-family);
+$fonts-font-form-label-letter-spacing: var(--fonts-font-1-letter-spacing-md);
+$fonts-font-form-label-weight: var(--fonts-font-1-weight-rg);
+$fonts-font-form-label-size: var(--fonts-font-1-md-size);
+$fonts-font-form-label-line-height: var(--fonts-font-1-md-line-height);
+
+$fonts-font-form-value-family: var(--fonts-font-1-family);
+$fonts-font-form-value-letter-spacing: var(--fonts-font-1-letter-spacing-md);
+$fonts-font-form-value-weight: var(--fonts-font-1-weight-sb);
+$fonts-font-form-value-size: var(--fonts-font-1-md-size);
+$fonts-font-form-value-line-height: var(--fonts-font-1-md-line-height);
+
+$fonts-font-form-info-family: var(--fonts-font-1-family);
+$fonts-font-form-info-letter-spacing: var(--fonts-font-1-letter-spacing-md);
+$fonts-font-form-info-weight: var(--fonts-font-1-weight-rg);
+$fonts-font-form-info-size: var(--fonts-font-1-sm-size);
+$fonts-font-form-info-line-height: var(--fonts-font-1-sm-line-height);
+
+/** BUTTON FONT **/
+$fonts-font-button-lg-size: var(--fonts-font-1-xs-size);
+$fonts-font-button-lg-line-height: var(--fonts-font-1-xs-line-height);
+
+$fonts-font-button-md-size: var(--fonts-font-1-md-size);
+$fonts-font-button-md-line-height: var(--fonts-font-1-md-line-height);
+
+$fonts-font-button-sm-size: var(--fonts-font-1-sm-size);
+$fonts-font-button-sm-line-height: var(--fonts-font-1-sm-line-height);
+
+/** BUTTON SIZE **/
+$button-lg-min-width: 6rem;
+$button-lg-height: 6rem;
+$button-lg-external-margin: var(--margin-sm);
+$button-lg-internal-margin: var(--margin-xs);
+$button-lg-radius: var(--radius-md);
+$button-lg-button-size: 2.4rem;
+
+$button-md-min-width: 6rem;
+$button-md-height: 4.8rem;
+$button-md-external-margin: var(--margin-sm);
+$button-md-internal-margin: var(--margin-xs);
+$button-md-radius: var(--radius-md);
+$button-md-button-size: 2.4rem;
+
+$button-sm-min-width: 6rem;
+$button-sm-height: 3.6rem;
+$button-sm-external-margin: var(--margin-sm);
+$button-sm-internal-margin: var(--margin-2xs);
+$button-sm-radius: var(--radius-md);
+$button-sm-button-size: 2rem;
+
+/** BUTTON THEME **/
+$button-solid-primary-border-size: 0px;
+$button-solid-primary-border-size-hover: 0px;
+$button-solid-primary-border-size-disable: 0px;
+
+$button-solid-secondary-border-size: 0px;
+$button-solid-secondary-border-size-hover: 0px;
+$button-solid-secondary-border-size-disable: 0px;
+
+$button-solid-tertiary-border-size: 0px;
+$button-solid-tertiary-border-size-hover: 0px;
+$button-solid-tertiary-border-size-disable: 0px;
+
+$button-outline-primary-border-size: 1px;
+$button-outline-primary-border-size-hover: 1px;
+$button-outline-primary-border-size-disable: 1px;
+
+$button-outline-secondary-border-size: 1px;
+$button-outline-secondary-border-size-hover: 1px;
+$button-outline-secondary-border-size-disable: 1px;
+
+$button-outline-tertiary-border-size: 1px;
+$button-outline-tertiary-border-size-hover: 1px;
+$button-outline-tertiary-border-size-disable: 1px;
+
+$button-soft-primary-border-size: 1px;
+$button-soft-primary-border-size-hover: 1px;
+$button-soft-primary-border-size-disable: 0px;
+
+$button-soft-secondary-border-size: 1px;
+$button-soft-secondary-border-size-hover: 1px;
+$button-soft-secondary-border-size-disable: 0px;
+
+$button-soft-tertiary-border-size: 1px;
+$button-soft-tertiary-border-size-hover: 1px;
+$button-soft-tertiary-border-size-disable: 0px;
+
+$button-ghost-primary-border-size: 0px;
+$button-ghost-primary-border-size-hover: 0px;
+$button-ghost-primary-border-size-disable: 0px;
+
+$button-ghost-secondary-border-size: 0px;
+$button-ghost-secondary-border-size-hover: 0px;
+$button-ghost-secondary-border-size-disable: 0px;
+
+$button-ghost-tertiary-border-size: 0px;
+$button-ghost-tertiary-border-size-hover: 0px;
+$button-ghost-tertiary-border-size-disable: 0px;
+
+$button-link-primary-border-size: 0px;
+$button-link-primary-border-size-hover: 0px;
+$button-link-primary-border-size-disable: 0px;
+$button-link-primary-underline-offset: 1px;
+$button-link-primary-underline-offset-hover: 4.5px;
+$button-link-primary-tickness: 1px;
+
+$button-link-secondary-border-size: 0px;
+$button-link-secondary-border-size-hover: 0px;
+$button-link-secondary-border-size-disable: 0px;
+$button-link-secondary-underline-offset: 4.5px;
+$button-link-secondary-underline-offset-hover: 1px;
+$button-link-secondary-tickness: 1px;
+
+$button-link-tertiary-border-size: 0px;
+$button-link-tertiary-border-size-hover: 0px;
+$button-link-tertiary-border-size-disable: 0px;
+$button-link-tertiary-underline-offset: 1px;
+$button-link-tertiary-underline-offset-hover: 4.5px;
+$button-link-tertiary-tickness: 1px;
+
+/** FORM **/
+$form-height: 4.8rem;
+$form-external-radius: var(--radius-md);
+$form-internal-radius: var(--radius-sm);
+
+$form-external-margin: 1.2rem;
+$form-internal-margin: .6rem;
+
+$form-border-size: 1px;
+$form-border-size-hover: 1px;
+$form-border-size-focused: 1px;
+
+$form-optional-text: (optional);
+$form-required-text: "*";
+
+$form-label-margin: var(--margin-2xs);

@@ -1,0 +1,24 @@
+<ul {{ attributes.defaults({class: "field field-choice-list field-items"}) }} data-choice-list="">
+  {% set choicesHtml %}{% block choices %}{% endblock %}{% endset %}
+  {% if choicesHtml != '' %}
+    {{ choicesHtml }}
+  {% else %}
+    {% for choice in choices %}
+      <li class="choice-item field-item {{ choice.disabled ? "disabled" : ""}}" data-focusable>
+        <div class="choice-item-content">
+          <twig:Austral:Form:Fields:Input
+            type="{{ type }}"
+            id="{{ choice.id }}"
+            name="{{ choice.name }}"
+            disabled="{{ choice.disabled }}"
+            value="{{ choice.value }}"
+            checked="{{ choice.checked|default(false) }}"
+            datas="{{ choice.datas|default([]) }}"
+          >
+          </twig:Austral:Form:Fields:Input>
+          <twig:Austral:Form:Label tag="label" entitled="{{ choice.label }}" id="{{ choice.id }}" for="{{ choice.id }}"/>
+        </div>
+      </li>
+    {% endfor %}
+  {% endif %}
+</ul>

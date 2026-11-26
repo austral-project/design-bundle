@@ -1,0 +1,188 @@
+/*!
+ * This file is part of the Austral Design Bundle package.
+ *
+ * (c) Austral <support@austral.dev>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+@use "./../../styles/mixin/global" as global;
+@use "./../../styles/mixin/flex" as flex;
+@use "./../../styles/config/config" as config;
+@use "./../../styles/config/font" as font;
+@use './../../styles/config/variables/austral' as austral;
+
+:root {
+  --modal-width-center: 364;
+  --modal-width-left: 455;
+  --modal-width-right: 455;
+}
+
+.modal-parent-z-index {
+  z-index: 100000 !important;
+}
+
+.modal-area  {
+  --modal-radius: var(--radius-lg);
+  --modal-height: 100%;
+  --modal-width: 100%;
+  --modal-background-overlay: var(--others-neutral-dark-opacity-md);
+  --modal-background: var(--neutral-light);
+
+  padding: var(--margin-2xs);
+  background: var(--modal-background-overlay);
+  backdrop-filter: blur(4px);
+  height: 100dvh;
+  width: 100vw;
+  top:0;
+  left: 0;
+  position: fixed;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 1000000;
+  overflow: hidden;
+  display:none;
+  .title-area {
+    .text-headline {
+      --font-color: var(--area-description-color);
+    }
+  }
+  .modal-overlay {
+    position:absolute;
+    top:0;
+    left:0;
+    height: 100%;
+    width: 100%;
+  }
+  &.view {
+    @include flex.display();
+  }
+  &.open {
+    pointer-events: all;
+  }
+  .modal-content {
+    overflow: scroll;
+  }
+  &.full {
+    .modal-container {
+      @include global.scale(0.9, 0.9);
+      padding-bottom: var(--margin-md);
+      opacity: 0;
+    }
+
+    .modal-content {
+      padding: calc(var(--margin-xl) + var(--margin-md) + 56px) var(--margin-2xl) var(--margin-2xl);
+      @media #{config.$media-desktop-max} {
+        padding: calc(var(--margin-xl) + var(--margin-md) + 56px) var(--margin-md) var(--margin-2xl) ;
+      }
+    }
+  }
+  &.center {
+    @include flex.align-items(center);
+    @include flex.align-content(center);
+    @include flex.justify-content(center);
+    --modal-height: auto;
+    --modal-width: calc(100vw * var(--modal-width-center) / var(--size-referal-calc));
+    .modal-container {
+      top: 2.5rem;
+      opacity: 0;
+      padding-bottom: var(--margin-md);
+    }
+  }
+  &.left {
+    --modal-height: 100%;
+    --modal-width: calc(100vw * var(--modal-width-left) / var(--size-referal-calc));
+    .modal-container {
+      left: calc((var(--modal-width) + 10rem) * -1);
+    }
+    @media #{config.$media-desktop-max} {
+      --modal-width: 100%;
+    }
+  }
+  &.right{
+    @include flex.justify-content(flex-end);
+    --modal-height: 100%;
+    --modal-width: calc(100vw * var(--modal-width-right) / var(--size-referal-calc));
+    @media #{config.$media-desktop-max} {
+      --modal-width: 100%;
+    }
+    .modal-container {
+      right: calc((var(--modal-width) + 10rem) * -1);
+      .modal-content {
+        padding: var(--margin-xl);
+        @media #{config.$media-desktop-max} {
+          padding: calc(var(--margin-xl) + var(--margin-md) + 56px) var(--margin-md) var(--margin-2xl) ;
+        }
+        .link {
+          @include flex.justify-content(flex-start);
+        }
+        .informations-content {
+          @include flex.display();
+          @include flex.direction(column);
+          gap: var(--margin-md);
+          .information {
+            @include flex.display();
+            @include flex.direction(column);
+            gap: var(--margin-xs);
+            .title {
+              .value {
+                --font-color: var(--area-description-color);
+                --font-family: var(--fonts-font-1-sm-family);
+                --font-size: var(--fonts-font-1-sm-size);
+                --font-weight: var(--fonts-font-1-sm-weight);
+                --font-line-height: var(--fonts-font-1-sm-line-height);
+                --font-letter-spacing: var(--fonts-font-1-sm-letter-spacing);
+                text-transform: uppercase;
+
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .modal-container {
+    @include flex.display();
+    @include flex.direction(column);
+    @include flex.align-items(flex-start);
+    @include flex.align-content(flex-start);
+    @include flex.justify-content(flex-start);
+    border-radius: var(--modal-radius);
+    background: var(--modal-background);
+    width: var(--modal-width);
+    height: var(--modal-height);
+    position: relative;
+    z-index: 10;
+  }
+
+  .modal-top {
+    @include flex.display();
+    @include flex.align-items(center);
+    @include flex.align-content(center);
+    padding: 1rem;
+    width: 100%;
+    position:absolute;
+    top: 0;
+    z-index: 10;
+    .return {
+      position:relative;
+    }
+    .close {
+      position:relative;
+      margin-left: auto;
+      width: auto;
+    }
+  }
+  .modal-content {
+    @include flex.display();
+    @include flex.direction(column);
+    gap: var(--margin-xl);
+    width: 100%;
+    padding: calc(var(--margin-xl) + var(--margin-md) + 56px) var(--margin-md) var(--margin-2xl) ;
+    flex: 1;
+    .collection-card-area {
+      margin-top: auto;
+    }
+  }
+}

@@ -1,0 +1,29 @@
+<div class="field field-switcher theme-{{ theme }} size-{{ size }}"
+{% for attrKey, attrValue in attr|default({}) %}{% if attrKey !== "data-select" and attrKey !== "data-select-options" %}{{ attrKey }}="{{ attrValue }}"{% endif %}{% endfor%}
+data-switcher>
+  <div class="switcher-highlight"></div>
+  <ul class="switcher-list field-items">
+    {% set choicesHtml %}{% block choices_html %}{% endblock %}{% endset %}
+    {% if choicesHtml|trim != '' %}
+      {{ choicesHtml }}
+    {% else %}
+      {% for choice in choices %}
+        <li class="switcher-item field-item {{ choice.disabled ? "disabled" : ""}}" data-focusable >
+          <div class="switcher-item-content">
+            <twig:Austral:Form:Fields:Input
+              type="radio"
+              id="{{ choice.id }}"
+              name="{{ choice.name }}"
+              disabled="{{ choice.disabled }}"
+              value="{{ choice.value }}"
+              checked="{{ choice.checked is defined and choice.checked is not null ? choice.checked : (loop.first ? true : false) }}"
+              datas="{{ choice.datas|default([]) }}"
+            >
+            </twig:Austral:Form:Fields:Input>
+            <twig:Austral:Form:Label tag="label" entitled="{{ choice.label }}" id="{{ choice.id }}"/>
+          </div>
+        </li>
+      {% endfor %}
+    {% endif %}
+  </ul>
+</div>

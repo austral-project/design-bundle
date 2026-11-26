@@ -1,0 +1,212 @@
+/*!
+ * This file is part of the Austral Design Bundle package.
+ *
+ * (c) Austral <support@austral.dev>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+@use "./../../../../styles/mixin/global" as global;
+@use "./../../../../styles/mixin/flex" as flex;
+@use "./../../../../styles/mixin/grid" as grid;
+@use "./../../../../styles/config/config" as config;
+@use "./../../../../styles/config/font" as font;
+@use './../../../../styles/config/variables/austral' as austral;
+
+
+.austral-timepicker-fields {
+  @include flex.display();
+  @include flex.justify-content(flex-start);
+  @include flex.align-items(center);
+  @include flex.align-content(center);
+  gap: 0.5rem;
+  height: 100%;
+  .austral-time-choice {
+    width: 2ch;
+    text-align: left;
+  }
+  .austral-time-choice {
+    &::placeholder {
+      opacity:0;
+    }
+  }
+  .austral-time-separator {
+    @extend .font;
+    --font-family: var(--field-input-value-family);
+    --font-size: var(--field-input-value-size);
+    --font-weight: var(--field-input-value-weight);
+    --font-line-height: var(--field-input-value-line-height);
+    --font-letter-spacing: var(--field-input-value-letter-spacing);
+    --font-color: var(--field-input-value-color);
+  }
+  .austral-timepicker-field {
+    position:relative;
+    label {
+      @include global.position-middle();
+      --font-size: 1.1rem;
+      position:absolute;
+      pointer-events: none;
+      opacity: 1;
+      &:after {
+        display:none;
+      }
+    }
+    .austral-time-choice {
+      text-align: center;
+    }
+    &.active {
+      label {
+        opacity: 0;
+      }
+    }
+  }
+}
+
+.austral-timepicker {
+  @include flex.display();
+  @include flex.justify-content(center);
+  @include flex.align-items(center);
+  @include flex.align-content(center);
+  margin-top: 1rem;
+  position:absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  max-width: 22rem;
+  z-index: 10000;
+
+  &.austral-timepicker--flip-up {
+    margin-top: 0;
+    top: auto;
+    bottom: 100%;
+    margin-bottom: -2rem;
+  }
+  &.animate {
+    @include global.transition-default();
+  }
+
+  border-radius: var(--radius-lg);
+  border: var(--form-border-size) solid var(--form-input-border-color);
+  background: var(--form-input-background-color);
+  box-shadow: 0 5px 20px 0 var(--content-shadow-color, rgba(0, 0, 0, 0.10));
+
+  --field-button-outline-color: transparent;
+  --field-button-outline-internal-color: transparent;
+  --field-button-outline-size: var(--highlight-size);
+  --field-button-outline-internal-size: var(--highlight-internal-size);
+  .austral-timepicker-container {
+    @include flex.display();
+    @include flex.justify-content(center);
+    @include flex.align-items(center);
+    @include flex.align-content(center);
+    @include flex.direction(column);
+    padding: 1rem 0 1rem;
+    width: 100%;
+    height: 100%;
+
+    .austral-times-container {
+      width: 100%;
+    }
+
+    .austral-times-content {
+      @include flex.display();
+      @include flex.justify-content(center);
+      @include flex.align-items(center);
+      @include flex.align-content(center);
+      padding: 0 2rem 1rem;
+      border-bottom: 1px solid var(--border-color, #e5e5e5);
+      position:relative;
+      &:before,
+      &:after {
+        pointer-events: none;
+        content: "";
+        z-index: 2;
+        position: absolute;
+        display:block;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 10rem;
+        background: linear-gradient(180deg, rgba(255, 255, 255, 1) 10%, transparent 100%);
+      }
+      &:after {
+        top:auto;
+        bottom: 0;
+        background: linear-gradient(0deg, rgba(255, 255, 255, 1) 10%, transparent 100%);
+      }
+      .column {
+        width: 100%;
+      }
+      .viewer {
+        position:relative;
+        height: 22rem;
+        flex: 1 1 auto;
+        overflow: hidden;
+      }
+      .choices {
+        @include flex.display();
+        @include flex.direction(column);
+        @include flex.align-items(center);
+        @include flex.align-content(center);
+        width: 100%;
+        position: absolute;
+        top: -100px;
+      }
+    }
+  }
+
+  .button-choice {
+    width: calc(100% - 4rem);
+    height: 50px;
+    font-size: 1rem;
+    &.current {
+      font-weight: bold;
+      color: var(--color-1-400);
+      font-size: 2rem;
+    }
+    &.prev {
+      font-size: 1.4rem;
+    }
+  }
+
+  .bottom {
+    padding: 1rem 1rem 0;
+  }
+
+  button {
+    @extend .font;
+    --font-family: var(--field-input-value-family);
+    --font-size: var(--field-input-value-size);
+    --font-weight: var(--field-input-value-weight);
+    --font-line-height: var(--field-input-value-line-height);
+    --font-letter-spacing: var(--field-input-value-letter-spacing);
+    --font-color: var(--field-input-value-color);
+    &:focus,
+    &:focus-visible {
+      --field-button-outline-color: var(--section-highlight-color) !important;
+      --field-button-outline-internal-color: var(--form-input-background-color) !important;
+    }
+    border-radius: var(--radius-lg);
+    box-shadow: inset 0 0 0 calc(var(--field-button-outline-internal-size)) var(--field-button-outline-internal-color),
+    0 0 0 calc(var(--field-button-outline-size)) var(--field-button-outline-color);
+  }
+
+  .close-container {
+    @include flex.display();
+    @include flex.justify-content(flex-end);
+    @include flex.align-items(flex-end);
+    @include flex.align-content(flex-end);
+    position:absolute;
+    top: calc(100% + 1rem);
+    width: 100%;
+    .button {
+      height: 0;
+      overflow: hidden;
+      &:focus {
+        height: var(--button-height);
+        overflow: visible;
+      }
+    }
+  }
+
+}

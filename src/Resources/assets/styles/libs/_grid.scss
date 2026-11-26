@@ -1,0 +1,113 @@
+/*!
+ * This file is part of the Austral Design Bundle package.
+ *
+ * (c) Austral <support@austral.dev>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+@use "../mixin/flex" as flex;
+@use "../mixin/grid" as grid;
+@use "../config/config" as config;
+
+$grid-container-edge: 6rem !default;
+$grid-container-edge-mobile: 3rem !default;
+
+$grid-column-count: 12 !default;
+$grid-column-count-mobile: 12 !default;
+
+$grid-column-gap: 3rem !default;
+$grid-column-gap-mobile: 3rem !default;
+
+$grid-row-gap: 3rem !default;
+$grid-row-gap-mobile: 3rem !default;
+
+$config: (
+  xs: 320px,
+  sm: 544px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1900px
+);
+
+.grid--container {
+  @include grid.layout($grid-column-count, $grid-column-gap, $grid-row-gap);
+  grid-auto-rows: minmax(0, auto);
+  max-width: initial;
+  width: 100%;
+  padding: 0 $grid-container-edge;
+  @media #{config.$media-desktop-max} {
+    @include grid.layout($grid-column-count-mobile, $grid-column-gap-mobile, $grid-row-gap-mobile);
+    padding: 0 $grid-container-edge-mobile;
+  }
+  .col-auto-flow {
+    grid-auto-flow: column;
+  }
+  .row-auto-flow {
+    grid-auto-flow: row;
+  }
+  &.grid--no-gutters {
+    padding: 0;
+  }
+  &.grid--no-gap {
+    gap: 0;
+  }
+  $grid-row-gap: if($grid-row-gap == null, $grid-column-gap, $grid-row-gap);
+  &.grid--no-gap-x {
+    gap: $grid-row-gap 0;
+  }
+  &.grid--no-gap-y {
+    gap: 0 $grid-column-gap;
+  }
+}
+
+@mixin create-selectors($breakpoint: null) {
+  $infix: if($breakpoint == null, '', '-#{$breakpoint}');
+
+  @for $i from 0 through $grid-column-count {
+    .grid--col#{$infix}-#{$i} {
+      grid-column-end: span $i;
+    }
+    .grid--col-offset#{$infix}-#{$i} {
+      grid-column-start: $i + 1;
+    }
+    .grid--row#{$infix}-#{$i} {
+      grid-row-end: span $i;
+    }
+    .grid--row-offset#{$infix}-#{$i} {
+      grid-row-start: $i + 1;
+    }
+  }
+  @media #{config.$media-desktop-max} {
+    @for $i from 0 through $grid-column-count-mobile {
+      .grid--col#{$infix}-#{$i} {
+        grid-column-end: span $i;
+      }
+      .grid--col-offset#{$infix}-#{$i} {
+        grid-column-start: $i + 1;
+      }
+      .grid--row#{$infix}-#{$i} {
+        grid-row-end: span $i;
+      }
+      .grid--row-offset#{$infix}-#{$i} {
+        grid-row-start: $i + 1;
+      }
+    }
+
+    @for $i from $grid-column-count-mobile through $grid-column-count {
+      .grid--col-offset#{$infix}-#{$i} {
+        grid-column-start: $i + 1;
+        display:none;
+      }
+    }
+  }
+}
+
+@include create-selectors;
+
+@each $breakpoint, $width in $config {
+  @media (min-width: $width) {
+    @include create-selectors($breakpoint);
+  }
+}

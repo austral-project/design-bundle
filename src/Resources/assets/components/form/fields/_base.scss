@@ -1,0 +1,469 @@
+/*!
+ * This file is part of the Austral Design Bundle package.
+ *
+ * (c) Austral <support@austral.dev>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+@use "./../../../styles/mixin/global" as global;
+@use "./../../../styles/mixin/flex" as flex;
+@use "./../../../styles/config/config" as config;
+@use "./../../../styles/config/font" as font;
+@use './../../../styles/config/variables/austral' as austral;
+
+.field-row {
+  input, textarea, select {
+    @extend .font;
+    --font-family: var(--field-input-value-family);
+    --font-size: var(--field-input-value-size);
+    --font-weight: var(--field-input-value-weight);
+    --font-line-height: var(--field-input-value-line-height);
+    --font-letter-spacing: var(--field-input-value-letter-spacing);
+    --font-color: var(--field-input-value-color);
+    border:none;
+    background: transparent;
+    width: 100%;
+    min-height: 2.4rem;
+    height: 100%;
+    &::placeholder {
+      @extend .font;
+      --font-family: var(--field-input-value-family);
+      --font-size: var(--field-placeholder-size);
+      --font-weight: var(--field-placeholder-weight);
+      --font-line-height: var(--field-placeholder-line-height);
+      --font-letter-spacing: var(--field-placeholder-letter-spacing);
+      --font-color: var(--field-placeholder-color);
+    }
+    &:focus,
+    &:focus-visible {
+      border:none;
+      outline: 0;
+    }
+    &.iti__search-input {
+      height: 4rem;
+      padding: 0;
+      border-bottom: var(--form-input-border-size) solid var(--form-input-border-color);
+    }
+  }
+  textarea  {
+    resize: vertical;
+    width: 100%;
+    min-height: 14rem;
+  }
+  input[type="checkbox"],
+  input[type="radio"] {
+    position:absolute;
+    left: calc(var(--width-vw) * -1);
+    top:0;
+    height: 0;
+    min-height: auto;
+    width: auto;
+  }
+}
+
+.fields-rows-container {
+  @include flex.display();
+  @include flex.direction(column);
+  gap: 2rem;
+}
+
+.groups-fields {
+  @include flex.display();
+  @include flex.direction(column);
+  gap: 0.6rem;
+  width: 100%;
+
+  &.group-row {
+    &.wrap {
+      > .fields-rows-container {
+        flex-wrap: wrap;
+        > .field-row {
+          width: 50%;
+        }
+      }
+    }
+    > .fields-rows-container {
+      @include flex.direction(row);
+    }
+  }
+  &.no-gutter {
+    > .fields-rows-container {
+      gap: 0;
+    }
+  }
+}
+
+.field-row {
+  @include flex.display();
+  @include flex.direction(column);
+  gap: var(--form-label-margin, 5px);
+  position:relative;
+  width: 100%;
+
+  --field-input-background-color: var(--form-input-background-color);
+  --field-input-border-size: var(--form-border-size);
+  --field-input-border-color: var(--form-input-border-color);
+
+  --field-input-outline-color: transparent;
+  --field-input-outline-internal-color: transparent;
+  --field-input-outline-size: var(--highlight-size);
+  --field-input-outline-internal-size: var(--highlight-internal-size);
+
+  --field-input-external-margin: var(--form-external-margin);
+  --field-input-internal-margin: var(--form-internal-margin);
+  --field-input-radius: var(--form-external-radius);
+  --field-input-height: var(--form-height);
+
+  --field-input-value-color: var(--form-input-value-color);
+  --field-input-required-color: var(--form-input-required-color);
+
+  --field-input-value-family: var(--fonts-font-form-value-family);
+  --field-input-value-size: var(--fonts-font-form-value-size);
+  --field-input-value-weight: var(--fonts-font-form-value-weight);
+  --field-input-value-line-height: var(--fonts-font-form-value-line-height);
+  --field-input-value-letter-spacing: var(--fonts-font-form-value-letter-spacing);
+
+  --field-placeholder-family: var(--fonts-font-form-label-family);
+  --field-placeholder-color: var(--form-input-placeholder-color);
+  --field-placeholder-size: var(--fonts-font-form-label-size);
+  --field-placeholder-weight: var(--fonts-font-form-label-weight);
+  --field-placeholder-line-height: var(--fonts-font-form-label-line-height);
+  --field-placeholder-letter-spacing: var(--fonts-font-form-label-letter-spacing);
+
+  --field-label-family: var(--fonts-font-form-label-family);
+  --field-label-color: var(--form-input-label-color);
+  --field-label-size: var(--fonts-font-form-label-size);
+  --field-label-weight: var(--fonts-font-form-label-weight);
+  --field-label-line-height: var(--fonts-font-form-label-line-height);
+  --field-label-letter-spacing: var(--fonts-font-form-label-letter-spacing);
+
+  --field-info-family: var(--fonts-font-form-info-family);
+  --field-info-color: var(--form-input-info-color);
+  --field-info-size: var(--fonts-font-form-info-size);
+  --field-info-weight: var(--fonts-font-form-info-weight);
+  --field-info-line-height: var(--fonts-font-form-info-line-height);
+  --field-info-letter-spacing: var(--fonts-font-form-info-letter-spacing);
+
+  --field-after-before-family: var(--fonts-font-form-label-family);
+  --field-after-before-color: var(--form-input-optional-color);
+  --field-after-before-size: var(--fonts-font-form-label-size);
+  --field-after-before-weight: var(--fonts-font-form-label-weight);
+  --field-after-before-line-height: var(--fonts-font-form-label-line-height);
+  --field-after-before-letter-spacing: var(--fonts-font-form-label-letter-spacing);
+
+  --field-helper-family: var(--fonts-font-form-info-family);
+  --field-helper-color: var(--neutral-dark);
+  --field-helper-size: var(--fonts-font-form-info-size);
+  --field-helper-weight: var(--fonts-font-form-info-weight);
+  --field-helper-line-height: var(--fonts-font-form-info-line-height);
+  --field-helper-letter-spacing: var(--fonts-font-form-info-letter-spacing);
+
+  --field-input-select-picto-color: var(--form-input-icon-color);
+  --field-input-disable-items-opacity: var(--form-input-disable-items-opacity);
+  --field-input-option-background: var(--form-input-options-background-color);
+
+  .field-container-type-choice,
+  .field-container-type-text {
+    > * {
+      opacity: var(--opacity-full);
+    }
+  }
+
+  &.active {
+    .field-container {
+      .field-content {
+        > label {
+          top: -3.5rem !important;
+          left: -1rem !important;
+        }
+      }
+    }
+  }
+  &.error {
+    --field-input-background-color: var(--form-input-background-color);
+    --field-input-border-color: var(--others-info-error-md);
+  }
+  &.focus:not(.field-row-switcher):not(.field-row-choice-list) {
+    --field-input-background-color: var(--form-input-background-color-focused) !important;
+    --field-input-border-color: var(--form-input-border-color-focused) !important;
+    --field-label-color: var(--form-input-label-active-color) !important;
+
+    --field-input-outline-color: var(--section-highlight-color) !important;
+    --field-input-outline-internal-color: var(--form-input-background-color) !important;
+    z-index: 20;
+  }
+  &:hover:not(.field-row-switcher):not(.field-row-choice-list) {
+    --field-input-background-color: var(--form-input-background-color-hover);
+    --field-input-border-color: var(--form-input-border-color-hover);
+  }
+  &.disabled {
+    --field-input-border-color: var(--form-input-border-color) !important;
+    --field-input-background-color: var(--form-input-background-color-disable) !important;
+    --field-input-option-background: var(--form-input-options-background-color-disable) !important;
+    .field-container {
+      opacity: var(--field-input-items-opacity);
+      cursor: not-allowed;
+      * {
+        cursor: not-allowed;
+      }
+    }
+  }
+  &.is-autofilled {
+    --field-input-background-color: #dbedff !important;
+    input:-webkit-autofill,
+    input:-webkit-autofill:hover,
+    input:-webkit-autofill:focus,
+    textarea:-webkit-autofill,
+    select:-webkit-autofill {
+      -webkit-text-fill-color: #000 !important;
+      box-shadow: 0 0 0 1000px #dbedff inset !important;
+      transition: background-color 9999s ease-in-out 0s;
+    }
+    input {
+      background: transparent !important;
+    }
+    input:-moz-autofill{
+      filter: grayscale(100%) brightness(1.05);
+    }
+  }
+  &.required {
+    label {
+      &:after {
+        @extend .font;
+        content: "*";
+        overflow: hidden;
+        text-overflow: ellipsis;
+        padding-left: var(--form-internal-margin);
+        --font-family: var(--field-label-family);
+        --font-size: var(--field-label-size);
+        --font-weight: var(--field-label-weight);
+        --font-line-height: var(--field-label-line-height);
+        --font-letter-spacing: var(--field-label-letter-spacing);
+        --font-color: var(--field-input-required-color);
+      }
+    }
+  }
+  &.reverse {
+    .field-content {
+      > label {
+        width: 100%;
+      }
+      .field {
+        order: -1;
+        flex: content;
+      }
+    }
+  }
+
+  &.animate {
+    .field-container {
+      .field-content {
+        > label {
+          @include global.transition-default();
+          pointer-events: none;
+          left: 0;
+          top: 0.3rem;
+          position: absolute;
+        }
+      }
+    }
+  }
+
+  label {
+    @extend .font;
+    --font-family: var(--field-label-family);
+    --font-size: var(--field-label-size);
+    --font-weight: var(--field-label-weight);
+    --font-line-height: var(--field-label-line-height);
+    --font-letter-spacing: var(--field-label-letter-spacing);
+    --font-color: var(--field-label-color);
+    > * {
+      color: var(--field-label-color);
+    }
+    a {
+      -webkit-transition: text-underline-offset 300ms cubic-bezier(0.5, 0, 0.05, 1), text-decoration-color 300ms cubic-bezier(0.5, 0, 0.05, 1);
+      -moz-transition: text-underline-offset 300ms cubic-bezier(0.5, 0, 0.05, 1), text-decoration-color 300ms cubic-bezier(0.5, 0, 0.05, 1);
+      -ms-transition: text-underline-offset 300ms cubic-bezier(0.5, 0, 0.05, 1), text-decoration-color 300ms cubic-bezier(0.5, 0, 0.05, 1);
+      -o-transition: text-underline-offset 300ms cubic-bezier(0.5, 0, 0.05, 1), text-decoration-color 300ms cubic-bezier(0.5, 0, 0.05, 1);
+      transition: text-underline-offset 300ms cubic-bezier(0.5, 0, 0.05, 1), text-decoration-color 300ms cubic-bezier(0.5, 0, 0.05, 1);
+      text-underline-offset: 3px;
+      text-decoration-color: var(--area-link);
+      text-decoration-line: underline;
+      text-decoration-style: solid;
+      text-decoration-thickness: 1px;
+      &:hover {
+        text-decoration-line: underline;
+        text-decoration-style: solid;
+        text-decoration-thickness: 1px;
+        text-decoration-color: transparent;
+        text-underline-offset: 1px;
+      }
+    }
+  }
+
+  &.with-before {
+    .field-container {
+      &:not(.field-container-type-collection_entry) {
+        padding-left: 0;
+      }
+    }
+  }
+  &.with-after {
+    .field-container {
+      &:not(.field-container-type-collection_entry) {
+        padding-right: 0;
+      }
+    }
+  }
+}
+
+
+
+.field-container {
+  position:relative;
+  &:not(.field-container-type-collection_entry) {
+    @include flex.display();
+    @include flex.justify-content(flex-start);
+    @include flex.align-items(center);
+    @include flex.align-content(center);
+    @include global.transition-default();
+    gap: var(--field-input-external-margin);
+    min-height: var(--field-input-height);
+    border-radius: var(--field-input-radius);
+    border: var(--field-input-border-size) solid var(--field-input-border-color);
+
+    box-shadow: inset 0 0 0 calc(var(--field-input-outline-internal-size)) var(--field-input-outline-internal-color),
+    0 0 0 calc(var(--field-input-outline-size)) var(--field-input-outline-color);
+
+    background: var(--field-input-background-color);
+    padding: 0 var(--field-input-external-margin);
+  }
+
+  .field-before {
+    &.background {
+      border-right: var(--field-input-border-size) solid var(--field-input-border-color);
+    }
+  }
+  .field-after {
+    &.background {
+      border-left: var(--field-input-border-size) solid var(--field-input-border-color);
+    }
+  }
+  .field-before,
+  .field-after {
+    @include flex.display();
+    @include flex.justify-content(flex-start);
+    @include flex.align-items(center);
+    @include flex.align-content(center);
+    @include global.transition-default();
+    @extend .font;
+    gap: var(--field-input-internal-margin);
+    min-height: var(--field-input-height);
+    min-width: calc(2rem + var(--form-external-margin));
+    --font-family: var(--field-after-before-family);
+    --font-size: var(--field-after-before-size);
+    --font-weight: var(--field-after-before-weight);
+    --font-line-height: var(--field-after-before-line-height);
+    --font-letter-spacing: var(--field-after-before-letter-spacing);
+    --font-color: var(--field-after-before-color);
+
+    &.background {
+      background: var(--field-input-option-background);
+      padding: 0 var(--form-external-margin);
+    }
+
+    .button {
+      @extend .font;
+      --font-color: var(--form-input-interactive);
+      --field-button-outline-color: transparent;
+      --field-button-outline-internal-color: transparent;
+      --field-button-outline-size: var(--highlight-size);
+      --field-button-outline-internal-size: var(--highlight-internal-size);
+      &:focus,
+      &:focus-visible {
+        --field-button-outline-color: var(--section-highlight-color) !important;
+        --field-button-outline-internal-color: var(--form-input-background-color) !important;
+      }
+      box-shadow: inset 0 0 0 calc(var(--field-button-outline-internal-size)) var(--field-button-outline-internal-color),
+      0 0 0 calc(var(--field-button-outline-size)) var(--field-button-outline-color);
+      height: 100%;
+      outline: none;
+    }
+
+    .picto {
+      display:block;
+      height: 2rem;
+      width: 2rem;
+    }
+    .password-toggle {
+      display:block;
+      height: 2rem;
+      width: 2rem;
+      position:relative;
+      &.password-show {
+        .picto {
+          &.hide {
+            opacity: 1;
+          }
+          &.show {
+            opacity: 0;
+          }
+        }
+      }
+      .picto {
+        @include global.position-middle();
+        @include global.transition-default();
+        position:absolute;
+        &.hide {
+          opacity: 0;
+        }
+      }
+    }
+  }
+  .field-before {
+    border-radius: var(--field-input-radius) 0 0 var(--field-input-radius);
+    padding-left: var(--form-external-margin);
+  }
+  .field-after {
+    border-radius: 0 var(--field-input-radius) var(--field-input-radius) 0;
+    padding-right: var(--form-external-margin);
+  }
+  .field {
+    position:relative;
+    flex: 1;
+    height: 100%;
+    &.hidden {
+      position:absolute;
+      left: -1000vw;
+    }
+  }
+  .field-content {
+    @include flex.display();
+    @include flex.align-content(flex-start);
+    @include flex.align-items(flex-start);
+    gap: var(--field-input-internal-margin);
+    position: relative;
+    flex: 1;
+    height: 100%;
+  }
+}
+.field-error {
+  @extend .font;
+  --font-family: var(--field-info-family, var(--fonts-font-form-info-family));
+  --font-size: var(--field-info-size, var(--fonts-font-form-info-size));
+  --font-weight: var(--field-info-weight, var(--fonts-font-form-info-weight));
+  --font-line-height: var(--field-info-line-height, var(--fonts-font-form-info-line-height));
+  --font-letter-spacing: var(--field-info-letter-spacing, var(--fonts-font-form-info-letter-spacing));
+  --font-color: var(--others-info-error-md);
+}
+.field-helper {
+  @extend .font;
+  --font-family: var(--field-helper-family);
+  --font-size: var(--field-helper-size);
+  --font-weight: var(--field-helper-weight);
+  --font-line-height: var(--field-helper-line-height);
+  --font-letter-spacing: var(--field-helper-letter-spacing);
+  --font-color: var(--field-helper-color);
+  width: 100%;
+}

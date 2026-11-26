@@ -1,0 +1,217 @@
+/*!
+ * This file is part of the Austral Design Bundle package.
+ *
+ * (c) Austral <support@austral.dev>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+.sun-editor {
+  border:none;
+  color: var(--color-black);
+  background-color: transparent;
+  width: 100% !important;
+  min-width: 50rem;
+
+  del {
+    text-decoration: line-through;
+  }
+  *[data-tag-value] {
+    @include box-shadow-arguments("0px 0px 0px .2rem var(--color-main-10)");
+    background: var(--color-main-10);
+  }
+
+  .se-controller-variables {
+    .variable-value {
+      display:block;
+      padding: 0.5rem 2rem 0.5rem 0.5rem;
+    }
+  }
+
+  button {
+    color: var(--color-grey-50);
+    &:disabled{
+      color: var(--color-grey-90);
+    }
+  }
+  .se-dialog {
+    z-index: 101000;
+    .se-dialog-back {
+      opacity: 0;
+    }
+    .se-dialog-inner {
+      .se-dialog-content {
+        @include translate(0, -50%);
+        @include radius(0);
+        @include box-shadow(0, .3rem, .9rem, 0, var(--color-grey-50));
+        top: 50%;
+        padding: 2rem;
+        max-width: 81rem;
+        flex:1;
+        background-color: var(--color-white);
+        @at-root .dark #{&} {
+          box-shadow: initial;
+        }
+        .form-container {
+          min-height: 56rem;
+        }
+
+        input,
+        select,
+        textarea {
+          @include transition-default();
+          border-radius: 0;
+        }
+
+        .field {
+          padding: 0 !important;
+          &.value-with-button {
+            padding: 1.5rem !important;
+          }
+        }
+        .group-fields-content {
+          .group-col {
+            .choice-element-container{
+              &.light {
+                .list-option-container {
+                  margin: 0;
+                }
+              }
+            }
+          }
+        }
+
+        label,
+        input {
+          color: currentColor;
+        }
+        .group-component-link-fields-container {
+          label {
+            @extend .font-poppins-m-13-uppercase;
+            color: var(--color-black);
+          }
+        }
+        button {
+          .entitled {
+            @extend .font-poppins-m-13-uppercase;
+            color: var(--color-white);
+          }
+          &.delete-link {
+            .entitled {
+              color: var(--color-black);
+            }
+          }
+        }
+        select,
+        input {
+          @extend .font-poppins-m-12;
+          &:hover {
+            @include box-shadow-arguments("var(--element-input-box-shadow-inner), 0px 0px 0px .4rem var(--color-main-20)");
+          }
+          &:focus {
+            @include box-shadow-arguments("var(--element-input-box-shadow-inner), 0px 0px 0px .2rem var(--color-main-40)");
+            border:none;
+          }
+        }
+      }
+    }
+  }
+  .se-container {
+    .sun-editor-editable {
+      padding: 1.5rem 1.5rem .5rem;
+      background-color: transparent;
+      color: var(--color-black);
+    }
+    .se-toolbar {
+      background-color: var(--color-white);
+      outline: none;
+      border-bottom: 1px solid var(--color-main-10);
+    }
+    .se-btn-tray {
+      @include flex-display();
+      @include align-items(stretch);
+      @include flex-wrap(wrap);
+      padding: 0;
+      .se-btn-module-border {
+        border-radius: 0;
+        border: none;
+        .se-menu-list {
+          li {
+            @include flex-display();
+            @include align-items(center);
+            &:after {
+              content:"";
+              display: inline-block;
+              width: 1px;
+              height: 1.2rem;
+              background-color: var(--color-main-10);
+            }
+            &:last-child {
+              &:after {
+                display: none;
+              }
+            }
+            .se-btn {
+              @extend .font-austral-16;
+              @include transition-default(color);
+              border-radius: 0;
+              font-size: 1.6rem;
+              &:enabled {
+                &:hover,
+                &:focus {
+                  background-color: transparent;
+                  color: var(--color-black);
+                }
+                &:active {
+                  box-shadow: none;
+                  background-color: transparent;
+                }
+                &.active {
+                  color: var(--color-black);
+                }
+              }
+              &:disabled{
+                color: var(--color-grey-90);
+              }
+              .se-tooltip-text {
+                @extend .font-poppins-m-10;
+                .se-shortcut {
+                  padding-top: .4rem;
+                }
+              }
+            }
+          }
+
+        }
+      }
+      .se-toolbar-separator-vertical {
+        margin: 0;
+        width: 1px;
+        background-color: var(--color-main-10);
+        height: auto;
+      }
+    }
+  }
+  .se-resizing-bar {
+    background-color: transparent;
+    border: none;
+    padding: 0rem 1.5rem 1.5rem;
+    .se-navigation {
+      @extend .font-poppins-m-10-grey;
+    }
+    .se-char-counter-wrapper {
+      padding-left: 1rem;
+      .se-char-counter {
+        @extend %counter;
+      }
+    }
+  }
+}
+
+.sun-editor-common {
+  .popin-suneditor-links {
+    min-height: 62rem;
+    padding: 2rem;
+  }
+}

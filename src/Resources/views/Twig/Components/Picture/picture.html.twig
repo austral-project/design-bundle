@@ -1,0 +1,8 @@
+<div class="picture-area {{ objectFit }} size-{{ size }}" {% if scrollAnimate %}data-scroll-animate="{{ scrollAnimate }}"{% endif %} {% if aspectRatio|default() %}style="--picture-aspect-ratio: {{ aspectRatio }}" {% endif %}>
+  <picture {{ attributes.defaults({class: "picture"}) }}>
+    {% for source in sources %}
+      <source srcset="{{ lazyLoading ? miniature : source.srcset }}" media="{{ source.media }}" {% if lazyLoading %}data-srcset="{{ source.srcset }}"{% endif %}>
+    {% endfor %}
+    <img src="{{ lazyLoading ? miniature : original }}" {% if lazyLoading %}data-src="{{ original }}"{% endif%} alt="{{ alt }}" />
+  </picture>
+</div>

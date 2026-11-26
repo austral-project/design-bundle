@@ -1,0 +1,23 @@
+import { Canvas, Meta, Controls, ArgsTable } from '@storybook/addon-docs';
+
+import * as Select from './Select.stories';
+
+<Meta of={Select}  title="Components/Form/Fields/Select"/>
+
+# Select
+
+## Demo
+
+<Canvas of={Select.Demo} />
+<Controls of={Select.Demo} />
+
+## Select
+
+### Default
+<Canvas of={Select.Default} />
+
+### Disabled
+<Canvas of={Select.WithDisabled} />
+
+### With error
+<Canvas of={Select.WithError} />

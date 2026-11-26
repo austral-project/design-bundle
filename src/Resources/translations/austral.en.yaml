@@ -1,0 +1,28 @@
+popin:
+  linkEditor:
+    title:                                      Link editor
+    type:
+      internal:                                 Internal page
+      external:                                 External page
+      file:                                     File
+      email:                                    Email
+      phone:                                    Phone
+    value:                                      Link value
+    entitled:                                   Label
+    internalUrl:                                Internal URL
+    anchor:                                     Anchor
+    linkTitle:                                  Title
+    url:                                        Page URL
+    email:                                      Email
+    phone:                                      Phone
+    targetBlank:                                Open in a new tab
+  pageSelector:
+    title:                                      Page selector
+form:
+  upload:
+    extensions:                                 "Accepted formats: %extensions%"
+    min_width:                                  "Minimum width: %size% px"
+    max_width:                                  "Maximum width: %size% px"
+    min_height:                                 "Minimum height: %size% px"
+    max_height:                                 "Maximum height: %size% px"
+    max_size:                                   "Maximum size: %size% MB"

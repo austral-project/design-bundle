@@ -1,0 +1,82 @@
+{#- Chaque bloc est rendu UNE seule fois (capture), puis réutilisé pour les tests et l'affichage. -#}
+{% set labelHtml %}{% block label %}{% endblock %}{% endset %}
+{% set labelExternalHtml %}{% block label_external %}{% endblock %}{% endset %}
+{% set beforeHtml %}{% block before %}{% endblock %}{% endset %}
+{% set afterHtml %}{% block after %}{% endblock %}{% endset %}
+{% set helperHtml %}{% block helper %}{% endblock %}{% endset %}
+{% set errorHtml %}{% block error %}{% endblock %}{% endset %}
+
+{% set hasBefore = beforeHtml|length > 0 %}
+{% set hasAfter = afterHtml|length > 0 %}
+{% set hasHelper = helperHtml|length > 0 %}
+{% set hasError = errorHtml|length > 0 %}
+
+{% set class = "field-row "~"field-row-"~typeField~" field-row-"~name %}
+{% if hasError or errorValue %}
+  {% set class = class~" error" %}
+{% endif %}
+{% if labelHtml|length > 0 %}
+  {% set class = class~" animate" %}
+{% endif %}
+
+{% if hasBefore or beforeValue|default() %}
+  {% set class = class~" with-before" %}
+{% endif %}
+
+{% if hasAfter or afterValue|default() %}
+  {% set class = class~" with-after" %}
+{% endif %}
+<{{ tag|default("div") }} {{ attributes.defaults({class: class}) }} data-field="#{{ name }}">
+{% if labelExternalHtml != "" %}
+  {{ labelExternalHtml }}
+{% elseif label|default() != "" and (typeField|default() == "checkbox" or typeField|default() == "radio") %}
+  {{ labelHtml }}
+{% endif %}
+<div class="field-container {{ fieldClassContainer }}">
+  {% if hasBefore %}
+    <div class="field-before {{ beforeBackground|default(false) ? "background" : "" }}">
+      {{ beforeHtml }}
+
+    </div>
+  {% elseif beforeValue|default() %}
+    <div class="field-before {{ beforeBackground|default(false) ? "background" : "" }}">{{ beforeValue|raw() }}</div>
+  {% elseif typeField|default() == "color-picker" %}
+    <div class="field-before background">
+      <div id="colorPicker-{{ name }}"></div>
+    </div>
+  {% endif %}
+  <div class="field-content">
+    {% if typeField|default() != "checkbox" and typeField|default() != "radio" %}
+      {{ labelHtml }}
+    {% endif %}
+    {% block field %}{% endblock %}
+  </div>
+  {% if hasAfter %}
+    <div class="field-after {{ afterBackground|default(false) ? "background" : "" }}">
+      {{ afterHtml }}
+
+    </div>
+  {% elseif afterValue|default() %}
+    <div class="field-after {{ afterBackground|default(false) ? "background" : "" }}">{{ afterValue|raw() }}</div>
+  {% endif %}
+</div>
+{% if hasHelper %}
+  <div class="field-helper">
+    {{ helperHtml }}
+
+  </div>
+{% elseif helperValue|default() %}
+  <div class="field-helper">{{ helperValue }}</div>
+{% endif %}
+  {% if hasError %}
+    <div class="field-error" data-error>
+      {{ errorHtml }}
+
+    </div>
+  {% endif %}
+  {% if errorValue %}
+    <div class="field-error" data-error>
+      <p id="errors-{{ name }}">{{ errorValue }}</p>
+    </div>
+  {% endif %}
+</{{ tag|default("div") }}>

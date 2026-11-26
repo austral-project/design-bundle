@@ -1,0 +1,373 @@
+/*!
+ * This file is part of the Austral Design Bundle package.
+ *
+ * (c) Austral <support@austral.dev>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+/* 📐 Section - Primary */
+$section-neutral-light: var(--neutral-light);
+$section-neutral-dark: var(--neutral-dark);
+
+$section-base-lg: var(--base-lg);
+$section-base-md: var(--base-md);
+$section-base-sg: var(--base-sg);
+
+$section-color-1-lg: var(--color-1-lg);
+$section-color-1-md: var(--color-1-md);
+$section-color-1-sg: var(--color-1-sg);
+
+$section-color-2-lg: var(--color-2-lg);
+$section-color-2-md: var(--color-2-md);
+$section-color-2-sg: var(--color-2-sg);
+
+$section-highlight-color: var(--color-1-opacity-md);
+
+/** CONTENT **/
+
+$content-title-color: var(--section-neutral-dark);
+$content-text-color: var(--section-neutral-dark);
+$content-description-color: var(--section-base-md);
+$content-shadow-color: var(--others-neutral-dark-opacity-sf);
+
+$content-link: var(--section-color-1-md);
+$content-link-hover: var(--section-color-1-sg);
+$content-link-active: var(--section-neutral-dark);
+$content-link-disable: var(--section-base-lg);
+
+$content-interactive: var(--section-base-md);
+$content-interactive-hover: var(--section-neutral-dark);
+$content-interactive-active: var(--section-color-1-md);
+$content-interactive-active-hover: var(--section-color-1-sg);
+$content-interactive-disable: var(--section-base-lg);
+
+$content-item-active: var(--section-color-1-md);
+$content-item-disable: var(--section-base-lg);
+$content-item-disable-opacity: var(--opacity-md);
+
+$content-border-color: var(--section-base-lg);
+$content-border-color-disable: var(--section-base-lg);
+$content-border-color-hover: var(--section-base-md);
+$content-border-color-active: var(--section-color-1-md);
+
+/** BUTTON THEME **/
+
+$button-solid-primary-background-color: var(--section-color-1-md);
+$button-solid-primary-background-color-hover: var(--section-color-1-sg);
+$button-solid-primary-background-color-disable: var(--section-base-lg);
+$button-solid-primary-border-color: var(--section-color-1-sg);
+$button-solid-primary-border-color-hover: var(--section-color-1-sg);
+$button-solid-primary-border-color-disable: var(--section-base-lg);
+$button-solid-primary-value-color: var(--section-neutral-light);
+$button-solid-primary-value-color-hover: var(--section-neutral-light);
+$button-solid-primary-value-color-disable: var(--section-neutral-light);
+$button-solid-primary-additional-txt-color: var(--section-color-1-lg);
+$button-solid-primary-additional-txt--hover: var(--section-color-1-lg);
+$button-solid-primary-additional-txt-disable: var(--section-neutral-light);
+$button-solid-primary-icon-color: var(--section-neutral-light);
+$button-solid-primary-icon-color-hover: var(--section-neutral-light);
+$button-solid-primary-icon-color-disable: var(--section-neutral-light);
+$button-solid-primary-disable-items-opacity: var(--opacity-md);
+
+$button-solid-secondary-background-color: var(--section-color-2-md);
+$button-solid-secondary-background-color-hover: var(--section-color-2-sg);
+$button-solid-secondary-background-color-disable: var(--section-base-lg);
+$button-solid-secondary-border-color: var(--section-color-2-sg);
+$button-solid-secondary-border-color-hover: var(--section-color-2-sg);
+$button-solid-secondary-border-color-disable: var(--section-base-lg);
+$button-solid-secondary-value-color: var(--section-neutral-light);
+$button-solid-secondary-value-color-hover: var(--section-neutral-light);
+$button-solid-secondary-value-color-disable: var(--section-neutral-light);
+$button-solid-secondary-additional-txt-color: var(--section-color-2-lg);
+$button-solid-secondary-additional-txt--hover: var(--section-color-2-lg);
+$button-solid-secondary-additional-txt-disable: var(--section-neutral-light);
+$button-solid-secondary-icon-color: var(--section-neutral-light);
+$button-solid-secondary-icon-color-hover: var(--section-neutral-light);
+$button-solid-secondary-icon-color-disable: var(--section-neutral-light);
+$button-solid-secondary-disable-items-opacity: var(--opacity-md);
+
+$button-solid-tertiary-background-color: var(--section-neutral-dark);
+$button-solid-tertiary-background-color-hover: var(--section-neutral-dark);
+$button-solid-tertiary-background-color-disable: var(--section-base-lg);
+$button-solid-tertiary-border-color: var(--section-neutral-dark);
+$button-solid-tertiary-border-color-hover: var(--section-neutral-dark);
+$button-solid-tertiary-border-color-disable: var(--section-base-lg);
+$button-solid-tertiary-value-color: var(--section-neutral-light);
+$button-solid-tertiary-value-color-hover: var(--section-neutral-light);
+$button-solid-tertiary-value-color-disable: var(--section-neutral-light);
+$button-solid-tertiary-additional-txt-color: var(--section-base-lg);
+$button-solid-tertiary-additional-txt--hover: var(--section-base-lg);
+$button-solid-tertiary-additional-txt-disable: var(--section-neutral-light);
+$button-solid-tertiary-icon-color: var(--section-neutral-light);
+$button-solid-tertiary-icon-color-hover: var(--section-neutral-light);
+$button-solid-tertiary-icon-color-disable: var(--section-neutral-light);
+$button-solid-tertiary-disable-items-opacity: var(--opacity-md);
+
+$button-soft-primary-background-color: var(--color-1-10);
+$button-soft-primary-background-color-hover: var(--color-1-50);
+$button-soft-primary-background-color-disable: var(--base-50);
+$button-soft-primary-border-color: var(--color-1-50);
+$button-soft-primary-border-color-hover: var(--color-1-50);
+$button-soft-primary-border-color-disable: var(--base-50);
+$button-soft-primary-value-color: var(--section-neutral-dark);
+$button-soft-primary-value-color-hover: var(--section-neutral-dark);
+$button-soft-primary-value-color-disable: var(--section-base-md);
+$button-soft-primary-additional-txt-color: var(--section-color-1-md);
+$button-soft-primary-additional-txt--hover: var(--section-color-1-sg);
+$button-soft-primary-additional-txt-disable: var(--section-base-md);
+$button-soft-primary-icon-color: var(--section-color-1-md);
+$button-soft-primary-icon-color-hover: var(--section-color-1-sg);
+$button-soft-primary-icon-color-disable: var(--section-base-md);
+$button-soft-primary-disable-items-opacity: var(--opacity-lg);
+
+$button-soft-secondary-background-color: var(--color-2-10);
+$button-soft-secondary-background-color-hover: var(--color-2-50);
+$button-soft-secondary-background-color-disable: var(--base-50);
+$button-soft-secondary-border-color: var(--color-2-50);
+$button-soft-secondary-border-color-hover: var(--color-2-100);
+$button-soft-secondary-border-color-disable: var(--base-50);
+$button-soft-secondary-value-color: var(--section-neutral-dark);
+$button-soft-secondary-value-color-hover: var(--section-neutral-dark);
+$button-soft-secondary-value-color-disable: var(--section-base-md);
+$button-soft-secondary-additional-txt-color: var(--section-color-2-md);
+$button-soft-secondary-additional-txt--hover: var(--section-color-2-sg);
+$button-soft-secondary-additional-txt-disable: var(--section-base-md);
+$button-soft-secondary-icon-color: var(--section-color-2-md);
+$button-soft-secondary-icon-color-hover: var(--section-color-2-sg);
+$button-soft-secondary-icon-color-disable: var(--section-base-md);
+$button-soft-secondary-disable-items-opacity: var(--opacity-lg);
+
+$button-soft-tertiary-background-color: var(--base-10);
+$button-soft-tertiary-background-color-hover: var(--base-50);
+$button-soft-tertiary-background-color-disable: var(--base-50);
+$button-soft-tertiary-border-color: var(--base-50);
+$button-soft-tertiary-border-color-hover: var(--base-50);
+$button-soft-tertiary-border-color-disable: var(--base-50);
+$button-soft-tertiary-value-color: var(--section-neutral-dark);
+$button-soft-tertiary-value-color-hover: var(--section-neutral-dark);
+$button-soft-tertiary-value-color-disable: var(--section-base-md);
+$button-soft-tertiary-additional-txt-color: var(--section-base-md);
+$button-soft-tertiary-additional-txt--hover: var(--section-base-sg);
+$button-soft-tertiary-additional-txt-disable: var(--section-base-md);
+$button-soft-tertiary-icon-color: var(--section-base-md);
+$button-soft-tertiary-icon-color-hover: var(--section-base-sg);
+$button-soft-tertiary-icon-color-disable: var(--section-base-md);
+$button-soft-tertiary-disable-items-opacity: var(--opacity-lg);
+
+$button-outline-primary-background-color: var(--others-neutral-light-opacity-0);
+$button-outline-primary-background-color-hover: var(--others-neutral-light-opacity-0);
+$button-outline-primary-background-color-disable: var(--others-neutral-light-opacity-0);
+$button-outline-primary-border-color: var(--section-color-1-md);
+$button-outline-primary-border-color-hover: var(--section-color-1-sg);
+$button-outline-primary-border-color-disable: var(--section-base-lg);
+$button-outline-primary-value-color: var(--section-neutral-dark);
+$button-outline-primary-value-color-hover: var(--section-neutral-dark);
+$button-outline-primary-value-color-disable: var(--section-base-md);
+$button-outline-primary-additional-txt-color: var(--section-color-1-md);
+$button-outline-primary-additional-txt--hover: var(--section-color-1-md);
+$button-outline-primary-additional-txt-disable: var(--section-base-md);
+$button-outline-primary-icon-color: var(--section-color-1-md);
+$button-outline-primary-icon-color-hover: var(--section-color-1-sg);
+$button-outline-primary-icon-color-disable: var(--section-base-md);
+$button-outline-primary-disable-items-opacity: var(--opacity-md);
+
+$button-outline-secondary-background-color: var(--others-neutral-light-opacity-0);
+$button-outline-secondary-background-color-hover: var(--others-neutral-light-opacity-0);
+$button-outline-secondary-background-color-disable: var(--others-neutral-light-opacity-0);
+$button-outline-secondary-border-color: var(--section-color-2-md);
+$button-outline-secondary-border-color-hover: var(--section-color-2-sg);
+$button-outline-secondary-border-color-disable: var(--section-base-lg);
+$button-outline-secondary-value-color: var(--section-neutral-dark);
+$button-outline-secondary-value-color-hover: var(--section-neutral-dark);
+$button-outline-secondary-value-color-disable: var(--section-base-md);
+$button-outline-secondary-additional-txt-color: var(--section-color-2-md);
+$button-outline-secondary-additional-txt--hover: var(--section-color-2-md);
+$button-outline-secondary-additional-txt-disable: var(--section-base-md);
+$button-outline-secondary-icon-color: var(--section-color-2-md);
+$button-outline-secondary-icon-color-hover: var(--section-color-2-sg);
+$button-outline-secondary-icon-color-disable: var(--section-base-md);
+$button-outline-secondary-disable-items-opacity: var(--opacity-md);
+
+$button-outline-tertiary-background-color: var(--others-neutral-light-opacity-0);
+$button-outline-tertiary-background-color-hover: var(--others-neutral-light-opacity-0);
+$button-outline-tertiary-background-color-disable: var(--others-neutral-light-opacity-0);
+$button-outline-tertiary-border-color: var(--section-base-sg);
+$button-outline-tertiary-border-color-hover: var(--section-neutral-dark);
+$button-outline-tertiary-border-color-disable: var(--section-base-lg);
+$button-outline-tertiary-value-color: var(--section-neutral-dark);
+$button-outline-tertiary-value-color-hover: var(--section-neutral-dark);
+$button-outline-tertiary-value-color-disable: var(--section-base-md);
+$button-outline-tertiary-additional-txt-color: var(--section-base-md);
+$button-outline-tertiary-additional-txt--hover: var(--section-base-md);
+$button-outline-tertiary-additional-txt-disable: var(--section-base-md);
+$button-outline-tertiary-icon-color: var(--section-base-sg);
+$button-outline-tertiary-icon-color-hover: var(--section-neutral-dark);
+$button-outline-tertiary-icon-color-disable: var(--section-base-md);
+$button-outline-tertiary-disable-items-opacity: var(--opacity-md);
+
+$button-ghost-primary-background-color: var(--others-neutral-light-opacity-0);
+$button-ghost-primary-background-color-hover: var(--color-1-10);
+$button-ghost-primary-background-color-disable: var(--others-neutral-light-opacity-0);
+$button-ghost-primary-border-color: var(--others-neutral-light-opacity-0);
+$button-ghost-primary-border-color-hover: var(--others-neutral-light-opacity-0);
+$button-ghost-primary-border-color-disable: var(--others-neutral-light-opacity-0);
+$button-ghost-primary-value-color: var(--section-neutral-dark);
+$button-ghost-primary-value-color-hover: var(--section-neutral-dark);
+$button-ghost-primary-value-color-disable: var(--section-base-md);
+$button-ghost-primary-additional-txt-color: var(--section-color-1-md);
+$button-ghost-primary-additional-txt-hover: var(--section-color-1-sg);
+$button-ghost-primary-additional-txt-disable: var(--section-base-md);
+$button-ghost-primary-icon-color: var(--section-color-1-md);
+$button-ghost-primary-icon-color-hover: var(--section-color-1-sg);
+$button-ghost-primary-icon-color-disable: var(--section-base-md);
+$button-ghost-primary-disable-items-opacity: var(--opacity-lg);
+
+$button-ghost-secondary-background-color: var(--others-neutral-light-opacity-0);
+$button-ghost-secondary-background-color-hover: var(--color-2-10);
+$button-ghost-secondary-background-color-disable: var(--others-neutral-light-opacity-0);
+$button-ghost-secondary-border-color: var(--others-neutral-light-opacity-0);
+$button-ghost-secondary-border-color-hover: var(--others-neutral-light-opacity-0);
+$button-ghost-secondary-border-color-disable: var(--others-neutral-light-opacity-0);
+$button-ghost-secondary-value-color: var(--section-neutral-dark);
+$button-ghost-secondary-value-color-hover: var(--section-neutral-dark);
+$button-ghost-secondary-value-color-disable: var(--section-base-md);
+$button-ghost-secondary-additional-txt-color: var(--section-color-2-md);
+$button-ghost-secondary-additional-txt-hover: var(--section-color-2-sg);
+$button-ghost-secondary-additional-txt-disable: var(--section-base-md);
+$button-ghost-secondary-icon-color: var(--section-color-2-md);
+$button-ghost-secondary-icon-color-hover: var(--section-color-2-sg);
+$button-ghost-secondary-icon-color-disable: var(--section-base-md);
+$button-ghost-secondary-disable-items-opacity: var(--opacity-lg);
+
+$button-ghost-tertiary-background-color: var(--others-neutral-light-opacity-0);
+$button-ghost-tertiary-background-color-hover: var(--base-10);
+$button-ghost-tertiary-background-color-disable: var(--others-neutral-light-opacity-0);
+$button-ghost-tertiary-border-color: var(--others-neutral-light-opacity-0);
+$button-ghost-tertiary-border-color-hover: var(--others-neutral-light-opacity-0);
+$button-ghost-tertiary-border-color-disable: var(--others-neutral-light-opacity-0);
+$button-ghost-tertiary-value-color: var(--section-neutral-dark);
+$button-ghost-tertiary-value-color-hover: var(--section-neutral-dark);
+$button-ghost-tertiary-value-color-disable: var(--section-base-md);
+$button-ghost-tertiary-additional-txt-color: var(--section-base-md);
+$button-ghost-tertiary-additional-txt-hover: var(--section-base-md);
+$button-ghost-tertiary-additional-txt-disable: var(--section-base-md);
+$button-ghost-tertiary-icon-color: var(--section-base-sg);
+$button-ghost-tertiary-icon-color-hover: var(--section-neutral-dark);
+$button-ghost-tertiary-icon-color-disable: var(--section-base-md);
+$button-ghost-tertiary-disable-items-opacity: var(--opacity-lg);
+
+$button-link-primary-background-color: transparent;
+$button-link-primary-background-color-hover: transparent;
+$button-link-primary-background-color-disable: transparent;
+$button-link-primary-border-color: transparent;
+$button-link-primary-border-color-hover: transparent;
+$button-link-primary-border-color-disable: transparent;
+$button-link-primary-value-color: var(--section-neutral-dark);
+$button-link-primary-value-color-hover: var(--section-neutral-dark);
+$button-link-primary-value-color-disable: var(--section-base-md);
+$button-link-primary-additional-txt-color: var(--section-color-1-md);
+$button-link-primary-additional-txt--hover: var(--section-color-1-md);
+$button-link-primary-additional-txt-disable: var(--section-base-md);
+$button-link-primary-icon-color: var(--section-color-1-md);
+$button-link-primary-icon-color-hover: var(--section-color-1-sg);
+$button-link-primary-icon-color-disable: var(--section-base-md);
+$button-link-primary-disable-items-opacity: var(--opacity-md);
+$button-link-primary-underline-color: transparent;
+$button-link-primary-underline-color-hover: var(--section-neutral-dark);
+
+$button-link-secondary-background-color: transparent;
+$button-link-secondary-background-color-hover: transparent;
+$button-link-secondary-background-color-disable: transparent;
+$button-link-secondary-border-color: transparent;
+$button-link-secondary-border-color-hover: transparent;
+$button-link-secondary-border-color-disable: transparent;
+$button-link-secondary-value-color: var(--section-neutral-dark);
+$button-link-secondary-value-color-hover: var(--section-neutral-dark);
+$button-link-secondary-value-color-disable: var(--section-base-md);
+$button-link-secondary-additional-txt-color: var(--section-color-2-md);
+$button-link-secondary-additional-txt--hover: var(--section-color-2-md);
+$button-link-secondary-additional-txt-disable: var(--section-base-md);
+$button-link-secondary-icon-color: var(--section-color-2-md);
+$button-link-secondary-icon-color-hover: var(--section-color-2-sg);
+$button-link-secondary-icon-color-disable: var(--section-base-md);
+$button-link-secondary-disable-items-opacity: var(--opacity-md);
+$button-link-secondary-underline-color: var(--section-neutral-dark);
+$button-link-secondary-underline-color-hover: transparent;
+
+$button-link-tertiary-background-color: transparent;
+$button-link-tertiary-background-color-hover: transparent;
+$button-link-tertiary-background-color-disable: transparent;
+$button-link-tertiary-border-color: transparent;
+$button-link-tertiary-border-color-hover: transparent;
+$button-link-tertiary-border-color-disable: transparent;
+$button-link-tertiary-value-color: var(--section-neutral-dark);
+$button-link-tertiary-value-color-hover: var(--section-neutral-dark);
+$button-link-tertiary-value-color-disable: var(--section-base-md);
+$button-link-tertiary-additional-txt-color: var(--section-base-md);
+$button-link-tertiary-additional-txt--hover: var(--section-base-md);
+$button-link-tertiary-additional-txt-disable: var(--section-base-md);
+$button-link-tertiary-icon-color: var(--section-base-sg);
+$button-link-tertiary-icon-color-hover: var(--section-neutral-dark);
+$button-link-tertiary-icon-color-disable: var(--section-base-md);
+$button-link-tertiary-disable-items-opacity: var(--opacity-md);
+$button-link-tertiary-underline-color: var(--section-neutral-dark);
+$button-link-tertiary-underline-color-hover: var(--section-neutral-dark);
+
+/** FORM **/
+$form-input-background-color: var(--section-neutral-light);
+$form-input-background-color-hover: var(--section-neutral-light);
+$form-input-background-color-focused: var(--section-neutral-light);
+$form-input-background-color-disable: var(--base-50);
+
+$form-input-options-background-color: var(--base-10);
+$form-input-options-background-color-hover: var(--color-1-10);
+$form-input-options-background-color-disable: var(--base-50);
+
+$form-input-border-color: var(--base-200);
+$form-input-border-color-hover: var(--section-base-md);
+$form-input-border-color-focused: var(--section-color-1-md);
+
+$form-input-label-color: var(--section-base-sg);
+$form-input-label-active-color: var(--section-neutral-dark);
+
+$form-input-value-color: var(--section-neutral-dark);
+$form-input-placeholder-color: var(--section-base-md);
+$form-input-info-color: var(--section-base-md);
+$form-input-icon-color: var(--section-base-sg);
+$form-input-caret-color: var(--section-neutral-dark);
+$form-input-required-color: var(--section-color-1-md);
+$form-input-optional-color: var(--section-base-sg);
+$form-input-disable-items-opacity: var(--opacity-md);
+
+$form-input-interactive: var(--section-color-1-md);
+$form-input-interactive-hover: var(--section-neutral-dark);
+$form-input-interactive-active: var(--section-color-1-md);
+$form-input-interactive-disable: var(--section-base-sg);
+
+$form-control-label-color: var(--section-base-sg);
+$form-control-label-hover-color: var(--section-color-1-md);
+$form-control-label-active-color: var(--section-neutral-light);
+$form-control-label-active-hover-color: var(--others-neutral-light-opacity-sg);
+$form-control-label-disable-color: var(--section-base-lg);
+
+$form-control-interactive: var(--content-interactive);
+$form-control-interactive-hover: var(--content-interactive-hover);
+$form-control-interactive-active: var(--content-interactive-active);
+$form-control-interactive-active-hover: var(--content-interactive-active-hover);
+$form-control-interactive-disable: var(--content-interactive-disable);
+
+$form-control-background-color: var(--form-input-background-color);
+$form-control-background-hover-color: var(--form-input-background-color-hover);
+$form-control-background-color-disable: var(--form-input-background-color-disable);
+
+$form-control-item-background-color: var(--form-input-backgound-color);
+$form-control-item-background-color-hover: var(--color-1-50);
+$form-control-item-background-color-active: var(--color-1-100);
+$form-control-item-background-color-disable: var(--others-neutral-light-opacity-0);
+
+$form-control-border-color: var(--form-input-border-color);
+$form-control-border-color-hover: var(--form-input-border-color-hover);
+$form-control-border-color-focused: var(--form-input-border-color-focused);
+$form-control-border-color-disable: var(--form-input-border-color);

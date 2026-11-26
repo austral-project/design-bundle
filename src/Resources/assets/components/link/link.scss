@@ -1,0 +1,139 @@
+/*!
+ * This file is part of the Austral Design Bundle package.
+ *
+ * (c) Austral <support@austral.dev>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+@use "./../../styles/mixin/global" as global;
+@use "./../../styles/mixin/flex" as flex;
+@use "./../../styles/config/config" as config;
+@use "./../../styles/config/font" as font;
+@use './../../styles/config/variables/austral' as austral;
+
+.link {
+  @extend .font-1;
+  --link-opacity: 1;
+  --link-text-decoration-offset: 4.5px;
+  --link-text-decoration-tickness: 1px;
+  --link-color: var(--content-text-color);
+  --link-picto-color: var(--content-text-color);
+  --link-picto-height: 1.6rem;
+  --link-picto-width: 1.6rem;
+
+  --font-color: var(--link-color);
+  --font-size: var(--fonts-font-1-md-size);
+  --font-weight: var(--fonts-font-1-md-weight);
+  --font-line-height: var(--fonts-font-1-md-line-height);
+  --font-letter-spacing: var(--fonts-font-1-md-letter-spacing);
+
+  &.xs {
+    --font-size: var(--fonts-font-1-xs-size);
+    --font-weight: var(--fonts-font-1-xs-weight);
+    --font-line-height: var(--fonts-font-1-xs-line-height);
+    --font-letter-spacing: var(--fonts-font-1-xs-letter-spacing);
+    --link-text-decoration-offset: 4px;
+    --link-text-decoration-tickness: 0.5px;
+    --link-picto-height: 1.2rem;
+    --link-picto-width: 1.2rem;
+  }
+  &.sm {
+    --font-size: var(--fonts-font-1-sm-size);
+    --font-weight: var(--fonts-font-1-sm-weight);
+    --font-line-height: var(--fonts-font-1-sm-line-height);
+    --font-letter-spacing: var(--fonts-font-1-sm-letter-spacing);
+    --link-text-decoration-offset: 4px;
+    --link-text-decoration-tickness: 0.5px;
+    --link-picto-height: 1.2rem;
+    --link-picto-width: 1.2rem;
+  }
+  &.lg {
+    --font-size: var(--fonts-font-1-lg-size);
+    --font-weight: var(--fonts-font-1-lg-weight);
+    --font-line-height: var(--fonts-font-1-lg-line-height);
+    --font-letter-spacing: var(--fonts-font-1-lg-letter-spacing);
+    --link-text-decoration-offset: 5px;
+    --link-text-decoration-tickness: 1.5px;
+    --link-picto-height: 2rem;
+    --link-picto-width: 2rem;
+
+  }
+}
+
+
+*[data-reload-trigger] {
+  cursor: pointer;
+  &:hover {
+    .link {
+      text-decoration-line: underline;
+      text-decoration-style: solid;
+      text-decoration-thickness: 1px;
+      text-decoration-color: transparent;
+      text-underline-offset: 1px;
+    }
+  }
+}
+.links {
+  @include flex.display(flex);
+  @include flex.align-items(center);
+  @include flex.align-content(center);
+  @include flex.justify-content(center);
+}
+.link {
+  @include flex.display(inline-flex);
+  @include flex.align-items(center);
+  @include flex.align-content(center);
+  @include flex.justify-content(center);
+  gap: var(--margin-2xs);
+  text-transform: uppercase;
+  &.no-uppercase {
+    text-transform: none;
+  }
+  &.no-picto {
+    -webkit-transition: text-underline-offset 300ms cubic-bezier(0.5, 0, 0.05, 1), text-decoration-color 300ms cubic-bezier(0.5, 0, 0.05, 1);
+    -moz-transition: text-underline-offset 300ms cubic-bezier(0.5, 0, 0.05, 1), text-decoration-color 300ms cubic-bezier(0.5, 0, 0.05, 1);
+    -ms-transition: text-underline-offset 300ms cubic-bezier(0.5, 0, 0.05, 1), text-decoration-color 300ms cubic-bezier(0.5, 0, 0.05, 1);
+    -o-transition: text-underline-offset 300ms cubic-bezier(0.5, 0, 0.05, 1), text-decoration-color 300ms cubic-bezier(0.5, 0, 0.05, 1);
+    transition: text-underline-offset 300ms cubic-bezier(0.5, 0, 0.05, 1), text-decoration-color 300ms cubic-bezier(0.5, 0, 0.05, 1);
+    text-underline-offset: var(--link-text-decoration-offset);
+    text-decoration-color: var(--link-color);
+    text-decoration-line: underline;
+    text-decoration-style: solid;
+    text-decoration-thickness: var(--link-text-decoration-tickness);
+    &:hover {
+      text-decoration-line: underline;
+      text-decoration-style: solid;
+      text-decoration-thickness: var(--link-text-decoration-tickness);
+      text-decoration-color: transparent;
+      text-underline-offset: 1px;
+    }
+  }
+  &.reverse,
+  &.with-picto {
+    -webkit-transition: text-underline-offset 300ms cubic-bezier(0.5, 0, 0.05, 1), text-decoration-color 300ms cubic-bezier(0.5, 0, 0.05, 1);
+    -moz-transition: text-underline-offset 300ms cubic-bezier(0.5, 0, 0.05, 1), text-decoration-color 300ms cubic-bezier(0.5, 0, 0.05, 1);
+    -ms-transition: text-underline-offset 300ms cubic-bezier(0.5, 0, 0.05, 1), text-decoration-color 300ms cubic-bezier(0.5, 0, 0.05, 1);
+    -o-transition: text-underline-offset 300ms cubic-bezier(0.5, 0, 0.05, 1), text-decoration-color 300ms cubic-bezier(0.5, 0, 0.05, 1);
+    transition: text-underline-offset 300ms cubic-bezier(0.5, 0, 0.05, 1), text-decoration-color 300ms cubic-bezier(0.5, 0, 0.05, 1);
+    text-decoration-color: transparent;
+    text-underline-offset: 1px;
+    text-decoration-line: underline;
+    text-decoration-style: solid;
+    text-decoration-thickness: var(--link-text-decoration-tickness);
+    &:hover {
+      text-underline-offset: var(--link-text-decoration-offset);
+      text-decoration-color: var(--link-color);
+      text-decoration-line: underline;
+      text-decoration-style: solid;
+      text-decoration-thickness: var(--link-text-decoration-tickness);
+    }
+  }
+  span.picto {
+    @include global.transition-default(all, 300ms);
+    --picto-svg-color: var(--link-picto-color);
+    --picto-height: var(--link-picto-height);
+    --picto-width: var(--link-picto-width);
+  }
+}

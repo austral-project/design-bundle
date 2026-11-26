@@ -1,0 +1,12 @@
+{
+  "entrypoints": {
+    "front": {
+      "js": ["/bundles/australdesign/build/runtime.js", "/bundles/australdesign/build/front.js"],
+      "css": ["/bundles/australdesign/build/shared.css", "/bundles/australdesign/build/front.css"]
+    },
+    "admin": {
+      "js": ["/bundles/australdesign/build/runtime.js", "/bundles/australdesign/build/admin.js"],
+      "css": ["/bundles/australdesign/build/shared.css", "/bundles/australdesign/build/admin.css"]
+    }
+  }
+}

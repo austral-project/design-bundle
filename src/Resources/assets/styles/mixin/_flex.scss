@@ -1,0 +1,125 @@
+@use "sass:math";
+
+// --------------------------------------------------
+// Flexbox SCSS Mixins
+// Spec: http://www.w3.org/TR/css3-flexbox
+// --------------------------------------------------
+
+// Flexbox display
+// - flex or inline-flex
+@mixin display($display: flex) {
+  display: -webkit-box;
+  display: -webkit-#{$display};
+  display: -ms-#{$display}box; // IE10 uses -ms-flexbox
+  display: -moz-#{$display}; // IE11
+  display: $display;
+}
+
+// Flex shorthand (for flex items)
+// - values: <positive-number>, initial, auto, none
+@mixin flex($value: initial) {
+  -webkit-flex: $value;
+  -ms-flex: $value;
+  flex: $value;
+}
+
+// Flex container direction
+// - values: row | row-reverse | column | column-reverse
+@mixin direction($value: row) {
+  -webkit-flex-direction: $value;
+  -ms-flex-direction: $value;
+  flex-direction: $value;
+}
+
+// Flex container wrap
+// - values: nowrap | wrap | wrap-reverse
+@mixin wrap($value: nowrap) {
+  -webkit-flex-wrap: $value;
+  -ms-flex-wrap: $value;
+  flex-wrap: $value;
+}
+
+// Flex container flow (direction + wrap)
+@mixin flow($value) {
+  -webkit-flex-flow: $value;
+  -ms-flex-flow: $value;
+  flex-flow: $value;
+}
+
+// Flex item order
+// - value: integer
+@mixin order($value: 0) {
+  $ordinal: $value + 1;
+  -webkit-box-ordinal-group: $ordinal;
+  -moz-box-ordinal-group: $ordinal;
+  -webkit-order: $value;
+  -ms-flex-order: $value;
+  order: $value;
+}
+
+// Flex item grow
+// - value: number
+@mixin grow($value: 0) {
+  -webkit-flex-grow: $value;
+  -ms-flex-grow: $value;
+  flex-grow: $value;
+}
+
+// Flex item shrink
+// - value: number
+@mixin shrink($value: 1) {
+  -webkit-flex-shrink: $value;
+  -ms-flex-shrink: $value;
+  flex-shrink: $value;
+}
+
+// Flex item basis
+// - value: width (auto, %, px, etc.)
+@mixin basis($value: auto) {
+  -webkit-flex-basis: $value;
+  -ms-flex-basis: $value;
+  flex-basis: $value;
+}
+
+// Main-axis alignment for flex containers
+// - values: flex-start | flex-end | center | space-between | space-around
+@mixin justify-content($value: flex-start) {
+  -webkit-justify-content: $value;
+  -ms-justify-content: $value;
+  justify-content: $value;
+}
+
+// Cross-axis alignment for flex containers
+// - values: flex-start | flex-end | center | baseline | stretch
+@mixin align($value: stretch) {
+  -webkit-align-items: $value;
+  -ms-align-items: $value;
+  align-items: $value;
+  -webkit-align-content: $value;
+  -ms-align-content: $value;
+  align-content: $value;
+}
+
+// Multi-line flex container alignment
+// - values: flex-start | flex-end | center | space-between | space-around | stretch
+@mixin align-content($value: stretch) {
+  -webkit-align-content: $value;
+  -ms-align-content: $value;
+  align-content: $value;
+}
+
+// Cross-axis alignment for flex containers
+// - values: flex-start | flex-end | center | baseline | stretch
+@mixin align-items($value: stretch) {
+  -webkit-align-items: $value;
+  -ms-align-items: $value;
+  align-items: $value;
+}
+
+// Cross-axis alignment for flex items
+// - values: auto | flex-start | flex-end | center | baseline | stretch
+@mixin align-self($value: auto) {
+  -webkit-align-self: $value;
+  -ms-align-self: $value;
+  align-self: $value;
+}

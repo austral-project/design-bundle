@@ -1,0 +1,36 @@
+{% set options = {
+  modalId: modalId|default("modal-master"),
+  theme: theme
+} %}
+{% set class = "modal-area "~theme~(classValue ? " "~classValue : "") %}
+<div id="{{ modalId|default("modal-master") }}" {{ attributes.defaults({class: class}) }} data-modal="{{ options|json_encode }}">
+  <div class="modal-container">
+    <div class="modal-top">
+      {% block topBefore %}{% endblock %}
+      {% block top %}
+        {% if returnUrl %}
+          <twig:Austral:Button hideEntitled="{{ true }}" theme="ghost" class="return" size="md">
+            <twig:block name="picto">
+              <twig:Austral:Picto name="arrow-left" />
+            </twig:block>
+          </twig:Austral:Button>
+        {% endif %}
+        {% if close %}
+          <twig:Austral:Button hideEntitled="{{ true }}" htmlTag="button" theme="ghost" data-modal-close="" class="close" size="md">
+            <twig:block name="picto">
+              <twig:Austral:Picto name="cross" />
+            </twig:block>
+          </twig:Austral:Button>
+        {% endif %}
+      {% endblock %}
+      {% block topAfter %}{% endblock %}
+    </div>
+    {% if hasLoader %}
+      <span class="picto-loading"></span>
+    {% endif %}
+    <div class="modal-content" data-modal-content="">
+      {% block content %}{% endblock %}
+    </div>
+  </div>
+  <div class="modal-overlay" data-modal-close=""></div>
+</div>

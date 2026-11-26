@@ -1,0 +1,186 @@
+/*!
+ * This file is part of the Austral Design Bundle package.
+ *
+ * (c) Austral <support@austral.dev>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+@use "./../../../../styles/mixin/global" as global;
+@use "./../../../../styles/mixin/flex" as flex;
+@use "./../../../../styles/config/config" as config;
+@use "./../../../../styles/config/font" as font;
+@use './../../../../styles/config/variables/austral' as austral;
+
+
+.field-container {
+  &.field-container-type-switcher {
+    border-radius: 0;
+    border: 0;
+    background: var(--form-input-background-color);
+    padding: 0;
+    position:relative;
+    --field-label-color: var(--field-input-value-color);
+    .field-switcher {
+      --field-label-color: var(--form-control-interactive);
+
+      --field-input-outline-color: transparent;
+      --field-input-outline-internal-color: transparent;
+      --field-input-outline-size: var(--highlight-size);
+      --field-input-outline-internal-size: var(--highlight-internal-size);
+
+      border-radius: var(--switcher-border-radius);
+      border: var(--switcher-border-size) solid var(--switcher-border-color);
+      background: var(--switcher-background-color);
+      padding: 0;
+      position:relative;
+
+      &.theme-solid {
+        --switcher-background-color: var(--form-input-background-color);
+        --switcher-border-radius: var(--field-input-radius);
+        --switcher-border-size: var(--field-input-border-size);
+        --switcher-border-color: var(--field-input-border-color);
+
+        --switcher-highlight-background-color: var(--form-control-interactive-active);
+        --switcher-highlight-border-radius: var(--field-input-radius);
+
+        --switcher-item-background-color: transparent;
+        --switcher-item-border-radius: var(--field-input-radius);
+        --switcher-item-label-checked: var(--button-solid-primary-value-color);
+      }
+      &.theme-soft {
+        --switcher-background-color: var(--button-soft-primary-border-color);
+        --switcher-border-radius: var(--field-input-radius);
+        --switcher-border-size: var(--field-input-border-size);
+        --switcher-border-color: var(--button-soft-primary-border-color);
+
+        --switcher-highlight-background-color: var(--form-control-background-color);
+        --switcher-highlight-border-radius: var(--field-input-radius);
+
+        --switcher-item-background-color: transparent;
+        --switcher-item-border-radius: var(--field-input-radius);
+        --switcher-item-label-checked: var(--form-active-color);
+
+      }
+      &.theme-underline {
+        --switcher-background-color: transparent;
+        --switcher-border-radius: 0;
+        --switcher-border-size: var(--field-input-border-size);
+        --switcher-border-color: var(--form-input-border-color);
+
+        --switcher-highlight-background-color: var(--button-soft-primary-background-color);
+        --switcher-highlight-border-radius: 0;
+
+        --switcher-item-background-color: transparent;
+        --switcher-item-border-radius: 0;
+        --switcher-item-label-checked: var(--form-active-color);
+
+        border: 0;
+        border-bottom: var(--switcher-border-size) solid var(--switcher-border-color);
+        .switcher-list {
+          padding: 0;
+        }
+        .switcher-highlight {
+          @include global.position-disabled();
+          bottom: calc(-1 * var(--switcher-border-size));
+          height: calc(100% + var(--switcher-border-size));
+          border-bottom: 2px solid var(--button-solid-primary-border-color);
+        }
+      }
+
+      &.size-full {
+        --switcher-item-height: calc(var(--field-input-height) - (0.4rem + 2px));
+      }
+      &.size-compact {
+        --switcher-item-height: var(--button-sm-height);
+        display:inline-flex;
+        flex: unset;
+      }
+
+    }
+
+    .switcher-list {
+      @include flex.display();
+      padding: 0.2rem;
+      background: var(--switcher-background-color);
+      border-radius: var(--switcher-border-radius);
+      gap: 0.6em;
+    }
+    .switcher-highlight {
+      @include global.position-middle-y();
+      position:absolute;
+      height: calc(100% - 0.4rem);
+      background: var(--switcher-highlight-background-color);
+      border-radius: var(--switcher-highlight-border-radius);
+      pointer-events: none;
+      width: 10rem;
+      left: -100vw;
+    }
+    .switcher-item {
+      @include global.transition-default();
+      border-radius: var(--switcher-item-border-radius);
+      flex: 1;
+      z-index: 10;
+      position:relative;
+      box-shadow: 0 0 0 var(--field-input-outline-internal-size) var(--field-input-outline-internal-color),
+      0 0 0 var(--field-input-outline-size) var(--field-input-outline-color)
+      ;
+      &:last-child {
+        border-bottom: 0;
+      }
+      &:hover {
+        --field-label-color: var(--form-control-interactive-hover);
+      }
+      &.focus {
+        --field-input-outline-color: var(--section-highlight-color) !important;
+        --field-input-outline-internal-color: var(--form-input-background-color) !important;
+        --field-label-color: var(--form-control-interactive-focus);
+      }
+      &.disabled {
+        --field-label-color: var(--field-input-description-color);
+        .switcher-item-content {
+          opacity: var(--field-input-items-opacity);
+          cursor: not-allowed;
+        }
+        cursor: not-allowed;
+        * {
+          cursor: not-allowed;
+        }
+      }
+      &.field-is-checked {
+        --field-label-color: var(--switcher-item-label-checked);
+      }
+      .switcher-item-content {
+        @include global.transition-default();
+        @include flex.display();
+        @include flex.justify-content(center);
+        @include flex.align-content(center);
+        @include flex.align-items(center);
+        height: 100%;
+        padding: var(--margin-xs);
+        border-radius: var(--switcher-item-border-radius);
+        overflow: hidden;
+        position:relative;
+        cursor:pointer;
+        min-height: var(--switcher-item-height);
+        background: var(--switcher-item-background-color);
+        label {
+          text-align: center;
+          &:after {
+            display:none;
+          }
+        }
+      }
+      .field {
+        flex: unset;
+        .field-style {
+          display:none;
+          width: 0;
+          height: 0;
+        }
+      }
+    }
+  }
+}
+
+

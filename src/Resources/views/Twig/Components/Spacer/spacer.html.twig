@@ -1,0 +1,4 @@
+{% set class = 'spacer-area theme-'~theme|default("default")~' size-'~size|default("lg") %}
+<div {{ attributes.defaults({class: class}) }}>
+  <div class="spacer"></div>
+</div>

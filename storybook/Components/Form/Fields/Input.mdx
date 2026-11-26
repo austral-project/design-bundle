@@ -1,0 +1,38 @@
+import { Canvas, Meta, Controls, ArgsTable } from '@storybook/addon-docs';
+
+import * as Input from './Input.stories';
+
+<Meta of={Input}  title="Components/Form/Fields/Input"/>
+
+# Input Text
+
+## Demo
+
+<Canvas of={Input.Demo} />
+<Controls of={Input.Demo} />
+
+## Exemples
+
+### Default
+<Canvas of={Input.Default} />
+
+### Price
+<Canvas of={Input.Price} />
+
+### Password
+<Canvas of={Input.Password} />
+
+### HTTP
+<Canvas of={Input.HTTP} />
+
+### Phone
+<Canvas of={Input.PhoneInput} />
+
+### Datepicker
+<Canvas of={Input.Datepicker} />
+
+### Timepicker
+<Canvas of={Input.Timepicker} />
+
+### With error
+<Canvas of={Input.WithError} />

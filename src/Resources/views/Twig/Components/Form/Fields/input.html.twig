@@ -1,0 +1,13 @@
+{% set pictoHtml %}{% block picto %}{% endblock %}{% endset %}
+<div class="field field-{{ type }} field-{{ id }} {{ hidden|default() ? "hidden" : "" }}">
+  {% if type == "checkbox" or type == "radio" %}
+    <div class="field-style">
+      {% if pictoHtml != '' %}
+        <div class="check-picto">{{ pictoHtml }}</div>
+      {% else %}
+        <div class="check-picto"><twig:Austral:Picto name="check"></twig:Austral:Picto></div>
+      {% endif %}
+    </div>
+  {% endif %}
+  <input type="{{ type }}" id="{{ id }}" name="{{ name }}" {{ attributes }} {% if value is defined %}value="{{ value }}"{% endif %} />
+</div>

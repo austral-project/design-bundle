@@ -1,0 +1,148 @@
+/*!
+ * This file is part of the Austral Design Bundle package.
+ *
+ * (c) Austral <support@austral.dev>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+@use "../../styles/mixin/global" as global;
+@use "../../styles/mixin/flex" as flex;
+@use "./../../styles/config/config" as config;
+@use "./../../styles/config/font" as font;
+@use './../../styles/config/variables/austral' as austral;
+
+.block-text {
+  &.option-center {
+    .text-area {
+      --text-align: center;
+    }
+  }
+  &.option-right {
+    .text-area {
+      --text-align: right;
+    }
+  }
+}
+
+
+.text-area {
+  text-align: var(--text-align);
+
+  --text-align: left;
+  --link-color: var(--content-link);
+
+  --text-ul-li-padding-left: 2rem;
+  --text-ul-li-before-top: 0rem;
+  --text-ul-li-before-left: 0.3rem;
+  --text-ul-li-before-font-size: 0.6rem;
+
+  --text-ol-li-padding-left: 2rem;
+  --text-ol-li-before-top: 0rem;
+  --text-ol-li-before-left: -0.3rem;
+  --text-ol-li-before-font-size: var(--font-size);
+  @extend .font;
+  &.size-lg {
+    --text-ul-li-before-top: 0;
+    --text-oli-before-font-size: 1.6rem;
+    --font-size: var(--fonts-font-1-lg-size);
+    --font-weight: var(--fonts-font-1-lg-weight);
+    --font-line-height: var(--fonts-font-1-lg-line-height);
+    --font-letter-spacing: var(--fonts-font-1-lg-letter-spacing);
+  }
+  &.size-sm {
+    --text-ul-li-padding-left: 1rem;
+    --text-ul-li-before-font-size: 0.5rem;
+    --text-ol-li-padding-left: 2rem;
+    --text-ol-li-before-font-size: 1rem;
+    --font-size: var(--fonts-font-1-sm-size);
+    --font-weight: var(--fonts-font-1-sm-weight);
+    --font-line-height: var(--fonts-font-1-sm-line-height);
+    --font-letter-spacing: var(--fonts-font-1-sm-letter-spacing);
+  }
+  &.size-md {
+    --font-size: var(--fonts-font-1-md-size);
+    --font-weight: var(--fonts-font-1-md-weight);
+    --font-line-height: var(--fonts-font-1-md-line-height);
+    --font-letter-spacing: var(--fonts-font-1-md-letter-spacing);
+  }
+  em, i {
+    font-style: italic;
+    * {
+      font-style: italic;
+    }
+  }
+  strong, b {
+    font-weight: bold;
+    * {
+      font-weight: bold;
+    }
+  }
+  u {
+    text-decoration: underline;
+  }
+  del {
+    text-decoration: line-through;
+  }
+  a {
+    color: var(--content-link);
+    -webkit-transition: text-underline-offset 300ms cubic-bezier(0.5, 0, 0.05, 1), text-decoration-color 300ms cubic-bezier(0.5, 0, 0.05, 1);
+    -moz-transition: text-underline-offset 300ms cubic-bezier(0.5, 0, 0.05, 1), text-decoration-color 300ms cubic-bezier(0.5, 0, 0.05, 1);
+    -ms-transition: text-underline-offset 300ms cubic-bezier(0.5, 0, 0.05, 1), text-decoration-color 300ms cubic-bezier(0.5, 0, 0.05, 1);
+    -o-transition: text-underline-offset 300ms cubic-bezier(0.5, 0, 0.05, 1), text-decoration-color 300ms cubic-bezier(0.5, 0, 0.05, 1);
+    transition: text-underline-offset 300ms cubic-bezier(0.5, 0, 0.05, 1), text-decoration-color 300ms cubic-bezier(0.5, 0, 0.05, 1);
+    text-decoration-line: underline;
+    text-decoration-style: solid;
+    text-decoration-thickness: 0.1rem;
+    text-underline-offset: 0.3rem;
+    text-decoration-color: var(--content-link);
+    &:hover {
+      color: var(--content-link-hover);
+      text-underline-offset: 0.2rem;
+      text-decoration-color: transparent;
+      text-decoration-line: underline;
+      text-decoration-style: solid;
+      text-decoration-thickness: 0.1rem;
+    }
+
+  }
+  p, ol, ul {
+    padding: 0 0 1rem;
+    margin: 0;
+    &:last-child {
+      padding-bottom: 0;
+    }
+  }
+  ul {
+    li {
+      padding-bottom: 0.5rem;
+      padding-left: var(--text-ul-li-padding-left);
+      position:relative;
+      &:before {
+        content: "●";
+        font-size: var(--text-ul-li-before-font-size);
+        position:absolute;
+        top: var(--text-ul-li-before-top);
+        left: var(--text-ul-li-before-left);
+      }
+    }
+  }
+  ol {
+    counter-reset: ol-counter;
+    li {
+      padding-bottom: 0.5rem;
+      padding-left: var(--text-ol-li-padding-left);
+      position:relative;
+      counter-increment: ol-counter;
+      &:before {
+        left: var(--text-ol-li-before-left);
+        top: var(--text-ol-li-before-top);
+        font-size: var(--text-ol-li-before-font-size);
+        position:absolute;
+        content: counter(ol-counter)" - ";
+        width: 20px;
+        text-align: right;
+      }
+    }
+  }
+}

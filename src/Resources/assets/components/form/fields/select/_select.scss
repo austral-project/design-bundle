@@ -1,0 +1,313 @@
+/*!
+ * This file is part of the Austral Design Bundle package.
+ *
+ * (c) Austral <support@austral.dev>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+@use "./../../../../styles/mixin/global" as global;
+@use "./../../../../styles/mixin/flex" as flex;
+@use "./../../../../styles/config/config" as config;
+@use "./../../../../styles/config/font" as font;
+@use './../../../../styles/config/variables/austral' as austral;
+@import "choices.js/src/styles/choices.scss";
+
+.field-container {
+  .field-select {
+
+    --select-choice-item-background-color: var(--form-input-background-color);
+    --select-choice-item-color: var(--form-input-value-color);
+    --select-choice-item-border-color: var(--form-input-border-color);
+    --select-choice-item-border-size: 0;
+    --select-choice-item-border-radius: var(--form-external-radius);
+
+    &.hover,
+    &:hover {
+      .choices {
+        &[data-type*="select-multiple"],
+        &[data-type*="select-tag"],
+        &[data-type*="select-one"] {
+          .choices__inner {
+          }
+          &:before {
+            opacity: 1;
+            height: 3.5rem;
+            width: 3.5rem;
+            right:1rem;
+          }
+        }
+      }
+    }
+    .choices {
+      @include flex.flex(1);
+      @include global.transition-default(border);
+      margin-bottom: 0 !important;
+      overflow: visible;
+      border:none;
+      height: 100%;
+      .choices__item {
+        padding: 0;
+      }
+      .choices__list--dropdown {
+        border-radius: var(--radius-lg);
+        border: var(--form-border-size) solid var(--form-input-border-color);
+        background: var(--form-input-background-color);
+        box-shadow: 0 5px 20px 0 var(--content-shadow-color, rgba(0, 0, 0, 0.10));
+        left: calc((var(--field-input-external-margin) + var(--field-input-border-size))  * -1) !important;
+        width: calc(100% + (var(--field-input-external-margin) + var(--field-input-border-size)) * 2);
+        margin-top: 0.8rem;
+        z-index:10000;
+        opacity: 0;
+        pointer-events: none;
+        will-change: unset;
+        display: none;
+        .choices__list {
+          @include flex.display();
+          @include flex.direction(column);
+          gap: var(--spacing-1_4);
+          padding: var(--spacing-1);
+
+
+          .choices__item {
+            @include flex.display();
+            @include flex.align-items(center);
+            @include flex.align-content(center);
+            @include flex.justify-content(space-between);
+            @include global.transition-default();
+            padding: 0.8rem var(--field-input-external-margin);
+            gap: var(--field-input-internal-margin);
+
+            border-radius: var(--select-choice-item-border-radius);
+            background: var(--select-choice-item-background-color);
+            border: var(--select-choice-item-border-size) solid var(--select-choice-item-border-color);
+
+            min-height: var(--field-input-height);
+            position:relative;
+            &:after {
+              @include global.position-middle-y();
+              content: "";
+              display:block;
+              opacity: 0;
+              background: transparent url("../../../../../public/austral-picto/check.svg") no-repeat center;
+              height: 2rem;
+              width: 2rem;
+              position:absolute;
+              right: 1rem;
+            }
+            &[data-value=""] {
+              display:none;
+            }
+            &:hover {
+              --select-choice-item-background-color: var(--form-input-options-background-color-hover) !important;
+            }
+            &.is-highlighted {
+              --select-choice-item-background-color: var(--form-input-options-background-color-hover) !important;
+            }
+            &.is-selected {
+              --select-choice-item-background-color: var(--form-input-options-background-color-hover) !important;
+              &:after {
+                opacity: 1;
+              }
+            }
+            &.choices__item--disabled {
+              --select-choice-item-background-color: var(--form-input-options-background-color-disable) !important;
+              opacity: var(--field-input-disable-items-opacity);
+            }
+          }
+        }
+
+        .choices__placeholder {
+          opacity:1;
+        }
+        .choices__item--selectable{
+          padding-right: 0;
+          &.is-highlighted {
+            --select-choice-item-background-color: var(--form-input-options-background-color-hover) !important;
+          }
+        }
+      }
+      .choices__input {
+        background: transparent;
+        padding: 1.5rem;
+        transition: none;
+        width: 100% !important;
+        border-bottom: var(--field-input-border-size) solid var(--field-input-border-color);
+      }
+      &[data-type*="select-tag"],
+      &[data-type*="select-multiple"],
+      &[data-type*="select-one"] {
+
+        .choices__heading {
+          background: var(--form-input-background-color-disable);
+          @extend .font;
+          --font-family: var(--field-input-value-family);
+          --font-color: var(--field-input-value-color);
+          --font-size: var(--field-input-value-size);
+          --font-weight: var(--field-input-value-weight);
+          --font-line-height: var(--field-input-value-line-height);
+          --font-letter-spacing: var(--field-input-value-letter-spacing);
+        }
+
+        &.is-focused {
+          .choices__inner {
+            background: var(--color-grey-light);
+          }
+        }
+        &.is-flipped {
+          .choices__list--dropdown {
+            margin-top: 0;
+            margin-bottom: 0.6rem;
+          }
+        }
+        &.is-open {
+          .choices__list--dropdown {
+            pointer-events: all;
+            opacity: 1;
+            display: block;
+          }
+          &:after {
+            margin:0;
+            transform: translateY(-50%) rotate(180deg);
+            -webkit-transform: translateY(-50%) rotate(180deg);
+            -moz-transform: translateY(-50%) rotate(180deg);
+            -o-transform: translateY(-50%) rotate(180deg);
+            -ms-transform: translateY(-50%) rotate(180deg);
+          }
+        }
+        &:before,
+        &:after {
+          @include global.transition-default();
+          @include global.position-middle-y();
+        }
+        &:before {
+          display: none;
+          position: absolute;
+          content: "";
+          height: 1.5rem;
+          width: 1.5rem;
+          opacity: 0;
+          z-index: 1;
+          right: 2rem;
+        }
+        &:after {
+          @include global.transition-default();
+          @include global.radius(100%);
+          @include flex.display();
+          @include flex.justify-content(center);
+          @include flex.align-items(center);
+          @include flex.align-content(center);
+          background-color: var(--field-input-select-picto-color);
+          background-size: contain;
+          -webkit-mask-image: url("../../../../../public/austral-picto/arrow-down.svg");
+          mask-image: url("../../../../../public/austral-picto/arrow-down.svg");
+          -webkit-mask-repeat: no-repeat;
+          mask-repeat: no-repeat;
+          -webkit-mask-position: center;
+          mask-position: center;
+          -webkit-mask-size: contain;
+          mask-size: contain;
+          position: absolute;
+          transform: translateY(-50%) rotate(0deg);
+          -webkit-transform: translateY(-50%) rotate(0deg);
+          -moz-transform: translateY(-50%) rotate(0deg);
+          -o-transform: translateY(-50%) rotate(0deg);
+          -ms-transform: translateY(-50%) rotate(0deg);
+          font-size: 1.8rem;
+          content:"";
+          height: 2rem;
+          width: 2rem;
+          border:none;
+          margin:0;
+          z-index: 2;
+          right: 0;
+        }
+        .choices__inner {
+          @include global.radius(0);
+          @include flex.display();
+          @include flex.align-items(center);
+          @include flex.align-content(center);
+          background: transparent;
+          padding: 0 calc(var(--field-input-external-margin) + 2rem) 0 0;
+
+          border:none;
+          height: 100%;
+          min-width: 0;
+          min-height: 2.4rem;
+          .choices__list--single {
+            color: var(--black);
+            padding:0;
+          }
+        }
+
+        .choices__list {
+          .choices__item {
+            @extend .font;
+            --font-family: var(--field-input-value-family);
+            --font-color: var(--field-input-value-color);
+            --font-size: var(--field-input-value-size);
+            --font-weight: var(--field-input-value-weight);
+            --font-line-height: var(--field-input-value-line-height);
+            --font-letter-spacing: var(--field-input-value-letter-spacing);
+          }
+
+          .choices__heading {
+          }
+        }
+
+      }
+
+      &[data-type*="select-multiple"],
+      &[data-type*="select-tag"] {
+        .choices__input {
+          height: 3rem;
+          border-bottom: 0 !important;
+          margin-bottom: 0;
+        }
+        .choices__inner {
+          @include flex.direction(column);
+          order: 1;
+        }
+        .choices__list--multiple {
+          @include flex.display();
+          @include flex.wrap(wrap);
+          background: transparent;
+          order: 1;
+          width: 100%;
+          .choices__item {
+            border-radius: 0.4rem;
+            border: 0;
+            background: var(--black);
+            .choices__button {
+              position: relative;
+              display: inline-block;
+              margin: 0 -4px 0 8px;
+              padding-left: 16px;
+              background-size: 8px;
+              width: 8px;
+              line-height: 1;
+              opacity: 0.75;
+              border-radius: 0;
+              border-left: 1px solid var(--white);
+            }
+          }
+        }
+      }
+    }
+  }
+  .field-row-address {
+    .field-select {
+      .choices {
+        .choices__list--dropdown {
+          .choices__list {
+            .choices__item {
+              &[data-value=""] {
+                display:block;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

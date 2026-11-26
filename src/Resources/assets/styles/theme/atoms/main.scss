@@ -1,0 +1,47 @@
+/*!
+ * This file is part of the Austral Design Bundle package.
+ *
+ * (c) Austral <support@austral.dev>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+/* ⚛️ Atoms - Generic */
+$fonts-font-1-family: "Albert Sans", sans-serif;
+$fonts-font-1-weight-lg: 300;
+$fonts-font-1-weight-rg: 400;
+$fonts-font-1-weight-md: 500;
+$fonts-font-1-weight-sb: 600;
+$fonts-font-1-weight-bd: 700;
+$fonts-font-1-letter-spacing-lg: 0.05rem;
+$fonts-font-1-letter-spacing-md: normal;
+
+$fonts-font-2-family: "nicholas", sans-serif;
+$fonts-font-2-weight-lg: 300;
+$fonts-font-2-weight-rg: 400;
+$fonts-font-2-weight-md: 500;
+$fonts-font-2-weight-sb: 600;
+$fonts-font-2-weight-bd: 700;
+
+$fonts-font-2-letter-spacing-lg: 0.1rem;
+$fonts-font-2-letter-spacing-md: 0.06rem;
+
+$fonts-font-button-font-family: var(--fonts-font-1-family);
+$fonts-font-button-font-letter-spacing: var(--fonts-font-1-letter-spacing-md);
+$fonts-font-button-font-weight: var(--fonts-font-1-weight-bd);
+
+$icon-stroke: 1.1px;
+
+$radius-full: 999.9rem;
+$radius-lg: .6rem;
+$radius-md: .4rem;
+$radius-sm: .2rem;
+$radius-xs: .1rem;
+
+$opacity-full: 1;
+$opacity-sg: 0.75;
+$opacity-md: 0.5;
+$opacity-lg: 0.25;
+$opacity-sf: 0.1;
+$opacity-0: 0;

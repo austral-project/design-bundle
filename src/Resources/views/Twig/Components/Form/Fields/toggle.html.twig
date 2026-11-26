@@ -1,0 +1,4 @@
+<div class="field field-{{ type }} field-{{ id }} field-toggle" data-field-toggle>
+  <div class="toggle-button-content"><span class="toggle-button"><span class="indicator"></span></span></div>
+  <input type="{{ type }}" id="{{ id }}" name="{{ name }}" {{ attributes }} {% if value is defined %}value="{{ value }}"{% endif %} />
+</div>

@@ -1,0 +1,384 @@
+import {Meta, Story, Canvas} from '@storybook/addon-docs';
+import * as Introduction from './../Introduction.stories';
+
+<Meta title="Guides/Hooks" parameters={{
+  viewMode: 'docs',
+  previewTabs: {
+    canvas: { hidden: true},
+  },
+}} />
+
+# Hooks
+
+Hooks let you run custom logic at specific points in the bundle's lifecycle
+without modifying the vendor code. Register your callbacks **before**
+`Loader.initialize()`.
+
+There are four hook registries, all sharing the same API:
+
+<table>
+  <thead>
+    <tr>
+      <th>Registry</th>
+      <th>Scope</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>Hook</code></td>
+      <td>General lifecycle (page, transitions, modules…).</td>
+    </tr>
+    <tr>
+      <td><code>RequestHook</code></td>
+      <td>HTTP request lifecycle.</td>
+    </tr>
+    <tr>
+      <td><code>ResponseHook</code></td>
+      <td>HTTP response lifecycle.</td>
+    </tr>
+    <tr>
+      <td><code>ComponentHook</code></td>
+      <td>Component creation / deletion.</td>
+    </tr>
+  </tbody>
+</table>
+
+```js
+import { Hook, RequestHook, ResponseHook, ComponentHook } from "@austral/design";
+```
+
+> The registry is named **`RequestHook`** (not `HookRequest`).
+
+## Registering and the callback contract
+
+```js
+Hook.register("page.init.end", async (context) => {
+  // context is the payload for this hook (see tables below)
+});
+```
+
+Each callback receives a single `context` object and may be `async`. Multiple
+callbacks can be registered for the same hook; they run in registration order,
+and the return value of each one shapes what the next receives:
+
+- **Return an object** → its properties are merged into `context`, and the merged
+  object is passed to the next callback and ultimately back to the bundle. This
+  is how you *modify* the payload (e.g. change options before they're used).
+- **Return `false`** → the chain stops immediately and the bundle receives
+  `false`. Several call sites treat this as "cancel" (see notes below).
+- **Return nothing** → `context` is passed through unchanged.
+
+```js
+// Example: mutate the payload
+Hook.register("pageBack.back.options", ({ reloadTriggerOptions }) => {
+  reloadTriggerOptions.someFlag = true;
+  return { reloadTriggerOptions };
+});
+
+// Example: cancel
+RequestHook.register("request.start", ({ request }) => {
+  if (shouldBlock(request)) return false; // request is not sent
+});
+```
+
+`Hook.clear(name)` removes callbacks for one hook, `Hook.clear()` removes all —
+useful in tests or hot-reload.
+
+---
+
+## `Hook` — general lifecycle
+
+Every payload includes `module` (the module instance that fired the hook) unless
+noted.
+
+### Page
+
+<table>
+  <thead>
+    <tr>
+      <th>Hook name</th>
+      <th>Fired when…</th>
+      <th>Payload</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>page.init.start</code></td>
+      <td>Page initialization begins.</td>
+      <td><code>`{ module, firstInitialise }`</code></td>
+    </tr>
+    <tr>
+      <td><code>page.init.end</code></td>
+      <td>Page initialization completes.</td>
+      <td><code>`{ module, firstInitialise }`</code></td>
+    </tr>
+    <tr>
+      <td><code>page.unload.start</code></td>
+      <td>Page unload begins.</td>
+      <td><code>`{ module, firstInitialise, transition }`</code></td>
+    </tr>
+    <tr>
+      <td><code>page.unload.end</code></td>
+      <td>Page unload completes.</td>
+      <td><code>`{ module, firstInitialise, transition }`</code></td>
+    </tr>
+  </tbody>
+</table>
+
+### Back navigation
+
+<table>
+  <thead>
+    <tr>
+      <th>Hook name</th>
+      <th>Fired when…</th>
+      <th>Payload</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>pageBack.load</code></td>
+      <td>The module initializes.</td>
+      <td><code>`{ module }`</code></td>
+    </tr>
+    <tr>
+      <td><code>pageBack.back.start</code></td>
+      <td>Back navigation begins.</td>
+      <td><code>`{ module, path }`</code></td>
+    </tr>
+    <tr>
+      <td><code>pageBack.back.options</code></td>
+      <td>Reload options are resolved.</td>
+      <td><code>`{ module, path, reloadTriggerOptions }`</code></td>
+    </tr>
+    <tr>
+      <td><code>pageBack.back</code></td>
+      <td>Back navigation is applied.</td>
+      <td><code>`{ module, path }`</code></td>
+    </tr>
+    <tr>
+      <td><code>pageBack.back.end</code></td>
+      <td>Back navigation ends.</td>
+      <td><code>`{ module, path }`</code></td>
+    </tr>
+  </tbody>
+</table>
+
+> `pageBack.back.options` reads `reloadTriggerOptions` back from your returned
+> context, so it's the hook to use to alter reload behavior on back navigation.
+
+### Reload trigger
+
+<table>
+  <thead>
+    <tr>
+      <th>Hook name</th>
+      <th>Fired when…</th>
+      <th>Payload</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>reloadTrigger.click.before</code></td>
+      <td>Before a trigger click is handled.</td>
+      <td><code>`{ event, module, reloadTriggerElement }`</code></td>
+    </tr>
+    <tr>
+      <td><code>reloadTrigger.click.after</code></td>
+      <td>After a trigger click is handled.</td>
+      <td><code>`{ event, module, reloadTriggerElement }`</code></td>
+    </tr>
+    <tr>
+      <td><code>reloadTrigger.click.finish</code></td>
+      <td>Trigger click finished.</td>
+      <td><code>`{ event, module, reloadTriggerElement }`</code></td>
+    </tr>
+    <tr>
+      <td><code>reloadTrigger.submit.before</code></td>
+      <td>Before a trigger form submit.</td>
+      <td><code>`{ event, module, reloadTriggerElement }`</code></td>
+    </tr>
+    <tr>
+      <td><code>reloadTrigger.submit.after</code></td>
+      <td>After a trigger form submit.</td>
+      <td><code>`{ event, module, buttonClick, reloadTriggerElement }`</code></td>
+    </tr>
+    <tr>
+      <td><code>reloadTrigger.button.finish</code></td>
+      <td>A button-triggered action ends.</td>
+      <td><code>`{ event, module, reloadTriggerElement, buttonClick, formStatus }`</code></td>
+    </tr>
+  </tbody>
+</table>
+
+> `reloadTrigger.click.before` and `reloadTrigger.submit.before` respect a
+> `false` return to cancel the action. `formStatus` is `"success"` or `"error"`.
+
+### Other modules
+
+<table>
+  <thead>
+    <tr>
+      <th>Hook name</th>
+      <th>Fired when…</th>
+      <th>Payload</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>alertSwal.initialise</code></td>
+      <td>AlertSwal module initializes.</td>
+      <td><code>`{ module }`</code></td>
+    </tr>
+    <tr>
+      <td><code>storybook.initialise</code></td>
+      <td>Storybook module initializes.</td>
+      <td><code>`{ module }`</code></td>
+    </tr>
+    <tr>
+      <td><code>storybook.refresh</code></td>
+      <td>Storybook refreshes.</td>
+      <td><code>`{ module }`</code></td>
+    </tr>
+  </tbody>
+</table>
+
+---
+
+## `RequestHook` — HTTP requests
+
+<table>
+  <thead>
+    <tr>
+      <th>Hook name</th>
+      <th>Fired when…</th>
+      <th>Payload</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>request.start</code></td>
+      <td>Before a request is sent.</td>
+      <td><code>`{ request }`</code></td>
+    </tr>
+    <tr>
+      <td><code>request.response</code></td>
+      <td>After a response is received.</td>
+      <td><code>`{ request, fetchResponse }`</code></td>
+    </tr>
+    <tr>
+      <td><code>request.error</code></td>
+      <td>On request failure.</td>
+      <td><code>`{ request, fetchResponse? }`</code></td>
+    </tr>
+  </tbody>
+</table>
+
+Returning `false` from `request.start` aborts the request; returning `false`
+from `request.response` stops further processing. On network errors,
+`request.error` fires without `fetchResponse`.
+
+## `ResponseHook` — HTTP responses
+
+<table>
+  <thead>
+    <tr>
+      <th>Hook name</th>
+      <th>Fired when…</th>
+      <th>Payload</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>response.start</code></td>
+      <td>Response processing begins.</td>
+      <td><code>`{ response }`</code></td>
+    </tr>
+    <tr>
+      <td><code>response.refresh</code></td>
+      <td>The response DOM has been swapped.</td>
+      <td><code>`{ response }`</code></td>
+    </tr>
+    <tr>
+      <td><code>response.finish</code></td>
+      <td>Response processing completes.</td>
+      <td><code>`{ response }`</code></td>
+    </tr>
+  </tbody>
+</table>
+
+`response.refresh` is the usual place to re-run logic against freshly injected
+content.
+
+## `ComponentHook` — component lifecycle
+
+Hook names are **dynamic**, built from the component identifier:
+
+<table>
+  <thead>
+    <tr>
+      <th>Pattern</th>
+      <th>Fired when…</th>
+      <th>Payload</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>component.&lt;name&gt;.create</code></td>
+      <td>A component instance is created.</td>
+      <td><code>`{ module }`</code></td>
+    </tr>
+    <tr>
+      <td><code>component.&lt;name&gt;.delete</code></td>
+      <td>A component instance is destroyed.</td>
+      <td><code>`{ module }`</code></td>
+    </tr>
+  </tbody>
+</table>
+
+`<name>` is the component identifier from the *Configuration* page, and `module`
+is the component instance.
+
+```js
+ComponentHook.register("component.modal.create", ({ module }) => {
+  // a modal instance was just created
+});
+```
+
+---
+
+## Full example
+
+```js
+import { Config, Loader, Hook, RequestHook, ResponseHook, ComponentHook } from "@austral/design";
+import '@austral/design/styles/app.scss';
+import './app.scss';
+
+Config.disableComponent("button-animate");
+Config.disableComponent("textarea");
+
+if (window.STORYBOOK === undefined) {
+  Config.disableModule("AlertSwal");
+  Config.disableModule("Storybook");
+}
+
+Hook.register("page.init.end", async ({ firstInitialise }) => {
+  // runs after every page init
+});
+
+ResponseHook.register("response.refresh", ({ response }) => {
+  // react to refreshed content
+});
+
+ComponentHook.register("component.modal.create", ({ module }) => {
+  // a modal was just created
+});
+
+let isLoading = false;
+window.addEventListener('DOMContentLoaded', () => {
+  if (isLoading === false) {
+    isLoading = true;
+    Loader.initialize().then(() => {});
+  }
+});
+```

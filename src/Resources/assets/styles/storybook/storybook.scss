@@ -1,0 +1,247 @@
+/*!
+ * This file is part of the Austral Design Bundle package.
+ *
+ * (c) Austral <support@austral.dev>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+@use "./../../styles/mixin/global" as global;
+@use "./../../styles/mixin/flex" as flex;
+@use "./../../styles/config/config" as config;
+@use "./../../styles/config/font" as font;
+@use './../../styles/config/variables/austral' as austral;
+
+#story--area-header--default--primary-inner {
+  height: 15rem;
+}
+
+.storybook-modal-container {
+  height: 100svh;
+  .modal-area {
+    display:flex;
+    opacity: 1;
+    pointer-events: all;
+    height: calc(100% - var(--margin-2xs) * 2);
+    width: calc(100% - var(--margin-2xs) * 2);
+    .modal-container {
+      opacity: 1;
+      transform: scale(1);
+      top:0;
+      left:0;
+    }
+  }
+}
+#story--components-form-fields-select--with-error,
+#story--components-form-fields-select--disabled,
+#story--components-form-fields-select--demo,
+#story--components-form-fields-select--default,
+#story--components-form-fields-select--default--primary {
+  height: 25rem;
+}
+#story--components-form-fields-input--phone-input-inner {
+  height: 30rem;
+}
+#story--components-form-fields-input--timepicker-inner,
+#story--components-form-fields-input--datepicker-inner {
+  height: 50rem;
+}
+#story--components-faqcategory-card--default--primary-inner {
+  .faq-category-card {
+    .faq-category {
+      width: 20rem;
+    }
+  }
+}
+#story--guidelines-picto--austral-inner {
+  .storybook-card-container {
+    .storybook-card-content {
+      --storybook-card-content-width: calc((100% / 8) - (1rem * 7 / 8));
+      @include flex.align-content(center);
+      @include flex.justify-content(center);
+      @include flex.align-items(center);
+    }
+  }
+}
+#story--guidelines-fonts--font-1-inner,
+#story--guidelines-fonts--font-2-inner,
+#story--guidelines-fonts--button-inner,
+#story--guidelines-fonts--form-inner {
+  .storybook-card-container {
+    .storybook-card-content {
+      --storybook-card-content-width: calc((100% / 2) - (1rem * 1 / 2));
+    }
+  }
+}
+
+.section-storybook-demo {
+  padding: 2rem 4rem;
+}
+.innerZoomElementWrapper {
+  background: #fff;
+}
+.sb-show-main.sb-main-padded {
+  padding: 0;
+}
+#storybook-root {
+  padding: 1rem 2rem;
+}
+.sb-show-main,
+#storybook-root,
+.sbdocs-preview {
+  background: #fff !important;
+
+  .spacer {
+    border: 1px dotted #000;
+  }
+  .section-container {
+    .width-container {
+      height: 100%;
+    }
+  }
+}
+.sbdocs.sbdocs-content {
+  max-width: calc(var(--size-referal)*var(--zoom-referal, 1px));
+  padding: 0;
+}
+.docs-story {
+  min-height: 10rem;
+}
+.storybook-card-container {
+  @include flex.display();
+  @include flex.wrap(wrap);
+  gap: 1rem;
+  .storybook-card-content {
+    @include flex.display();
+    @include flex.direction(column);
+    @include flex.justify-content(space-between);
+    --storybook-card-content-width: calc((100% / 6) - (2rem * 5 / 6));
+    overflow: hidden;
+    border-radius: 6px;
+    border: 1px solid hsla(203, 50%, 30%, 0.15);
+    box-shadow: rgba(0, 0, 0, 0.1) 0 1px 3px 0;
+    width: var(--storybook-card-content-width);
+  }
+  span.picto {
+    @include flex.display();
+    @include flex.align-items(center);
+    @include flex.align-content(center);
+    @include flex.justify-content(center);
+    --picto-height: 8rem;
+    --picto-width: 8rem;
+    margin: 2rem;
+  }
+  span.color {
+    @include flex.display();
+    @include flex.align-items(center);
+    @include flex.align-content(center);
+    @include flex.justify-content(center);
+    aspect-ratio: 1/0.5;
+    background: var(--background);
+  }
+  span.font-value {
+    @include flex.display();
+    @include flex.align-items(center);
+    @include flex.align-content(center);
+    padding: 2rem 2rem 2rem;
+    min-height: 28rem;
+    display: block;
+  }
+  .picture-content {
+    @include flex.display();
+    @include flex.align-items(center);
+    @include flex.align-content(center);
+    @include flex.justify-content(center);
+    &.dark {
+      background: #000;
+    }
+    aspect-ratio: 1/1;
+    padding: 1rem;
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: contain;
+    }
+  }
+  .link {
+    border-top: 1px solid hsla(203, 50%, 30%, 0.15);
+    display:block;
+    text-align: center;
+    padding: 0.5rem;
+  }
+  .storybook-card-title {
+    @include flex.display();
+    @include flex.align-items(center);
+    @include flex.align-content(center);
+    @include flex.justify-content(center);
+    background: #F7FAFC;
+    text-align: center;
+    width: 100%;
+    padding: 0.5rem 0.5rem 0.5rem;
+    color: #000;
+    height: 4rem;
+    border-bottom: 1px solid hsla(203, 50%, 30%, 0.15);
+    font-weight: 400;
+    font-size: 1.2rem;
+    font-family: "Nunito Sans",-apple-system,".SFNSText-Regular","San Francisco",BlinkMacSystemFont,"Segoe UI","Helvetica Neue",Helvetica,Arial,sans-serif;
+  }
+  .storybook-card-bottom {
+    @include flex.display();
+    @include flex.align-items(flex-start);
+    @include flex.align-content(flex-start);
+    @include flex.justify-content(flex-start);
+    @include flex.direction(column);
+    text-align: left;
+    color: #000;
+    &.with-background {
+      border-top: 1px solid hsla(203, 50%, 30%, 0.15);
+      background: #F7FAFC;
+      padding: 1rem 1rem 1rem;
+    }
+    li {
+      @include flex.display();
+      @include flex.align-items(flex-start);
+      @include flex.align-content(flex-start);
+      @include flex.justify-content(space-between);
+      font-family: "Nunito Sans",-apple-system,".SFNSText-Regular","San Francisco",BlinkMacSystemFont,"Segoe UI","Helvetica Neue",Helvetica,Arial,sans-serif;
+      font-size: 1rem;
+      padding: 0 0 0.5rem;
+      width: 100%;
+      .keyname {
+        width: 50%;
+      }
+      .value {
+        text-align: right;
+        width: 100%;
+      }
+    }
+  }
+}
+
+.font-contexts {
+  @include flex.display();
+  border-top: 1px solid hsla(203, 50%, 30%, 0.15);
+  background: #F7FAFC;
+  .font-context {
+    &:nth-child(odd) {
+      border-right: 1px solid hsla(203, 50%, 30%, 0.15);
+    }
+    padding: 1rem 1rem 1rem;
+    width: 50%;
+    .font-context-title {
+      display:block;
+      font-family: "Nunito Sans",-apple-system,".SFNSText-Regular","San Francisco",BlinkMacSystemFont,"Segoe UI","Helvetica Neue",Helvetica,Arial,sans-serif;
+      font-weight: 400;
+      padding-bottom: 1rem;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+      border-bottom: 1px solid hsla(203, 50%, 30%, 0.15);
+    }
+  }
+}
+
+.sb-show-main .spacer-area .spacer,
+#storybook-root .spacer-area .spacer,
+.sbdocs-preview .spacer-area .spacer {
+  border:none;
+}

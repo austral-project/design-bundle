@@ -1,0 +1,1 @@
+"use strict";(Array.isArray(self.webpackChunk_austral_design)?self.webpackChunk_austral_design:self.webpackChunk_austral_design=[]).push([[160],{354:function(a,n,e){var i=e(922);i.i.addListener("DOMContentLoaded",async()=>{await i.aH.initialize()})}},function(a){a.O(0,[502,890],function(){return a(354)});a.O()}]);

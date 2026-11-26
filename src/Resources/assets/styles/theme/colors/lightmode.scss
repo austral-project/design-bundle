@@ -1,0 +1,101 @@
+/*!
+ * This file is part of the Austral Design Bundle package.
+ *
+ * (c) Austral <support@austral.dev>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+/* 🌈 Colors - Lightmode */
+$base-10: rgba(250, 250, 250, 1.00);
+$base-50: rgba(239, 239, 239, 1.00);
+$base-100: rgba(229, 229, 229, 1.00);
+$base-200: rgba(191, 191, 191, 1.00);
+$base-300: rgba(148, 148, 148, 1.00);
+$base-400: rgba(112, 112, 112, 1.00);
+$base-500: rgba(82, 82, 82, 1.00);
+$base-600: rgba(61, 61, 61, 1.00);
+$base-700: rgba(36, 36, 36, 1.00);
+$base-800: rgba(15, 15, 15, 1.00);
+$base-900: rgba(0, 0, 0, 1.00);
+
+$base-opacity-0: rgba(112, 112, 112, 0.00);
+$base-opacity-sf: rgba(112, 112, 112, 0.10);
+$base-opacity-lg: rgba(112, 112, 112, 0.25);
+$base-opacity-md: rgba(112, 112, 112, 0.50);
+$base-opacity-sg: rgba(112, 112, 112, 0.75);
+
+$color-1-10: rgba(242, 242, 255, 1.00);
+$color-1-50: rgba(230, 229, 255, 1.00);
+$color-1-100: rgba(204, 202, 252, 1.00);
+$color-1-200: rgba(181, 177, 252, 1.00);
+$color-1-300: rgba(157, 150, 250, 1.00);
+$color-1-400: rgba(136, 124, 247, 1.00);
+$color-1-500: rgba(114, 97, 242, 1.00);
+$color-1-600: rgba(92, 70, 235, 1.00);
+$color-1-700: rgba(71, 43, 214, 1.00);
+$color-1-800: rgba(56, 23, 189, 1.00);
+$color-1-900: rgba(46, 15, 148, 1.00);
+
+$color-1-opacity-0: rgba(136, 124, 247, 0.00);
+$color-1-opacity-sf: rgba(136, 124, 247, 0.10);
+$color-1-opacity-lg: rgba(136, 124, 247, 0.25);
+$color-1-opacity-md: rgba(136, 124, 247, 0.50);
+$color-1-opacity-sg: rgba(255, 255, 255, 0.75);
+
+$color-2-10: rgba(255, 246, 242, 1.00);
+$color-2-50: rgba(255, 237, 229, 1.00);
+$color-2-100: rgba(255, 208, 191, 1.00);
+$color-2-200: rgba(255, 178, 153, 1.00);
+$color-2-300: rgba(255, 147, 115, 1.00);
+$color-2-400: rgba(255, 114, 76, 1.00);
+$color-2-500: rgba(247, 97, 59, 1.00);
+$color-2-600: rgba(237, 80, 45, 1.00);
+$color-2-700: rgba(217, 63, 33, 1.00);
+$color-2-800: rgba(196, 48, 22, 1.00);
+$color-2-900: rgba(153, 31, 12, 1.00);
+
+$color-2-opacity-0: rgba(255, 114, 76, 0.00);
+$color-2-opacity-sf: rgba(255, 114, 76, 0.10);
+$color-2-opacity-lg: rgba(255, 114, 76, 0.25);
+$color-2-opacity-md: rgba(255, 114, 76, 0.50);
+$color-2-opacity-sg: rgba(255, 114, 76, 0.75);
+
+$neutral-light: rgba(255, 255, 255, 1.00);
+$neutral-dark: $base-900;
+
+$others-neutral-light-opacity-0: rgba(255, 255, 255, 0.00);
+$others-neutral-light-opacity-sf: rgba(255, 255, 255, 0.10);
+$others-neutral-light-opacity-lg: rgba(255, 255, 255, 0.25);
+$others-neutral-light-opacity-md: rgba(255, 255, 255, 0.50);
+$others-neutral-light-opacity-sg: rgba(255, 255, 255, 0.75);
+
+$others-neutral-dark-opacity-0: rgba(0, 0, 0, 0.00);
+$others-neutral-dark-opacity-sf: rgba(0, 0, 0, 0.10);
+$others-neutral-dark-opacity-lg: rgba(0, 0, 0, 0.25);
+$others-neutral-dark-opacity-md: rgba(0, 0, 0, 0.50);
+$others-neutral-dark-opacity-sg: rgba(0, 0, 0, 0.75);
+
+$base-lg: $base-200;
+$base-md: $base-400;
+$base-sg: $base-500;
+
+$color-1-lg: $color-1-100;
+$color-1-md: $color-1-400;
+$color-1-sg: $color-1-500;
+
+$color-2-lg: $color-2-100;
+$color-2-md: $color-2-400;
+$color-2-sg: $color-2-500;
+
+$others-info-succes-lg: rgba(236, 253, 235, 1.00);
+$others-info-succes-md: rgba(61, 199, 51, 1.00);
+$others-info-succes-sg: rgba(39, 128, 33, 1.00);
+
+$others-info-warning-lg: rgba(253, 243, 228, 1.00);
+$others-info-warning-md: rgba(240, 152, 38, 1.00);
+$others-info-warning-sg: rgba(163, 87, 0, 1.00);
+
+$others-info-error-lg: rgba(255, 244, 242, 1.00);
+$others-info-error-md: rgba(235, 78, 47, 1.00);
+$others-info-error-sg: rgba(178, 54, 29, 1.00);

@@ -1,0 +1,304 @@
+// -------------------------------------------------------------------
+// SCSS Use
+// -------------------------------------------------------------------
+@use "functions" as functions;
+@use "../mixin/flex" as flex;
+@use "../mixin/grid" as grid;
+@use "../config/config" as config;
+@use "../config/variables/austral" as austral;
+
+// -------------------------------------------------------------------
+// Default class
+// -------------------------------------------------------------------
+.col--xs-offset-0 {
+  margin-left: 0;
+}
+@media ("screen and (max-width: #{austral.$breakpoints-sm})") {
+  .col--sm-offset-0 {
+    margin-left: 0 !important;
+  }
+}
+@media ("screen and (max-width: #{austral.$breakpoints-md})") {
+  .col--md-offset-0 {
+    margin-left: 0 !important;
+  }
+}
+@media ("screen and (max-width: #{austral.$breakpoints-lg})")  {
+  .col--lg-offset-0 {
+    margin-left: 0 !important;
+  }
+}
+@media ("screen and (max-width: #{austral.$breakpoints-xl})") {
+  .col--xl-offset-0 {
+    margin-left: 0 !important;
+  }
+}
+
+@media #{config.$media-desktop-min} {
+  .is-mobile {
+    visibility: hidden !important;
+    display:none !important;
+    * {
+      visibility: hidden !important;
+      display:none !important;
+    }
+  }
+}
+@media #{config.$media-desktop-max} {
+  .is-desktop {
+    visibility: hidden !important;
+    display:none !important;
+    * {
+      visibility: hidden !important;
+      display:none !important;
+    }
+  }
+}
+
+@media #{config.$media-portrait} {
+  .is-landscape {
+    visibility: hidden !important;
+    display:none !important;
+    * {
+      visibility: hidden !important;
+      display:none !important;
+    }
+  }
+}
+@media #{config.$media-landscape} {
+  .is-portrait {
+    visibility: hidden !important;
+    display:none !important;
+    * {
+      visibility: hidden !important;
+      display:none !important;
+    }
+  }
+}
+
+
+
+
+
+.uppercase {
+  text-transform: uppercase !important;
+}
+.bold {
+  font-weight: bold !important;
+}
+.flex {
+  @include flex.display();
+}
+.flex-align-center {
+  @include flex.align-content(center);
+  @include flex.align-items(center);
+}
+.flex-justify-center {
+  @include flex.justify-content(center);
+}
+.bold {
+  font-weight: bold !important;
+}
+
+.cursor-pointer,
+*[data-click-actions] {
+  cursor: pointer;
+}
+.cursor-helper {
+  cursor: help;
+}
+
+.container-width {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: var(--container-max-width);
+}
+.container-padding {
+  padding: var(--container-padding);
+  @media #{config.$media-desktop-max} {
+    padding: var(--container-padding-mobile);
+  }
+}
+.container-margin-auto {
+  margin:0 auto;
+}
+
+.visually-hidden {
+  position: absolute !important;
+  border: 0 !important;
+  height: 1px !important;
+  width: 1px !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+}
+.visually-hidden-focusable:focus,
+.visually-hidden-focusable:active {
+  clip: auto !important;
+  -webkit-clip-path: none !important;
+  clip-path: none !important;
+  height: auto !important;
+  margin: auto !important;
+  overflow: visible !important;
+  width: auto !important;
+  white-space: normal !important;
+}
+
+.clearfix:after {
+  /*content:".";*/
+  content:"";
+  display:block;
+  height:0;
+  clear:both;
+  visibility:hidden;
+}
+.clearfix {display:inline-block;}
+/* Hide from IE Mac \*/
+.clearfix {display:block;}
+
+.hidden { display:block; position:absolute;	left:-1000vw; }
+.truncate { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.block-link { cursor:pointer; }
+
+.fleft { float: left; }
+.fright { float: right; }
+.fnone { float: none; }
+
+.w100 { width: 100%; }
+.h100 { height: 100%; }
+.vh100 { height: 100vh };
+.vw100 { width: var(--width-vw) };
+
+$aligns: left,right,center,justify;
+@each $align in $aligns {
+  .align-#{$align} { text-align: #{$align}; }
+}
+
+.block { display: block; }
+.inline { display: inline; }
+.inline-block { display: inline-block; }
+
+.relative, .position_relative { position: relative; }
+.absolute, .position_absolute { position: absolute; }
+.fixed, .position_fixed { position: fixed; }
+
+.overflow-hidden {overflow: hidden;}
+
+@mixin paddingClassGenerate($index) {
+  $remValue: functions.rem($index, $withUnit:false);
+
+  .pdt#{$index}, .pt#{$index} {
+    padding-top: #{$remValue}rem !important;
+  }
+  .pdr#{$index}, .pr#{$index} {
+    padding-right: #{$remValue}rem !important;
+  }
+  .pdb#{$index}, .pb#{$index} {
+    padding-bottom: #{$remValue}rem !important;
+  }
+  .pdl#{$index}, .pl#{$index} {
+    padding-left: #{$remValue}rem !important;
+  }
+  @if $index < 100 {
+    @include paddingClassGenerate($index + 5);
+  }
+}
+@include paddingClassGenerate (0);
+
+@mixin marginClassGenerate($index) {
+  $remValue: functions.rem($index, $withUnit:false);
+
+  .mdt#{$index}, .mt#{$index} {
+    margin-top: #{$remValue}rem !important;
+  }
+  .mdr#{$index}, .mr#{$index} {
+    margin-right: #{$remValue}rem !important;
+  }
+  .mdb#{$index}, .mb#{$index} {
+    margin-bottom: #{$remValue}rem !important;
+  }
+  .mdl#{$index}, .ml#{$index} {
+    margin-left: #{$remValue}rem !important;
+  }
+  @if $index < 100 {
+    @include marginClassGenerate($index + 5);
+  }
+}
+@include marginClassGenerate (0);
+
+
+@mixin paddingClassGenerateVh($index) {
+  $remValue: functions.rem($index, $withUnit:false);
+
+  .pdt#{$index}-vh, .pt#{$index}-vh {
+    padding-top: #{$remValue}vh !important;
+  }
+  .pdr#{$index}-vh, .pr#{$index}-vh {
+    padding-right: #{$remValue}rem !important;
+  }
+  .pdb#{$index}-vh, .pb#{$index}-vh {
+    padding-bottom: #{$remValue}rem !important;
+  }
+  .pdl#{$index}-vh, .pl#{$index}-vh {
+    padding-left: #{$remValue}rem !important;
+  }
+  @if $index < 100 {
+    @include paddingClassGenerate($index + 5);
+  }
+}
+@include paddingClassGenerateVh (0);
+
+$marginPourcents: 1,2,4,25;
+$directions: left, right;
+@each $pourcent in $marginPourcents {
+  @each $direction in $directions {
+    .m#{str-slice($direction,1)}#{$pourcent}p { text-align: #{$pourcent}#{'%'} !important;}
+  }
+}
+
+.t0 { top:0 !important; }
+.r0 { right:0 !important; }
+.b0 { bottom:0 !important; }
+.l0 { left:0 !important; }
+
+@mixin borderRadiusGenerate($index) {
+  $remValue: functions.rem($index);
+
+  .border-radius-#{$index}-all {
+    border-radius: #{$remValue};
+  }
+  .border-radius-#{$index}-tl {
+    border-top-left-radius: #{$remValue};
+    -moz-border-radius-topleft: #{$remValue};
+    -webkit-border-top-left-radius: #{$remValue};
+  }
+  .border-radius-#{$index}-tr {
+    border-top-right-radius: #{$remValue};
+    -moz-border-radius-topright: #{$remValue};
+    -webkit-border-top-right-radius: #{$remValue};
+  }
+  .border-radius-#{$index}-bl {
+    border-bottom-left-radius: #{$remValue};
+    -moz-border-radius-bottomleft: #{$remValue};
+    -webkit-border-bottom-left-radius: #{$remValue};
+  }
+  .border-radius-#{$index}-br {
+    border-bottom-right-radius: #{$remValue};
+    -moz-border-radius-bottomright: #{$remValue};
+    -webkit-border-bottom-right-radius: #{$remValue};
+  }
+  @if $index < 50 {
+    @include borderRadiusGenerate($index + 1);
+  }
+}
+@include borderRadiusGenerate (1);
+
+@mixin colGenerate($index) {
+  .col--#{$index} {
+    width: calc(100% / 12 * #{$index});
+  }
+  @if $index < 12 {
+    @include colGenerate($index + 1);
+  }
+}
+@include colGenerate (1);

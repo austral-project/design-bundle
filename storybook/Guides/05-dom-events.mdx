@@ -1,0 +1,239 @@
+import {Meta, Story, Canvas} from '@storybook/addon-docs';
+import * as Introduction from './../Introduction.stories';
+
+<Meta title="Guides/DOM Events" parameters={{
+  viewMode: 'docs',
+  previewTabs: {
+    canvas: { hidden: true},
+  },
+}} />
+
+# DOM Events
+
+Alongside **Hooks**, the bundle uses a DOM event bus: `DomEventManager`. The two
+systems are different and complementary:
+
+<table>
+  <thead>
+    <tr>
+      <th></th>
+      <th><strong>Hooks</strong></th>
+      <th><strong>DOM Events</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Purpose</td>
+      <td>Intercept/alter lifecycle logic</td>
+      <td>Broadcast/react to things happening</td>
+    </tr>
+    <tr>
+      <td>Async</td>
+      <td>Awaited, sequential</td>
+      <td>Fire-and-forget</td>
+    </tr>
+    <tr>
+      <td>Return value</td>
+      <td>Can mutate payload or cancel (<code>false</code>)</td>
+      <td>Ignored</td>
+    </tr>
+    <tr>
+      <td>Target</td>
+      <td>Global registries</td>
+      <td>Any DOM node (defaults to <code>document</code>)</td>
+    </tr>
+  </tbody>
+</table>
+
+Use a **hook** when you need to change behavior or cancel an action; use a **DOM
+event listener** when you just need to react to something.
+
+```js
+import { DomEventManager } from "@austral/design";
+```
+
+## API
+
+```js
+// Dispatch
+DomEventManager.dispatch(type, data = {}, target = document);
+
+// Listen (type can be a string or array of strings)
+DomEventManager.addListener(type, callback, target = document, options = false);
+
+// Remove one listener (same type + same original callback reference)
+DomEventManager.removeListener(type, callback, target = document);
+
+// Remove all listeners on a target (or only those of one event type)
+DomEventManager.removeAllListeners(target = document, removeEvent = "all");
+```
+
+Notes:
+
+- The payload passed to `dispatch` arrives on the listener as
+  `event.detail`.
+- Listeners are wrapped in a try/catch: an error inside one listener is logged
+  via `Debug` and won't break the others.
+- `removeListener` matches on the **original** callback reference, so keep a
+  reference to named functions if you plan to remove them.
+- Events are dispatched as `CustomEvent` with `cancelable: true`.
+
+```js
+function onLoad(event) {
+  console.log(event.detail);
+}
+DomEventManager.addListener("modules::load", onLoad);
+// later
+DomEventManager.removeListener("modules::load", onLoad);
+```
+
+## Events dispatched by the bundle
+
+These are emitted internally; you can listen to them from your project.
+
+### Lifecycle
+
+<table>
+  <thead>
+    <tr>
+      <th>Event</th>
+      <th>Meaning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>modules::load</code></td>
+      <td>All modules finished loading.</td>
+    </tr>
+    <tr>
+      <td><code>page::init.first</code></td>
+      <td>First page init after modules load.</td>
+    </tr>
+    <tr>
+      <td><code>page::init</code></td>
+      <td>A page init cycle.</td>
+    </tr>
+    <tr>
+      <td><code>page::load</code></td>
+      <td>Page load.</td>
+    </tr>
+    <tr>
+      <td><code>page::unload</code></td>
+      <td>Page unload (payload may include <code>`{ transition }`</code>).</td>
+    </tr>
+    <tr>
+      <td><code>components::load</code></td>
+      <td>Components have been (re)loaded.</td>
+    </tr>
+    <tr>
+      <td><code>reload-trigger::load</code></td>
+      <td>Reload trigger content loaded.</td>
+    </tr>
+    <tr>
+      <td><code>lazy-loading::refresh</code></td>
+      <td>Lazy-loading should re-scan the DOM.</td>
+    </tr>
+    <tr>
+      <td><code>analytics::refresh</code></td>
+      <td>Content was refreshed by a response: listen to it to send a page view to your analytics.</td>
+    </tr>
+  </tbody>
+</table>
+
+### Components & fields
+
+<table>
+  <thead>
+    <tr>
+      <th>Event</th>
+      <th>Meaning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>component::initialize</code></td>
+      <td>A component begins initialization.</td>
+    </tr>
+    <tr>
+      <td><code>component::initialize.finish</code></td>
+      <td>A component finished initializing.</td>
+    </tr>
+    <tr>
+      <td><code>component::form.change</code></td>
+      <td>A form component value changed.</td>
+    </tr>
+    <tr>
+      <td><code>component::choice.close</code></td>
+      <td>A choice component closed.</td>
+    </tr>
+    <tr>
+      <td><code>component::toggle.change</code></td>
+      <td>A toggle changed.</td>
+    </tr>
+    <tr>
+      <td><code>component::upload.change</code></td>
+      <td>An upload field changed.</td>
+    </tr>
+    <tr>
+      <td><code>field::focus</code> / <code>field::blur</code></td>
+      <td>Field focus / blur.</td>
+    </tr>
+    <tr>
+      <td><code>field::active</code></td>
+      <td>Field became active.</td>
+    </tr>
+    <tr>
+      <td><code>field::change</code></td>
+      <td>Field value changed.</td>
+    </tr>
+    <tr>
+      <td><code>collection::remove-by-input</code></td>
+      <td>A collection row was removed.</td>
+    </tr>
+    <tr>
+      <td><code>select::auto-send</code></td>
+      <td>A select triggered auto-submit.</td>
+    </tr>
+    <tr>
+      <td><code>timepicker::button.selected</code></td>
+      <td>A timepicker button was selected.</td>
+    </tr>
+    <tr>
+      <td><code>autocompleteAdresse::choice-value</code></td>
+      <td>An address suggestion was chosen.</td>
+    </tr>
+  </tbody>
+</table>
+
+### Keyboard
+
+The `Keyboard` module emits dynamic events per key:
+
+<table>
+  <thead>
+    <tr>
+      <th>Pattern</th>
+      <th>Example</th>
+      <th>Meaning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>keyDown:&lt;key&gt;</code></td>
+      <td><code>keyDown:shift</code></td>
+      <td>Key pressed down.</td>
+    </tr>
+    <tr>
+      <td><code>keyPress:&lt;key&gt;</code></td>
+      <td><code>keyPress:*</code></td>
+      <td>Key press.</td>
+    </tr>
+    <tr>
+      <td><code>keyUp:&lt;key&gt;</code></td>
+      <td><code>keyUp:*</code></td>
+      <td>Key released.</td>
+    </tr>
+  </tbody>
+</table>
+
+`*` matches any key; specific variants (e.g. `shift`) target that key.

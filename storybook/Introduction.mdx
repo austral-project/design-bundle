@@ -1,0 +1,195 @@
+import {Meta, Story, Canvas} from '@storybook/addon-docs';
+import * as Introduction from './Introduction.stories';
+
+<Meta title="Introduction" parameters={{
+  viewMode: 'docs',
+  previewTabs: {
+    canvas: { hidden: true},
+  },
+}} />
+
+<center>
+  ![Austral - Design System](/images/logo-2023.svg)
+</center>
+
+<br/><br/>
+<br/><br/>
+
+## What is a Design System?
+
+This comprehensive guide and resource library contains everything you need to create consistent and efficient user interfaces.
+
+The goal is to reduce design debt, accelerate design processes, and enhance collaboration between teams by establishing visual consistency across all products.
+
+### Why is it so important?
+
+To avoid the design Tower of Babel.
+
+The Design System helps standardize and document all components used in the **Austral** project. Any graphical or structural updates will be centralized here.
+
+### A Single Source of Truth
+
+This library gathers all brand identity elements and UX components, making developers' work easier and maintaining consistency across the community.
+
+## How to view components and guidelines?
+
+This project uses [Storybook](https://storybook.js.org/) to showcase components and associated best practices.
+
+### Install Design System
+
+```bash
+composer require austral/design-bundle
+php bin/console assets:install
+```
+
+The bundle ships a compiled build. Include it in your layout:
+
+```twig
+{{ austral_design_styles('austral-design') }}
+{{ austral_design_scripts('austral-design') }}
+```
+
+The administration uses the entry `austral-design-admin`.
+
+### Configuration Webpack
+
+To build the design system in your project (to extend it or override its theme), install its dependencies and
+configure Encore with the helper of the bundle:
+
+```bash
+npm install ./vendor/austral/design-bundle
+```
+
+```js
+// webpack.config.mjs
+import Encore from "@symfony/webpack-encore";
+import configureAustralDesign from "./vendor/austral/design-bundle/encore.mjs";
+
+configureAustralDesign(Encore, { debugContext: false })
+  .setOutputPath("public/build/")
+  .setPublicPath("/build")
+  .addEntry("app", "./assets/app.js")
+  .enableSingleRuntimeChunk();
+
+export default Encore.getWebpackConfig();
+```
+
+__Debug context__
+
+The `debugContext` option controls whether debug logs display their origin (the file and line they were called from) in the browser console.
+Set it to true during development to trace where each log comes from, and keep it to false in production to avoid unnecessary console output.
+```js
+configureAustralDesign(Encore, { debugContext: true });
+```
+*Note: the location shown points to the compiled bundle. To get readable source paths (file and line), build in development mode with source maps enabled.*
+
+
+__app.js__
+
+Your app.js should look like this:
+```js
+import { Loader } from "@austral/design";
+import '@austral/design/styles/app.scss';
+import './app.scss';
+
+let isLoading = false;
+window.addEventListener('DOMContentLoaded',  () => {
+  if(isLoading === false) {
+    isLoading = true;
+    Loader.initialize().then(()=>{});
+  }
+});
+```
+
+Disabled Modules :
+```js
+import { Loader, Config } from "@austral/design";
+import '@austral/design/styles/app.scss';
+import './app.scss';
+
+Config.disableModule("Mercure");
+
+let isLoading = false;
+window.addEventListener('DOMContentLoaded',  () => {
+  if(isLoading === false) {
+    isLoading = true;
+    Loader.initialize().then(()=>{});
+  }
+});
+```
+
+Disabled Components :
+```js
+import { Loader, Config } from "@austral/design";
+import '@austral/design/styles/app.scss';
+import './app.scss';
+
+Config.disableComponent("button-animate");
+
+let isLoading = false;
+window.addEventListener('DOMContentLoaded',  () => {
+  if(isLoading === false) {
+    isLoading = true;
+    Loader.initialize().then(()=>{});
+  }
+});
+```
+
+Add Hook in your App.js :
+```js
+import { Loader, Hook, RequestHook, ResponseHook } from "@austral/design";
+import '@austral/design/styles/app.scss';
+import './app.scss';
+
+Hook.register("name", ()=>{});
+RequestHook.register("name", ()=>{});
+ResponseHook.register("name", ()=>{});
+
+let isLoading = false;
+window.addEventListener('DOMContentLoaded',  () => {
+  if(isLoading === false) {
+    isLoading = true;
+    Loader.initialize().then(()=>{});
+  }
+});
+```
+
+__Example__
+```js
+import { Config, Loader, Hook, ResponseHook } from "@austral/design";
+Config.disableComponent("button-animate");
+Config.disableComponent("textarea");
+import '@austral/design/styles/app.scss';
+import './app.scss';
+import "./components";
+
+Hook.register("page.init.end", async (object) => {
+});
+
+ResponseHook.register("response.refresh", (object)=>{
+});
+
+Hook.register("reloadTrigger.button.finish", (object)=>{
+
+});
+if(window.STORYBOOK === undefined)
+{
+  Config.disableModule("AlertSwal");
+  Config.disableModule("Storybook");
+}
+
+let isLoading = false;
+window.addEventListener('DOMContentLoaded',  () => {
+  if(isLoading === false) {
+    isLoading = true;
+    Loader.initialize().then(()=>{});
+  }
+});
+```
+
+
+<center>
+  [Austral](https://austral.dev) · MIT License
+</center>
+
+<Canvas of={Introduction.Default} />

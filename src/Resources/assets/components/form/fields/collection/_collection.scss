@@ -1,0 +1,120 @@
+/*!
+ * This file is part of the Austral Design Bundle package.
+ *
+ * (c) Austral <support@austral.dev>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+@use "./../../../../styles/mixin/global" as global;
+@use "./../../../../styles/mixin/flex" as flex;
+@use "./../../../../styles/config/config" as config;
+@use "./../../../../styles/config/font" as font;
+@use './../../../../styles/config/variables/austral' as austral;
+
+.field-container {
+  .collection-container {
+    width: 100%;
+  }
+
+  .collection-embed-fields-master {
+    @include flex.display();
+    @include flex.direction(column);
+    gap: var(--margin-xl);
+    --element-embed-element-delete-border-size: 1px;
+    --element-embed-element-delete-color: var(--others-info-error-md);
+    --element-embed-element-delete-border-color: var(--others-info-error-md);
+    --element-embed-element-delete-border-radius: var(--radius-md);
+
+
+  }
+
+  .add-new-collection-embed {
+    &.hide {
+      display:none;
+    }
+  }
+
+  .collection-embed-forms {
+    @include flex.display();
+    @include flex.direction(column);
+    gap: var(--margin-2xl);
+    padding: var(--margin-2xl);
+    background: var(--base-50);
+    > .collection-embed-element {
+      border-bottom: var(--form-border-size) solid var(--form-input-border-color);
+      padding-bottom: var(--margin-2xl);
+      &:last-child {
+        border-bottom: 0;
+        padding-bottom: 0;
+      }
+    }
+  }
+
+  &.field-container-type-collection {
+    border-radius: 0;
+    border: 0;
+    background: transparent;
+    padding: 0;
+    .fieldset {
+      margin: 0;
+    }
+
+    .collection-embed-form {
+      @include flex.display();
+      @include flex.direction(column);
+      gap: var(--margin-md);
+      position:relative;
+      .delete-content {
+        padding: 0.5rem;
+        border-radius: var(--element-embed-element-delete-border-radius);
+        border: var(--element-embed-element-delete-border-size) solid var(--element-embed-element-delete-border-color);
+        cursor:pointer;
+        position:absolute;
+        top: -2rem;
+        right: -3rem;
+        .picto {
+          --picto-width: 1.2rem;
+          --picto-height: 1.2rem;
+          --picto-svg-color: var(--element-embed-element-delete-color);
+        }
+      }
+    }
+    .field-collection {
+      @include flex.display();
+      @include flex.direction(column);
+      gap: var(--spacing-1);
+    }
+    .field-collection-container {
+      @include flex.display();
+      @include flex.direction(column);
+      gap: var(--spacing-1);
+    }
+    .field-collection-element {
+      @include flex.display();
+      @include flex.direction(column);
+      padding: var(--input-external-margin);
+      gap: var(--input-external-margin);
+      border-radius: var(--input-radius);
+      border: var(--input-border-size) solid var(--input-border-color);
+      .title {
+        width: 100%;
+        .after {
+          @extend .font-1-md;
+        }
+      }
+      .fields-collection-element-content {
+        @include flex.display();
+        @include flex.direction(column);
+        gap: var(--spacing-2);
+      }
+      .two-fields {
+        @include flex.display();
+        gap: 1.2rem;
+        .field-row {
+          flex: 1;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,94 @@
+/*!
+ * This file is part of the Austral Design Bundle package.
+ *
+ * (c) Austral <support@austral.dev>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+@use "./config/config" as config;
+@use "./mixin/global" as global;
+@use "./mixin/flex" as flex;
+@use "./config/_root";
+@use "./storybook/storybook";
+@use "./libs/__import" with (
+  $grid-container-edge: 0,
+  $grid-container-edge-mobile: 0,
+  $grid-column-count: 12,
+  $grid-column-count-mobile: 12,
+  $grid-column-gap: var(--col-gutter),
+  $grid-column-gap-mobile: var(--col-gutter),
+  $grid-row-gap: var(--grid-gap-row),
+  $grid-row-gap-mobile: var(--grid-gap-row),
+);
+@import "debug/debug";
+@import "../components/index";
+
+html, body {
+  width: 100%;
+}
+html {
+  scrollbar-gutter: stable;
+  font-size: var(--font-size-root);
+}
+html.no-scrollbar {
+  ::-webkit-scrollbar {
+    display: var(--scrollbar-display);
+  }
+  ::-webkit-scrollbar-button {
+    display: var(--scrollbar-display);
+  }
+}
+body {
+  @extend .font-1-sm;
+  --body-background: var(--section-neutral-light);
+  background: var(--body-background);
+  -ms-overflow-style:none;
+  --font-color: var(--content-text-color);
+}
+body {
+  &.load {
+    overflow: hidden;
+    cursor: wait !important;
+    * {
+      pointer-events: none;
+      cursor: wait !important;
+    }
+  }
+  .sf-toolbar {
+    pointer-events: all;
+    cursor: default !important;
+    * {
+      pointer-events: all;
+      cursor: default !important;
+    }
+  }
+  &.modal-open,
+  &.is-open-menu {
+    overflow: hidden;
+  }
+}
+#body-container {
+  opacity: 1;
+  position: relative;
+  z-index: 100;
+}
+a, button {
+  cursor:pointer;
+  border:none;
+  background: none;
+}
+.grecaptcha-badge {
+  right: -100vw !important;
+}
+.loading-overlay {
+  @include global.position-middle();
+  @include global.transition-default(opacity);
+  position:absolute;
+  height: 100%;
+  width: 100%;
+  background: rgba(0,0,0,0.15);
+  z-index: 100;
+  pointer-events: none;
+  opacity: 0;
+}
