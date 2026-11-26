@@ -92,6 +92,7 @@ final class Picto
         }
       }
     }
+
     return $data;
   }
 }
