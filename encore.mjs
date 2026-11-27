@@ -9,7 +9,6 @@
 
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import webpack from "webpack";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -44,10 +43,10 @@ export default function configureAustralDesign(Encore, options = {})
       "@austral/design/styles/theme": [themePath, path.join(ASSETS, "styles/theme")],
       "@austral/design": ASSETS
     })
-    .addPlugin(new webpack.DefinePlugin({
-      __DEBUG__: JSON.stringify(debug),
-      __DEBUG_CONTEXT__: JSON.stringify(debugContext)
-    }));
+    .configureDefinePlugin((definitions) => {
+      definitions.__DEBUG__ = JSON.stringify(debug);
+      definitions.__DEBUG_CONTEXT__ = JSON.stringify(debugContext);
+    });
 }
 
 export { ASSETS as assetsPath };

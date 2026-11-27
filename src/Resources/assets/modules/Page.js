@@ -8,6 +8,7 @@
  */
 
 import {abstractModule, DomEventManager, Config, FocusManager, Hook, Debug, LibLoader} from "@austral/design";
+import { contextMenu } from "../components/context-menu/context-menu";
 
 /**
  * Represents the Page module that manages page lifecycle events such as initialization,
@@ -63,6 +64,20 @@ export default class Page extends abstractModule {
         }, 500);
       });
 
+      // Theme "auto": follows a change of the theme of the system while the page is open
+      DomEventManager.addListener("change", () => {
+        this.checkSystemTheme();
+      }, window.matchMedia("(prefers-color-scheme: dark)"));
+
+      // Context menu: closed by a click outside of it and by a new right click
+      DomEventManager.addListener("click", (event) => {
+        if(contextMenu.isOpen() && !contextMenu.getElement().contains(event.target)) {
+          contextMenu.close();
+        }
+      });
+      DomEventManager.addListener("contextmenu", () => {
+        this.closeContextMenu();
+      });
 
     }
   }
@@ -123,6 +138,7 @@ export default class Page extends abstractModule {
     Config.clean();
     Config.dom = document;
     this.checkSystemTheme();
+    this.closeContextMenu();
     FocusManager.initDom();
     this.gsap.globalTimeline.clear();
     await Config.getModule("Components")?.initilizeComponents(0);
@@ -150,5 +166,17 @@ export default class Page extends abstractModule {
       return;
     }
     body.classList.toggle("dark", window.matchMedia("(prefers-color-scheme: dark)").matches);
+  }
+
+  /**
+   * closeContextMenu
+   * Closes the context menu when it is open (new page, new right click).
+   *
+   * @return {void}
+   */
+  closeContextMenu() {
+    if(contextMenu.isOpen()) {
+      contextMenu.close();
+    }
   }
 }

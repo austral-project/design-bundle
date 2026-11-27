@@ -120,13 +120,3 @@ services:
   Austral\DesignBundle\Twig\Components\Title\Title:
     tags:
       - { name: twig.component, key: 'Austral:Title', template: '@AustralDesign/Twig/Components/Title/title.html.twig', expose_public_props: true }
-
-  ##### Tags of the compiled build (austral_design_styles() / austral_design_scripts())
-
-  Austral\DesignBundle\Twig\Extension\BuildExtension:
-    arguments:
-      $entrypointsPath: '%austral_design.build.entrypoints%'
-      $requestStack:    '@?request_stack'
-    tags:
-      - { name: twig.extension }
-      - { name: kernel.reset, method: reset }

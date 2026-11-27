@@ -89,7 +89,7 @@
               content: "";
               display:block;
               opacity: 0;
-              background: transparent url("../../../../../public/austral-picto/check.svg") no-repeat center;
+              background: transparent url("../../../../svg/austral-picto/check.svg") no-repeat center;
               height: 2rem;
               width: 2rem;
               position:absolute;
@@ -199,8 +199,8 @@
           @include flex.align-content(center);
           background-color: var(--field-input-select-picto-color);
           background-size: contain;
-          -webkit-mask-image: url("../../../../../public/austral-picto/arrow-down.svg");
-          mask-image: url("../../../../../public/austral-picto/arrow-down.svg");
+          -webkit-mask-image: url("../../../../svg/austral-picto/arrow-down.svg");
+          mask-image: url("../../../../svg/austral-picto/arrow-down.svg");
           -webkit-mask-repeat: no-repeat;
           mask-repeat: no-repeat;
           -webkit-mask-position: center;

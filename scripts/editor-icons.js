@@ -8,13 +8,13 @@
  */
 
 // Generates src/Resources/assets/components/form/fields/textarea/wysiwyg/icons.js: the pictos of the editor, inlined from
-// src/Resources/public/austral-picto so the whole set is not loaded. Run with "npm run icons".
+// src/Resources/assets/svg/austral-picto so the whole set is not loaded. Run with "npm run icons".
 
 const fs = require("fs");
 const path = require("path");
 
 const ROOT = path.resolve(__dirname, "..");
-const PICTOS = path.join(ROOT, "src/Resources/public/austral-picto");
+const PICTOS = path.join(ROOT, "src/Resources/assets/svg/austral-picto");
 const TARGET = path.join(ROOT, "src/Resources/assets/components/form/fields/textarea/wysiwyg/icons.js");
 
 // Pictos of the default toolbar of the Wysiwyg field (austral/form-bundle) and of the editor itself.

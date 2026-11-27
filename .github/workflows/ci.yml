@@ -13,15 +13,3 @@ concurrency:
 jobs:
   ci:
     uses: austral-project/.github/.github/workflows/bundle-ci.yml@master
-
-  # The compiled build (src/Resources/public/build) is committed: it must match the sources.
-  assets:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 22
-          cache: npm
-      - run: npm ci
-      - run: npm run build:check

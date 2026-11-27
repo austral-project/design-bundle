@@ -14,10 +14,8 @@ declare(strict_types=1);
 namespace Austral\DesignBundle\Tests\DependencyInjection;
 
 use Austral\DesignBundle\DependencyInjection\AustralDesignExtension;
-use Austral\DesignBundle\Twig\Extension\BuildExtension;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
-use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Definition;
 use Symfony\Component\Translation\IdentityTranslator;
@@ -130,42 +128,6 @@ final class ContainerTest extends TestCase
       self::assertArrayHasKey($component, $defaults);
     }
     self::assertSame(['solid', 'outline', 'soft', 'ghost', 'link'], $defaults['button']['options']['themes'] ?? null);
-  }
-
-  public function testTheBuildExtensionIsDeclared(): void
-  {
-    $container = self::loadExtension();
-    $definition = $container->getDefinition(BuildExtension::class);
-
-    self::assertFalse($definition->isPublic());
-    self::assertTrue($definition->hasTag('twig.extension'));
-    self::assertSame([['method' => 'reset']], $definition->getTag('kernel.reset'));
-    self::assertFileExists((string) $container->getParameter('austral_design.build.entrypoints'));
-
-    $definition->setPublic(true);
-    $container->compile();
-    self::assertInstanceOf(BuildExtension::class, $container->get(BuildExtension::class));
-  }
-
-  public function testTheBuildOfTheBundleIsUsedByDefault(): void
-  {
-    $entrypoints = (string) self::loadExtension()->getParameter('austral_design.build.entrypoints');
-
-    self::assertStringEndsWith('/src/Resources/public/build/entrypoints.json', str_replace('\\', '/', $entrypoints));
-  }
-
-  public function testAProjectGivesItsOwnBuild(): void
-  {
-    $container = self::loadExtension([['build' => '/var/www/project/public/build/entrypoints.json']]);
-
-    self::assertSame('/var/www/project/public/build/entrypoints.json', $container->getParameter('austral_design.build.entrypoints'));
-  }
-
-  public function testAnEmptyBuildIsRefused(): void
-  {
-    $this->expectException(InvalidConfigurationException::class);
-
-    self::loadExtension([['build' => ' ']]);
   }
 
   public function testTheXmlNamespace(): void

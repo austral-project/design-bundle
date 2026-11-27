@@ -1,7 +1,7 @@
 {
   "name": "@austral/design",
   "version": "4.0.0",
-  "description": "Design system of Austral: Twig components, styles and JavaScript of the front and of the administration.",
+  "description": "Design system of Austral: Twig components, styles and JavaScript, built by the project with Webpack Encore (encore.mjs).",
   "license": "MIT",
   "author": {
     "name": "Matthieu Beurel",
@@ -29,29 +29,23 @@
     "./utils/*": "./src/Resources/assets/utils/*",
     "./styles/*": "./src/Resources/assets/styles/*",
     "./svg/*": "./src/Resources/assets/svg/*",
-    "./entries/*": "./src/Resources/assets/entries/*",
     "./encore": "./encore.mjs"
   },
   "files": [
     "encore.mjs",
     "scripts",
     "src/Resources/assets",
-    "src/Resources/public/austral-picto",
     "src/Resources/public/images",
     "LICENSE",
     "README.md"
   ],
+  "scripts": {
+    "icons": "node scripts/editor-icons.js"
+  },
   "engines": {
     "node": "^22.18.0 || >=24.11.0"
   },
-  "scripts": {
-    "dev": "encore dev",
-    "watch": "encore dev --watch",
-    "build": "encore production",
-    "icons": "node scripts/editor-icons.js",
-    "build:check": "npm run icons && npm run build && git add --intent-to-add -- src/Resources/public/build src/Resources/assets/components/form/fields/textarea/wysiwyg/icons.js && git diff --exit-code -- src/Resources/public/build src/Resources/assets/components/form/fields/textarea/wysiwyg/icons.js"
-  },
-  "dependencies": {
+  "peerDependencies": {
     "@simonwep/pickr": "1.8.2",
     "autosize": "^4.0.2",
     "choices.js": "~10.1.0",
@@ -67,14 +61,49 @@
     "sweetalert2": "^11.0.0",
     "uuid": "^13.0.0"
   },
-  "devDependencies": {
-    "@babel/core": "^8.0.0",
-    "@babel/preset-env": "^8.0.0",
-    "@symfony/webpack-encore": "^7.2.0",
-    "sass": "^1.80.0",
-    "sass-loader": "^17.0.0",
-    "webpack": "^5.82.0",
-    "webpack-cli": "^7.0.0"
+  "peerDependenciesMeta": {
+    "@simonwep/pickr": {
+      "optional": true
+    },
+    "autosize": {
+      "optional": true
+    },
+    "choices.js": {
+      "optional": true
+    },
+    "clipboard": {
+      "optional": true
+    },
+    "codemirror": {
+      "optional": true
+    },
+    "cropperjs": {
+      "optional": true
+    },
+    "event-source-polyfill": {
+      "optional": true
+    },
+    "gsap": {
+      "optional": true
+    },
+    "intl-tel-input": {
+      "optional": true
+    },
+    "js-beautify": {
+      "optional": true
+    },
+    "sortablejs": {
+      "optional": true
+    },
+    "suneditor": {
+      "optional": true
+    },
+    "sweetalert2": {
+      "optional": true
+    },
+    "uuid": {
+      "optional": true
+    }
   },
   "browserslist": [
     "defaults",
